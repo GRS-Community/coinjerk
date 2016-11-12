@@ -2,10 +2,14 @@
 
 {% block content %}
 
+<div class="container">
 <h1>Register with CoinStream</h1>
 <h2>Registering user {{ session['nickname'] }}</h2>
 Please fill out relevant information below.<br><br>
 
+    <p><strong>Please understand that by signing up for CoinStream as a serivce, that CoinStream service is provided "As Is", without express or implied warranty or fitness for a particular purpose.</strong></p>
+    <p>By signing up for CoinStream you are agreeing to use the service at your own risk, and that in no event shall the authors or copyright holders be liable for any claim, damages, or other liability, whether in an action of contract, tort or otherwise,
+    arising from, out of, or in connection with the software, service, or the use of other dealings related.</p>
 <form class="form form-vertical" action="/newuser" method=post 
     role="form" name="RegisterForm">
     <dl>
@@ -35,8 +39,9 @@ Please fill out relevant information below.<br><br>
             </select>
         </div>
     </dl>
-    <p><input type=submit value="Register">
+    <p><input type=submit value="Accept Terms & Register">
 </form>
+</div>
 
 {% endblock %}
 

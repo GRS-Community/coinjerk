@@ -89,6 +89,39 @@ def login():
                 'access_token' : a_token
         }
 
+        user_access = requiest.get(api_user,
+                params=user_get_call)
+
+        session.clear()
+        session['social_id'] = user_access.json()['twitch']['name']
+        session['nickname'] = user_access.json()['twitch']['display_name']
+        session['access_token'] = a_token
+        session['refresh_token'] = r_token
+
+        valid_user = User.query.filter_by(social_id=session['social_id'])\
+                .first()
+
+        if valid_user:
+            valid_user.streamlabs_atoken = a_token
+            valid_user.streamlabs_rtoken = r_token
+            db.session.commit()
+            return redirect(url_for('profile'))
+        else:
+            return redirect(url_for('newuser'))
+
+        return redirect(
+            "http://www.twitchalerts.com/api/v1.0/authorize?client_id="+\
+            STREAMLABS_CLIENT_ID +
+            "&redirect_uri=http://coinstream.co:5000/login"+
+            "&response_type=code"+
+            "&scope=donations.read+donations.create", code=302
+        )
+
+
+@app.route('/newuser', methods=['GET', 'POST'])
+def newuser():
+    form = RegisterForm()
+    print form.xpub_field.data
 
     if 'social_id' in session and request.method == 'POST':
         try:
