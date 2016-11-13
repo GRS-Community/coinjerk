@@ -89,7 +89,7 @@ def login():
                 'access_token' : a_token
         }
 
-        user_access = requiest.get(api_user,
+        user_access = requests.get(api_user,
                 params=user_get_call)
 
         session.clear()
@@ -109,13 +109,13 @@ def login():
         else:
             return redirect(url_for('newuser'))
 
-        return redirect(
-            "http://www.twitchalerts.com/api/v1.0/authorize?client_id="+\
-            STREAMLABS_CLIENT_ID +
-            "&redirect_uri=http://coinstream.co:5000/login"+
-            "&response_type=code"+
-            "&scope=donations.read+donations.create", code=302
-        )
+    return redirect(
+        "http://www.twitchalerts.com/api/v1.0/authorize?client_id="+\
+        STREAMLABS_CLIENT_ID +
+        "&redirect_uri=http://coinstream.co:5000/login"+
+        "&response_type=code"+
+        "&scope=donations.read+donations.create", code=302
+    )
 
 
 @app.route('/newuser', methods=['GET', 'POST'])
