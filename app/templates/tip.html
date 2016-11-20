@@ -12,74 +12,6 @@
         <link href="/static/css/style.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.11.2/css/bootstrap-select.min.css">
 
-        <script>
-function create_pay_req(){
-    var req = new XMLHttpRequest()
-    req.onreadystatechange = function(){
-        if(req.readyState === 4){
-            if (req.status != 200){
-                // TODO: Handle Errors
-            }
-            else{
-                var response = JSON.parse(req.responseText)
-                console.log(response.btc_addr)
-                $('#addressText').html(
-                //document.getElementById('addressText').innerHTML = 
-                "<p>Please send some bitcoin to the address <strong>" + response.btc_addr + "</strong></p>" +
-                "<p>Use either the QR code directly below with your mobile wallet, or the link to launch your wallet software.</p>" +
-                "<p><strong>Please note that the payment will only be tracked while this page is open, and you have a five minute time limit. If either the page gets closed, or five minutes elapses after you see the Bitcoin address, please refresh the page to make a new payment request.</strong></p>");
-                jQuery('#addressQR').qrcode({
-                    text : "bitcoin:" + response.btc_addr
-                });
-                document.getElementById('addressLink').innerHTML = 
-                    "<p><a href=\"bitcoin:" + response.btc_addr + "\"type=\"button\" class=\"btn btn-primary\">Launch Bitcoin Wallet</a>"
-                var isPaid = setTimeout(function(){ 
-                    verify_payment(response.btc_addr)
-                }, 5000)
-            }
-        }
-    }
-    // Proof of concept of live-updating code on page
-    //<p><a href="bitcoin:{{ btc_addr }}" type="button" class="btn btn-primary">Launch Bitcoin Wallet</a>
-    req.open('POST', '/_create_payreq') 
-    req.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
-    var user_display = document.getElementById('user_display').value
-    var user_identifier = document.getElementById('user_identifier').value
-    var user_message = document.getElementById('user_message').value
-    var postVars = "social_id={{ social_id }}&user_display="+user_display+"&user_identifier="+user_identifier+"&user_message="+user_message
-    req.send(postVars)
-    return false
-}
-
-function verify_payment(btc_addr){
-    var req = new XMLHttpRequest()
-    req.onreadystatechange = function(){
-        if(req.readyState === 4){
-            if (req.status != 200){
-                // TODO: Handle Errors
-            }
-            else{
-                var response = JSON.parse(req.responseText);
-                console.log(response.payment_verified)
-                if (response.payment_verified == "FALSE"){
-                    var isPaid = setTimeout(function(){ 
-                        verify_payment(btc_addr)
-                    }, 5000)
-                }
-                else{
-                    clearTimeout(isPaid);
-                    $('#modal-body').html(
-                    "<strong>Payment Verified! {{ nickname }} thanks you very much for the tip!</strong>")
-                }
-            }
-        }
-    }
-    req.open('POST', '/_verify_payment') 
-    req.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
-    var postVars = "btc_addr="+btc_addr+"&social_id={{ social_id }}"
-    req.send(postVars)
-}
-        </script>
 
     </head>
 
@@ -95,52 +27,170 @@ function verify_payment(btc_addr){
             </div>
         </div>
         <div class="container">
-            <form role="form" id="user_form" action="#" onsubmit="create_pay_req()">
-                <div class="form-group float-label-control">
-                    <label for="">Username:</label>
-                    <input type="text" class="form-control" id="user_display" placeholder="Optional: If left empty will show as &quot;AnonymousBitCoin&quot;"/>
-                </div>
-                <div class="form-group float-label-control">
-                    <label for="user_identifier">Email:</label>
-                    <input id="user_identifier" type="text" class="form-control" placeholder="Optional: If empty will be grouped as anonymous BTC tip."/>
-                </div>
-                <div class="form-group float-label-control">
-                    <label for="user_message">Message:</label>
-                    <input id="user_message" type="text" class="form-control" placeholder="Optional: Maximum of 255 Characters"/>
-                </div>
-                    <button class="btn btn-primary btn-lg" data-toggle="modal" action="#" data-target="#myModal" onclick="create_pay_req(); return false;">
-                        Show BitCoin Address
-                    </button>
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<!-- 
+					This will now be in the center of the page
+					6 may be a bit restrictive, give it a play with :)
+				-->
+				<form role="form" id="user_form" action="#">
+					<div class="form-group float-label-control">
+						<label for="">Username:</label>
+						<input type="text" class="form-control" id="user_display" placeholder="Optional: If left empty will show as &quot;AnonymousBitCoin&quot;"/>
+					</div>
+					<div class="form-group float-label-control">
+						<label for="user_identifier">Email:</label>
+						<input id="user_identifier" type="text" class="form-control" placeholder="Optional: If empty will be grouped as anonymous BTC tip."/>
+					</div>
+					<div class="form-group float-label-control">
+						<label for="user_message">Message:</label>
+						<input id="user_message" type="text" class="form-control" placeholder="Optional: Maximum of 255 Characters"/>
+					</div>
+					<button class="btn btn-primary btn-lg" id="showModalButton">
+						Show BitCoin Address
+					</button>
+				</form>
+			</div>
+		</div>
 
-            </form>
-                </div>
-                <!-- Button trigger modal -->
-                <div class="container">
-                    <!-- Modal -->
-                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                    <h4 class="modal-title" id="myModalLabel">Send Some BitCoin to {{ nickname }}</h4>
-                                </div>
-                                <div class="modal-body" id="modal-body">
-                                    <div id="addressText"><strong>Loading...</strong></div>
-                                    <div id="randomInt"></div>
-                                    <div id="addressQR"> </div>
-                                    <div id="addressLink"></div>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                    <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <script src="/static/js/floatlabel.js"></script>
-                <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.11.2/js/bootstrap-select.min.js"></script>
+        </div>
+		<!-- Button trigger modal -->
+		<div class="container">
+			<!-- Modal -->
+			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							<h4 class="modal-title" id="myModalLabel">Send Some BitCoin to {{ nickname }}</h4>
+						</div>
+						<div class="modal-body" id="modal-body">
+							<div id="addressText"><strong>Loading...</strong></div>
+							<div id="randomInt"></div>
+							<div id="addressQR"> </div>
+							<div id="addressLink"></div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+							<!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="/static/js/floatlabel.js"></script>
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.11.2/js/bootstrap-select.min.js"></script>
 
+        <script>
+		// Global vars
+		var isPaid = 0;
+		
+		// When the document is ready
+		$(document).ready(function() { 
+			// Events :)
+			$('#user_form').submit(function (event) {
+				createPayRequest();
+			});
+			$('#showModalButton').click(function (event) {
+				// Stop redirections
+				event.preventDefault();
+				// Call our create pay request function
+				createPayRequest();
+			});
+		});
+		// We'll keep it inline for now...
+		function createPayRequest(){
+			// Get the value of some things on our form
+			var userDisplay = $('#user_display').val();
+			var userIdentifier = $('#user_identifier').val();
+			var userMessage = $('#user_message').val();
+			var socialId = '{{ social_id }}';
+			
+            $('#myModal').modal('show');
+			// Create a new request to our server
+			var resp = $.post('/_create_payreq', 
+			// This will be formatted as a 'body' string in the post request
+				{
+					social_id: socialId,
+					user_display: userDisplay,
+					user_identifier: userIdentifier,
+					user_message: userMessage
+				}, 
+				function (response)
+				{
+					console.log(response.btc_addr);
+					$('#addressText').html(
+						"<p>Please send some bitcoin to the address <strong>" + response.btc_addr + "</strong></p>" +
+						"<p>Use either the QR code directly below with your mobile wallet, or the link to launch your wallet software.</p>" +
+						"<p><strong>Please note that the payment will only be tracked while this page is open, and you have a five minute time limit. If either the page gets closed, or five minutes elapses after you see the Bitcoin address, please refresh the page to make a new payment request.</strong></p>"
+					);
+					$('#addressQR').qrcode({
+						text : "bitcoin:" + response.btc_addr
+					});
+					$('#addressLink').html(
+						"<p><a href=\"bitcoin:" + response.btc_addr + "\"type=\"button\" class=\"btn btn-primary\">Launch Bitcoin Wallet</a>"
+					);
+					
+					// We use a global variable for isPaid because it will be easier to 'clear' it later
+					isPaid = setTimeout(function() { 
+						verifyPayment(response.btc_addr)
+					}, 5000);
+				}
+			, "json")
+			.fail(
+				function (request, status, errorThrown)
+				{
+					// TODO: Handle Errors
+					console.log('We got an error! ' + status);
+				}
+			);
+			
+			// Proof of concept of live-updating code on page
+			//<p><a href="bitcoin:{{ btc_addr }}" type="button" class="btn btn-primary">Launch Bitcoin Wallet</a>
+			return false;
+		}
+
+		function verifyPayment(btc_addr){
+			// Does this work? I have no idea!
+			var socialId = '{{ social_id }}';
+			var postVars = "btc_addr="+btc_addr+"&social_id={{ social_id }}";
+			
+			var resp = $.post('/_verify_payment',
+				{
+					social_id: socialId,
+					btc_addr: btc_addr
+				}, 
+				function (response)
+				{
+					// Debug
+					console.log(response.payment_verified)
+					
+					// Unsure as to what it returns on the py
+					// You can make the json a boolean though?
+					if (response.payment_verified == "TRUE"){
+						// Clear our timeout
+						clearTimeout(isPaid);
+						$('#modal-body').html(
+							"<strong>Payment Verified! {{ nickname }} thanks you very much for the tip!</strong>"
+						);
+					}
+					else {
+						// Not Paid
+                        isPaid = setTimeout(function() { 
+                            verifyPayment(btc_addr)
+                        }, 5000);
+					}
+				}
+			, "json")
+			.fail(
+				function (request, status, errorThrown)
+				{
+					// TODO: Handle Errors
+					console.log('We got an error! ' + status);
+				}
+			);
+		}
+        </script>
     </body>
 </html>
