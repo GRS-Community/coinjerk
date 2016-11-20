@@ -3,12 +3,16 @@
 import os
 basedir = os.path.abspath(os.path.dirname(__file__))
 
+import ConfigParser
+Config = ConfigParser.ConfigParser()
+Config.read('config.ini')
+
 CSRF_ENABLED = True
-SECRET_KEY = 'try-and-guess-you-chode'
+SECRET_KEY = Config.get('CoinStream','secret_key')
 
 # Streamlabs Keys, These are only for the testapp, replace when in production
-STREAMLABS_CLIENT_ID = 'JD8Mwed8eJ1S1LgwqfCSCccbSKGtsr0FuVfk35Gw'
-STREAMLABS_CLIENT_SECRET = 'IrLNl9zYTu5MQwUUQqsC9KGfyC31RtzdPThQ0gyU'
+STREAMLABS_CLIENT_ID = Config.get('CoinStream','streamlabs_client_id')
+STREAMLABS_CLIENT_SECRET = Config.get('CoinStream','streamlabs_client_secret')
 
 SQLALCHEMY_DATABASE_URI = ('sqlite:///' + os.path.join(basedir, 'app.db') +
                                        '?check_same_thread=False')
