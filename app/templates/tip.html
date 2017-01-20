@@ -67,7 +67,7 @@
 						<div class="modal-body" id="modal-body">
 							<div id="addressText"><strong>Loading...</strong></div>
 							<div id="randomInt"></div>
-							<div id="addressQR"> </div>
+							<div id="addressQR"></div>
 							<div id="addressLink"></div>
 						</div>
 						<div class="modal-footer">
@@ -125,6 +125,7 @@
 						"<p>Use either the QR code directly below with your mobile wallet, or the link to launch your wallet software.</p>" +
 						"<p><strong>Please note that the payment will only be tracked while this page is open, and you have a five minute time limit. If either the page gets closed, or five minutes elapses after you see the Bitcoin address, please refresh the page to make a new payment request.</strong></p>"
 					);
+					$('#addressQR').html("");
 					$('#addressQR').qrcode({
 						text : "bitcoin:" + response.btc_addr
 					});
