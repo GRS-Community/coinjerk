@@ -109,17 +109,16 @@ def create_payment_request():
 
 @app.route('/tip/<username>')
 def tip(username):
-    if username.lower() == "amperture" \
-            or username.lower() == "darabidduckie":
-        u = User.query.filter_by(social_id=username.lower()).first()
-        if u:
-            return render_template(
-                    'tip.html',
-                    nickname = u.nickname,
-                    social_id = u.social_id,
-                    display_text = u.display_text
-                    )
-    return abort(404)
+    u = User.query.filter_by(social_id=username.lower()).first()
+    if u:
+        return render_template(
+                'tip.html',
+                nickname = u.nickname,
+                social_id = u.social_id,
+                display_text = u.display_text
+                )
+    else:
+        return abort(404)
 
 def get_unused_address(social_id, deriv):
     '''
