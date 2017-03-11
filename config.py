@@ -2,10 +2,11 @@
 
 import os
 basedir = os.path.abspath(os.path.dirname(__file__))
+configfile = os.path.join(basedir, 'config.ini')
 
 import ConfigParser
 Config = ConfigParser.ConfigParser()
-Config.read('config.ini')
+Config.read(configfile)
 
 CSRF_ENABLED = True
 SECRET_KEY = Config.get('CoinStream','secret_key')
