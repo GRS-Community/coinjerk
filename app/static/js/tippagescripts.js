@@ -77,7 +77,7 @@ function createPayRequest(userDisplay, userIdentifier, userMessage, socialId){
 
 function verifyPayment(btc_addr){
     // Does this work? I have no idea!
-    var postVars = "btc_addr="+btc_addr+"&social_id={{ social_id }}";
+    var postVars = "btc_addr="+btc_addr+"&social_id="+socialId;
 
     var resp = $.post('/_verify_payment',
             {
@@ -95,7 +95,7 @@ function verifyPayment(btc_addr){
                         // Clear our timeout
                         clearTimeout(isPaid);
                         $('#addressLocation').html(
-                                "<strong>Payment Verified! {{ nickname }} thanks you very much for the tip!</strong>" +
+                                "<strong>Payment Verified! "+nickname+" thanks you very much for the tip!</strong>" +
                                 "<p>CoinJerk is a service provided for free and without ads, if you would like to help support " +
                                 "the developer in general or help cover operating costs for CoinJerk, please consider " +
                                 "<p><a href=\"https://coinjerk.com/tip/amperture\" class=\"button2\">Support the Developer</a></p><br>" + 
