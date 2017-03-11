@@ -161,3 +161,12 @@ def donatecallback():
 def handle404(e):
     return "That user or page was not found in our system! " \
             + "Tell them to sign up for CoinStream!"
+
+
+'''
+Testing code below, please ignore
+'''
+@app.route('/test')
+def test():
+    return render_template(
+            'homepagetemplate.html')

@@ -159,3 +159,19 @@ def get_unused_address(social_id, deriv):
         userdata.latest_derivation = userdata.latest_derivation + 1
         db.session.commit()
         return get_unused_address(social_id, deriv + 1)
+
+'''
+Testing code below, please ignore
+'''
+@app.route('/tiptest/<username>')
+def tiptest(username):
+    u = User.query.filter_by(social_id=username.lower()).first()
+    if u:
+        return render_template(
+                    'tiptemplate.html',
+                    nickname = u.nickname,
+                    social_id = u.social_id,
+                    display_text = u.display_text
+                    )
+    else:
+        return abort(404)
