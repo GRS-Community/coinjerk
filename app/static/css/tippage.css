@@ -1,0 +1,239 @@
+body {
+   font-family: 'Raleway', sans-serif;
+   font-size: 15px;
+   line-height: 1.5;
+   padding: o;
+   margin: 0;
+   background-color: #101010;
+   color: #ffffff;
+   background-image: url("../img/coinjerk_bg.jpg");
+   background-attachment: fixed;
+   background-repeat: no-repeat;
+   background-position: top center;
+ }
+
+.container {
+  width: 70%;
+  margin: auto;
+  overflow: hidden;
+}
+
+.highlight {
+  color:#29aae2;
+}
+
+ul{
+  margin:0;
+  padding:0;
+}
+
+/*  Header  */
+header {
+  min-height: 70px;
+  background-color: #000000;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+#branding img {
+  font-size: 11px;
+  text-transform: uppercase;
+  float:left;
+}
+
+
+#branding p {
+  color: #cccccc;
+  font-size: 12px;
+  text-transform: uppercase;
+  float:left;
+  padding-top: 40px;
+}
+
+nav div {
+  float: right;
+  margin-top: 20px;
+}
+
+/*  Buttons  */
+
+.button1 {
+  -webkit-border-radius: 3;
+  -moz-border-radius: 3;
+  border-radius: 3px;
+  color: #ffffff;
+  font-size: 16px;
+  text-transform: uppercase;
+  background: #323232;
+  padding: 10px 20px 10px 20px;
+  border-bottom: solid #29aae2 3px;
+  text-decoration: none;
+  width: 8%;
+  height: 4%;
+}
+.button2 {
+  -webkit-border-radius: 3;
+  -moz-border-radius: 3;
+  border-radius: 3px;
+  color: #ffffff;
+  font-size: 16px;
+  text-transform: uppercase;
+  background: #323232;
+  padding: 10px 20px 10px 20px;
+  border-bottom: solid #29aae2 3px;
+  text-decoration: none;
+  width: 47%;
+  height: 10%;
+}
+
+.button2 {
+  -webkit-border-radius: 3;
+  -moz-border-radius: 3;
+  border-radius: 3px;
+  color: #ffffff;
+  font-size: 16px;
+  text-transform: uppercase;
+  background: #323232;
+  padding: 10px 20px 10px 20px;
+  border-bottom: solid #29aae2 3px;
+  text-decoration: none;
+  width: 47%;
+  height: 60%;
+}
+
+.button1:hover {
+  background: #3cb0fd;
+  text-decoration: none;
+}
+
+.button2:hover {
+  background: #3cb0fd;
+  text-decoration: none;
+}
+
+/*  Content  */
+#user-header{
+  font-family: 'Raleway', sans-serif;
+  min-height:110px;
+  text-align: center;
+  color:#ffffff;
+}
+
+#user-header h1{
+  font-size: 3em;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+
+#user-header p{
+  font-size: 1.75em;
+  font-weight: 600;
+  /* text-transform: uppercase;*/
+  margin-top: 0px;
+  line-height: 35px;
+}
+
+#user-header .button1{
+  margin: 0 auto;
+}
+
+#boxes {
+  min-height: 575px;
+  padding: 25px;
+  width: 50% auto;
+}
+
+#boxes .box{
+  font-family: 'Raleway', sans-serif;
+  margin:20px 20px 20px 20px;
+  float:left;
+  width:50%;
+  overflow:hidden;
+  background-color: rgba(0,0,0,0.75);
+  padding: 25px;
+  color:#aaaaaa;
+}
+
+#boxes .box h1{
+  font-size: 3em;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-top: 0px;
+  margin-bottom: 10px;
+  color:#29aae2;
+}
+
+#boxes .box2{
+  font-family: 'Raleway', sans-serif;
+  margin:20px 20px 20px 20px;
+  float:right;
+  width:40%;
+  overflow:hidden;
+  background-color: rgba(0,0,0,0.75);
+  padding: 25px;
+  color: #aaaaaa;
+}
+
+#boxes .box2 h1{
+  font-size: 3em;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-top: 0px;
+  margin-bottom: 10px;
+  color:#29aae2;
+}
+
+/*  Footer  */
+footer {
+  min-height: 70px;
+  background-color: #080808;
+  padding-top: 35px;
+  padding-bottom: 10px;
+  border-top: #000000 10px solid;
+  text-transform: uppercase;
+}
+
+footer a{
+  color: #ffffff;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 16px;
+}
+
+footer li{
+  float: left;
+  display: inline;
+  padding: 0 10px 0 10px;
+}
+
+footer .left{
+  float: left;
+}
+
+footer .right{
+  float: right;
+}
+
+.spinner {
+  margin: 100px auto 0;
+  width: 70px;
+  text-align: center;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  background-color: #333;
+
+  margin: 100px auto;
+  -webkit-animation: sk-rotateplane 1.2s infinite ease-in-out;
+  animation: sk-rotateplane 1.2s infinite ease-in-out;
+}
+
+@-webkit-keyframes sk-rotateplane {
+  0% { -webkit-transform: perspective(120px) }
+  50% { -webkit-transform: perspective(120px) rotateY(180deg) }
+  100% { -webkit-transform: perspective(120px) rotateY(180deg)  rotateX(180deg) }
+}
