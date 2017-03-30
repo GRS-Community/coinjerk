@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/static/css/bootstrap.css">
+    <!-- <link rel="stylesheet" href="/static/css/tippage.css"> -->
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+
+<body>
+    <script src="/static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/jquery-qrcode/src/jquery.qrcode.js"></script>
+    <script type="text/javascript" src="/static/js/jquery-qrcode/src/qrcode.js"></script>
+    <script>
+        var socialId = '{{ social_id }}';
+    </script>
+
+    <header class="logo-bar">
+        <div class="container">
+            <div class="d-flex justify-content-start align-items-center logo-bar">
+                <div class="p-2"><img src="/static\img\CoinJerk_logo.png"></div>
+                <div class="p-2 sml-text hidden-sm-down">Your Bitcoin tipping service for live video content!</div>
+                <div class="ml-auto p-2 button1">Learn More</div>
+            </div>
+        </div>
+    </header>
+
+    <div class="content">
+        <div class="container">
+            <div class="row mb-0">
+                <div class="col-md-12">
+                    <div style="background: url('/static/img/tip/default_header.jpg'); background-position: center; background-size: cover; max-height: 287px;">
+                        <div class="overlay py-5">
+                            <h1>Tip <span class="highlight">{{ nickname }}</span> with BitCoin</h1>
+                            <p>{{ display_text }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-4">
+                <div class="col-sm-8">
+                    <form role="form" id="user_form" action="#">
+                        <div class="form-group">
+                            <label for="user_display">Your Twitch Username</label>
+                            <input type="text" class="form-control" id="user_display" placeholder="Optional: if left empty, will show as &quot;AnonymousBitCoin&quot;">
+                        </div>
+                        <div class="form-group">
+                            <label for="user_identifier">Email</label>
+                            <input type="text" class="form-control" id="user_identifier" placeholder="Optional: if empty, will be grouped as anonymous btc tip.">
+                        </div>
+                        <div class="form-group">
+                            <label for="user_message">Tip Message</label>
+                            <textarea maxlength="255" class="form-control" id="user_message" rows="3" placeholder="Optional: Maximum of 255 characters"></textarea>
+                        </div>
+                        <div class="d-flex justify-content-end"><button id="showModalButton" class="btn button1">Show Bitcoin Address</button></div>
+                    </form>
+                </div>
+
+                <div class="col-sm-4">
+                    <div class="card bg-inverse">
+                        <div class="card-block" id="addressLocation">
+                            <div id="addressText"><div class="spinner"></div></div>
+                            <div id="randomInt"></div>
+                            <div id="addressQR" class="py-3"></div>
+                            <div id="addressLink"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p class="justify-content-center d-flex mb-0 py-3">&copy; 2017 CoinJerk.com | All rights reserved.</p>
+        </div>
+    </footer>
+
+
+    <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="/static/js/tippagescripts.js"></script>
+    <!--<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+</body>
+
+</html>

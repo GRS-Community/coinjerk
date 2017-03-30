@@ -45,15 +45,17 @@ function createPayRequest(userDisplay, userIdentifier, userMessage, socialId){
                         )
 
                     $('#addressText').html(
-                            "<p>Please send some bitcoin to the address <span class=\"highlight\">" + response.btc_addr + "</span></p>" +
-                            "<p>Use either the QR code directly below with your mobile wallet, or the link to launch your wallet software.</p>"
+                            "<p class=\"card-text\">Please send some bitcoin to the address <span class=\"highlight\">" + response.btc_addr + "</span></p>" +
+                            "<p class=\"card-text\">Use either the QR code directly below with your mobile wallet, or the link to launch your wallet software.</p>"
                             );
                 $('#addressQR').html("");
                 $('#addressQR').qrcode({
-                    text : "bitcoin:" + response.btc_addr
+                    text : "bitcoin:" + response.btc_addr,
+                    render : "table"
                 });
                 $('#addressLink').html(
-                        "<p></p><p><a href=\"bitcoin:" + response.btc_addr + "\"type=\"button\" class=\"button2\">Launch Bitcoin Wallet</a></p>"
+                        "<p><a href=\"bitcoin:" + response.btc_addr + "\" class=\"button1\" role=\"button\">Launch Bitcoin Wallet</a></p>" +
+                        "<p class=\"card-text mt-3\"> Please note that the payment will only be tracked while this page is open, and you have a five minute time limit. If either the page gets closed, or give minutes elapses after you see the Bitcoin address, please refresh the page to make a new payment request.<p>"
                         );
 
                 // We use a global variable for isPaid because it will be easier to 'clear' it later
@@ -95,11 +97,11 @@ function verifyPayment(btc_addr){
                         // Clear our timeout
                         clearTimeout(isPaid);
                         $('#addressLocation').html(
-                                "<strong>Payment Verified! "+nickname+" thanks you very much for the tip!</strong>" +
+                                "<strong>Payment Verified! <span class=\"highlight\"> "+nickname+"</span> thanks you very much for the tip!</strong>" +
                                 "<p>CoinJerk is a service provided for free and without ads, if you would like to help support " +
-                                "the developer in general or help cover operating costs for CoinJerk, please consider " +
-                                "<p><a href=\"https://coinjerk.com/tip/amperture\" class=\"button2\">Support the Developer</a></p><br>" + 
-                                "<p><a href=\"https://coinjerk.com/tip/coinjerk\"class=\"button2\">Support CoinJerk</a></p>"
+                                "the developer in general or help cover operating costs for CoinJerk, please consider also sending some support to the developer or project: </p>" +
+                                "<p><a href=\"https://coinjerk.com/tip/amperture\" class=\"button1\" role=\"button\">Support the Developer</a></p><br>" + 
+                                "<p><a href=\"https://coinjerk.com/tip/coinjerk\"class=\"button1\" role=\"button\">Support CoinJerk</a></p>"
                                 );
                     }
                     else {

@@ -168,7 +168,7 @@ def tiptest(username):
     u = User.query.filter_by(social_id=username.lower()).first()
     if u:
         return render_template(
-                    'tiptemplate.html',
+                    'tipv2.html',
                     nickname = u.nickname,
                     social_id = u.social_id,
                     display_text = u.display_text
