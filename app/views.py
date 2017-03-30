@@ -34,7 +34,7 @@ callback_result = 0
 def index():
     user = { 'nickname': 'Amp' }
     return render_template(
-            'index.html',
+            'indextemplate.html',
             user=user)
 
 @app.route('/profile', methods=['GET', 'POST'])
