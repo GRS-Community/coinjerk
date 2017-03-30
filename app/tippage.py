@@ -112,7 +112,7 @@ def tip(username):
     u = User.query.filter_by(social_id=username.lower()).first()
     if u:
         return render_template(
-                'tip.html',
+                'tipv2.html',
                 nickname = u.nickname,
                 social_id = u.social_id,
                 display_text = u.display_text
