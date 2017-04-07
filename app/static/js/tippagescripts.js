@@ -44,10 +44,10 @@ function createPayRequest(userDisplay, userIdentifier, userMessage, socialId){
                         "<p><strong>Please note that the payment will only be tracked while this page is open, and you have a five minute time limit. If either the page gets closed, or five minutes elapses after you see the Bitcoin address, please refresh the page to make a new payment request.</strong></p>"
                         )
 
-                    $('#addressText').html(
-                            "<p class=\"card-text\">Please send some bitcoin to the address <span class=\"highlight\">" + response.btc_addr + "</span></p>" +
-                            "<p class=\"card-text\">Use either the QR code directly below with your mobile wallet, or the link to launch your wallet software.</p>"
-                            );
+                $('#addressText').html(
+                        "<p class=\"card-text\">Please send some bitcoin to the address <span class=\"highlight\">" + response.btc_addr + "</span></p>" +
+                        "<p class=\"card-text\">Use either the QR code directly below with your mobile wallet, or the link to launch your wallet software.</p>"
+                        );
                 $('#addressQR').html("");
                 $('#addressQR').qrcode({
                     text : "bitcoin:" + response.btc_addr,
@@ -97,7 +97,7 @@ function verifyPayment(btc_addr){
                         // Clear our timeout
                         clearTimeout(isPaid);
                         $('#addressLocation').html(
-                                "<strong>Payment Verified! <span class=\"highlight\"> "+nickname+"</span> thanks you very much for the tip!</strong>" +
+                                "<strong>Payment Verified! <span class=\"highlight\">"+response.user_display+"</span> thanks you very much for the tip!</strong>" +
                                 "<p>CoinJerk is a service provided for free and without ads, if you would like to help support " +
                                 "the developer in general or help cover operating costs for CoinJerk, please consider also sending some support to the developer or project: </p>" +
                                 "<p><a href=\"https://coinjerk.com/tip/amperture\" class=\"button1\" role=\"button\">Support the Developer</a></p><br>" + 

@@ -116,7 +116,7 @@ def login():
         STREAMLABS_CLIENT_ID +
         "&redirect_uri="+ COINSTREAM_REDIRECT_URI +
         "&response_type=code"+
-        "&scope=donations.create", code=302
+        "&scope=donations.create alerts.create", code=302
     )
 
 
