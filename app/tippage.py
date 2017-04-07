@@ -26,6 +26,7 @@ streamlabs_api_url = 'https://www.twitchalerts.com/api/v1.0/'
 api_token = streamlabs_api_url + 'token'
 api_user = streamlabs_api_url + 'user'
 api_tips = streamlabs_api_url + "donations"
+api_custom = streamlabs_api_url + "alerts"
 callback_result = 0
 
 @app.route('/_verify_payment', methods=['POST'])
@@ -35,7 +36,10 @@ def verify_payment():
     payrec_check = PayReq.query.filter_by(addr=btc_addr).first()
     print "Checking for payment"
     payment_check_return = {
-            'payment_verified' : "FALSE"
+            'payment_verified' : "FALSE",
+            'user_display'     : User.query.filter_by(
+                social_id=social_id
+                ).first().nickname
     }
 
     if bitcoin.history(btc_addr) and payrec_check:
@@ -168,10 +172,63 @@ def tiptest(username):
     u = User.query.filter_by(social_id=username.lower()).first()
     if u:
         return render_template(
-                    'tipv2.html',
+                    'tiptemplate.html',
                     nickname = u.nickname,
                     social_id = u.social_id,
                     display_text = u.display_text
                     )
     else:
         return abort(404)
+
+#@app.route('/customalerttest')
+def custom_notify():
+    user = User.query.filter_by(social_id='amperture').first()
+
+    usd_two_places = 15.00
+
+    token_call = {
+                    'grant_type'    : 'refresh_token',
+                    'client_id'     : STREAMLABS_CLIENT_ID,
+                    'client_secret' : STREAMLABS_CLIENT_SECRET,
+                    'refresh_token' : user.streamlabs_rtoken,
+                    'redirect_uri'  : COINSTREAM_REDIRECT_URI
+    }
+    headers = []
+    tip_response = requests.post(
+            api_token,
+            data=token_call,
+            headers=headers
+    ).json()
+
+    user.streamlabs_rtoken = tip_response['refresh_token']
+    user.streamlabs_atoken = tip_response['access_token']
+    db.session.commit()
+
+
+    tip_call = {
+            'type'       : 'donation',
+            'message'    : '*Amperture* says hello there, and sent some *Bitcoin*!',
+            'image_href' : '', 
+            'sound_href' : 'http://uploads.twitchalerts.com/000/003/774/415/m_health.wav', 
+            'duration'   : 3,
+            'special_text_color' : '#42ff42',
+            'access_token' : tip_response['access_token']
+    }
+
+    tip_check = requests.post(
+            api_custom,
+            data=tip_call,
+            headers=headers
+    ).json()
+    print tip_check
+
+    return "Hello World"
+
+'''
+TIP PAGE SETTINGS:
+    - Alert System
+        - Donation
+          - Converted (bitstamp API)
+          - mBTC to USD (no API, but assumes BTC/USD conversion rate of 1/1000)
+
+'''
