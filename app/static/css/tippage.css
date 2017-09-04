@@ -55,6 +55,9 @@ nav div {
   margin-top: 20px;
 }
 
+#addressLocation{										
+overflow: hidden;											
+}
 /*  Buttons  */
 
 /*
