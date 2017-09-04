@@ -35,7 +35,7 @@ callback_result = 0
 def verify_payment():
     btc_addr = request.form['btc_addr']
     social_id = request.form['social_id']
-    payrec_check.user_identifier = request.form['userID'].append('_btc')
+    payrec_check.user_identifier = request.form['userID'] + "_btc"
     payrec_check.user_message = request.form['userMsg']
     payrec_check.user_display = request.form['userName']
     db.session.commit()
