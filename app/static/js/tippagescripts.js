@@ -84,7 +84,10 @@ function verifyPayment(btc_addr){
     var resp = $.post('/_verify_payment',
             {
                 social_id: socialId,
-                btc_addr: btc_addr
+                btc_addr: btc_addr,
+                userID: $('#user_identifier').val(),
+                userMsg: $('#user_message').val(),
+                userName: $('#user_identifier').val()
             }, 
             function (response)
             {

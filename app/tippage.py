@@ -14,8 +14,10 @@ from .forms import RegisterForm, ProfileForm
 from .models import User, PayReq
 
 from pycoin.key import Key
+from pycoin.key.validate import is_address_valid
 from exchanges.bitstamp import Bitstamp
 from decimal import Decimal
+import json
 import bitcoin
 import requests
 import time
@@ -33,8 +35,12 @@ callback_result = 0
 def verify_payment():
     btc_addr = request.form['btc_addr']
     social_id = request.form['social_id']
+    payrec_check.user_identifier = request.form['userID'].append('_btc')
+    payrec_check.user_message = request.form['userMsg']
+    payrec_check.user_display = request.form['userName']
+    db.session.commit()
     payrec_check = PayReq.query.filter_by(addr=btc_addr).first()
-    print "Checking for payment"
+    print "PAYMENT CHECK"
     payment_check_return = {
             'payment_verified' : "FALSE",
             'user_display'     : User.query.filter_by(
@@ -42,7 +48,10 @@ def verify_payment():
                 ).first().nickname
     }
 
-    if bitcoin.history(btc_addr) and payrec_check:
+    print "***" + "checking for history" + "*** \r\n \r\n\r\n"
+    history_check = bitcoin.history(btc_addr)
+    #print "***" + history_check + "*** \r\n \r\n\r\n"
+    if history_check and payrec_check:
         payment_check_return['payment_verified'] = "TRUE"
         print "Payment Found!"
         payment_notify(social_id, payrec_check)
@@ -51,13 +60,44 @@ def verify_payment():
     return jsonify(payment_check_return)
 
 def payment_notify(social_id, payrec):
+    '''
+    Exchange Rate json file contains:
+    'exchange' : BitStamp/BitFinex/Kraken/Etc
+    'rate'     : USD-Pair Exchange Rate for BTC
+    'datetime' : timestamp of when last grabbed
+    '''
     user = User.query.filter_by(social_id=social_id).first()
 
     value = bitcoin.history(payrec.addr)[0]['value']
-    exchange = Bitstamp().get_current_price()
+    with open("exchangerate.json", 'r') as f:
+        latestexchange = json.loads(f.read())
+        latestexchange['datetime'] = datetime.strptime(
+                latestexchange['datetime'], '%Y-%m-%d %H:%M:%S.%f')
+
+    if (datetime.today() - latestexchange['datetime']) <= timedelta(hours=1):
+        exchange = latestexchange['rate']
+
+    else:
+        # If we fail to get exchange rate from Bitstamp, 
+        # use old, stored value.
+        try:
+            exchange = Bitstamp().get_current_price()
+            latestexchange = {
+                    'exchange' : 'bitstamp',
+                    'rate'     : exchange,
+                    'datetime' : str(datetime.today())
+                    }
+            with open('exchangerate.json', 'w') as f:
+                json.dump(latestexchange, f)
+
+        except:
+            exchange = latestexchange['rate']
+
+
+
+
     usd_value = ((value) * float(exchange)/100000000)
     usd_two_places = float(format(usd_value, '.2f'))
-
     token_call = {
                     'grant_type'    : 'refresh_token',
                     'client_id'     : STREAMLABS_CLIENT_ID,
@@ -139,6 +179,13 @@ def get_unused_address(social_id, deriv):
             subkey(deriv)
     address = key.address(use_uncompressed=False)
 
+    if is_address_valid(userdata.xpub) == "BTC":
+        return "STREAMER SUBMITTED BTCADDR INSTEAD OF XPUB, PLEASE INFORM "\
+                + "STREAMER OR DEVELOPER"
+
+    if is_address_valid(key.address(use_uncompressed=False)) != "BTC":
+        return "NO VALID ADDRESS, PLEASE INFORM STREAMER OR DEVELOPER"
+
     # Check for existing payment request, delete if older than 5m.
     payment_request = PayReq.query.filter_by(addr=address).first()
     if payment_request:
@@ -203,7 +250,6 @@ def custom_notify():
     user.streamlabs_rtoken = tip_response['refresh_token']
     user.streamlabs_atoken = tip_response['access_token']
     db.session.commit()
-
 
     tip_call = {
             'type'       : 'donation',
