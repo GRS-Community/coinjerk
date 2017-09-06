@@ -47,10 +47,8 @@ def verify_payment():
                 social_id=social_id
                 ).first().nickname
     }
-
-    print "***" + "checking for history" + "*** \r\n \r\n\r\n"
+    print "***" + "checking for history" + "***\n"
     history_check = bitcoin.history(btc_addr)
-    #print "***" + history_check + "*** \r\n \r\n\r\n"
     if history_check and payrec_check:
         payment_check_return['payment_verified'] = "TRUE"
         print "Payment Found!"
@@ -75,19 +73,25 @@ def payment_notify(social_id, payrec):
                 latestexchange['datetime'], '%Y-%m-%d %H:%M:%S.%f')
 
     if (datetime.today() - latestexchange['datetime']) <= timedelta(hours=1):
+        print("using existing exchange rate")
         exchange = latestexchange['rate']
 
     else:
         # If we fail to get exchange rate from Bitstamp, 
         # use old, stored value.
+        print("Exchange rate too old! Grabbing exchange rate from Bitstamp")
         try:
+
             exchange = Bitstamp().get_current_price()
             latestexchange = {
                     'exchange' : 'bitstamp',
-                    'rate'     : exchange,
+                    'rate'     : float(exchange),
                     'datetime' : str(datetime.today())
                     }
+            print("exchage rate data found!")
+            print(latestexchange)
             with open('exchangerate.json', 'w') as f:
+                print("Opened exchange rate file for recording")
                 json.dump(latestexchange, f)
 
         except:
