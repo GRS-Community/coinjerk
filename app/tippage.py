@@ -17,6 +17,8 @@ from pycoin.key import Key
 from pycoin.key.validate import is_address_valid
 from exchanges.bitstamp import Bitstamp
 from decimal import Decimal
+from payment import check_payment_on_address, check_address_history
+import pprint
 import json
 import bitcoin
 import requests
@@ -47,17 +49,24 @@ def verify_payment():
                 social_id=social_id
                 ).first().nickname
     }
-    print "***" + "checking for history" + "***\n"
-    history_check = bitcoin.history(btc_addr)
+    print "***" + "checking for history on: " + btc_addr + "***\n"
+    history_check = check_address_history(btc_addr)
+    print(history_check)
     if history_check and payrec_check:
         payment_check_return['payment_verified'] = "TRUE"
         print "Payment Found!"
-        payment_notify(social_id, payrec_check)
+        amount = check_payment_on_address(btc_addr)
+
+        payment_notify(social_id, 
+                payrec_check,
+                amount,
+                history_check[0]['tx_hash'])
+
         db.session.delete(payrec_check)
         db.session.commit()
     return jsonify(payment_check_return)
 
-def payment_notify(social_id, payrec):
+def payment_notify(social_id, payrec, balance, txhash):
     '''
     Exchange Rate json file contains:
     'exchange' : BitStamp/BitFinex/Kraken/Etc
@@ -66,7 +75,8 @@ def payment_notify(social_id, payrec):
     '''
     user = User.query.filter_by(social_id=social_id).first()
 
-    value = bitcoin.history(payrec.addr)[0]['value']
+    print(payrec.addr)
+    value = balance
     with open("exchangerate.json", 'r') as f:
         latestexchange = json.loads(f.read())
         latestexchange['datetime'] = datetime.strptime(
@@ -93,6 +103,7 @@ def payment_notify(social_id, payrec):
             with open('exchangerate.json', 'w') as f:
                 print("Opened exchange rate file for recording")
                 json.dump(latestexchange, f)
+            print("exchange rate recorded")
 
         except:
             exchange = latestexchange['rate']
@@ -100,8 +111,17 @@ def payment_notify(social_id, payrec):
 
 
 
+'''
+    print("Converting Donation Amount to USD")
+    print(value)
+    print(exchange)
+    print(type(value))
+    print(type(exchange))
+    print(float(exchange)/100000000)
+'''
     usd_value = ((value) * float(exchange)/100000000)
     usd_two_places = float(format(usd_value, '.2f'))
+    #print(usd_two_places)
     token_call = {
                     'grant_type'    : 'refresh_token',
                     'client_id'     : STREAMLABS_CLIENT_ID,
@@ -110,15 +130,18 @@ def payment_notify(social_id, payrec):
                     'redirect_uri'  : COINSTREAM_REDIRECT_URI
     }
     headers = []
+    #print ("Acquiring Streamlabs Access Tokens")
     tip_response = requests.post(
             api_token,
             data=token_call,
             headers=headers
     ).json()
+    #print ("Tokens Acquired, Committing to Database")
 
     user.streamlabs_rtoken = tip_response['refresh_token']
     user.streamlabs_atoken = tip_response['access_token']
     db.session.commit()
+    #print ("Tokens Committed to database, sending donation alert")
 
     tip_call = {
             'name'       : payrec.user_display,
@@ -128,12 +151,15 @@ def payment_notify(social_id, payrec):
             'currency'   : 'USD',
             'access_token' : tip_response['access_token']
     }
+    print(tip_call)
 
     tip_check = requests.post(
             api_tips,
             data=tip_call,
             headers=headers
     ).json()
+    print tip_check
+    print("Donation Alert Sent")
 
     return tip_check
 
@@ -176,6 +202,7 @@ def get_unused_address(social_id, deriv):
     someone's BTC Wallet.
     '''
 
+    pp = pprint.PrettyPrinter(indent=2)
     userdata = User.query.filter_by(social_id = social_id).first()
 
     # Pull BTC Address from given user data 
@@ -201,7 +228,8 @@ def get_unused_address(social_id, deriv):
             db.session.commit()
             payment_request = None
 
-    if not bitcoin.history(address):
+    pp.pprint(check_payment_on_address(address))
+    if not check_address_history(address):
         if not payment_request:
             return address
         else: 
