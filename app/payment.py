@@ -64,6 +64,7 @@ def check_payment_on_address(addr):
                 server=randomAddress,
                 port=randomPort)
 
+        pp.pprint(addrHistory)
         if addrHistory != -1:
             success == True
             return int(addrHistory['result']['unconfirmed'])
@@ -85,6 +86,17 @@ def check_address_history(addr):
                 [addr], 
                 server=randomAddress,
                 port=randomPort)
+        print(addrHistory)
+
+        if addrHistory != -1 and addrHistory['result']:
+            print(addrHistory['result'])
+
+            addrHistory['result'].append(get_from_electrum( \
+                    'blockchain.address.get_balance', 
+                    [addr], 
+                    server=randomAddress,
+                    port=randomPort)['result']['unconfirmed'])
+            print(addrHistory)
 
         if addrHistory != -1:
             success == True

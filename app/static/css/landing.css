@@ -1,0 +1,404 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,600,800);
+body {
+  font-family: 'Raleway', sans-serif;
+  background-color: #101010;
+  background: url("../img/coinjerk_bg.jpg");
+  color: #fff; }
+
+a {
+  color: #29aae2;
+  text-decoration: none; }
+  a:active, a:visited {
+    color: #29aae2;
+    text-decoration: none; }
+  a:focus, a:hover {
+    color: #137dab;
+    text-decoration: none !important; }
+
+footer {
+  background-color: #0a0a0a;
+  color: #6b6b6b;
+  font-size: 11px;
+  font-size: 0.6875rem;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 50px;
+  width: 100%;
+  overflow: hidden; }
+
+.jumbotron {
+  background-color: transparent;
+  min-height: 350px;
+  text-align: center;
+  color: #ffffff;
+  padding: 0; }
+  .jumbotron h1 {
+    font-size: 30px;
+    font-size: 1.875rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-top: 0;
+    margin-bottom: 10px; }
+    @media (min-width: 576px) {
+      .jumbotron h1 {
+        font-size: 30px;
+        font-size: 1.875rem; } }
+    @media (min-width: 768px) {
+      .jumbotron h1 {
+        font-size: 40px;
+        font-size: 2.5rem; } }
+    @media (min-width: 992px) {
+      .jumbotron h1 {
+        font-size: 50px;
+        font-size: 3.125rem; } }
+    @media (min-width: 1200px) {
+      .jumbotron h1 {
+        font-size: 60px;
+        font-size: 3.75rem; } }
+  .jumbotron h2 {
+    font-size: 11px;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-top: 0;
+    margin-bottom: 10px; }
+    @media (min-width: 576px) {
+      .jumbotron h2 {
+        font-size: 15px;
+        font-size: 0.9375rem; } }
+    @media (min-width: 768px) {
+      .jumbotron h2 {
+        font-size: 18px;
+        font-size: 1.125rem; } }
+    @media (min-width: 992px) {
+      .jumbotron h2 {
+        font-size: 19px;
+        font-size: 1.1875rem; } }
+    @media (min-width: 1200px) {
+      .jumbotron h2 {
+        font-size: 20px;
+        font-size: 1.25rem; } }
+  .jumbotron p {
+    font-size: 20px;
+    font-size: 1.25rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-top: 0;
+    line-height: 25px; }
+    @media (min-width: 576px) {
+      .jumbotron p {
+        font-size: 30px;
+        font-size: 1.875rem;
+        line-height: 25px; } }
+    @media (min-width: 768px) {
+      .jumbotron p {
+        font-size: 40px;
+        font-size: 2.5rem;
+        line-height: 35px; } }
+    @media (min-width: 992px) {
+      .jumbotron p {
+        font-size: 50px;
+        font-size: 3.125rem;
+        line-height: 50px; } }
+    @media (min-width: 1200px) {
+      .jumbotron p {
+        font-size: 50px;
+        font-size: 3.125rem;
+        line-height: 50px; } }
+  .jumbotron img {
+    height: 25px; }
+    @media (min-width: 576px) {
+      .jumbotron img {
+        height: 35px; } }
+    @media (min-width: 768px) {
+      .jumbotron img {
+        height: 45px; } }
+    @media (min-width: 992px) {
+      .jumbotron img {
+        height: 55px; } }
+    @media (min-width: 1200px) {
+      .jumbotron img {
+        height: 61px; } }
+
+.welcome {
+  background-color: transparent;
+  min-height: 450px;
+  text-align: center;
+  color: #ffffff;
+  padding: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); }
+  .welcome h1 {
+    font-size: 30px;
+    font-size: 1.875rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-top: 0;
+    margin-bottom: 10px; }
+    @media (min-width: 576px) {
+      .welcome h1 {
+        font-size: 30px;
+        font-size: 1.875rem; } }
+    @media (min-width: 768px) {
+      .welcome h1 {
+        font-size: 40px;
+        font-size: 2.5rem; } }
+    @media (min-width: 992px) {
+      .welcome h1 {
+        font-size: 50px;
+        font-size: 3.125rem; } }
+    @media (min-width: 1200px) {
+      .welcome h1 {
+        font-size: 60px;
+        font-size: 3.75rem; } }
+  .welcome h2 {
+    font-size: 11px;
+    font-size: 0.6875rem;
+    line-height: 26px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-top: 0;
+    margin-bottom: 10px; }
+    @media (min-width: 576px) {
+      .welcome h2 {
+        font-size: 15px;
+        font-size: 0.9375rem; } }
+    @media (min-width: 768px) {
+      .welcome h2 {
+        font-size: 18px;
+        font-size: 1.125rem; } }
+    @media (min-width: 992px) {
+      .welcome h2 {
+        font-size: 19px;
+        font-size: 1.1875rem; } }
+    @media (min-width: 1200px) {
+      .welcome h2 {
+        font-size: 20px;
+        font-size: 1.25rem; } }
+  .welcome p {
+    font-size: 20px;
+    font-size: 1.25rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-top: 0;
+    line-height: 25px; }
+    @media (min-width: 576px) {
+      .welcome p {
+        font-size: 30px;
+        font-size: 1.875rem;
+        line-height: 25px; } }
+    @media (min-width: 768px) {
+      .welcome p {
+        font-size: 40px;
+        font-size: 2.5rem;
+        line-height: 35px; } }
+    @media (min-width: 992px) {
+      .welcome p {
+        font-size: 50px;
+        font-size: 3.125rem;
+        line-height: 50px; } }
+    @media (min-width: 1200px) {
+      .welcome p {
+        font-size: 50px;
+        font-size: 3.125rem;
+        line-height: 50px; } }
+  .welcome img {
+    height: 75px; }
+    @media (min-width: 576px) {
+      .welcome img {
+        height: 75px; } }
+    @media (min-width: 768px) {
+      .welcome img {
+        height: 85px; } }
+    @media (min-width: 992px) {
+      .welcome img {
+        height: 90px; } }
+    @media (min-width: 1200px) {
+      .welcome img {
+        height: 94px; } }
+
+.button1 {
+  -webkit-border-radius: 3;
+  -moz-border-radius: 3;
+  border-radius: 3px;
+  color: #ffffff;
+  font-size: 14px;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  background: #323232;
+  padding: 10px 30px;
+  border-bottom: solid #29aae2 3px;
+  text-decoration: none;
+  display: inline-block;
+  font-weight: 600; }
+  .button1:hover {
+    background: #3cb0fd;
+    text-decoration: none; }
+
+.card .card-img-top {
+  border-top-right-radius: 0px;
+  border-top-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-top-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+  border-top-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px; }
+.card.bg-inverse {
+  border-top-right-radius: 0px;
+  border-top-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-top-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+  border-top-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+  background-color: rgba(0, 0, 0, 0.7) !important;
+  color: #fff;
+  font-size: 12px;
+  font-size: 0.75rem; }
+  .card.bg-inverse .card-title {
+    font-size: 40px;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    font-weight: 800;
+    color: #29aae2; }
+    @media (min-width: 576px) {
+      .card.bg-inverse .card-title {
+        font-size: 40px;
+        font-size: 2.5rem; } }
+    @media (min-width: 768px) {
+      .card.bg-inverse .card-title {
+        font-size: 50px;
+        font-size: 3.125rem; } }
+    @media (min-width: 992px) {
+      .card.bg-inverse .card-title {
+        font-size: 55px;
+        font-size: 3.4375rem; } }
+    @media (min-width: 1200px) {
+      .card.bg-inverse .card-title {
+        font-size: 60px;
+        font-size: 3.75rem; } }
+  .card.bg-inverse .card-subtitle {
+    font-size: 25px;
+    font-size: 1.5625rem;
+    text-transform: uppercase;
+    font-weight: 600; }
+    .card.bg-inverse .card-subtitle small {
+      font-size: 14px;
+      font-size: 0.875rem; }
+
+form {
+  margin-top: 20px;
+  padding-left: 10px; }
+  form .form-group {
+    padding-top: 5px; }
+  form label {
+    font-size: 20px;
+    font-size: 1.25rem;
+    font-weight: 600;
+    text-transform: uppercase; }
+  form input {
+    background-color: #0a0a0a !important;
+    color: #fff; }
+  form textarea {
+    background-color: #0a0a0a !important; }
+
+.highlight {
+  color: #29aae2;
+  text-decoration: none; }
+
+.logo-bar {
+  background-color: #000;
+  z-index: 1000;
+  position: relative; }
+  .logo-bar img {
+    height: 50px; }
+    @media (min-width: 576px) {
+      .logo-bar img {
+        height: 50px; } }
+    @media (min-width: 768px) {
+      .logo-bar img {
+        height: 65px; } }
+    @media (min-width: 992px) {
+      .logo-bar img {
+        height: 80px; } }
+    @media (min-width: 1200px) {
+      .logo-bar img {
+        height: 94px; } }
+  .logo-bar a,
+  .logo-bar a:active,
+  .logo-bar a:focus,
+  .logo-bar a:visited {
+    font-size: 27px;
+    font-size: 1.6875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #ffffff; }
+    .logo-bar a:hover,
+    .logo-bar a:active:hover,
+    .logo-bar a:focus:hover,
+    .logo-bar a:visited:hover {
+      color: #29aae2;
+      text-decoration: none; }
+  .logo-bar .sml-text {
+    font-size: 10px;
+    font-size: 0.625rem; }
+
+.overlay {
+  position: relative;
+  z-index: 1100;
+  background-color: rgba(0, 0, 0, 0.75);
+  max-height: 250px; }
+  .overlay h1 {
+    text-transform: uppercase;
+    color: #fff;
+    font-weight: 600;
+    margin-left: 40px;
+    font-size: 20px;
+    font-size: 1.25rem; }
+    @media (min-width: 576px) {
+      .overlay h1 {
+        font-size: 25px;
+        font-size: 1.5625rem; } }
+    @media (min-width: 768px) {
+      .overlay h1 {
+        font-size: 35px;
+        font-size: 2.1875rem; } }
+    @media (min-width: 992px) {
+      .overlay h1 {
+        font-size: 45px;
+        font-size: 2.8125rem; } }
+    @media (min-width: 1200px) {
+      .overlay h1 {
+        font-size: 45px;
+        font-size: 2.8125rem; } }
+  .overlay p {
+    margin-left: 50px;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-size: 0.75rem;
+    font-weight: 600; }
+    @media (min-width: 576px) {
+      .overlay p {
+        font-size: 15px;
+        font-size: 0.9375rem; } }
+    @media (min-width: 768px) {
+      .overlay p {
+        font-size: 18px;
+        font-size: 1.125rem; } }
+    @media (min-width: 992px) {
+      .overlay p {
+        font-size: 20px;
+        font-size: 1.25rem; } }
+    @media (min-width: 1200px) {
+      .overlay p {
+        font-size: 20px;
+        font-size: 1.25rem; } }
+
+/*# sourceMappingURL=styles.css.map */

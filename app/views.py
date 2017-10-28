@@ -32,10 +32,8 @@ callback_result = 0
 @app.route('/')
 @app.route('/index')
 def index():
-    user = { 'nickname': 'Amp' }
     return render_template(
-            'indextemplate.html',
-            user=user)
+            'landing.html')
 
 @app.route('/profile', methods=['GET', 'POST'])
 def profile():
@@ -51,11 +49,22 @@ def profile():
             u.display_text = form.user_display_text_field.data
         db.session.commit()
 
+    userlist = []
+    '''
+    userdb = User.query.all()
+    for user in userdb:
+        userdict = {}
+        userdict['name'] = user.nickname
+        userdict['num'] = 1
+        userlist.append(userdict)
+    '''
+
     return render_template(
             'registerpage.html',
             form=form,
             social_id=session['social_id'],
-            nickname=session['nickname']
+            nickname=session['nickname'],
+            users = userlist
             )
 
 @app.route('/login')
