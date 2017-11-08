@@ -111,14 +111,14 @@ def payment_notify(social_id, payrec, balance, txhash):
 
 
 
-'''
-    print("Converting Donation Amount to USD")
-    print(value)
-    print(exchange)
-    print(type(value))
-    print(type(exchange))
-    print(float(exchange)/100000000)
-'''
+
+    # print("Converting Donation Amount to USD")
+    # print(value)
+    # print(exchange)
+    # print(type(value))
+    # print(type(exchange))
+    # print(float(exchange)/100000000)
+
     usd_value = ((value) * float(exchange)/100000000)
     usd_two_places = float(format(usd_value, '.2f'))
     #print(usd_two_places)
