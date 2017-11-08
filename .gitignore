@@ -1,0 +1,10 @@
+get-pip.py
+*.ini
+*.db
+*.pyc
+.idea/
+db_repository/
+*/Include/
+*/Lib/
+*/Scripts/
+*/tcl/
