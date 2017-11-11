@@ -33,7 +33,7 @@ def read_server_list():
 def grab_random_server(serverList):
     serverAddress = None
     while (serverAddress == None):
-        serverAddress = random.choice(serverList.keys())
+        serverAddress = random.choice(list(serverList))
         serverObject = serverList[serverAddress]
         if 't' in serverObject:
             serverPort = serverObject['t']
@@ -52,7 +52,7 @@ def check_payment_on_address(addr):
     serverList = read_server_list()
 
     success = False
-    for x in xrange(10):
+    for x in range(10):
         randomServer = grab_random_server(serverList)
         randomAddress = randomServer['serverAddress']
         randomPort = randomServer['serverPort']
@@ -75,7 +75,7 @@ def check_address_history(addr):
     serverList = read_server_list()
 
     success = False
-    for x in xrange(10):
+    for x in range(10):
         randomServer = grab_random_server(serverList)
         randomAddress = randomServer['serverAddress']
         randomPort = randomServer['serverPort']
