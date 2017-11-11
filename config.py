@@ -4,8 +4,8 @@ import os
 basedir = os.path.abspath(os.path.dirname(__file__))
 configfile = os.path.join(basedir, 'config.ini')
 
-import ConfigParser
-Config = ConfigParser.ConfigParser()
+import configparser
+Config = configparser.ConfigParser()
 Config.read(configfile)
 
 CSRF_ENABLED = True

@@ -17,7 +17,7 @@ from pycoin.key import Key
 from pycoin.key.validate import is_address_valid
 from exchanges.bitstamp import Bitstamp
 from decimal import Decimal
-from payment import check_payment_on_address, check_address_history
+from .payment import check_payment_on_address, check_address_history
 import pprint
 import json
 import bitcoin
@@ -42,19 +42,19 @@ def verify_payment():
     payrec_check.user_identifier = request.form['userID'] + "_btc"
     payrec_check.user_message = request.form['userMsg']
     payrec_check.user_display = request.form['userName']
-    print "PAYMENT CHECK"
+    print("PAYMENT CHECK")
     payment_check_return = {
             'payment_verified' : "FALSE",
             'user_display'     : User.query.filter_by(
                 social_id=social_id
                 ).first().nickname
     }
-    print "***" + "checking for history on: " + btc_addr + "***\n"
+    print("***" + "checking for history on: " + btc_addr + "***\n")
     history_check = check_address_history(btc_addr)
     print(history_check)
     if history_check and payrec_check:
         payment_check_return['payment_verified'] = "TRUE"
-        print "Payment Found!"
+        print("Payment Found!")
         amount = check_payment_on_address(btc_addr)
 
         payment_notify(social_id, 
@@ -130,18 +130,18 @@ def payment_notify(social_id, payrec, balance, txhash):
                     'redirect_uri'  : COINSTREAM_REDIRECT_URI
     }
     headers = []
-    #print ("Acquiring Streamlabs Access Tokens")
+    #print("Acquiring Streamlabs Access Tokens")
     tip_response = requests.post(
             api_token,
             data=token_call,
             headers=headers
     ).json()
-    #print ("Tokens Acquired, Committing to Database")
+    #print("Tokens Acquired, Committing to Database")
 
     user.streamlabs_rtoken = tip_response['refresh_token']
     user.streamlabs_atoken = tip_response['access_token']
     db.session.commit()
-    #print ("Tokens Committed to database, sending donation alert")
+    #print("Tokens Committed to database, sending donation alert")
 
     tip_call = {
             'name'       : payrec.user_display,
@@ -158,7 +158,7 @@ def payment_notify(social_id, payrec, balance, txhash):
             data=tip_call,
             headers=headers
     ).json()
-    print tip_check
+    print(tip_check)
     print("Donation Alert Sent")
 
     return tip_check
@@ -233,12 +233,12 @@ def get_unused_address(social_id, deriv):
         if not payment_request:
             return address
         else: 
-            print "Address has payment request..."
-            print "Address Derivation: ", deriv
+            print("Address has payment request...")
+            print("Address Derivation: ", deriv)
             return get_unused_address(social_id, deriv + 1)
     else:
-        print "Address has blockchain history, searching new address..."
-        print "Address Derivation: ", userdata.latest_derivation
+        print("Address has blockchain history, searching new address...")
+        print("Address Derivation: ", userdata.latest_derivation)
         userdata.latest_derivation = userdata.latest_derivation + 1
         db.session.commit()
         return get_unused_address(social_id, deriv + 1)
@@ -298,7 +298,7 @@ def custom_notify():
             data=tip_call,
             headers=headers
     ).json()
-    print tip_check
+    print(tip_check)
 
     return "Hello World"
 

@@ -132,7 +132,7 @@ def login():
 @app.route('/newuser', methods=['GET', 'POST'])
 def newuser():
     form = RegisterForm()
-    print form.xpub_field.data
+    print(form.xpub_field.data)
 
     if 'social_id' in session and request.method == 'POST':
         try:
@@ -149,8 +149,8 @@ def newuser():
             db.session.commit()
             
             return redirect(url_for('profile'))
-        except Exception,e:
-            print str(e)
+        except Exception as e:
+            print (str(e))
 
     try:
         username = session['nickname']
@@ -163,7 +163,7 @@ def newuser():
 
 @app.route('/donatecallback', methods=['GET', 'POST'])
 def donatecallback():
-    print request.args
+    print(request.args)
     return "Hello World!"
 
 @app.errorhandler(404)

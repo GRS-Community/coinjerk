@@ -15,14 +15,14 @@ def get_from_electrum(method, params=[], server='electrumx.adminsehow.com', port
 
         return json.loads(s.recv(9999)[:-1].decode())
 
-    except socket.error, e:
-        print "Socket.error exception: %s" % e
+    except socket.error as e:
+        print("Socket.error exception: %s" % e)
         return -1
-    except socket.timeout, e:
-        print "Socket timed out"
+    except socket.timeout as e:
+        print("Socket timed out")
         return -1
-    except Exception, e:
-        print "Unknown Exception Found: %s" % e
+    except Exception as e:
+        print("Unknown Exception Found: %s" % e)
         return -1
 
 
@@ -108,16 +108,16 @@ if __name__ == "__main__":
     payment_check = \
         check_address_history('177nUEWD1RCNVcSxNNSRxUWtvMQ4kLJBCK')
     if not payment_check:
-        print "Address found to be empty, using address!"
+        print("Address found to be empty, using address!")
     else:
-        print "Address confirmed to have utxo: "
+        print("Address confirmed to have utxo: ")
         pp.pprint(payment_check)
 
     payment_check = \
         check_payment_on_address('17Tb6kwyidMjGkutGfUStKTes8SqL9Rv6x')
 
     if not payment_check:
-        print "Address found to be empty, using address!"
+        print("Address found to be empty, using address!")
     else:
-        print "Address confirmed to have utxo: "
+        print("Address confirmed to have utxo: ")
         pp.pprint(payment_check)
