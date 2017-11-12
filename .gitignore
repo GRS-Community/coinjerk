@@ -1,4 +1,5 @@
 get-pip.py
+exchangerate.json
 *.ini
 *.db
 *.pyc
