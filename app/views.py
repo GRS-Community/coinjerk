@@ -1,6 +1,6 @@
 #!flask/bin/python
 from flask import render_template, flash, redirect, session, url_for, \
-        request, g, send_file, abort, jsonify 
+        request, g, send_file, abort, jsonify
 
 from flask_login import current_user
 from flask_qrcode import QRcode
@@ -33,13 +33,13 @@ callback_result = 0
 @app.route('/index')
 def index():
     return render_template(
-            'landing.html')
+            'indextemplate.html')
 
 @app.route('/profile', methods=['GET', 'POST'])
 def profile():
     if not "social_id" in session:
         return redirect(url_for('index'))
-    form = ProfileForm() 
+    form = ProfileForm()
     if request.method == "POST":
         u = User.query.filter_by(social_id=session['social_id']).first()
         if form.xpub_field.data:
@@ -86,8 +86,8 @@ def login():
         headers = []
 
         token_response = requests.post(
-                api_token, 
-                data=authorize_call, 
+                api_token,
+                data=authorize_call,
                 headers=headers
         )
 
@@ -147,14 +147,14 @@ def newuser():
             )
             db.session.add(new_user)
             db.session.commit()
-            
+
             return redirect(url_for('profile'))
         except Exception as e:
             print (str(e))
 
     try:
         username = session['nickname']
-    except KeyError: 
+    except KeyError:
         username = "UNKNOWN USERNAME"
 
     return render_template(

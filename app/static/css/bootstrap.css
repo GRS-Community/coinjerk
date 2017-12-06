@@ -12,7 +12,8 @@ html {
   -webkit-text-size-adjust: 100%; }
 
 body {
-  margin: 0; }
+  margin: 0;
+   }
 
 article,
 aside,
@@ -2018,7 +2019,7 @@ fieldset[disabled] a.btn {
   .btn-info.disabled, .btn-info:disabled {
     background-color: #5bc0de;
     border-color: #5bc0de; }
-  .btn-info:active, .btn-info.active, .show > .btn-info.dropdown-toggle {
+  .btn-info:active, .btn-info.active, .show > .btn-info.-toggle {
     color: #fff;
     background-color: #31b0d5;
     background-image: none;
@@ -2323,7 +2324,9 @@ tbody.collapse.show {
   .dropdown-item.active, .dropdown-item:active {
     color: #fff;
     text-decoration: none;
-    background-color: #0275d8; }
+    background-color: #0275d8;
+    }
+
   .dropdown-item.disabled, .dropdown-item:disabled {
     color: #636c72;
     cursor: not-allowed;
@@ -6640,5 +6643,16 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
 @media print {
   .hidden-print {
     display: none !important; } }
+    @media (min-width: 768px) {
+  .navbar-text
+        {
+            position: absolute;
+            width: 100%;
+            left: 0;
+            text-align: center;
+            margin:0 auto;
+            font-size: 12px;
+        }
+    }
 
 /*# sourceMappingURL=bootstrap.css.map */
