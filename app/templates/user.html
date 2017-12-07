@@ -19,7 +19,7 @@
     <a class="navbar-brand" href="{{url_for('index')}}">Gro<span class="highlight">nate</span></a>
     <div class="collapse navbar-collapse" id="appNavigation" aria-labelledby="Link">
       <div class="navbar-nav ml-auto">
-        <a class="" href="{{url_for('login')}}">Login</a>
+        <a class="nav-item nav-link" href="{{url_for('profile')}}">{{ nickname }}  <i class="fa fa-twitch"></i></a>
         <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     </a>
@@ -27,6 +27,7 @@
       <a class="dropdown-item" href="{{url_for('login')}}">How</a>
       <a class="dropdown-item" href="{{url_for('login')}}">About</a>
       <a class="dropdown-item" href="{{url_for('login')}}">Admin login</a>
+      <a class="dropdown-item" href="{{url_for('logout')}}">Logout</a>
     </div>
   </li>
       </div>
@@ -38,10 +39,8 @@
   <div class="col-md-10 jumbotron py-5">
     <div class="container">
       <!-- <h1 class="pb-2">Welcome to Gro<span class="highlight">Nate</span></h1> -->
-        <p><span class="highlight">Step 1)</span> Connect to <img src="static/img/streamlabs_logo.png" /></p>
-        <p><span class="highlight">Step 2)</span> Connect your wallet</p>
-        <p><span class="highlight">Step 3)</span> Profit!</p>
-        <a class="btn btn-primary" href="{{url_for('login')}}" role="button">Get Started</a>
+        <p><span class="jumbotron">{{ nickname }}</p>
+        <a class="btn btn-primary" href="{{url_for('profile')}}" role="button">Edit</a>
     </div>
   </div>
 </div>

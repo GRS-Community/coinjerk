@@ -32,8 +32,14 @@ callback_result = 0
 @app.route('/')
 @app.route('/index')
 def index():
+    if 'nickname' in session:
+        return render_template(
+                'user.html',
+                social_id=session['social_id'],
+                nickname=session['nickname'])
     return render_template(
             'indextemplate.html')
+
 
 @app.route('/profile', methods=['GET', 'POST'])
 def profile():
@@ -47,7 +53,11 @@ def profile():
             u.latest_derivation = 0
         if form.user_display_text_field.data:
             u.display_text = form.user_display_text_field.data
+
         db.session.commit()
+
+
+
 
     userlist = []
     '''
@@ -60,7 +70,7 @@ def profile():
     '''
 
     return render_template(
-            'registerpage.html',
+            'usersettings.html',
             form=form,
             social_id=session['social_id'],
             nickname=session['nickname'],
@@ -71,7 +81,7 @@ def profile():
 @app.route('/launch')
 def login():
     if 'nickname' in session:
-            return redirect(url_for('profile'))
+            return redirect(url_for('index'))
 
     if request.args.get('code'):
         session.clear()
@@ -127,10 +137,15 @@ def login():
         "&response_type=code"+
         "&scope=donations.create alerts.create", code=302
     )
-
+@app.route('/logout')
+def logout():
+    # remove the username from the session if it's there
+    session.pop('nickname', None)
+    return redirect(url_for('index'))
 
 @app.route('/newuser', methods=['GET', 'POST'])
 def newuser():
+    print("entered /newuser")
     form = RegisterForm()
     print(form.xpub_field.data)
 
