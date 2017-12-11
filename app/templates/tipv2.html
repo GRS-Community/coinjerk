@@ -20,14 +20,25 @@
         var socialId = '{{ social_id }}';
     </script>
 
-    <header class="logo-bar">
-        <div class="container">
-            <div class="d-flex justify-content-start align-items-center logo-bar">
-                <div class="p-2"><img src="/static\img\CoinJerk_logo.png"></div>
-                <div class="p-2 sml-text hidden-sm-down">Your Groestlcoin tipping service for live video content!</div>
-                <div class="ml-auto p-2 button1">Learn More</div>
-            </div>
+    <header>
+      <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
+        <a class="navbar-brand" href="/">Gro<span class="highlight">nate</span></a>
+        <div class="collapse navbar-collapse" id="appNavigation" aria-labelledby="Link">
+          <div class="navbar-nav ml-auto">
+            <a class="" href="/login">Login</a>
+            <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="{{url_for('login')}}">How</a>
+          <a class="dropdown-item" href="{{url_for('login')}}">About</a>
+          <a class="dropdown-item" href="{{url_for('login')}}">Admin login</a>
         </div>
+      </li>
+          </div>
+        </div>
+      </nav>
+
     </header>
 
     <div class="content">
@@ -81,9 +92,16 @@
     </div>
 
     <footer>
-        <div class="container">
-            <p class="justify-content-center d-flex mb-0 py-3">&copy; 2017 CoinJerk.com | All rights reserved.</p>
+      <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
+        <div class="collapse navbar-collapse" id="appNavigation" [ngbCollapse]="isCollapsed">
+          <span class="navbar-text">
+         2017 gronate.com | All rights reserved.
+       </span>
+          <div class="navbar-nav ml-auto">
+            <a class="nav-item nav-link" routerLink="/about" routerLinkActive="active">About</a>
+          </div>
         </div>
+      </nav>
     </footer>
 
 

@@ -4,9 +4,8 @@ body {
    line-height: 1.5;
    padding: o;
    margin: 0;
-   background-color: #101010;
+   background-color: #0d94b2;
    color: #ffffff;
-   background-image: url("../img/coinjerk_bg.jpg");
    background-attachment: fixed;
    background-repeat: no-repeat;
    background-position: top center;
@@ -55,8 +54,8 @@ nav div {
   margin-top: 20px;
 }
 
-#addressLocation{										
-overflow: hidden;											
+#addressLocation{
+overflow: hidden;
 }
 /*  Buttons  */
 

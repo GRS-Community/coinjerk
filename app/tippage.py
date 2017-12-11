@@ -1,6 +1,6 @@
 #!flask/bin/python
 from flask import render_template, flash, redirect, session, url_for, \
-        request, g, send_file, abort, jsonify 
+        request, g, send_file, abort, jsonify
 
 from flask_login import current_user
 from flask_qrcode import QRcode
@@ -58,7 +58,7 @@ def verify_payment():
         print("Payment Found!")
         amount = check_payment_on_address(btc_addr)
 
-        payment_notify(social_id, 
+        payment_notify(social_id,
                 payrec_check,
                 amount,
                 history_check[0]['tx_hash'])
@@ -216,7 +216,7 @@ def get_unused_address(social_id, deriv):
     pp = pprint.PrettyPrinter(indent=2)
     userdata = User.query.filter_by(social_id = social_id).first()
 
-    # Pull BTC Address from given user data 
+    # Pull BTC Address from given user data
     key = Key.from_text(userdata.xpub).subkey(0). \
             subkey(deriv)
     address = key.address(use_uncompressed=False)
@@ -243,7 +243,7 @@ def get_unused_address(social_id, deriv):
     if not check_address_history(address):
         if not payment_request:
             return address
-        else: 
+        else:
             print("Address has payment request...")
             print("Address Derivation: ", deriv)
             return get_unused_address(social_id, deriv + 1)
@@ -297,8 +297,8 @@ def custom_notify():
     tip_call = {
             'type'       : 'donation',
             'message'    : '*Amperture* says hello there, and sent some *Bitcoin*!',
-            'image_href' : '', 
-            'sound_href' : 'http://uploads.twitchalerts.com/000/003/774/415/m_health.wav', 
+            'image_href' : '',
+            'sound_href' : 'http://uploads.twitchalerts.com/000/003/774/415/m_health.wav',
             'duration'   : 3,
             'special_text_color' : '#42ff42',
             'access_token' : tip_response['access_token']

@@ -11,23 +11,23 @@
     <link rel="stylesheet" href="/static/css/styles.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
- <title>Home</title>
+ <title>Gronate | {{ nickname }}</title>
 </head>
 <body>
 <header>
   <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
-    <a class="navbar-brand" href="{{url_for('index')}}">Gro<span class="highlight">nate</span></a>
+    <a class="navbar-brand" href="/">Gro<span class="highlight">nate</span></a>
     <div class="collapse navbar-collapse" id="appNavigation" aria-labelledby="Link">
       <div class="navbar-nav ml-auto">
-        <a class="nav-item nav-link" href="{{url_for('profile')}}">{{ nickname }}  <i class="fa fa-twitch"></i></a>
+        <a class="nav-item nav-link" href="/profile">{{ nickname }}  <i class="fa fa-twitch"></i></a>
         <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     </a>
     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-      <a class="dropdown-item" href="{{url_for('login')}}">How</a>
-      <a class="dropdown-item" href="{{url_for('login')}}">About</a>
-      <a class="dropdown-item" href="{{url_for('login')}}">Admin login</a>
-      <a class="dropdown-item" href="{{url_for('logout')}}">Logout</a>
+      <a class="dropdown-item" href=""><i class="fa fa-file-text-o"></i> How</a>
+      <a class="dropdown-item" href=""><i class="fa fa-info"></i> About</a>
+      <a class="dropdown-item" href="/profile"><i class="fa fa-gear">   </i> User Settings</a>
+      <a class="dropdown-item" href="/logout"><i class="fa fa-sign-out"></i> Logout</a>
     </div>
   </li>
       </div>
@@ -36,10 +36,12 @@
 
 </header>
 <div class="content" align="center">
-  <div class="col-md-10 jumbotron py-5">
+  <div class="col-md-10">
     <div class="container">
       <!-- <h1 class="pb-2">Welcome to Gro<span class="highlight">Nate</span></h1> -->
-        <p><span class="jumbotron">{{ nickname }}</p>
+        <h1 >{{ nickname }}</h1>
+          <hr>
+        <p>{{ display_text }}</p>
         <a class="btn btn-primary" href="{{url_for('profile')}}" role="button">Edit</a>
     </div>
   </div>

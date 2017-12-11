@@ -13,6 +13,7 @@ from config import STREAMLABS_CLIENT_ID, STREAMLABS_CLIENT_SECRET, \
 from .forms import RegisterForm, ProfileForm
 from .models import User, PayReq
 
+
 from pycoin.key import Key
 from exchanges.bitstamp import Bitstamp
 from decimal import Decimal
@@ -21,6 +22,7 @@ import requests
 import time
 import sys
 import qrcode
+
 
 streamlabs_api_url = 'https://www.twitchalerts.com/api/v1.0/'
 api_token = streamlabs_api_url + 'token'
@@ -33,13 +35,32 @@ callback_result = 0
 @app.route('/index')
 def index():
     if 'nickname' in session:
-        return render_template(
-                'user.html',
-                social_id=session['social_id'],
-                nickname=session['nickname'])
+        if 'social_id' in session:
+            nickname=session['nickname']
+            return redirect(url_for('user', username=nickname))
+
     return render_template(
             'indextemplate.html')
 
+@app.route('/user/<username>')
+def user(username):
+    if 'nickname' in session:
+        u = User.query.filter_by(social_id=username.lower()).first()
+        if u:
+            return render_template(
+
+                'user.html',
+                social_id=session['social_id'],
+                nickname=session['nickname'],
+                display_text = u.display_text
+
+                )
+
+
+    else:
+        return redirect(url_for('index'))
+    return render_template(
+            'indextemplate.html')
 
 @app.route('/profile', methods=['GET', 'POST'])
 def profile():
@@ -55,6 +76,10 @@ def profile():
             u.display_text = form.user_display_text_field.data
 
         db.session.commit()
+        nickname=session['nickname']
+        return redirect(url_for('user', username=nickname))
+
+
 
 
 
@@ -81,6 +106,7 @@ def profile():
 @app.route('/launch')
 def login():
     if 'nickname' in session:
+        if 'social_id' in session:
             return redirect(url_for('index'))
 
     if request.args.get('code'):
@@ -126,7 +152,7 @@ def login():
             valid_user.streamlabs_atoken = a_token
             valid_user.streamlabs_rtoken = r_token
             db.session.commit()
-            return redirect(url_for('profile'))
+            return redirect(url_for('user'))
         else:
             return redirect(url_for('newuser'))
 
