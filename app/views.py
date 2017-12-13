@@ -212,15 +212,15 @@ def donatecallback():
 def handle404(e):
     return "That user or page was not found in our system! " \
             + "Tell them to sign up for CoinStream!"
-
+admin = Admin(app, name='Gronate', template_mode='bootstrap3')
 '''
 Admin
-'''
+
 @app.route('/admin')
 def admin():
     return render_template(
             'admin.html')
-
+'''
 '''
 Testing code below, please ignore
 '''
