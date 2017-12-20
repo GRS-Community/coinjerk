@@ -2,6 +2,7 @@
 from flask import render_template, flash, redirect, session, url_for, \
         request, g, send_file, abort, jsonify
 
+from flask_admin import Admin
 from flask_login import current_user
 from flask_qrcode import QRcode
 
@@ -214,8 +215,15 @@ def donatecallback():
 def handle404(e):
     return "That user or page was not found in our system! " \
             + "Tell them to sign up for CoinStream!"
+admin = Admin(app, name='Gronate', template_mode='bootstrap3')
+'''
+Admin
 
-
+@app.route('/admin')
+def admin():
+    return render_template(
+            'admin.html')
+'''
 '''
 Testing code below, please ignore
 '''
