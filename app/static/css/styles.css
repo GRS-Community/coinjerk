@@ -158,3 +158,13 @@ footer {
         .highlight {
           color: #377F94;
         text-decoration: none; }
+
+#Nickname {
+  text-decoration: underline;
+}
+#ProfilePicture {
+  margin-bottom: 10px;
+  border-radius: 25px;
+  height: 150px;
+  width: 150px;
+}

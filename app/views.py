@@ -44,6 +44,9 @@ def index():
 
 @app.route('/user/<username>')
 def user(username):
+
+
+    
     if 'nickname' in session:
         u = User.query.filter_by(social_id=username.lower()).first()
         if u:
@@ -152,7 +155,7 @@ def login():
             valid_user.streamlabs_atoken = a_token
             valid_user.streamlabs_rtoken = r_token
             db.session.commit()
-            return redirect(url_for('user'))
+            return redirect(url_for('user', username=session['nickname']))
         else:
             return redirect(url_for('newuser'))
 
@@ -220,3 +223,10 @@ Testing code below, please ignore
 def test():
     return render_template(
             'homepagetemplate.html')
+
+@app.route('/twitch/<username>')
+def twitch(username):
+    return redirect(
+        "https://www.twitch.tv/"+username
+
+    )

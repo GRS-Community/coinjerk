@@ -9,11 +9,16 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="/static/css/bootstrap.css">
     <link rel="stylesheet" href="/static/css/styles.css">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
- <title>Gronate | {{ nickname }}</title>
+    <!--Scripts-->
+    <script src="https://www.paypalobjects.com/api/checkout.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+ <title>{{ nickname }}</title>
 </head>
 <body>
+  <script src="/static/js/jquery.min.js"></script>
+  <script src="/static/js/scripts.js"></script>
+  <script src="/static/js/paypal.js"></script>
 <header>
   <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
     <a class="navbar-brand" href="/">Gro<span class="highlight">nate</span></a>
@@ -26,7 +31,7 @@
     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
       <a class="dropdown-item" href=""><i class="fa fa-file-text-o"></i> How</a>
       <a class="dropdown-item" href=""><i class="fa fa-info"></i> About</a>
-      <a class="dropdown-item" href="/profile"><i class="fa fa-gear">   </i> User Settings</a>
+      <a class="dropdown-item" href="/profile"><i class="fa fa-gear"></i> User Settings</a>
       <a class="dropdown-item" href="/logout"><i class="fa fa-sign-out"></i> Logout</a>
     </div>
   </li>
@@ -39,7 +44,10 @@
   <div class="col-md-10">
     <div class="container">
       <!-- <h1 class="pb-2">Welcome to Gro<span class="highlight">Nate</span></h1> -->
-        <h1 >{{ nickname }}</h1>
+      <script>GetURL({{ social_id|tojson }});</script>
+        <img src="http://www-cdn.jtvnw.net/images/xarth/404_user_50x50.png" alt="" id="ProfilePicture"/>
+        <h1 id="Nickname">{{ nickname }}</h1>
+        <a href="{{url_for('twitch', username=nickname)}}">twitch.tv/{{ social_id }}</a>
           <hr>
         <p>{{ display_text }}</p>
         <a class="btn btn-primary" href="{{url_for('profile')}}" role="button">Edit</a>
@@ -60,7 +68,6 @@
     </div>
   </nav>
 </footer>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 
