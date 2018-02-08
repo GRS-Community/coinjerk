@@ -219,14 +219,15 @@ def get_unused_address(social_id, deriv):
     # Pull BTC Address from given user data
     key = Key.from_text(userdata.xpub).subkey(0). \
             subkey(deriv)
+
     address = key.address(use_uncompressed=False)
 
-    if is_address_valid(userdata.xpub) == "BTC":
-        return "STREAMER SUBMITTED BTCADDR INSTEAD OF XPUB, PLEASE INFORM "\
-                + "STREAMER OR DEVELOPER"
-
-    if is_address_valid(key.address(use_uncompressed=False)) != "BTC":
-        return "NO VALID ADDRESS, PLEASE INFORM STREAMER OR DEVELOPER"
+    # if is_address_valid(userdata.xpub) == "GRS":
+    #     return "STREAMER SUBMITTED GRSADDR INSTEAD OF XPUB, PLEASE INFORM "\
+    #             + "STREAMER OR DEVELOPER"
+    #
+    # if is_address_valid(address) != "GRS":
+    #     return "NO VALID ADDRESS, PLEASE INFORM STREAMER OR DEVELOPER"
 
     # Check for existing payment request, delete if older than 5m.
     payment_request = PayReq.query.filter_by(addr=address).first()

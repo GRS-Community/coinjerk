@@ -1,230 +1,441 @@
 {
-    "E-X.not.fyi": {
+    "electrum1.groestlcoin.org": {
         "pruning": "-",
         "s": "50002",
         "t": "50001",
         "version": "1.1"
     },
-    "ELECTRUMX.not.fyi": {
+    "electrum2.groestlcoin.org": {
         "pruning": "-",
         "s": "50002",
         "t": "50001",
         "version": "1.1"
     },
-    "ELEX01.blackpole.online": {
+    "electrum3.groestlcoin.org": {
         "pruning": "-",
         "s": "50002",
         "t": "50001",
         "version": "1.1"
     },
-    "VPS.hsmiths.com": {
+    "electrum4.groestlcoin.org": {
         "pruning": "-",
         "s": "50002",
         "t": "50001",
         "version": "1.1"
     },
-    "bitcoin.freedomnode.com": {
+    "electrum5.groestlcoin.org": {
         "pruning": "-",
         "s": "50002",
         "t": "50001",
         "version": "1.1"
     },
-    "btc.smsys.me": {
-        "pruning": "-",
-        "s": "995",
-        "version": "1.1"
-    },
-    "currentlane.lovebitco.in": {
-        "pruning": "-",
-        "t": "50001",
-        "version": "1.1"
-    },
-    "daedalus.bauerj.eu": {
+    "electrum6.groestlcoin.org": {
         "pruning": "-",
         "s": "50002",
         "t": "50001",
         "version": "1.1"
     },
-    "de01.hamster.science": {
+    "electrum7.groestlcoin.org": {
         "pruning": "-",
         "s": "50002",
         "t": "50001",
         "version": "1.1"
     },
-    "ecdsa.net": {
-        "pruning": "-",
-        "s": "110",
-        "t": "50001",
-        "version": "1.1"
-    },
-    "elec.luggs.co": {
-        "pruning": "-",
-        "s": "443",
-        "version": "1.1"
-    },
-    "electrum.akinbo.org": {
+    "electrum8.groestlcoin.org": {
         "pruning": "-",
         "s": "50002",
         "t": "50001",
         "version": "1.1"
     },
-    "electrum.antumbra.se": {
+    "electrum9.groestlcoin.org": {
         "pruning": "-",
         "s": "50002",
         "t": "50001",
         "version": "1.1"
     },
-    "electrum.be": {
+    "electrum10.groestlcoin.org": {
         "pruning": "-",
         "s": "50002",
         "t": "50001",
         "version": "1.1"
     },
-    "electrum.coinucopia.io": {
+    "electrum11.groestlcoin.org": {
         "pruning": "-",
         "s": "50002",
         "t": "50001",
         "version": "1.1"
     },
-    "electrum.cutie.ga": {
+    "electrum12.groestlcoin.org": {
         "pruning": "-",
         "s": "50002",
         "t": "50001",
         "version": "1.1"
     },
-    "electrum.festivaldelhumor.org": {
+    "electrum13.groestlcoin.org": {
         "pruning": "-",
         "s": "50002",
         "t": "50001",
         "version": "1.1"
     },
-    "electrum.hsmiths.com": {
+    "electrum14.groestlcoin.org": {
         "pruning": "-",
         "s": "50002",
         "t": "50001",
         "version": "1.1"
     },
-    "electrum.qtornado.com": {
+    "electrum15.groestlcoin.org": {
         "pruning": "-",
         "s": "50002",
         "t": "50001",
         "version": "1.1"
     },
-    "electrum.vom-stausee.de": {
+    "electrum16.groestlcoin.org": {
         "pruning": "-",
         "s": "50002",
         "t": "50001",
         "version": "1.1"
     },
-    "electrum3.hachre.de": {
+    "electrum17.groestlcoin.org": {
         "pruning": "-",
         "s": "50002",
         "t": "50001",
         "version": "1.1"
     },
-    "electrumx.bot.nu": {
+    "electrum18.groestlcoin.org": {
         "pruning": "-",
         "s": "50002",
         "t": "50001",
         "version": "1.1"
     },
-    "electrumx.westeurope.cloudapp.azure.com": {
+    "electrum19.groestlcoin.org": {
         "pruning": "-",
         "s": "50002",
         "t": "50001",
         "version": "1.1"
     },
-    "elx01.knas.systems": {
+    "electrum20.groestlcoin.org": {
         "pruning": "-",
         "s": "50002",
         "t": "50001",
         "version": "1.1"
     },
-    "ex-btc.server-on.net": {
+    "electrum21.groestlcoin.org": {
         "pruning": "-",
         "s": "50002",
         "t": "50001",
         "version": "1.1"
     },
-    "helicarrier.bauerj.eu": {
+    "electrum22.groestlcoin.org": {
         "pruning": "-",
         "s": "50002",
         "t": "50001",
         "version": "1.1"
     },
-    "mooo.not.fyi": {
-        "pruning": "-",
-        "s": "50012",
-        "t": "50011",
-        "version": "1.1"
-    },
-    "ndnd.selfhost.eu": {
+    "electrum23.groestlcoin.org": {
         "pruning": "-",
         "s": "50002",
         "t": "50001",
         "version": "1.1"
     },
-    "node.arihanc.com": {
+    "electrum24.groestlcoin.org": {
         "pruning": "-",
         "s": "50002",
         "t": "50001",
         "version": "1.1"
     },
-    "node.xbt.eu": {
+    "electrum25.groestlcoin.org": {
         "pruning": "-",
         "s": "50002",
         "t": "50001",
         "version": "1.1"
     },
-    "node1.volatilevictory.com": {
+    "electrum26.groestlcoin.org": {
         "pruning": "-",
         "s": "50002",
         "t": "50001",
         "version": "1.1"
     },
-    "noserver4u.de": {
+    "electrum27.groestlcoin.org": {
         "pruning": "-",
         "s": "50002",
         "t": "50001",
         "version": "1.1"
     },
-    "qmebr.spdns.org": {
+    "electrum28.groestlcoin.org": {
         "pruning": "-",
         "s": "50002",
         "t": "50001",
         "version": "1.1"
     },
-    "raspi.hsmiths.com": {
-        "pruning": "-",
-        "s": "51002",
-        "t": "51001",
-        "version": "1.1"
-    },
-    "s2.noip.pl": {
-        "pruning": "-",
-        "s": "50102",
-        "version": "1.1"
-    },
-    "s5.noip.pl": {
-        "pruning": "-",
-        "s": "50105",
-        "version": "1.1"
-    },
-    "songbird.bauerj.eu": {
+    "electrum29.groestlcoin.org": {
         "pruning": "-",
         "s": "50002",
         "t": "50001",
         "version": "1.1"
     },
-    "us.electrum.be": {
+    "electrum30.groestlcoin.org": {
         "pruning": "-",
         "s": "50002",
         "t": "50001",
         "version": "1.1"
     },
-    "us01.hamster.science": {
+    "electrum31.groestlcoin.org": {
         "pruning": "-",
         "s": "50002",
+        "t": "50001",
+        "version": "1.1"
+    },
+    "electrum32.groestlcoin.org": {
+        "pruning": "-",
+        "s": "50002",
+        "t": "50001",
+        "version": "1.1"
+    },
+    "electrum33.groestlcoin.org": {
+        "pruning": "-",
+        "s": "50002",
+        "t": "50001",
+        "version": "1.1"
+    },
+    "electrum34.groestlcoin.org": {
+        "pruning": "-",
+        "s": "50002",
+        "t": "50001",
+        "version": "1.1"
+    },
+    "electrum35.groestlcoin.org": {
+        "pruning": "-",
+        "s": "50002",
+        "t": "50001",
+        "version": "1.1"
+    },
+    "electrum36.groestlcoin.org": {
+        "pruning": "-",
+        "s": "50002",
+        "t": "50001",
+        "version": "1.1"
+    },
+    "electrum37.groestlcoin.org": {
+        "pruning": "-",
+        "s": "50002",
+        "t": "50001",
+        "version": "1.1"
+    },
+    "electrum38.groestlcoin.org": {
+        "pruning": "-",
+        "s": "50002",
+        "t": "50001",
+        "version": "1.1"
+    },
+    "electrum39.groestlcoin.org": {
+        "pruning": "-",
+        "s": "50002",
+        "t": "50001",
+        "version": "1.1"
+    },
+    "electrum40.groestlcoin.org": {
+        "pruning": "-",
+        "s": "50002",
+        "t": "50001",
+        "version": "1.1"
+    },
+    "6brsrbiinpc32tfc.onion": {
+        "pruning": "-",
+        "t": "50001",
+        "version": "1.1"
+    },
+    "xkj42efxrcy6vbfw.onion": {
+        "pruning": "-",
+        "t": "50001",
+        "version": "1.1"
+    },
+    "j2pokkxrnqifawlo.onion": {
+        "pruning": "-",
+        "t": "50001",
+        "version": "1.1"
+    },
+    "fxqag2xgbttgpn5t.onion": {
+        "pruning": "-",
+        "t": "50001",
+        "version": "1.1"
+    },
+    "wbu6iwai7g5vsmqf.onion": {
+        "pruning": "-",
+        "t": "50001",
+        "version": "1.1"
+    },
+    "ozarkd36gllcq64p.onion": {
+        "pruning": "-",
+        "t": "50001",
+        "version": "1.1"
+    },
+    "lgafnxxckcohp3lb.onion": {
+        "pruning": "-",
+        "t": "50001",
+        "version": "1.1"
+    },
+    "daxevrnxtrjtatnq.onion": {
+        "pruning": "-",
+        "t": "50001",
+        "version": "1.1"
+    },
+    "54fufvlyfsv6mu27.onion": {
+        "pruning": "-",
+        "t": "50001",
+        "version": "1.1"
+    },
+    "oopkp4mazgysotus.onion": {
+        "pruning": "-",
+        "t": "50001",
+        "version": "1.1"
+    },
+    "imfxdu2iaxphpzoj.onion": {
+        "pruning": "-",
+        "t": "50001",
+        "version": "1.1"
+    },
+    "msu62n2wehlyvu73.onion": {
+        "pruning": "-",
+        "t": "50001",
+        "version": "1.1"
+    },
+    "4g54umgydy2efvkp.onion": {
+        "pruning": "-",
+        "t": "50001",
+        "version": "1.1"
+    },
+    "nxb5shpaqcppuaac.onion": {
+        "pruning": "-",
+        "t": "50001",
+        "version": "1.1"
+    },
+    "liciqskhe3kb56sx.onion": {
+        "pruning": "-",
+        "t": "50001",
+        "version": "1.1"
+    },
+    "6urwohx677tqyx4d.onion": {
+        "pruning": "-",
+        "t": "50001",
+        "version": "1.1"
+    },
+    "jmkqrcrthxzgijzc.onion": {
+        "pruning": "-",
+        "t": "50001",
+        "version": "1.1"
+    },
+    "o2i7q65crpvgkyhp.onion": {
+        "pruning": "-",
+        "t": "50001",
+        "version": "1.1"
+    },
+    "sakl2ebpspx4yqux.onion": {
+        "pruning": "-",
+        "t": "50001",
+        "version": "1.1"
+    },
+    "kahwte3yfwedilib.onion": {
+        "pruning": "-",
+        "t": "50001",
+        "version": "1.1"
+    },
+    "4jnj4nztibl6nzr7.onion": {
+        "pruning": "-",
+        "t": "50001",
+        "version": "1.1"
+    },
+    "7bh7oexd6sgaa2ui.onion": {
+        "pruning": "-",
+        "t": "50001",
+        "version": "1.1"
+    },
+    "6txnygqn2lo3pas7.onion": {
+        "pruning": "-",
+        "t": "50001",
+        "version": "1.1"
+    },
+    "vhaltx6l3qz7m6gm.onion": {
+        "pruning": "-",
+        "t": "50001",
+        "version": "1.1"
+    },
+    "pcorvh3z6l4qsfvh.onion": {
+        "pruning": "-",
+        "t": "50001",
+        "version": "1.1"
+    },
+    "4vncucq2hxqgobn4.onion": {
+        "pruning": "-",
+        "t": "50001",
+        "version": "1.1"
+    },
+    "ezwaifwooob3xitg.onion": {
+        "pruning": "-",
+        "t": "50001",
+        "version": "1.1"
+    },
+    "uqxfaectrpqqvogm.onion": {
+        "pruning": "-",
+        "t": "50001",
+        "version": "1.1"
+    },
+    "tewjvvb2acejbpwu.onion": {
+        "pruning": "-",
+        "t": "50001",
+        "version": "1.1"
+    },
+    "bmbrjepkos5brm3m.onion": {
+        "pruning": "-",
+        "t": "50001",
+        "version": "1.1"
+    },
+    "evkxwqlvatx2bbuk.onion": {
+        "pruning": "-",
+        "t": "50001",
+        "version": "1.1"
+    },
+    "ekjgl6n6jhcqfq2x.onion": {
+        "pruning": "-",
+        "t": "50001",
+        "version": "1.1"
+    },
+    "5seia6dn4dphcw4n.onion": {
+        "pruning": "-",
+        "t": "50001",
+        "version": "1.1"
+    },
+    "qqgqih4nuhvsprqa.onion": {
+        "pruning": "-",
+        "t": "50001",
+        "version": "1.1"
+    },
+    "ygovc7jlb6itiis4.onion": {
+        "pruning": "-",
+        "t": "50001",
+        "version": "1.1"
+    },
+    "f33ys4h3e4nbdrdm.onion": {
+        "pruning": "-",
+        "t": "50001",
+        "version": "1.1"
+    },
+    "csg7djvlqujxn4qt.onion": {
+        "pruning": "-",
+        "t": "50001",
+        "version": "1.1"
+    },
+    "yw7dotigvofzqmql.onion": {
+        "pruning": "-",
+        "t": "50001",
+        "version": "1.1"
+    },
+    "aal7howc56u3j5bg.onion": {
+        "pruning": "-",
+        "t": "50001",
+        "version": "1.1"
+    },
+    "gnuvqomyhedouwqw.onion": {
+        "pruning": "-",
         "t": "50001",
         "version": "1.1"
     }
