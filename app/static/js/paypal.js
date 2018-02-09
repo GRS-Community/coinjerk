@@ -1,9 +1,9 @@
 function Paypal() {
   paypal.Button.render({
-    env: 'sandbox', // Or 'sandbox',
+    env: 'production', // Or 'sandbox',
 
     client: {
-         sandbox:    'AYv90ZDcDyQ4Fq_rt6BqD4MSG49-61mwCr7LCCMTr83tUI3Nry4QdWC1DRK1vflviFZISnacxnml2DvD',
+         sandbox:    'AVkP9pyDzHK7c2yVs0PH_taoFwhUiF72LPi4XxXbLkMTePpJEeoBFuLS7K99Y-ZHJfm3Mjlnki1H5dhE',
          production: 'ATZ25QipZ_kOVl5Ec6Z_a3epSBNi53-R5CGkeadGNOKZg0O0_CEb51ewX-cYssbD0ksK9WVLpmOtj5B6'
      },
 

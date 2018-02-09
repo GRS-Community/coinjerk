@@ -42,21 +42,21 @@
                     <form class="form-horizontal" method="post" name="ProfileForm" action="#">
 
                         <div class="form-group cols-sm-2">
-                            <label for="email" class="cols-sm-2 control-label">Your Master Public Key</label>
+                            <label for="email" class="cols-sm-2 control-label">Wallet Master Public Key</label>
                             <div class="cols-sm-10">
                                 <div class="input-group">
                                   <span class="input-group-addon"><i class="fa fa-code"></i></span>
-                                    <input type="text" class="form-control" name="xpub_field" id="email"  placeholder="Enter Your xpub"> </input>
+                                    <input type="text" class="form-control" name="xpub_field" id="email"  placeholder="{{ xpub }}"> </input>
                                 </div>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="password" class="cols-sm-2 control-label">Display Text</label>
+                            <label for="password" class="cols-sm-2 control-label">Text to display on your profile</label>
                             <div class="cols-sm-10">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-comment-o"></i></span>
-                                    <textarea class="form-control" rows="3" name="user_display_text_field" id="password"  placeholder="Enter your text to display on your tip page."></textarea>
+                                    <textarea class="form-control" rows="3" name="user_display_text_field" id="password" placeholder="{{ display_text }}"></textarea>
                                 </div>
                             </div>
                         </div>

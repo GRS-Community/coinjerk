@@ -47,7 +47,7 @@ def index():
 def user(username):
 
 
-    
+
     if 'nickname' in session:
         u = User.query.filter_by(social_id=username.lower()).first()
         if u:
@@ -87,7 +87,6 @@ def profile():
 
 
 
-
     userlist = []
     '''
     userdb = User.query.all()
@@ -97,13 +96,16 @@ def profile():
         userdict['num'] = 1
         userlist.append(userdict)
     '''
-
+    userdata = User.query.filter_by(social_id=session['social_id']).first()
     return render_template(
             'usersettings.html',
             form=form,
             social_id=session['social_id'],
             nickname=session['nickname'],
-            users = userlist
+            users = userlist,
+            xpub = userdata.xpub,
+            display_text = userdata.display_text
+
             )
 
 @app.route('/login')

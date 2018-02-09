@@ -6,7 +6,7 @@ from datetime import datetime
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    
+
     social_id = db.Column(db.String(64), nullable=False, unique=True)
     nickname = db.Column(db.String(64), nullable=False)
 
@@ -15,7 +15,7 @@ class User(db.Model):
     fiat = db.Column(db.String(3))
 
     # either 'B' for BTC, 'm' for mBTC, or 'u' for uBTC/bits
-    unit = db.Column(db.String(1)) 
+    unit = db.Column(db.String(1))
 
     # streamlabs tokens, retreived from streamlabs authorization
     streamlabs_atoken = db.Column(db.String(40))
@@ -25,7 +25,7 @@ class User(db.Model):
     #BIP32 Extended Public Key
     xpub = db.Column(db.String(111))
 
-    #Latest Unused Address from Derivation Path 
+    #Latest Unused Address from Derivation Path
     latest_derivation = db.Column(db.Integer)
 
     # Display Text for Tip Page
@@ -74,7 +74,7 @@ class Transaction(db.Model):
     # derivation path for xpub keys, implement path
     #TODO Implement "refresh addresses"
     # xpub = db.Column(db.String(111), nullable=False)
-    # wallet_derivation = db.Column(db.Integer, nullable=False) 
+    # wallet_derivation = db.Column(db.Integer, nullable=False)
 
     twi_user = db.Column(db.String(25))
     twi_message = db.Column(db.String(255))
@@ -93,7 +93,7 @@ class PayReq(db.Model):
     # Time of creation
     timestamp = db.Column(db.DateTime)
 
-    # User Fields 
+    # User Fields
     user_display = db.Column(db.String(25))
     user_identifier = db.Column(db.String())
     user_message = db.Column(db.String(255))
@@ -103,7 +103,7 @@ class PayReq(db.Model):
             user_message=None):
         self.addr = address
         self.timestamp = datetime.utcnow()
-        self.user_display = 'AnonymousBitCoin'
+        self.user_display = 'AnonymousGroestler'
         self.user_identifier = 'CoinStream-Tip-PleaseCheckYourWallet'
         if user_display:
             self.user_display = user_display

@@ -212,7 +212,6 @@ def get_unused_address(social_id, deriv):
     found is the least likely to create large gaps of empty addresses in
     someone's BTC Wallet.
     '''
-
     pp = pprint.PrettyPrinter(indent=2)
     userdata = User.query.filter_by(social_id = social_id).first()
 

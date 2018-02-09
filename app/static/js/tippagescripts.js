@@ -20,6 +20,7 @@ $(document).ready(function() {
         );
     });
 });
+
 // We'll keep it inline for now...
 function createPayRequest(userDisplay, userIdentifier, userMessage, socialId){
     // Get the value of some things on our form
