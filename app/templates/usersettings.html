@@ -5,14 +5,14 @@
       <script src="/static/js/scripts.js"></script>
      
       <div class="content" align="center">
-        <div class="col-md-8">
+        <div class="">
                 <h1 class="title">User Settings</h1>
-                <div class="col-md-6 main-login main-center">
+                <div class="main-login main-center">
                     <form class="form-horizontal" method="post" name="ProfileForm" action="#">
 
-                        <div class="form-group cols-sm-2">
-                            <label for="email" class="cols-sm-2 control-label">Wallet Master Public Key</label>
-                            <div class="cols-sm-10">
+                        <div class="form-group">
+                            <label for="email" class="control-label">Wallet Master Public Key</label>
+                            <div class="">
                                 <div class="input-group">
                                   <span class="input-group-addon"><i class="fa fa-code"></i></span>
                                     <input type="text" class="form-control" name="xpub_field" id="email"  placeholder="{{ xpub }}"> </input>
@@ -22,7 +22,7 @@
 
                         <div class="form-group">
                             <label for="password" class="cols-sm-2 control-label">Text to display on your profile</label>
-                            <div class="cols-sm-10">
+                            <div class="">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-comment-o"></i></span>
                                     <textarea class="form-control" rows="3" name="user_display_text_field" id="password" placeholder="{{ display_text }}"></textarea>
