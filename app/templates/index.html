@@ -1,4 +1,16 @@
 {% extends "base.html" %}
+
 {% block content %}
-<h1> Hi, {{ user.nickname }}</h1>
+  <div class="content" align="center">
+  <div class="col-md-10 jumbotron py-5">
+    <div class="container">
+      <!-- <h1 class="pb-2">Welcome to Gro<span class="highlight">Nate</span></h1> -->
+        <p><span class="highlight">Step 1)</span> Connect to <img src="static/img/streamlabs_logo.png" /></p>
+        <p><span class="highlight">Step 2)</span> Connect your wallet</p>
+        <p><span class="highlight">Step 3)</span> Profit!</p>
+        <a class="btn btn-primary" href="/login" role="button">Get Started</a>
+    </div>
+  </div>
+</div>
+
 {% endblock %}

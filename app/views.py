@@ -3,6 +3,7 @@ from flask import render_template, flash, redirect, session, url_for, \
         request, g, send_file, abort, jsonify
 
 from flask_admin import Admin
+from flask_bootstrap import Bootstrap
 from flask_login import current_user
 from flask_qrcode import QRcode
 
@@ -31,6 +32,7 @@ api_user = streamlabs_api_url + 'user'
 api_tips = streamlabs_api_url + "donations"
 callback_result = 0
 
+Bootstrap(app)
 
 @app.route('/')
 @app.route('/index')
@@ -41,7 +43,7 @@ def index():
             return redirect(url_for('user', username=nickname))
 
     return render_template(
-            'indextemplate.html')
+            'index.html')
 
 @app.route('/user/<username>')
 def user(username):
@@ -64,7 +66,10 @@ def user(username):
     else:
         return redirect(url_for('index'))
     return render_template(
-            'indextemplate.html')
+            'user.html',
+            social_id=session['social_id'],
+                nickname=session['nickname'],
+                )
 
 @app.route('/profile', methods=['GET', 'POST'])
 def profile():

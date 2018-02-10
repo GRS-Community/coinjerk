@@ -1,8 +1,9 @@
-{% extends "basic.html" %}
+{% extends "base.html" %}
 
 {% block content %}
 
-<div class="container">
+{% include "basic.html" %}
+
 <h1>Register with CoinStream</h1>
 <h2>Registering user {{ session['nickname'] }}</h2>
 Please fill out relevant information below.<br><br>
@@ -37,11 +38,14 @@ Please fill out relevant information below.<br><br>
                 <option>{{ item.label }}</option>
                 {% endfor %}
             </select>
+        <div class="input-group input-group-sm col-lg-6">
+            <input type=submit value="Accept Terms & Register"></input>
+            
         </div>
+        </div>
+
     </dl>
-    <p><input type=submit value="Accept Terms & Register">
 </form>
-</div>
 
 {% endblock %}
 
