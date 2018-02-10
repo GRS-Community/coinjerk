@@ -1,15 +1,18 @@
 {% extends "bootstrap/base.html" %}
-{% block styles %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% import "bootstrap/fixes.html" as fixes %}
+
+{% block head %}
 {{super()}}
-<link rel="stylesheet"
-      href="{{url_for('.static', filename='css/styles.css')}}">
+<link rel="stylesheet" href="{{url_for('.static', filename='css/styles.css')}}">
+
 {% endblock %}
 {% block body %}
 	<header>
 		{% include "nav.html" %}
 	</header>
 
-	<div class="container container-pad">
+	<div class="container container-inv">
 		{% block content %}
 		{% endblock %}
 	</div>	
@@ -17,6 +20,7 @@
 	<footer>
 		{% include "footer.html" %}
 	</footer>
+	<script src="/static/js/jquery.min.js"></script>
+	<script src="/static/js/bootstrap.min.js"></script>
 {% endblock %}
 
-  

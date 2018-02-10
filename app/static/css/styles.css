@@ -8,42 +8,13 @@ body {
   margin: 0;
 }
 
-.navbar-brand {
-  position: absolute;
-  width: 100%;
-  left: 0;
-  text-align: center;
-  margin:0 auto;
-  font-size: 30px;
-}
-
 .dropdown-menu {
   background-color: black;
 }
 
-
 .content {
   margin: 2.5% auto;
 }
-.container {
-  background-color: #222;
-    margin-top: 60px;
-    margin-bottom: 10px;
-    /* border-radius: 25px; */
-    padding-top: 25px;
-    padding-bottom: 25px;
-}
-.container-fluid {
-  background-color: lightslategrey;
-    margin-top: 60px;
-    margin-bottom: 10px;
-    /*  border-radius: 25px; */
-    padding-top: 25px;
-    padding-bottom: 25px;
-}
-
-
-
 
 button {
   margin-top: 10px;
@@ -72,114 +43,32 @@ footer {
 }
 
 @media (min-width: 600px) {
-	footer {bottom: 0;}}
+	footer {
+    bottom: 0;
+  }
+}
 @media (min-width: 1200px) {
-	footer {position: fixed;}}
+	footer {
+    position: fixed;
+  }
+}
 
-  .jumbotron {
-  background-color: transparent;
-  min-height: 350px;
-  text-align: center;
-  color: floralwhite;
-  padding: 0; }
-  .jumbotron h1 {
-    font-size: 30px;
-    font-size: 1.875rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    margin-top: 0;
-    margin-bottom: 10px; }
-    @media (min-width: 576px) {
-      .jumbotron h1 {
-        font-size: 30px;
-        font-size: 1.875rem; } }
-    @media (min-width: 768px) {
-      .jumbotron h1 {
-        font-size: 40px;
-        font-size: 2.5rem; } }
-    @media (min-width: 992px) {
-      .jumbotron h1 {
-        font-size: 50px;
-        font-size: 3.125rem; } }
-    @media (min-width: 1200px) {
-      .jumbotron h1 {
-        font-size: 60px;
-        font-size: 3.75rem; } }
-  .jumbotron h2 {
-    font-size: 11px;
-    font-size: 0.6875rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    margin-top: 0;
-    margin-bottom: 10px; }
-    @media (min-width: 576px) {
-      .jumbotron h2 {
-        font-size: 15px;
-        font-size: 0.9375rem; } }
-    @media (min-width: 768px) {
-      .jumbotron h2 {
-        font-size: 18px;
-        font-size: 1.125rem; } }
-    @media (min-width: 992px) {
-      .jumbotron h2 {
-        font-size: 19px;
-        font-size: 1.1875rem; } }
-    @media (min-width: 1200px) {
-      .jumbotron h2 {
-        font-size: 20px;
-        font-size: 1.25rem; } }
-  .jumbotron p {
-    font-size: 20px;
-    font-size: 1.25rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    margin-top: 0;
-    line-height: 25px; }
-    @media (min-width: 576px) {
-      .jumbotron p {
-        font-size: 30px;
-        font-size: 1.875rem;
-        line-height: 25px; } }
-    @media (min-width: 768px) {
-      .jumbotron p {
-        font-size: 40px;
-        font-size: 2.5rem;
-        line-height: 35px; } }
-    @media (min-width: 992px) {
-      .jumbotron p {
-        font-size: 50px;
-        font-size: 3.125rem;
-        line-height: 50px; } }
-    @media (min-width: 1200px) {
-      .jumbotron p {
-        font-size: 50px;
-        font-size: 3.125rem;
-        line-height: 50px; } }
-  .jumbotron img {
-    height: 40px; }
-    @media (min-width: 576px) {
-      .jumbotron img {
-        height: 50px; } }
-    @media (min-width: 768px) {
-      .jumbotron img {
-        height: 65px; } }
-    @media (min-width: 992px) {
-      .jumbotron img {
-        height: 70px; } }
-    @media (min-width: 1200px) {
-      .jumbotron img {
-        height: 75px; } }
-
-        .highlight {
-          color: #377F94;
-        text-decoration: none; }
+.highlight {
+  color: #377F94;
+  text-decoration: none; 
+}
 
 #Nickname {
   text-decoration: underline;
 }
+
 #ProfilePicture {
   margin-bottom: 10px;
   border-radius: 25px;
   height: 150px;
   width: 150px;
+}
+
+.container-inv {
+   background: black;
 }
