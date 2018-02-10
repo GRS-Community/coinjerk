@@ -61,25 +61,21 @@ def user(username):
     #             display_text = u.display_text
     #
     #             )
-    if 'nickname' in session:
-        u = User.query.filter_by(social_id=username.lower()).first()
-        if u:
-            return render_template(
+    print(username)
+    u = User.query.filter_by(social_id=username.lower()).first()
+    if u:
+        print("hello")
+        return render_template(
 
-                'user.html',
-                nickname = u.nickname,
-                social_id = u.social_id,
-                display_text = u.display_text
+            'user.html',
+            nickname = u.nickname,
+            social_id = u.social_id,
+            display_text = u.display_text
 
-                )
+            )
 
     else:
         return redirect(url_for('index'))
-    return render_template(
-            'user.html',
-            social_id=session['social_id'],
-                nickname=session['nickname'],
-                )
 
 @app.route('/profile', methods=['GET', 'POST'])
 def profile():
