@@ -16,6 +16,7 @@ from .models import User, PayReq
 from pycoin.key import Key
 from pycoin.key.validate import is_address_valid
 from exchanges.bitstamp import Bitstamp
+from exchanges.GRS_bittrex import GRS_price
 from decimal import Decimal
 from .payment import check_payment_on_address, check_address_history
 import pprint
@@ -40,9 +41,7 @@ def verify_payment():
     social_id = request.form['social_id']
     db.session.commit()
     payrec_check = PayReq.query.filter_by(addr=btc_addr).first()
-    payrec_check.user_identifier = request.form['userID'] + "_btc"
-    payrec_check.user_message = request.form['userMsg']
-    payrec_check.user_display = request.form['userName']
+
     print("PAYMENT CHECK")
     payment_check_return = {
             'payment_verified' : "FALSE",
@@ -52,7 +51,6 @@ def verify_payment():
     }
     print("***" + "checking for history on: " + btc_addr + "***\n")
     history_check = check_address_history(btc_addr)
-    print(history_check)
     if history_check and payrec_check:
         payment_check_return['payment_verified'] = "TRUE"
         print("Payment Found!")
@@ -77,7 +75,7 @@ def payment_notify(social_id, payrec, balance, txhash):
     user = User.query.filter_by(social_id=social_id).first()
 
     print(payrec.addr)
-    value = balance
+    value = balance * GRS_price()
     is_latest_exchange_valid = False
 
     # if exchangerate.json doesnt already exists, create a new one
@@ -183,7 +181,7 @@ def create_payment_request():
     new_payment_request = PayReq(
             address,
             user_display=request.form['user_display'],
-            user_identifier=request.form['user_identifier']+"_btc",
+            user_identifier=request.form['user_identifier']+"_grs",
             user_message=request.form['user_message']
             )
     db.session.add(new_payment_request)
@@ -200,7 +198,8 @@ def tip(username):
                 'tipv2.html',
                 nickname = u.nickname,
                 social_id = u.social_id,
-                display_text = u.display_text
+                display_text = u.display_text,
+                email = u.paypal_email
                 )
     else:
         return abort(404)

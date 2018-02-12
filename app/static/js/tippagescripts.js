@@ -19,6 +19,12 @@ $(document).ready(function() {
                 socialId
         );
     });
+    $('#submit').click(function (event) {
+        // Stop redirections
+        event.preventDefault();
+        // Call our create pay request function
+        $("#email").attr('value', '#user_identifier');
+    });
 });
 
 // We'll keep it inline for now...
@@ -102,10 +108,10 @@ function verifyPayment(btc_addr){
                         clearTimeout(isPaid);
                         $('#addressLocation').html(
                                 "<strong>Payment Verified! <span class=\"highlight\">"+response.user_display+"</span> thanks you very much for the tip!</strong>" +
-                                "<p>CoinJerk is a service provided for free and without ads, if you would like to help support " +
-                                "the developer in general or help cover operating costs for CoinJerk, please consider also sending some support to the developer or project: </p>" +
-                                "<p><a href=\"https://coinjerk.com/tip/amperture\" class=\"button1\" role=\"button\">Support the Developer</a></p><br>" +
-                                "<p><a href=\"https://coinjerk.com/tip/coinjerk\"class=\"button1\" role=\"button\">Support CoinJerk</a></p>"
+                                "<p>Gronate is a service provided for free and without ads, if you would like to help support " +
+                                "the developer in general or help cover operating costs for Gronate, please consider also sending some support to the developers or project: </p>" +
+                                "<p><a href=\"https://gronate.com/tip/Gronate\" class=\"button1\" role=\"button\">Support the Project</a></p><br>" +
+                                "<p><a href=\"https://www.groestlcoin.org/donations\"class=\"button1\" role=\"button\">Support the Groestlcoin Development!</a></p>"
                                 );
                     }
                     else {

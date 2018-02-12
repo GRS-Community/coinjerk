@@ -5,8 +5,8 @@ from wtforms.validators import Required, Length, DataRequired
 
 class RegisterForm(FlaskForm):
     unit_choices = [
-            ('B', 'BTC'), 
-            ('m', 'mBTC'), 
+            ('B', 'BTC'),
+            ('m', 'mBTC'),
             ('u', 'Bits')
     ]
 
@@ -17,7 +17,7 @@ class RegisterForm(FlaskForm):
     ]
 
     unit_field = SelectField(
-            u'Preferred Coin Units', 
+            u'Preferred Coin Units',
             choices = unit_choices,
             validators = [Required()])
 
@@ -40,3 +40,6 @@ class ProfileForm(FlaskForm):
 
     user_display_text_field = StringField(
             u'Text to display on your tipping page.')
+
+    paypal_email_field = StringField(
+            u'Your Paypal Email')

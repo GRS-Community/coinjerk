@@ -61,10 +61,8 @@ def user(username):
     #             display_text = u.display_text
     #
     #             )
-    print(username)
     u = User.query.filter_by(social_id=username.lower()).first()
     if u:
-        print("hello")
         return render_template(
 
             'user.html',
@@ -89,6 +87,10 @@ def profile():
             u.latest_derivation = 0
         if form.user_display_text_field.data:
             u.display_text = form.user_display_text_field.data
+        if form.paypal_email_field.data:
+            u.paypal_email = form.paypal_email_field.data
+            print(u.paypal_email)
+
 
         db.session.commit()
         nickname=session['nickname']
@@ -108,6 +110,10 @@ def profile():
         userlist.append(userdict)
     '''
     userdata = User.query.filter_by(social_id=session['social_id']).first()
+    if userdata.paypal_email:
+        email = userdata.paypal_email
+    else:
+        email = optional = 'Optional: If you want to recieve paypal donations'
     return render_template(
             'usersettings.html',
             form=form,
@@ -115,7 +121,8 @@ def profile():
             nickname=session['nickname'],
             users = userlist,
             xpub = userdata.xpub,
-            display_text = userdata.display_text
+            display_text = userdata.display_text,
+            email = email
 
             )
 
@@ -123,8 +130,7 @@ def profile():
 @app.route('/launch')
 def login():
     if 'nickname' in session:
-        if 'social_id' in session:
-            return redirect(url_for('index'))
+        return redirect(url_for('user', username=session['nickname']))
 
     if request.args.get('code'):
         session.clear()
@@ -169,7 +175,8 @@ def login():
             valid_user.streamlabs_atoken = a_token
             valid_user.streamlabs_rtoken = r_token
             db.session.commit()
-            return redirect(url_for('user', username=session['nickname']))
+            prinn("you got here")
+            return redirect(url_for('profile'))
         else:
             return redirect(url_for('newuser'))
 
@@ -190,7 +197,6 @@ def logout():
 def newuser():
     print("entered /newuser")
     form = RegisterForm()
-    print(form.xpub_field.data)
 
     if 'social_id' in session and request.method == 'POST':
         try:

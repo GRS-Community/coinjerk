@@ -31,9 +31,11 @@ class User(db.Model):
     # Display Text for Tip Page
     display_text = db.Column(db.String(500),
             default="This user sure does work hard on their stream "+\
-                "and a tip into their BitCoin Wallet would very much be "+\
+                "and a tip into their Groestlcoin Wallet would very much be "+\
                 "appreciated!",
             nullable=False)
+
+    paypal_email = db.Column(db.String(100))
 
     # Transaction Linkage
     transactions = db.relationship(
@@ -104,7 +106,9 @@ class PayReq(db.Model):
         self.addr = address
         self.timestamp = datetime.utcnow()
         self.user_display = 'AnonymousGroestler'
-        self.user_identifier = 'CoinStream-Tip-PleaseCheckYourWallet'
+        self.user_identifier = 'Gronate_Tip_PleaseCheckYourWallet'
+        print(self.user_display)
+        print(self.user_identifier)
         if user_display:
             self.user_display = user_display
         if user_identifier:
