@@ -30,6 +30,8 @@ a:active, a:visited {
   text-decoration: none !important;
 }
 
+/*
+
 footer {
   background-color: #222;
   color: #6b6b6b;
@@ -51,6 +53,12 @@ footer {
 	footer {
     position: fixed;
   }
+}
+
+*/
+
+.navbar-nav .li-text {
+ line-height: 50px;
 }
 
 .highlight {

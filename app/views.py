@@ -232,8 +232,9 @@ def donatecallback():
 
 @app.errorhandler(404)
 def handle404(e):
-    return "That user or page was not found in our system! " \
-            + "Tell them to sign up for CoinStream!"
+    return render_template(
+            '404.html')
+
 admin = Admin(app, name='Gronate', template_mode='bootstrap3')
 '''
 Admin
