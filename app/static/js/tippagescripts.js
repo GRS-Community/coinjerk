@@ -60,6 +60,8 @@ function createPayRequest(userDisplay, userIdentifier, userMessage, socialId){
                     text : "groestlcoin:" + response.btc_addr,
                     render : "table"
                 });
+
+
                 // $('#addressLink').html(
                 //         "<p><a href=\"bitcoin:" + response.btc_addr + "\" class=\"button1\" role=\"button\">Launch GRS Wallet</a></p>" +
                 //         "<p class=\"card-text mt-3\"> Please note that the payment will only be tracked while this page is open, and you have a five minute time limit. If either the page gets closed, or give minutes elapses after you see the Bitcoin address, please refresh the page to make a new payment request.<p>"
@@ -103,11 +105,13 @@ function verifyPayment(btc_addr){
 
                     // Unsure as to what it returns on the py
                     // You can make the json a boolean though?
+
+
                     if (response.payment_verified == "TRUE"){
                         // Clear our timeout
                         clearTimeout(isPaid);
                         $('#addressLocation').html(
-                                "<strong>Payment Verified! <span class=\"highlight\">"+response.user_display+"</span> thanks you very much for the tip!</strong>" +
+                                "<strong>Payment Verified! <span class=\"highlight\">"+response.user_display+"</span> thanks you very much for the tip! Check the transaction with tx_hash: "+response.transaction_found+"  </strong>" +
                                 "<p>Gronate is a service provided for free and without ads, if you would like to help support " +
                                 "the developer in general or help cover operating costs for Gronate, please consider also sending some support to the developers or project: </p>" +
                                 "<p><a href=\"https://gronate.com/tip/Gronate\" class=\"button1\" role=\"button\">Support the Project</a></p><br>" +

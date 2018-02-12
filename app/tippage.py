@@ -43,18 +43,20 @@ def verify_payment():
     payrec_check = PayReq.query.filter_by(addr=btc_addr).first()
 
     print("PAYMENT CHECK")
+    history_check = check_address_history(btc_addr)
     payment_check_return = {
+            'transaction_found': None,
             'payment_verified' : "FALSE",
             'user_display'     : User.query.filter_by(
                 social_id=social_id
                 ).first().nickname
     }
     print("***" + "checking for history on: " + btc_addr + "***\n")
-    history_check = check_address_history(btc_addr)
     if history_check and payrec_check:
         payment_check_return['payment_verified'] = "TRUE"
         print("Payment Found!")
         amount = check_payment_on_address(btc_addr)
+        payment_check_return['transaction_found'] = history_check[0]['tx_hash']
 
         payment_notify(social_id,
                 payrec_check,
@@ -168,6 +170,7 @@ def payment_notify(social_id, payrec, balance, txhash):
             headers=headers
     ).json()
     print(tip_check)
+    # custom_notify(social_id, payrec.user_message, value, usd_two_places)
     print("Donation Alert Sent")
 
     return tip_check
@@ -270,10 +273,9 @@ def tiptest(username):
         return abort(404)
 
 #@app.route('/customalerttest')
-def custom_notify():
-    user = User.query.filter_by(social_id='amperture').first()
+def custom_notify(social_id, user_message, value, usd_two_places):
+    user = User.query.filter_by(social_id=social_id).first()
 
-    usd_two_places = 15.00
 
     token_call = {
                     'grant_type'    : 'refresh_token',
@@ -293,9 +295,11 @@ def custom_notify():
     user.streamlabs_atoken = tip_response['access_token']
     db.session.commit()
 
+    donation = " | " + social_id +" donated " + str(value) + " GRS($" + str(usd_two_places) + ")",
+
     tip_call = {
             'type'       : 'donation',
-            'message'    : '*Amperture* says hello there, and sent some *Bitcoin*!',
+            'message'    : user_message + str(donation),
             'image_href' : '',
             'sound_href' : 'http://uploads.twitchalerts.com/000/003/774/415/m_health.wav',
             'duration'   : 3,
