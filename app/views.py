@@ -175,7 +175,7 @@ def login():
             valid_user.streamlabs_atoken = a_token
             valid_user.streamlabs_rtoken = r_token
             db.session.commit()
-            prinn("you got here")
+            print("you got here")
             return redirect(url_for('profile'))
         else:
             return redirect(url_for('newuser'))
