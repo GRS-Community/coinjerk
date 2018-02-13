@@ -2,7 +2,7 @@
 
 body {
   font-family: 'Raleway', sans-serif;
-  background-color: #010101;
+  background-color: steelblue;
   color: #fff;
   padding: 0;
   margin: 0;
@@ -78,6 +78,14 @@ footer {
 }
 
 .container-inv {
-   background: black;
+  background-color:rgba(0,0,0,0.6);
    margin-bottom: 70px;
+   margin-top: 70px;
+}
+
+.cards {
+  border-radius: 5px;
+  background-color:rgba(255,255,255,0.6);
+  margin: 5px;
+  padding: 5px;
 }
