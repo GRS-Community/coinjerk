@@ -89,3 +89,8 @@ footer {
   margin: 5px;
   padding: 5px;
 }
+
+.main-pad {
+  padding: 5px;
+  overflow: hidden;
+}
