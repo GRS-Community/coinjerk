@@ -94,3 +94,15 @@ footer {
   padding: 5px;
   overflow: hidden;
 }
+
+.fade-img {
+  opacity: 0.5;
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+ }
+
+ .fail-404 {
+  height: 100%;
+  width: 100%;
+  padding: 100px;
+ }
