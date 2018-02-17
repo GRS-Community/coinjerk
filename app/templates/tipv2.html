@@ -75,32 +75,10 @@
                           </div>
                           <div class="d-flex justify-content-end"><button id="showModalButton" class="btn button1">Show Groestlcoin Address</button></div>
                       </form>
-                      <p>Enter amount you want to donate with Paypal</p>
-                      <textarea id="amountPaypalInput" placeholder="Amount"></textarea>
-
-                      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" onsubmit="AmountInput();" >
+                      <!-- <p>Enter amount you want to donate with Paypal</p>
+                      <input id="amountPaypalInput" placeholder="Amount" required> -->
 
 
-                          <input type="hidden" name="business"
-                              value="{{ email }}">
-
-
-                          <input type="hidden" name="cmd" value="_donations">
-
-
-                          <input type="hidden" name="item_name" value="Donate to streamer via Paypal">
-                          <input type="hidden" name="item_number" value="Donation">
-                          <input type="hidden" name="currency_code" value="USD">
-                          <input id=PaypalAmount type="hidden" name="amount" value="1">
-
-
-
-                          <input type="image" name="submit"
-                          src="https://www.paypalobjects.com/en_US/GB/i/btn/btn_donateCC_LG.gif"
-                          alt="Donate">
-                          <img alt="" width="1" height="1"
-                          src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" >
-                      </form>
 
 
                       <!-- <div id="paypal-button"></div>
@@ -181,6 +159,31 @@
                               <div id="addressText">
                                   <p>The address to send your groestlcoin will appear <strong>here</strong> once you press the <span class="highlight">Show Groestlcoin Address</span> button.</p>
                                   <p>Please make sure that you've filled in the forms <strong>before</strong> hitting the button.</p>
+                                  <p>OR</p>
+                                  <form action="https://www.paypal.com/cgi-bin/webscr" method="post" onsubmit="AmountInput();" >
+
+                                      <p>Enter amount you want to donate with Paypal</p>
+                                      <input id="amountPaypalInput" placeholder="Amount" required>
+                                      <input type="hidden" name="business"
+                                          value="{{ email }}">
+
+
+                                      <input type="hidden" name="cmd" value="_donations">
+
+
+                                      <input type="hidden" name="item_name" value="Donate to streamer via Paypal">
+                                      <input type="hidden" name="item_number" value="Donation">
+                                      <input type="hidden" name="currency_code" value="USD">
+                                      <input id=PaypalAmount type="hidden" name="amount" value="1">
+
+
+
+                                      <input type="image" name="submit"
+                                      src="https://www.paypalobjects.com/en_US/GB/i/btn/btn_donateCC_LG.gif"
+                                      alt="Donate">
+                                      <img alt="" width="1" height="1"
+                                      src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" >
+                                  </form>
                                   <!-- <div id="paypal-button"></div> -->
 
 

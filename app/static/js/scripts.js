@@ -11,6 +11,9 @@ function GetURL(username) {
 });
 }
 function AmountInput() {
+  // var amount = document.getElementById("amountPaypalInput").value.replace(",",".");
+  //   var n = parseFloat(amount).toFixed("2");
+  //   $("#PaypalAmount").attr('value', n);
   amount = $('#amountPaypalInput').val()
   prefix = ".0";
   var res = amount.concat(prefix);
