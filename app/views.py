@@ -224,7 +224,7 @@ def newuser():
         username = "UNKNOWN USERNAME"
 
     return render_template(
-            'registration.html',
+            'register.html',
             form=form)
 
 @app.route('/donatecallback', methods=['GET', 'POST'])
