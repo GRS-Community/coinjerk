@@ -10,3 +10,9 @@ function GetURL(username) {
  }
 });
 }
+function AmountInput() {
+  amount = $('#amountPaypalInput').val()
+  prefix = ".0";
+  var res = amount.concat(prefix);
+  $("#PaypalAmount").attr('value', res);
+}

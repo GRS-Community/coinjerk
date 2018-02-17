@@ -273,6 +273,9 @@ def tiptest(username):
         return abort(404)
 
 #@app.route('/customalerttest')
+
+
+
 def custom_notify(social_id, user_message, value, usd_two_places):
     user = User.query.filter_by(social_id=social_id).first()
 

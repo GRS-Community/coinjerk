@@ -42,6 +42,8 @@ def index():
             nickname=session['nickname']
             return redirect(url_for('user', username=nickname))
 
+        
+
     return render_template(
             'index.html')
 
@@ -222,7 +224,7 @@ def newuser():
         username = "UNKNOWN USERNAME"
 
     return render_template(
-            'login.html',
+            'registration.html',
             form=form)
 
 @app.route('/donatecallback', methods=['GET', 'POST'])
