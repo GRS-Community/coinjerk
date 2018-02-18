@@ -1,12 +1,38 @@
 {% extends "base.html" %}
 
 {% block content %}
+<script src="/static/js/scripts.js"></script>
 
-      <script src="/static/js/scripts.js"></script>
+<div class="col-md-6">
+        <script src="/static/js/scripts.js"></script>
+    <script src="/static/js/jquery.min.js"></script>
+    <script>GetURL({{ social_id|tojson }});</script>
 
-      <div class="content" align="center">
+<div class="content" align="center">
+                <h1 class="title">Preview</h1>
+                <hr>
+    <div class="col-md-5">
+    <img src="http://www-cdn.jtvnw.net/images/xarth/404_user_500x500.png" alt="" id="ProfilePicture" class="img-responsive"/>
+
+    </div>
+    <div class="col-md-7">
+
+        <div class="">
+                <!-- <h1 class="pb-2">Welcome to Gro<span class="highlight">Nate</span></h1> -->
+            <h1 id="Nickname">{{ nickname }}</h1>
+            <a href="{{url_for('twitch', username=nickname)}}">twitch.tv/{{ social_id }}</a>
+            <hr>
+            <p>{{ display_text }}</p>
+          </div>
+        </div>
+    </div>
+</div>
+<div class="col-md-6">
+    <div class="content" align="center">
         <div class="">
                 <h1 class="title">User Settings</h1>
+                <hr>
+                
                 <div class="main-login main-center main-pad">
                     <form class="form-horizontal" method="post" name="ProfileForm" action="#">
 
@@ -50,4 +76,8 @@
             </div>
         </div>
       </div>
+</div>
+
+
+      
 {% endblock %}

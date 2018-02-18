@@ -78,8 +78,8 @@ footer {
 #ProfilePicture {
   margin-bottom: 10px;
   border-radius: 25px;
-  height: 150px;
-  width: 150px;
+  height: 300px;
+  width: 300px;
 }
 
 .container-inv {
@@ -122,4 +122,27 @@ footer {
   color: #fff;
   margin: 20px;
   padding: 10px;
+ }
+
+
+.sexy-form {
+  margin-bottom: 10px;
+
+}
+ .sexy-form input[type=text] {
+  background: black;
+  color: silver;
+  border: 1px solid #777;
+ }
+
+ .sexy-form textarea {
+  background: black;
+  color: silver;
+  border: 1px solid #777;
+ }
+
+ .sexy-form select {
+  background: black;
+  color: silver;
+  border: 1px solid #777;
  }

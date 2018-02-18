@@ -1,8 +1,12 @@
 {% extends "base.html" %}
 
 {% block content %}
+<div class="col-md-6">
+    Inspiring Picture...
+</div>
 
-<h1>Register with GroestlTip</h1>
+<div class="col-md-6">
+    <h1>Register with GroestlTip</h1>
 <h2>Registering user {{ session['nickname'] }}</h2>
 Please fill out relevant information below.<br><br>
 
@@ -14,35 +18,42 @@ Please fill out relevant information below.<br><br>
     <dl>
         {{ form.hidden_tag() }}
         <label for="xpub_field">Your Extended Public Key</label>
-        <div class="input-group input-group-sm col-lg-6">
-            <input type="text"
-            class="form-control"
-            placeholder="Should start with 'xpub'"
-            aria-describedby="basic-addon2"
-            name=xpub_field>
+        <div class="sexy-form">
+            <div class="input-group input-group-sm col-lg-12">
+                <input type="text" class="form-control" placeholder="Should start with 'xpub'" aria-describedby="basic-addon2" name=xpub_field>
+            </div>    
         </div>
-
-        <div class="input-group input-group-sm col-lg-6">
-            <textarea type="text" rows="3"
-            class="form-control"
-            placeholder="What do you want your tippers to see on your page?"
-            aria-describedby="basic-addon2"
-            name=user_display_text_field></textarea>
+        <label for="xpub_field">A little about yourself</label>
+        
+        <div class="sexy-form">
+            <div class="input-group input-group-sm col-lg-12">
+                <textarea type="text" rows="3"
+                class="form-control"
+                placeholder="What do you want your tippers to see on your page?"
+                aria-describedby="basic-addon2"
+                name=user_display_text_field></textarea>
+            </div>
         </div>
-
         <!-- Single button -->
+        <label for="xpub_field">Preferred Currency</label>
+
+        <div class="sexy-form">
             <select class="selectpicker" name=fiat_field>
                 {% for item in form.fiat_field %}
                 <option>{{ item.label }}</option>
                 {% endfor %}
             </select>
-        <div class="input-group input-group-sm col-lg-6">
-            <input type=submit value="Accept Terms & Register"></input>
-
         </div>
+        <div class="sexy-form">
+
+            <div class="input-group input-group-sm col-lg-12">
+                <input type=submit value="Accept Terms & Register" class="btn btn-primary btn-sm btn-block"></input>
+            </div>
         </div>
 
     </dl>
 </form>
+</div>
+
 
 {% endblock %}

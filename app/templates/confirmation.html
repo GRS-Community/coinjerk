@@ -1,6 +1,7 @@
-<body>
 <!-- <p>{{ values }}</p> -->
+{% extends "base.html" %}
 
+{% block content %}
 
 <div>
   <h1>Paypal transaction info:</h1>
@@ -11,4 +12,4 @@
   p>txn_id: {{ txn_id }}</p>
 </div>
 
-</body>
+{% endblock %}
