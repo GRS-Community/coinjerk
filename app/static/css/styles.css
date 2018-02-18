@@ -6,15 +6,20 @@ body {
   color: #fff;
   padding: 0;
   margin: 0;
+  text-shadow: 2px 2px 4px #000000;
+}
+
+.navbar-brand {
+  text-shadow: 2px 2px 4px #000000;
 }
 
 .dropdown-menu {
   background-color: black;
 }
 
-.content {
+/* .content {
   margin: 2.5% auto;
-}
+} */
 
 button {
   margin-top: 10px;
@@ -81,13 +86,15 @@ footer {
   background-color:rgba(0,0,0,0.6);
    margin-bottom: 50px;
    margin-top: 50px;
+   padding: 20px;
 }
 
 .cards {
   border-radius: 5px;
-  background-color:rgba(255,255,255,0.6);
+  background-color:rgba(255,255,255,0.05);
   margin: 5px;
   padding: 5px;
+  color: #fff;
 }
 
 .main-pad {
@@ -105,4 +112,14 @@ footer {
   height: 100%;
   width: 100%;
   padding: 100px;
+ }
+
+ .steps-wrapper {
+  background: black;
+  overflow: hidden;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  color: #fff;
+  margin: 20px;
+  padding: 10px;
  }
