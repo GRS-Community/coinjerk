@@ -75,79 +75,6 @@
                           </div>
                           <div class="d-flex justify-content-end"><button id="showModalButton" class="btn button1">Show Groestlcoin Address</button></div>
                       </form>
-                      <!-- <p>Enter amount you want to donate with Paypal</p>
-                      <input id="amountPaypalInput" placeholder="Amount" required> -->
-
-
-
-
-                      <!-- <div id="paypal-button"></div>
-
-                      <script src="https://www.paypalobjects.com/api/checkout.js"></script>
-
-                      <script>
-                          paypal.Button.render({
-
-                              env: 'production', // Or 'sandbox'
-
-                              style: {
-                                          label: 'buynow',
-                                          fundingicons: true, // optional
-                                          branding: true, // optional
-                                          size:  'small', // small | medium | large | responsive
-                                          shape: 'rect',   // pill | rect
-                                          color: 'gold'   // gold | blue | silve | black
-                                      },
-
-                              client: {
-                                  sandbox:    'ASfiHomIS1qRICmx-lNunGAv9laBVhuu0PyDvNGqck5lvP9xqXVQlFt0yNgbf_peBuqrQjgvLacs01K2',
-                                  production: 'ATQJiJiTeNnAOZ9fhrCLTpmrBbU3d0nr4fpmAa6HUplDefR4Bz9m9-wkoy-_sBpDkRLFWsgwNiGljoEa'
-                              },
-
-                              commit: true, // Show a 'Pay Now' button
-
-                              payment: function(data, actions) {
-
-                                  return actions.payment.create({
-                                      payment: {
-                                          transactions: [
-                                              {
-                                                  amount: { total: $('#amount').val(), currency: 'USD' }
-                                              }
-                                          ]
-                                      }
-                                  });
-                              },
-
-                              onAuthorize: function(data, actions) {
-                                  return actions.payment.execute().then(function(payment) {
-                                      // The payment is complete!
-                                      console.log(payment)
-                                      console.log()
-                                      $('#addressLocation').html(
-                                              "<strong>Payment Verified! <span class=\"highlight\">{{ social_id }}</span> thank you very much for the tip! </strong>" +
-                                              "<p>Gronate is a service provided for free and without ads, if you would like to help support " +
-                                              "the developer in general or help cover operating costs for Groestltip, please consider also sending some support to the developers or project: </p>" +
-                                              "<p><a href=\"https://gronate.com/tip/GroestlTip\" class=\"button1\" role=\"button\">Support the Project</a></p><br>" +
-                                              "<p><a href=\"https://www.groestlcoin.org/donations\"class=\"button1\" role=\"button\">Support the Groestlcoin Development!</a></p>"
-                                              );
-//                                               var resp = $.post('/_verify_payment',
-//                                                       {
-//                                                           social_id: socialId,
-//                                                           btc_addr: btc_addr,
-//                                                           userID: $('#user_identifier').val(),
-//                                                           userMsg: $('#user_message').val(),
-//                                                           userName: $('#user_display').val()
-//                                                       },
-// , "json")
-                                      // You can now show a confirmation message to the customer
-                                  });
-                              }
-
-
-
-                          }, '#paypal-button');
-                      </script> -->
 
 
 
@@ -160,29 +87,23 @@
                                   <p>The address to send your groestlcoin will appear <strong>here</strong> once you press the <span class="highlight">Show Groestlcoin Address</span> button.</p>
                                   <p>Please make sure that you've filled in the forms <strong>before</strong> hitting the button.</p>
                                   <p>OR</p>
-                                  <form action="https://www.paypal.com/cgi-bin/webscr" method="post" onsubmit="AmountInput();" >
+                                  <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" onsubmit="AmountInput()" >
 
                                       <p>Enter amount you want to donate with Paypal</p>
                                       <input id="amountPaypalInput" placeholder="Amount" required>
-                                      <input type="hidden" name="business"
-                                          value="{{ email }}">
-
-
+                                      <input id="PaypalTwitchImgURL" type="hidden" name="image_url" value="http://www-cdn.jtvnw.net/images/xarth/404_user_50x50.png">
+                                      <input id=PaypalAmount type="hidden" name="amount" value="1">
+                                      <input type="hidden" name="custom" value="{{ social_id }}">
+                                      <input type="hidden" name="return" value="http://127.0.0.1:5000/confirmation">
+                                      <input type="hidden" name="business" value="{{ email }}">
                                       <input type="hidden" name="cmd" value="_donations">
-
-
                                       <input type="hidden" name="item_name" value="Donate to streamer via Paypal">
                                       <input type="hidden" name="item_number" value="Donation">
                                       <input type="hidden" name="currency_code" value="USD">
-                                      <input id=PaypalAmount type="hidden" name="amount" value="1">
+                                      <input type="hidden" name="rm" value="2">
 
-
-
-                                      <input type="image" name="submit"
-                                      src="https://www.paypalobjects.com/en_US/GB/i/btn/btn_donateCC_LG.gif"
-                                      alt="Donate">
-                                      <img alt="" width="1" height="1"
-                                      src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" >
+                                      <input type="image" name="submit" src="https://www.paypalobjects.com/en_US/GB/i/btn/btn_donateCC_LG.gif" alt="Donate">
+                                      <img alt="" width="1" height="1" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" >
                                   </form>
                                   <!-- <div id="paypal-button"></div> -->
 
