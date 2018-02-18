@@ -10,7 +10,7 @@ from flask_qrcode import QRcode
 from app import app, db, lm
 from datetime import datetime, timedelta
 from config import STREAMLABS_CLIENT_ID, STREAMLABS_CLIENT_SECRET, \
-        COINSTREAM_REDIRECT_URI
+        GROESTLTIP_REDIRECT_URI
 
 from .forms import RegisterForm, ProfileForm
 from .models import User, PayReq
@@ -141,7 +141,7 @@ def login():
                 'client_id'     : STREAMLABS_CLIENT_ID,
                 'client_secret' : STREAMLABS_CLIENT_SECRET,
                 'code'          : request.args.get('code'),
-                'redirect_uri'  : COINSTREAM_REDIRECT_URI
+                'redirect_uri'  : GROESTLTIP_REDIRECT_URI
         }
 
         headers = []
@@ -185,7 +185,7 @@ def login():
     return redirect(
         "http://www.twitchalerts.com/api/v1.0/authorize?client_id="+\
         STREAMLABS_CLIENT_ID +
-        "&redirect_uri="+ COINSTREAM_REDIRECT_URI +
+        "&redirect_uri="+ GROESTLTIP_REDIRECT_URI +
         "&response_type=code"+
         "&scope=donations.create alerts.create", code=302
     )

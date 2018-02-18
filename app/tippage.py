@@ -8,7 +8,7 @@ from flask_qrcode import QRcode
 from app import app, db, lm
 from datetime import datetime, timedelta
 from config import STREAMLABS_CLIENT_ID, STREAMLABS_CLIENT_SECRET, \
-        COINSTREAM_REDIRECT_URI
+        GROESTLTIP_REDIRECT_URI
 
 from .forms import RegisterForm, ProfileForm
 from .models import User, PayReq
@@ -138,7 +138,7 @@ def payment_notify(social_id, payrec, balance, txhash):
                     'client_id'     : STREAMLABS_CLIENT_ID,
                     'client_secret' : STREAMLABS_CLIENT_SECRET,
                     'refresh_token' : user.streamlabs_rtoken,
-                    'redirect_uri'  : COINSTREAM_REDIRECT_URI
+                    'redirect_uri'  : GROESTLTIP_REDIRECT_URI
     }
     headers = []
     #print("Acquiring Streamlabs Access Tokens")
@@ -285,7 +285,7 @@ def custom_notify(social_id, user_message, value, usd_two_places):
                     'client_id'     : STREAMLABS_CLIENT_ID,
                     'client_secret' : STREAMLABS_CLIENT_SECRET,
                     'refresh_token' : user.streamlabs_rtoken,
-                    'redirect_uri'  : COINSTREAM_REDIRECT_URI
+                    'redirect_uri'  : GROESTLTIP_REDIRECT_URI
     }
     headers = []
     tip_response = requests.post(
