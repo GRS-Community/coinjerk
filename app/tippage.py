@@ -11,7 +11,7 @@ from config import STREAMLABS_CLIENT_ID, STREAMLABS_CLIENT_SECRET, \
         GROESTLTIP_REDIRECT_URI
 
 from .forms import RegisterForm, ProfileForm
-from .models import User, PayReq
+from .models import User, PayReq, Transaction
 
 from pycoin.key import Key
 from pycoin.key.validate import is_address_valid
@@ -35,6 +35,12 @@ api_tips = streamlabs_api_url + "donations"
 api_custom = streamlabs_api_url + "alerts"
 callback_result = 0
 
+# @app.route('/_delete_transaction_history')
+# def delete_transaction_history():
+#     Transaction.query.delete()
+#     db.session.commit()
+#     return redirect(url_for('history'))
+
 @app.route('/_verify_payment', methods=['POST'])
 def verify_payment():
     btc_addr = request.form['btc_addr']
@@ -56,18 +62,20 @@ def verify_payment():
         payment_check_return['payment_verified'] = "TRUE"
         print("Payment Found!")
         amount = check_payment_on_address(btc_addr)
+        print(amount)
         payment_check_return['transaction_found'] = history_check[0]['tx_hash']
 
         payment_notify(social_id,
                 payrec_check,
                 amount,
-                history_check[0]['tx_hash'])
+                history_check[0]['tx_hash'],
+                btc_addr)
 
         db.session.delete(payrec_check)
         db.session.commit()
     return jsonify(payment_check_return)
 
-def payment_notify(social_id, payrec, balance, txhash):
+def payment_notify(social_id, payrec, balance, txhash, grs_addr):
     '''
     Exchange Rate json file contains:
     'exchange' : BitStamp/BitFinex/Kraken/Etc
@@ -75,9 +83,9 @@ def payment_notify(social_id, payrec, balance, txhash):
     'datetime' : timestamp of when last grabbed
     '''
     user = User.query.filter_by(social_id=social_id).first()
-
-    print(payrec.addr)
     value = balance * GRS_price()
+    print(GRS_price())
+    print(value)
     is_latest_exchange_valid = False
 
     # if exchangerate.json doesnt already exists, create a new one
@@ -108,6 +116,7 @@ def payment_notify(social_id, payrec, balance, txhash):
                 'rate'     : float(exchange),
                 'datetime' : str(datetime.today())
                 }
+
         print("exchage rate data found!")
         print(latestexchange)
         with open('exchangerate.json', 'w') as f:
@@ -132,6 +141,7 @@ def payment_notify(social_id, payrec, balance, txhash):
 
     usd_value = ((value) * float(exchange)/100000000)
     usd_two_places = float(format(usd_value, '.2f'))
+    grs_amount = ((balance) /100000000)
     #print(usd_two_places)
     token_call = {
                     'grant_type'    : 'refresh_token',
@@ -153,11 +163,11 @@ def payment_notify(social_id, payrec, balance, txhash):
     user.streamlabs_atoken = tip_response['access_token']
     db.session.commit()
     #print("Tokens Committed to database, sending donation alert")
-
+    grs_amount_display = "("+ str(grs_amount) +" GRS Donated)"
     tip_call = {
             'name'       : payrec.user_display,
             'identifier' : payrec.user_identifier,
-            'message'    : payrec.user_message,
+            'message'    : payrec.user_message+grs_amount_display,
             'amount'     : usd_two_places,
             'currency'   : 'USD',
             'access_token' : tip_response['access_token']
@@ -171,7 +181,23 @@ def payment_notify(social_id, payrec, balance, txhash):
     ).json()
     print(tip_check)
     # custom_notify(social_id, payrec.user_message, value, usd_two_places)
+    print("Saving transaction data in database...")
+    # transaction = Transaction.query.filter_by(addr=btc_addr).first()
+    payreq = PayReq.query.filter_by(addr=grs_addr).first()
+    new_transaction = Transaction(
+        twi_user=payrec.user_display,
+        twi_message=payreq.user_message,
+        user_id=payreq.user_identifier,
+        tx_id=txhash,
+        amount=grs_amount,
+        timestamp=payreq.timestamp
+        )
+    db.session.add(new_transaction)
+    db.session.commit()
+
+    print("Transaction data saved!")
     print("Donation Alert Sent")
+
 
     return tip_check
 
@@ -320,21 +346,24 @@ def custom_notify(social_id, user_message, value, usd_two_places):
     return "Hello World"
 
 @app.route('/paypal', methods=['POST', 'GET'])
-def create_payment_notification_paypal(social_id):
-    new_notification = PayReq(
-            address=social_id+"'s Paypal",
+def create_payment_request_paypal():
+    new_payment_request = PayReq(
             user_display=request.form['user_display'],
             user_identifier=request.form['user_identifier']+"_paypal",
             user_message=request.form['user_message']
             )
-    db.session.add(new_notification)
+    db.session.add(new_payment_request)
     db.session.commit()
 
 
 @app.route('/confirmation/<username>', methods=['POST', 'GET'])
 def confirmation(username):
     tip_call = PayReq.query.filter_by(user_display=username).first()
-    user_display = tip_call.user_display
+    if (tip_call.user_display == None):
+        user_display = "AnonymousPaypaler"
+    else:
+        user_display = tip_call.user_display
+
     user_identifier = tip_call.user_identifier
     user_message = tip_call.user_message
     values = request.get_data()

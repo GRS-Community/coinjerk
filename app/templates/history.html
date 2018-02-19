@@ -9,7 +9,7 @@
 </br>
 
 {% for user in tx: %}
-	{{ user.nickname }} | {{ user.user_id }} | {{ user.tx_id }} | {{ user.timestamp }} | {{ user.amount }} | {{ user.twit_user }} | {{ user.twi_message }}
+	{{ user.id }} | {{ user.user_id }} | {{ user.tx_id }} | {{ user.timestamp }} | {{ user.amount }} | {{ user.twi_user }} | {{ user.twi_message }}
 {% endfor %}
 
 {% endblock %}
