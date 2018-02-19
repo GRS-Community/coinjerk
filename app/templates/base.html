@@ -8,12 +8,13 @@
 <link rel="stylesheet" href="{{url_for('.static', filename='css/hover.css')}}">
 
 <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+
 {% endblock %}
 {% block body %}
 	<header>
 		{% include "nav.html" %}
 	</header>
-	<div class="container-fluid container-inv">
+	<div class="container container-inv">
 		{% block content %}
 		{% endblock %}
 	</div>

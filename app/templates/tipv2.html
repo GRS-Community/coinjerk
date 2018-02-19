@@ -1,146 +1,99 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+{% block content %}
+<script src="/static/js/scripts.js"></script>
+<script src="/static/js/jquery.min.js"></script>
+<script src="/static/js/tippagescripts.js"></script>
+<script type="text/javascript" src="/static/js/jquery-qrcode/src/jquery.qrcode.js"></script>
+<script type="text/javascript" src="/static/js/jquery-qrcode/src/qrcode.js"></script>
+<script src="https://www.paypalobjects.com/api/checkout.js"></script>
 
-    <!-- Bootstrap CSS -->
-    <!-- <link rel="stylesheet" href="/static/css/tippage.css"> -->
-    <link rel="stylesheet" href="/static/css/styles.css">
-    <!-- scripts -->
-    <script src="/static/js/tippagescripts.js"></script>
-    <script src="/static/js/jquery.min.js"></script>
-    <script src="/static/js/scripts.js"></script>
-    <script type="text/javascript" src="/static/js/jquery-qrcode/src/jquery.qrcode.js"></script>
-    <script type="text/javascript" src="/static/js/jquery-qrcode/src/qrcode.js"></script>
-    <script src="https://www.paypalobjects.com/api/checkout.js"></script>
-
-    <title>Tip {{ nickname }}</title>
-</head>
-
-<body>
-
-    <script>
-        var socialId = '{{ social_id }}';
-    </script>
-
-    <header>
-      <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
-        <a class="navbar-brand" href="/">Gro<span class="highlight">nate</span></a>
-        <div class="collapse navbar-collapse" id="appNavigation" aria-labelledby="Link">
-          <div class="navbar-nav ml-auto">
-            <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        </a>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="/how"><i class="fa fa-file-text-o"></i> How</a>
-          <a class="dropdown-item" href="/About"><i class="fa fa-info"></i> About</a>
-          <a class="dropdown-item" href="/profile"><i class="fa fa-gear"></i> User Settings</a>
-          <a class="dropdown-item" href="/logout"><i class="fa fa-sign-out"></i> Logout</a>
-        </div>
-      </li>
-          </div>
-        </div>
-      </nav>
-
-    </header>
-    <div class="content" align="center">
-      <div class="col-md-10">
-        <div class="container">
-          <!-- <h1 class="pb-2">Welcome to Gro<span class="highlight">Nate</span></h1> -->
-            <script>GetURL({{ social_id|tojson }});</script>
-              <img src="http://www-cdn.jtvnw.net/images/xarth/404_user_50x50.png" alt="" id="ProfilePicture"/>
-              <h1 id="Nickname">{{ nickname }}</h1>
-              <a href="{{url_for('twitch', username=nickname)}}">twitch.tv/{{ social_id }}</a>
+<script>
+  var socialId = '{{ social_id }}';
+</script>
+<!-- <h1 class="pb-2">Welcome to Gro<span class="highlight">Nate</span></h1> -->
+<script>GetURL({{ social_id|tojson }});</script>
+<div class="col-md-4">
+  <img src="http://www-cdn.jtvnw.net/images/xarth/404_user_50x50.png" alt="" id="ProfilePicture"/>
+</div>
+<div class="col-md-8">
+  <h1 id="Nickname">{{ nickname }}</h1>
+  <a href="{{url_for('twitch', username=nickname)}}">twitch.tv/{{ social_id }}</a>  
+</div>
 
 
 
-              <!-- <p>{{ display_text }}</p> -->
-              <hr>
-              <div class="row mb-4">
-                  <div class="col-sm-8">
-                      <form role="form" id="user_form" action="#">
-                          <div class="form-group">
-                              <label for="user_display">Your Twitch Username</label>
-                              <input type="text" class="form-control" id="user_display" placeholder="Optional: if left empty, will show as &quot;AnonymousGroestler&quot;">
-                          </div>
-                          <div class="form-group">
-                              <label for="user_identifier">Email</label>
-                              <input type="text" class="form-control" id="user_identifier" placeholder="Optional: if empty, will be grouped as anonymous GRS tip.">
-                          </div>
-                          <div class="form-group">
-                              <label for="user_message">Tip Message</label>
-                              <textarea maxlength="255" class="form-control" id="user_message" rows="3" placeholder="Optional: Maximum of 255 characters"></textarea>
-                          </div>
-                          <div class="d-flex justify-content-end"><button id="showModalButton" class="btn button1">Show Groestlcoin Address</button></div>
-                      </form>
+
+<!-- <p>{{ display_text }}</p> -->
+<hr>
+<div class="row">
+    <div class="col-sm-8">
+        <form role="form" id="user_form" action="#">
+            <div class="form-group">
+                <label for="user_display">Your Twitch Username</label>
+                <input type="text" class="form-control" id="user_display" placeholder="Optional: if left empty, will show as &quot;AnonymousGroestler&quot;">
+            </div>
+            <div class="form-group">
+                <label for="user_identifier">Email</label>
+                <input type="text" class="form-control" id="user_identifier" placeholder="Optional: if empty, will be grouped as anonymous GRS tip.">
+            </div>
+            <div class="form-group">
+                <label for="user_message">Tip Message</label>
+                <textarea maxlength="255" class="form-control" id="user_message" rows="3" placeholder="Optional: Maximum of 255 characters"></textarea>
+            </div>
+            <div class="form-group  ">
+              <button id="showModalButton" class="btn btn-primary button1">Show Groestlcoin Address</button>
+            </div>
+        </form>
 
 
 
-                  </div>
-
-                  <div class="col-sm-4">
-                      <div class="card bg-inverse">
-                          <div class="card-block" id="addressLocation">
-                              <div id="addressText">
-                                  <p>The address to send your groestlcoin will appear <strong>here</strong> once you press the <span class="highlight">Show Groestlcoin Address</span> button.</p>
-                                  <p>Please make sure that you've filled in the forms <strong>before</strong> hitting the button.</p>
-                                  <p>OR</p>
-                                  <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" onsubmit="createPayRequestPaypal()">
-
-                                      <p>Enter amount you want to donate with Paypal</p>
-                                      <input id="amountPaypalInput" placeholder="Amount" required>
-                                      <input id="PaypalTwitchImgURL" type="hidden" name="image_url" value="http://www-cdn.jtvnw.net/images/xarth/404_user_50x50.png">
-                                      <input id=PaypalAmount type="hidden" name="amount" value="1">
-                                      <input type="hidden" name="custom" value="{{ social_id }}">
-                                      <input id=ReturnLink type="hidden" name="return" value="">
-                                      <input type="hidden" name="business" value="{{ email }}">
-                                      <input type="hidden" name="cmd" value="_donations">
-                                      <input type="hidden" name="item_name" value="Donate to streamer via Paypal">
-                                      <input type="hidden" name="item_number" value="Donation">
-                                      <input type="hidden" name="currency_code" value="USD">
-                                      <input type="hidden" name="rm" value="2">
-
-                                      <input type="image" name="submit" src="https://www.paypalobjects.com/en_US/GB/i/btn/btn_donateCC_LG.gif" alt="Donate">
-                                      <img alt="" width="1" height="1" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" >
-                                  </form>
-                                  <!-- <div id="paypal-button"></div> -->
-
-
-                          </div>
-                              <div id="randomInt"></div>
-                              <div id="addressQR" class="py-3"></div>
-                              <div id="addressLink"></div>
-                          </div>
-
-                          <!-- <script>
-                          Paypal();
-                          </script> -->
-                      </div>
-
-                  </div>
-              </div>
-        </div>
-      </div>
     </div>
 
-    <footer>
-      <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
-        <div class="collapse navbar-collapse" id="appNavigation" [ngbCollapse]="isCollapsed">
-          <span class="navbar-text">
-         2017 gronate.com | All rights reserved.
-       </span>
-          <div class="navbar-nav ml-auto">
-            <a class="nav-item nav-link" routerLink="/about" routerLinkActive="active">About</a>
-          </div>
+    <div class="col-sm-4">
+        <div class="card bg-inverse">
+            <div class="card-block" id="addressLocation">
+                <div id="addressText">
+                    <p>The address to send your groestlcoin will appear <strong>here</strong> once you press the <span class="highlight">Show Groestlcoin Address</span> button.</p>
+                    <p>Please make sure that you've filled in the forms <strong>before</strong> hitting the button.</p>
+                    <p>OR</p>
+                    <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" onsubmit="createPayRequestPaypal()">
+                      <div class="form-group">
+                        <p>Enter amount you want to donate with Paypal</p>
+                        <input id="amountPaypalInput" placeholder="Amount" class="form-control" required>
+                        <input id="PaypalTwitchImgURL" type="hidden" name="image_url" value="http://www-cdn.jtvnw.net/images/xarth/404_user_50x50.png">
+                        <input id=PaypalAmount type="hidden" name="amount" value="1">
+                        <input type="hidden" name="custom" value="{{ social_id }}">
+                        <input id=ReturnLink type="hidden" name="return" value="">
+                        <input type="hidden" name="business" value="{{ email }}">
+                        <input type="hidden" name="cmd" value="_donations">
+                        <input type="hidden" name="item_name" value="Donate to streamer via Paypal">
+                        <input type="hidden" name="item_number" value="Donation">
+                        <input type="hidden" name="currency_code" value="USD">
+                        <input type="hidden" name="rm" value="2">
+                      </div>
+                      <div>
+                        <input type="submit" name="submit" class="btn btn-primary" value="Donate">
+                        <img alt="" width="1" height="1" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" >
+                      </div>
+                    </form>
+                    <!-- <div id="paypal-button"></div> -->
+
+
+            </div>
+                <div id="randomInt"></div>
+                <div id="addressQR" class="py-3"></div>
+                <div id="addressLink"></div>
+                <div id="formBox"></div>
+            </div>
+
+            <!-- <script>
+            Paypal();
+            </script> -->
         </div>
-      </nav>
-    </footer>
+
+    </div>
+</div>
 
 
-
-</body>
-
-</html>
+{% endblock %}

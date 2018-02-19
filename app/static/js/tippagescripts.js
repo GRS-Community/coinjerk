@@ -48,7 +48,7 @@ function createPayRequest(userDisplay, userIdentifier, userMessage, socialId){
             {
                 console.log(response.btc_addr);
                 $('#formBox').html(
-                        "<p><strong>Please note that the payment will only be tracked while this page is open, and you have a five minute time limit. If either the page gets closed, or five minutes elapses after you see the Bitcoin address, please refresh the page to make a new payment request.</strong></p>"
+                        "<hr><p font-size=\"1\"><strong>Please note that the payment will only be tracked while this page is open, and you have a five minute time limit. If either the page gets closed, or five minutes elapses after you see the Groestlcoin address, please refresh the page to make a new payment request.</strong></p>"
                         )
 
                 $('#addressText').html(
