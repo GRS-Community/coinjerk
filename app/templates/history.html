@@ -2,7 +2,7 @@
 
 {% block content %}
 
-{% for user in tx: %}
+{% for user in users and tx %}
 	{{ user.nickname }} | {{ user.user_id }} | {{ user.tx_id }} | {{ user.timestamp }} | {{ user.amount }} | {{ user.twit_user }} | {{ user.twi_message }}
 {% endfor %}
 
