@@ -2,15 +2,9 @@
 
 {% block head %}
 {{super()}}
-  <script src="/static/js/scripts.js"></script>
-  <script src="/static/js/jquery.min.js"></script>
-  <script src="/static/js/tippagescripts.js"></script>
-  <script src="https://www.paypalobjects.com/api/checkout.js"></script>
-  <script type="text/javascript" src="/static/js/jquery-qrcode/src/jquery.qrcode.js"></script>
-  <script type="text/javascript" src="/static/js/jquery-qrcode/src/qrcode.js"></script>
+
 
 {% endblock %}
-
 {% block content %}
   <script>
     var socialId = '{{ social_id }}';
@@ -21,7 +15,7 @@
   </div>
   <div class="col-md-8">
     <h1 id="Nickname">{{ nickname }}</h1>
-    <a href="{{url_for('twitch', username=nickname)}}">twitch.tv/{{ social_id }}</a>  
+    <a href="{{url_for('twitch', username=nickname)}}">twitch.tv/{{ social_id }}</a>
   </div>
 
   <hr>
@@ -79,9 +73,6 @@
             <div id="addressLink"></div>
             <div id="formBox"></div>
           </div>
-            <!-- <script>
-            Paypal();
-            </script> -->
         </div>
 
       </div>

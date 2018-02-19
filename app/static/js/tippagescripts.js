@@ -49,10 +49,10 @@ function createPayRequest(userDisplay, userIdentifier, userMessage, socialId){
                 console.log(response.btc_addr);
                 $('#formBox').html(
                         "<hr><p font-size=\"1\"><strong>Please note that the payment will only be tracked while this page is open, and you have a five minute time limit. If either the page gets closed, or five minutes elapses after you see the Groestlcoin address, please refresh the page to make a new payment request.</strong></p>"
-                        )
+                      )
 
                 $('#addressText').html(
-                        "<p class=\"card-text\">Please send some GRS to the address <span class=\"highlight\">" + response.btc_addr + "</span></p>" +
+                        "<p class=\"card-text\">Please send some GRS to this address: <span class=\"highlight\">" + response.btc_addr + "</span></p>" +
                         "<p class=\"card-text\">You can use the QR code directly below with your mobile wallet.</p>"
                         );
                 $('#addressQR').html("");
