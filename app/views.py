@@ -13,7 +13,7 @@ from config import STREAMLABS_CLIENT_ID, STREAMLABS_CLIENT_SECRET, \
         GROESTLTIP_REDIRECT_URI
 
 from .forms import RegisterForm, ProfileForm
-from .models import User, PayReq
+from .models import User, PayReq, Transaction
 
 
 from pycoin.key import Key
@@ -132,6 +132,14 @@ def profile():
 def users():
     return render_template(
             'users.html',
+            users = User.query.all()
+    )
+
+@app.route('/history')
+def history():
+    return render_template(
+            'history.html',
+            tx = Transaction.query.all(),
             users = User.query.all()
     )
 
@@ -256,11 +264,6 @@ def admin():
 '''
 Testing code below, please ignore
 '''
-@app.route('/test')
-def test():
-    return render_template(
-            'homepagetemplate.html')
-
 @app.route('/twitch/<username>')
 def twitch(username):
     return redirect(

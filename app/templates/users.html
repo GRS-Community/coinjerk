@@ -3,7 +3,7 @@
 {% block content %}
 
 {% for user in users: %}
-	{{ user.nickname }}</br>
+	{{ user.nickname }} | <a href="{{url_for('twitch', username=nickname)}}">twitch.tv/{{ user.social_id }}</a> | <a href="{{url_for('tip', username=nickname)}}" class="custom-btn btn-12">Tip</a></br>
 {% endfor %}
 
 {% endblock %}

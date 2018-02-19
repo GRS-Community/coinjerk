@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% for user in tx: %}
+	{{ user.nickname }} | {{ user.user_id }} | {{ user.tx_id }} | {{ user.timestamp }} | {{ user.amount }} | {{ user.twit_user }} | {{ user.twi_message }}
+{% endfor %}
+
+{% endblock %}
