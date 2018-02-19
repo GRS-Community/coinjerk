@@ -126,8 +126,14 @@ def profile():
             xpub = userdata.xpub,
             display_text = userdata.display_text,
             email = email
-
             )
+
+@app.route('/users', methods=['GET', 'POST'])
+def users():
+    userlist = []
+    return render_template('users.html',
+    users = User.query.all()
+    )
 
 @app.route('/login')
 @app.route('/launch')
