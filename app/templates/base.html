@@ -4,25 +4,24 @@
 
 {% block head %}
 {{super()}}
-<link rel="stylesheet" href="{{url_for('.static', filename='css/styles.css')}}">
-<link rel="stylesheet" href="{{url_for('.static', filename='css/hover.css')}}">
-
-<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-
+	<link rel="stylesheet" href="{{url_for('.static', filename='css/styles.css')}}">
+	<link rel="stylesheet" href="{{url_for('.static', filename='css/hover.css')}}">
+	<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 {% endblock %}
+
 {% block body %}
-	<header>
-		{% include "nav.html" %}
-	</header>
-	<div class="container container-inv">
-		{% block content %}
-		{% endblock %}
-	</div>
+<header>
+	{% include "nav.html" %}
+</header>
+<div class="container container-inv">
+	{% block content %}
+	{% endblock %}
+</div>
 
-	<footer>
-		{% include "footer.html" %}
-	</footer>
+<footer>
+	{% include "footer.html" %}
+</footer>
 
-	<script src="/static/js/jquery.min.js"></script>
-	<script src="/static/js/bootstrap.min.js"></script>
+<script src="/static/js/jquery.min.js"></script>
+<script src="/static/js/bootstrap.min.js"></script>
 {% endblock %}
