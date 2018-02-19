@@ -128,11 +128,11 @@ def profile():
             email = email
             )
 
-@app.route('/users', methods=['GET', 'POST'])
+@app.route('/users')
 def users():
-    userlist = []
-    return render_template('users.html',
-    users = User.query.all()
+    return render_template(
+            'users.html',
+            users = User.query.all()
     )
 
 @app.route('/login')

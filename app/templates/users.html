@@ -2,6 +2,8 @@
 
 {% block content %}
 
-{{ users }}
+{% for user in users: %}
+	{{ user.nickname }}</br>
+{% endfor %}
 
 {% endblock %}
