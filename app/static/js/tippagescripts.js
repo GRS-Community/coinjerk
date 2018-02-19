@@ -53,7 +53,7 @@ function createPayRequest(userDisplay, userIdentifier, userMessage, socialId){
 
                 $('#addressText').html(
                         "<p class=\"card-text\">Please send some GRS to this address: <span class=\"highlight\">" + response.btc_addr + "</span></p>" +
-                        "<p class=\"card-text\">You can use the QR code directly below with your mobile wallet.</p>"
+                        "<p class=\"card-text\">You can use the QR code directly below with your mobile wallet.</p><hr>"
                         );
                 $('#addressQR').html("");
                 $('#addressQR').qrcode({

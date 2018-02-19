@@ -166,3 +166,14 @@ button {
 .btn-12:active {
   top: 2px;
 }
+
+div.centered 
+{
+    text-align: center;
+}
+
+div.centered table 
+{
+    margin: 0 auto; 
+    text-align: left;
+}
