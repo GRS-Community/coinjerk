@@ -107,8 +107,6 @@ class PayReq(db.Model):
         self.timestamp = datetime.utcnow()
         self.user_display = 'AnonymousGroestler'
         self.user_identifier = 'Gronate_Tip_PleaseCheckYourWallet'
-        print(self.user_display)
-        print(self.user_identifier)
         if user_display:
             self.user_display = user_display
         if user_identifier:

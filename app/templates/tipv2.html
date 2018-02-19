@@ -10,17 +10,18 @@
     <!-- <link rel="stylesheet" href="/static/css/tippage.css"> -->
     <link rel="stylesheet" href="/static/css/styles.css">
     <!-- scripts -->
+    <script src="/static/js/tippagescripts.js"></script>
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/scripts.js"></script>
+    <script type="text/javascript" src="/static/js/jquery-qrcode/src/jquery.qrcode.js"></script>
+    <script type="text/javascript" src="/static/js/jquery-qrcode/src/qrcode.js"></script>
     <script src="https://www.paypalobjects.com/api/checkout.js"></script>
 
     <title>Tip {{ nickname }}</title>
 </head>
 
 <body>
-  <script src="/static/js/jquery.min.js"></script>
-  <script src="/static/js/scripts.js"></script>
-  <script src="/static/js/paypal.js"></script>
-    <script type="text/javascript" src="/static/js/jquery-qrcode/src/jquery.qrcode.js"></script>
-    <script type="text/javascript" src="/static/js/jquery-qrcode/src/qrcode.js"></script>
+
     <script>
         var socialId = '{{ social_id }}';
     </script>
@@ -87,14 +88,14 @@
                                   <p>The address to send your groestlcoin will appear <strong>here</strong> once you press the <span class="highlight">Show Groestlcoin Address</span> button.</p>
                                   <p>Please make sure that you've filled in the forms <strong>before</strong> hitting the button.</p>
                                   <p>OR</p>
-                                  <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" onsubmit="AmountInput()" >
+                                  <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" onsubmit="createPayRequestPaypal()">
 
                                       <p>Enter amount you want to donate with Paypal</p>
                                       <input id="amountPaypalInput" placeholder="Amount" required>
                                       <input id="PaypalTwitchImgURL" type="hidden" name="image_url" value="http://www-cdn.jtvnw.net/images/xarth/404_user_50x50.png">
                                       <input id=PaypalAmount type="hidden" name="amount" value="1">
                                       <input type="hidden" name="custom" value="{{ social_id }}">
-                                      <input type="hidden" name="return" value="http://127.0.0.1:5000/confirmation">
+                                      <input id=ReturnLink type="hidden" name="return" value="">
                                       <input type="hidden" name="business" value="{{ email }}">
                                       <input type="hidden" name="cmd" value="_donations">
                                       <input type="hidden" name="item_name" value="Donate to streamer via Paypal">
@@ -139,11 +140,7 @@
     </footer>
 
 
-    <!-- jQuery first, then Tether, then Bootstrap JS. -->
-    <script src="/static/js/tippagescripts.js"></script>
-    <!--<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
 </body>
 
 </html>

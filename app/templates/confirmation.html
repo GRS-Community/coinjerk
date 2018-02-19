@@ -5,11 +5,18 @@
 
 <div>
   <h1>Paypal transaction info:</h1>
-  <p>username: {{ username }}</p>
-  <p>payment_gross:{{ payment_gross }}</p>
-  <p>payment_fee: {{ payment_fee }}</p>
-  <p>payment_status: {{ payment_status }}</p>
-  p>txn_id: {{ txn_id }}</p>
+  <p>Username: {{ payer_email }}</p>
+  <p>Payer: {{ payer_email }}</p>
+  <p>Amount: {{ payment_gross }}</p>
+  <p>Fee: {{ payment_fee }}</p>
+  <p>Payment Status: {{ payment_status }}</p>
+  <p>Transaction ID: {{ txn_id }}</p>
+</div>
+<div>
+  <h1>Notification info:</h1>
+  <p>Nickname: {{ user_display }}</p>
+  <p>Identifier :{{ user_identifier }}</p>
+  <p> Message : {{ user_message }}</p>
 </div>
 
 {% endblock %}

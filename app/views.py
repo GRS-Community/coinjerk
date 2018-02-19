@@ -261,29 +261,3 @@ def twitch(username):
         "https://www.twitch.tv/"+username
 
     )
-
-@app.route('/confirmation', methods=['POST', 'GET'])
-def confirmation():
-    values = request.get_data()
-
-    payer_email = request.form.get('payer_email')
-    unix = int(time.time())
-    payment_date = request.form.get('payment_date')
-    username = request.form.get('custom')
-    payment_gross = request.form.get('payment_gross')
-    payment_fee = request.form.get('payment_fee')
-    payment_status = request.form.get('payment_status')
-    txn_id = request.form.get('txn_id')
-
-    return render_template(
-            'confirmation.html',
-            values=values,
-            payer_email=payer_email,
-            payment_date=payment_date,
-            username=username,
-            payment_gross=payment_gross,
-            payment_fee=payment_fee,
-            payment_status=payment_status,
-            txn_id=txn_id
-
-            )

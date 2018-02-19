@@ -112,9 +112,9 @@ function verifyPayment(btc_addr){
                         clearTimeout(isPaid);
                         $('#addressLocation').html(
                                 "<strong>Payment Verified! <span class=\"highlight\">" + response.user_display + "</span> thanks you very much for the tip! Check the transaction with tx_hash: <a href=\"https://chainz.cryptoid.info/grs/block.dws?" + response.transaction_found + ".htm\">" + response.transaction_found + "</a>  </strong>" +
-                                "<p>Gronate is a service provided for free and without ads, if you would like to help support " +
+                                "<p>GroestlTip is a service provided for free and without ads, if you would like to help support " +
                                 "the developer in general or help cover operating costs for Gronate, please consider also sending some support to the developers or project: </p>" +
-                                "<p><a href=\"https://gronate.com/tip/Gronate\" class=\"button1\" role=\"button\">Support the Project</a></p><br>" +
+                                "<p><a href=\"https://gronate.com/tip/GroestlTip\" class=\"button1\" role=\"button\">Support the Project</a></p><br>" +
                                 "<p><a href=\"https://www.groestlcoin.org/donations\"class=\"button1\" role=\"button\">Support the Groestlcoin Development!</a></p>"
                                 );
                     }

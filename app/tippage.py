@@ -319,6 +319,94 @@ def custom_notify(social_id, user_message, value, usd_two_places):
 
     return "Hello World"
 
+@app.route('/paypal', methods=['POST', 'GET'])
+def create_payment_notification_paypal():
+    new_notification = PayReq(
+            address="ThisIsAPayPalTransaction",
+            user_display=request.form['user_display'],
+            user_identifier=request.form['user_identifier']+"_paypal",
+            user_message=request.form['user_message']
+            )
+    db.session.add(new_notification)
+    db.session.commit()
+
+
+@app.route('/confirmation/<username>', methods=['POST', 'GET'])
+def confirmation(username):
+    tip_call = PayReq.query.filter_by(user_display=username).first()
+    user_display = tip_call.user_display
+    user_identifier = tip_call.user_identifier
+    user_message = tip_call.user_message
+    db.session.delete(tip_call)
+    values = request.get_data()
+    payer_email = request.form.get('payer_email')
+    unix = int(time.time())
+    payment_date = request.form.get('payment_date')
+    username = request.form.get('custom')
+    payment_gross = request.form.get('payment_gross')
+    payment_fee = request.form.get('payment_fee')
+    payment_status = request.form.get('payment_status')
+    txn_id = request.form.get('txn_id')
+
+
+    user = User.query.filter_by(social_id=username).first()
+
+    token_call = {
+                    'grant_type'    : 'refresh_token',
+                    'client_id'     : STREAMLABS_CLIENT_ID,
+                    'client_secret' : STREAMLABS_CLIENT_SECRET,
+                    'refresh_token' : user.streamlabs_rtoken,
+                    'redirect_uri'  : GROESTLTIP_REDIRECT_URI
+    }
+    headers = []
+    #print("Acquiring Streamlabs Access Tokens")
+    tip_response = requests.post(
+            api_token,
+            data=token_call,
+            headers=headers
+    ).json()
+    #print("Tokens Acquired, Committing to Database")
+
+    user.streamlabs_rtoken = tip_response['refresh_token']
+    user.streamlabs_atoken = tip_response['access_token']
+    db.session.commit()
+    #print("Tokens Committed to database, sending donation alert")
+
+    tip_call = {
+            'name'       : tip_call.user_display,
+            'identifier' : tip_call.user_identifier,
+            'message'    : tip_call.user_message,
+            'amount'     : payment_gross,
+            'currency'   : 'USD',
+            'access_token' : tip_response['access_token']
+    }
+    print(tip_call)
+
+    tip_check = requests.post(
+            api_tips,
+            data=tip_call,
+            headers=headers
+    ).json()
+    print(tip_check)
+    # custom_notify(social_id, payrec.user_message, value, usd_two_places)
+    print("Donation Alert Sent")
+
+
+    return render_template(
+            'confirmation.html',
+            values=values,
+            payer_email=payer_email,
+            payment_date=payment_date,
+            username=username,
+            payment_gross=payment_gross,
+            payment_fee=payment_fee,
+            payment_status=payment_status,
+            txn_id=txn_id,
+            user_display=user_display,
+            user_identifier=user_identifier,
+            user_message=user_message
+
+            )
 '''
 TIP PAGE SETTINGS:
     - Alert System

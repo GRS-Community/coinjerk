@@ -12,9 +12,31 @@ function GetURL(username) {
 });
 }
 
-function AmountInput() {
+function createPayRequestPaypal() {
+  // Converting the amount input into the correct format
   var amount = document.getElementById("amountPaypalInput").value.replace(",",".");
-    var n = parseFloat(amount).toFixed("2");
-    $("#PaypalAmount").attr('value', n);
+  var n = parseFloat(amount).toFixed("2");
+  $("#PaypalAmount").attr('value', n);
+  // Getting form data
+
+  var userDisplay = $("#user_display").val();
+  var userIdentifier = $('#user_identifier').val();
+  var userMessage = $('#user_message').val();
+  // Making Return_URL
+  var link = "http://127.0.0.1:5000/confirmation/";
+  var return_url = link+userDisplay;
+  $("#ReturnLink").attr('value', return_url);
+
+  // Sending data to flask
+  var resp = $.post('/paypal', { user_display : userDisplay, user_identifier : userIdentifier, user_message : userMessage }, function(){
+
+
+	});
+
+  //Printing stuff into console
+  console.log("userDisplay: "+userDisplay);
+  console.log("userIdentifier: "+userIdentifier);
+  console.log("userMessage: "+userMessage);
+  console.log("Return_URL: " + return_url);
 
 }
