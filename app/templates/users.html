@@ -1,9 +1,39 @@
 {% extends "base.html" %}
 
 {% block content %}
+<div class="row">
+
+	<div class="col-md-4">
+	Streamer
+	</div>
+
+	<div class="col-md-4">
+		Channel
+	</div>
+
+	<div class="col-md-4">
+		Tip Page
+	</div>
+
+		<div class="col-md-12">
+			<hr>
+			
+		</div>
+</div>
 
 {% for user in users: %}
-	{{ user.nickname }} | <a href="{{url_for('twitch', username=nickname)}}">twitch.tv/{{ user.social_id }}</a> | <a href="{{url_for('tip', username=nickname)}}" class="custom-btn btn-12">Tip</a></br>
+<div class="row">
+	<div class="col-md-4">
+		{{ user.nickname }}	
+	</div>
+	<div class="col-md-4">
+		<a href="http://twitch.tv/{{ user.social_id }}">twitch.tv/{{ user.social_id }}</a>
+	</div>
+	<div class="col-md-4">
+		<a href="/tip/{{ user.social_id }}" class="custom-btn btn-12">Tip</a>
+	</div>
+</div>
+
 {% endfor %}
 
 {% endblock %}

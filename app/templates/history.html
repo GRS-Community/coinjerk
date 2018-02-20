@@ -2,14 +2,68 @@
 
 {% block content %}
 
+<!--
 {% for user in users: %}
 	{{ user.nickname }} | {{ user.user_id }} | {{ user.tx_id }} | {{ user.timestamp }} | {{ user.amount }} | {{ user.twit_user }} | {{ user.twi_message }}
 {% endfor %}
+-->
+<div class="row">
+	<div class="col-md-2">
+		Donator
+	</div>
+	<div class="col-md-2">
+		Steamer
+	</div>
+	<div class="col-md-2">
+		Tx ID
+	</div>
+	<div class="col-md-2">
+		Amount
+	</div>
+	<div class="col-md-offset-3">
+		Time
+	</div>
 
-</br>
+</div>
+<div class="row">
+	<div class="col-md-12">
 
-{% for user in tx: %}
-	{{ user.id }} | {{ user.user_id }} | {{ user.tx_id }} | {{ user.timestamp }} | {{ user.amount }} | {{ user.twi_user }} | {{ user.twi_message }}
+		<hr>
+	</div>
+</div>
+<div style="clear: both">
+</div>
+	{% for user in tx: %}
+<div class="row">
+
+		<div class="col-md-2">
+			{{ user.twi_user }}
+		</div>
+
+		<div class="col-md-2">
+			{{ user.id }}
+		</div>
+
+		<div class="col-md-2">
+			<a href="https://chainz.cryptoid.info/grs/tx.dws?{{ user.tx_id }}.htm">{{ user.tx_id | truncate(20) }}</a>
+		</div>
+
+		<div class="col-md-2">
+			{{ user.amount }}
+		</div>
+
+		<div class="col-md-offset-3">
+			{{ user.timestamp }}
+		</div>
+
+<!-- {{ user.twi_message }}<br/> -->
+</div>
+
 {% endfor %}
+
+
+
+
+
 
 {% endblock %}
