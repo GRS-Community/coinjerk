@@ -6,6 +6,7 @@
 {{super()}}
 	<link rel="stylesheet" href="{{url_for('.static', filename='css/styles.css')}}">
 	<link rel="stylesheet" href="{{url_for('.static', filename='css/hover.css')}}">
+	<link rel="stylesheet" href="{{url_for('.static', filename='css/animate.css')}}">
 	<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 	<script src="/static/js/jquery.min.js"></script>
 	<script src="/static/js/scripts.js"></script>
@@ -19,7 +20,7 @@
 <header>
 	{% include "nav.html" %}
 </header>
-<div class="container container-inv">
+<div class="container container-inv slideInDown animated">
 	{% block content %}
 	{% endblock %}
 </div>
