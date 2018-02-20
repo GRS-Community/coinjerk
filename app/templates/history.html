@@ -9,10 +9,13 @@
 -->
 <div class="row">
 	<div class="col-md-2">
+		#
+	</div>
+	<div class="col-md-2">
 		Donator
 	</div>
 	<div class="col-md-2">
-		Steamer
+		Streamer
 	</div>
 	<div class="col-md-2">
 		Tx ID
@@ -35,22 +38,30 @@
 </div>
 	{% for user in tx: %}
 <div class="row">
+	<div class="col-md-2">
+		{{ user.id }}
+	</div>
 
 		<div class="col-md-2">
 			{{ user.twi_user }}
 		</div>
 
 		<div class="col-md-2">
-			{{ user.id }}
+			<a href="https://www.twitch.tv/{{ user.user_id }}">{{ user.user_id }}</a>
 		</div>
 
 		<div class="col-md-2">
 			<a href="https://chainz.cryptoid.info/grs/tx.dws?{{ user.tx_id }}.htm">{{ user.tx_id | truncate(20) }}</a>
 		</div>
-
+		{% if user.tx_id == "Paypal" %}
 		<div class="col-md-2">
-			{{ user.amount }}
+			${{ user.amount }}
 		</div>
+		{% else %}
+		<div class="col-md-2">
+			{{ user.amount }} GRS
+		</div>
+		{% endif %}
 
 		<div class="col-md-offset-3">
 			{{ user.timestamp }}
