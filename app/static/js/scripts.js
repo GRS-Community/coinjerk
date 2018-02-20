@@ -14,6 +14,7 @@ function GetURL(username) {
 
 function createPayRequestPaypal() {
   // Converting the amount input into the correct format
+  postVars = "social_id="+socialId;
   var amount = document.getElementById("amountPaypalInput").value.replace(",",".");
   var n = parseFloat(amount).toFixed("2");
   $("#PaypalAmount").attr('value', n);
@@ -24,7 +25,7 @@ function createPayRequestPaypal() {
   var userMessage = $('#user_message').val();
   // Making Return_URL
   var link = "http://127.0.0.1:5000/confirmation/";
-  var return_url = link+userDisplay;
+  var return_url = link+userDisplay+"/to/"+socialId;
   $("#ReturnLink").attr('value', return_url);
 
   // Sending data to flask

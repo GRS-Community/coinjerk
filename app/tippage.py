@@ -356,8 +356,8 @@ def create_payment_request_paypal():
     db.session.commit()
 
 
-@app.route('/confirmation/<username>', methods=['POST', 'GET'])
-def confirmation(username):
+@app.route('/confirmation/<username>/to/<social_id>', methods=['POST', 'GET'])
+def confirmation(username,social_id):
     tip_call = PayReq.query.filter_by(user_display=username).first()
     if (tip_call.user_display == None):
         user_display = "AnonymousPaypaler"
@@ -366,7 +366,6 @@ def confirmation(username):
 
     user_identifier = tip_call.user_identifier
     user_message = tip_call.user_message
-    values = request.get_data()
     payer_email = request.form.get('payer_email')
     unix = int(time.time())
     payment_date = request.form.get('payment_date')
@@ -377,7 +376,7 @@ def confirmation(username):
     txn_id = request.form.get('txn_id')
 
 
-    user = User.query.filter_by(social_id=username).first()
+    user = User.query.filter_by(social_id=social_id).first()
 
     token_call = {
                     'grant_type'    : 'refresh_token',
@@ -422,10 +421,9 @@ def confirmation(username):
 
     return render_template(
             'confirmation.html',
-            values=values,
             payer_email=payer_email,
             payment_date=payment_date,
-            username=username,
+            twitch_link="https://www.twitch.tv/"+social_id,
             payment_gross=payment_gross,
             payment_fee=payment_fee,
             payment_status=payment_status,
