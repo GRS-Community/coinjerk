@@ -35,11 +35,16 @@ api_tips = streamlabs_api_url + "donations"
 api_custom = streamlabs_api_url + "alerts"
 callback_result = 0
 
-@app.route('/_delete_transaction_history')
-def delete_transaction_history():
-    Transaction.query.delete()
-    db.session.commit()
-    return redirect(url_for('history'))
+# @app.route('/_delete_transaction_history')
+# def delete_transaction_history():
+#     Transaction.query.delete()
+#     db.session.commit()
+#     return redirect(url_for('history'))
+# @app.route('/_delete_payreq_history')
+# def delete_payreq_history():
+#     PayReq.query.delete()
+#     db.session.commit()
+#     return redirect(url_for('history'))
 
 @app.route('/_verify_payment', methods=['POST'])
 def verify_payment():
@@ -190,7 +195,8 @@ def payment_notify(social_id, payrec, balance, txhash, grs_addr):
         user_id=social_id,
         tx_id=txhash,
         amount=grs_amount,
-        timestamp=payreq.timestamp
+        timestamp=payreq.timestamp,
+        payment_method="Paypal"
         )
     db.session.add(new_transaction)
     db.session.commit()
@@ -350,20 +356,30 @@ def create_payment_request_paypal():
     new_payment_request = PayReq(
             user_display=request.form['user_display'],
             user_identifier=request.form['user_identifier']+"_paypal",
-            user_message=request.form['user_message'],
-            timestamp=time.strftime('%Y-%m-%d %H:%M:%S')
+            user_message=request.form['user_message']
             )
+
+    print(request.form['user_identifier'])
+    print(request.form['user_display'])
+    print(request.form['user_message'])
     db.session.add(new_payment_request)
     db.session.commit()
 
 
 @app.route('/confirmation/<username>/to/<social_id>', methods=['POST', 'GET'])
 def confirmation(username,social_id):
+    print(username)
     payreq = PayReq.query.filter_by(user_display=username).first()
-    if (payreq.user_display == None):
+    # try:
+    if (payreq.user_display == "AnonymousGroestler"):
         user_display = "AnonymousPaypaler"
     else:
         user_display = payreq.user_display
+
+    # except:
+    #     return render_template(
+    #             'cancel.html'
+    #     )
 
     user_identifier = payreq.user_identifier
     user_message = payreq.user_message
@@ -403,7 +419,7 @@ def confirmation(username,social_id):
     #print("Tokens Committed to database, sending donation alert")
 
     tip_call = {
-            'name'       : payreq.user_display,
+            'name'       : user_display,
             'identifier' : payreq.user_identifier,
             'message'    : payreq.user_message,
             'amount'     : payment_gross,
@@ -424,7 +440,7 @@ def confirmation(username,social_id):
         twi_user=user_display,
         twi_message=user_message,
         user_id=social_id,
-        tx_id="Paypal",
+        tx_id=txn_id,
         amount=payment_gross,
         timestamp=payreq.timestamp
         )
@@ -452,5 +468,4 @@ TIP PAGE SETTINGS:
         - Donation
           - Converted (bitstamp API)
           - mBTC to USD (no API, but assumes BTC/USD conversion rate of 1/1000)
-
 '''

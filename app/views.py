@@ -270,3 +270,8 @@ def twitch(username):
         "https://www.twitch.tv/"+username
 
     )
+
+@app.route('/cancelled')
+def cancelled_return():
+    return render_template(
+            'cancel.html')
