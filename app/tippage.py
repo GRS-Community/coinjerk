@@ -351,19 +351,24 @@ def custom_notify(social_id, user_message, value, usd_two_places):
 
     return "Hello World"
 
-@app.route('/paypal', methods=['POST', 'GET'])
+@app.route('/_paypal', methods=['POST'])
 def create_payment_request_paypal():
+
+    print("you got here")
+
+    user_display = request.form['user_display']
+    user_identifier = request.form['user_identifier']
+    user_message = request.form['user_message']
+
     new_payment_request = PayReq(
-            user_display=request.form['user_display'],
-            user_identifier=request.form['user_identifier']+"_paypal",
-            user_message=request.form['user_message']
+            user_display=user_display,
+            user_identifier=user_identifier+"_paypal",
+            user_message=user_message
             )
 
-    print(request.form['user_identifier'])
-    print(request.form['user_display'])
-    print(request.form['user_message'])
     db.session.add(new_payment_request)
     db.session.commit()
+
 
 
 @app.route('/confirmation/<username>/to/<social_id>', methods=['POST', 'GET'])

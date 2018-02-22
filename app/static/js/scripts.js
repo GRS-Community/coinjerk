@@ -29,10 +29,34 @@ function createPayRequestPaypal() {
   $("#ReturnLink").attr('value', return_url);
 
   // Sending data to flask
-  var resp = $.post('/paypal', { user_display : userDisplay, user_identifier : userIdentifier, user_message : userMessage }, function(){
+  // var resp = $.POST('/paypal', { user_display: userDisplay, user_identifier: userIdentifier, user_message: userMessage });
 
-
-	});
+  var resp = $.ajax({
+              url: '/_paypal',
+              data: { user_display : userDisplay, user_identifier: userIdentifier, User_message: userMessage },
+              type: 'POST',
+              success: function(response) {
+                  console.log(response);
+              },
+              error: function(jqXHR, textStatus){ console.log( "Request failed: " + textStatus ); }
+          });
+  // var postData = {
+  //   user_display: userDisplay,
+  //   user_display: userIdentifier,
+  //   user_message: userMessage
+  // }
+  //
+  // var resp = $.ajax({
+  //     url: "/paypal",
+  //     type: "POST",
+  //     contentType: "application/json",
+  //     data: JSON.stringify(postData),
+  //     success: function (data) {
+  //       console.log("userDisplay passed: "+data.user_display);
+  //       console.log("userIdentifier passed: "+data.user_identifier);
+  //       console.log("userMessage passed: "+data.user_message);
+  //     },
+  //   });
 
   //Printing stuff into console
   console.log("userDisplay: "+userDisplay);
