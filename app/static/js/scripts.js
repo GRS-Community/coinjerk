@@ -25,41 +25,24 @@ function createPayRequestPaypal() {
   var userDisplay = $("#user_display").val();
   var userIdentifier = $('#user_identifier').val();
   var userMessage = $('#user_message').val();
+
+  if(userDisplay == ''){
+         var userDisplay = "AnonymousPaypaler"
+    }    
   // Making Return_URL
   var link = "http://127.0.0.1:5000/confirmation/";
   var return_url = link+userDisplay+"/to/"+socialId;
   $("#ReturnLink").attr('value', return_url);
-
-  // Sending data to flask
-  // var resp = $.POST('paypal', { user_display: userDisplay, user_identifier: userIdentifier, user_message: userMessage });
-
-  // $.ajax({
-  //             url: '/paypal',
-  //             data: { user_display: userDisplay, user_identifier: userIdentifier, User_message: userMessage },
-  //             type: 'POST',
-  //             success: function(response) {
-  //                 console.log(response);
-  //             },
-  //             error: function(jqXHR, textStatus){ console.log( "Request failed: " + textStatus ) }
-  //         });
-  // var postData = {
-  //   user_display: userDisplay,
-  //   user_display: userIdentifier,
-  //   user_message: userMessage
-  // }
-  //
-  // var resp = $.ajax({
-  //     url: "/paypal",
-  //     type: "POST",
-  //     contentType: "application/json",
-  //     data: JSON.stringify(postData),
-  //     success: function (data) {
-  //       console.log("userDisplay passed: "+data.user_display);
-  //       console.log("userIdentifier passed: "+data.user_identifier);
-  //       console.log("userMessage passed: "+data.user_message);
-  //     },
-  //   });
-
+  $.ajax({
+              url: '/paypal',
+              data: { 'user_display': $('#user_display').val(), 'user_identifier': $('#user_identifier').val(), 'user_message': $('#user_message').val() },
+              type: 'POST',
+              async: false,
+              success: function(response) {
+                  console.log(response.data);
+              },
+              error: function(jqXHR, textStatus){ console.log( "Request failed: " + textStatus ) }
+          });
   //Printing stuff into console
   console.log("userDisplay: "+userDisplay);
   console.log("userIdentifier: "+userIdentifier);

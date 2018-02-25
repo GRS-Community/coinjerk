@@ -354,7 +354,6 @@ def custom_notify(social_id, user_message, value, usd_two_places):
 @app.route('/paypal', methods=['POST'])
 def create_payment_request_paypal():
 
-    print("you got here")
 
     user_display = request.form['user_display']
     user_identifier = request.form['user_identifier']
