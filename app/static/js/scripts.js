@@ -1,3 +1,5 @@
+
+
 function GetURL(username) {
   $.ajax({
  type: 'GET',
@@ -12,6 +14,7 @@ function GetURL(username) {
 });
 }
 
+
 function createPayRequestPaypal() {
   // Converting the amount input into the correct format
   postVars = "social_id="+socialId;
@@ -19,7 +22,6 @@ function createPayRequestPaypal() {
   var n = parseFloat(amount).toFixed("2");
   $("#PaypalAmount").attr('value', n);
   // Getting form data
-
   var userDisplay = $("#user_display").val();
   var userIdentifier = $('#user_identifier').val();
   var userMessage = $('#user_message').val();
@@ -29,17 +31,17 @@ function createPayRequestPaypal() {
   $("#ReturnLink").attr('value', return_url);
 
   // Sending data to flask
-  // var resp = $.POST('/paypal', { user_display: userDisplay, user_identifier: userIdentifier, user_message: userMessage });
+  // var resp = $.POST('paypal', { user_display: userDisplay, user_identifier: userIdentifier, user_message: userMessage });
 
-  var resp = $.ajax({
-              url: '/_paypal',
-              data: { user_display : userDisplay, user_identifier: userIdentifier, User_message: userMessage },
-              type: 'POST',
-              success: function(response) {
-                  console.log(response);
-              },
-              error: function(jqXHR, textStatus){ console.log( "Request failed: " + textStatus ); }
-          });
+  // $.ajax({
+  //             url: '/paypal',
+  //             data: { user_display: userDisplay, user_identifier: userIdentifier, User_message: userMessage },
+  //             type: 'POST',
+  //             success: function(response) {
+  //                 console.log(response);
+  //             },
+  //             error: function(jqXHR, textStatus){ console.log( "Request failed: " + textStatus ) }
+  //         });
   // var postData = {
   //   user_display: userDisplay,
   //   user_display: userIdentifier,

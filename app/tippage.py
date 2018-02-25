@@ -351,7 +351,7 @@ def custom_notify(social_id, user_message, value, usd_two_places):
 
     return "Hello World"
 
-@app.route('/_paypal', methods=['POST'])
+@app.route('/paypal', methods=['POST'])
 def create_payment_request_paypal():
 
     print("you got here")
@@ -361,6 +361,7 @@ def create_payment_request_paypal():
     user_message = request.form['user_message']
 
     new_payment_request = PayReq(
+            address="Streamer's paypal email",
             user_display=user_display,
             user_identifier=user_identifier+"_paypal",
             user_message=user_message
@@ -368,6 +369,8 @@ def create_payment_request_paypal():
 
     db.session.add(new_payment_request)
     db.session.commit()
+
+    return jsonify({'data' : 'Payment Request made for: '+user_display})
 
 
 

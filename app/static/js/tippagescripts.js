@@ -19,11 +19,20 @@ $(document).ready(function() {
                 socialId
         );
     });
-    $('#submit').click(function (event) {
+    $('#paypal_submit').click(function (event) {
         // Stop redirections
         event.preventDefault();
         // Call our create pay request function
-        $("#email").attr('value', '#user_identifier');
+        $.ajax({
+                    url: '/paypal',
+                    data: { 'user_display': $('#user_display').val(), 'user_identifier': $('#user_identifier').val(), 'user_message': $('#user_message').val() },
+                    type: 'POST',
+                    success: function(response) {
+                        console.log(response.data);
+                        createPayRequestPaypal()
+                    },
+                    error: function(jqXHR, textStatus){ console.log( "Request failed: " + textStatus ) }
+                });
     });
 });
 
