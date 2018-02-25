@@ -237,7 +237,11 @@ def tip(username):
                 email = u.paypal_email
                 )
     else:
-        return abort(404)
+        return render_template(
+
+            '404.html',
+            username=username
+            )
 
 def get_unused_address(social_id, deriv):
     '''
@@ -353,9 +357,14 @@ def custom_notify(social_id, user_message, value, usd_two_places):
 
 @app.route('/paypal', methods=['POST'])
 def create_payment_request_paypal():
+    print("create_payment_request_paypal():")
 
+    if (request.form['user_display'] == ""):
+        user_display = "AnonymousPaypaler"
 
-    user_display = request.form['user_display']
+    else:
+        user_display = request.form['user_display']
+
     user_identifier = request.form['user_identifier']
     user_message = request.form['user_message']
 

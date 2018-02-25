@@ -187,12 +187,11 @@ def login():
 
         valid_user = User.query.filter_by(social_id=session['social_id'])\
                 .first()
-
         if valid_user:
             valid_user.streamlabs_atoken = a_token
             valid_user.streamlabs_rtoken = r_token
             db.session.commit()
-            print("you got here")
+            print("YOU GOT HERE!!!!!!!!!!!!!!!!!!")
             return redirect(url_for('profile'))
         else:
             return redirect(url_for('newuser'))

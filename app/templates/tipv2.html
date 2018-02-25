@@ -47,6 +47,7 @@
               <p>The address to send your groestlcoin will appear <strong>here</strong> once you press the <span class="highlight">Show Groestlcoin Address</span> button.</p>
               <p>Please make sure that you've filled in the forms <strong>before</strong> hitting the button.</p>
               <p>OR</p>
+              {% if email %}
               <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" id="paypal_form" method="post" onsubmit="createPayRequestPaypal()">
                 <div class="form-group">
                   <script>
@@ -71,6 +72,10 @@
                   <img alt="" width="1" height="1" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" >
                 </div>
               </form>
+          		{% else %}
+              <p>If you want to donate with paypal you need to add your paypal email in <a href="/profile">user settings</a></p>
+          		{% endif %}
+
             </div>
             <div id="randomInt"></div>
             <div id="addressQR" class="py-3 centered"></div>
