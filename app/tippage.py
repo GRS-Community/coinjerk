@@ -188,7 +188,7 @@ def payment_notify(social_id, payrec, balance, txhash, grs_addr):
             'message'    : payrec.user_message+donation,
             'image_href' : 'https://cdn.discordapp.com/attachments/416659759178055688/417663443814973450/GRSLOGOSPININANDOUT.gif',
             'sound_href' : 'http://uploads.twitchalerts.com/000/003/774/415/m_health.wav',
-            'duration'   : 3,
+            'duration'   : 3000,
             'special_text_color' : '#42ff42',
             'access_token' : tip_response['access_token']
     }
@@ -371,7 +371,6 @@ def custom_notify(social_id, user_message, value, usd_two_places):
 
 @app.route('/paypal', methods=['POST'])
 def create_payment_request_paypal():
-    print("create_payment_request_paypal():")
 
     if (request.form['user_display'] == ""):
         user_display = "AnonymousPaypaler"
@@ -476,6 +475,7 @@ def confirmation(username,social_id):
         )
     db.session.add(new_transaction)
     db.session.commit()
+    tx = Transaction.query.filter_by(twi_user=user_display).first()
 
 
     return render_template(
@@ -489,7 +489,8 @@ def confirmation(username,social_id):
             txn_id=txn_id,
             user_display=user_display,
             user_identifier=user_identifier,
-            user_message=user_message
+            user_message=user_message,
+            history_id=tx.id
 
             )
 '''
