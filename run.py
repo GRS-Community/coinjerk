@@ -3,4 +3,4 @@ from app import app
 
 #shut up about the secret key
 app.secret_key = "askldjfhaskldjfhlaksjhdfklajshdfkljasghdfjklhvgaskjdfygkasjdfhg"
-app.run()
+app.run(host='0.0.0.0')
