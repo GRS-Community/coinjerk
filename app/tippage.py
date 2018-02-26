@@ -205,8 +205,7 @@ def payment_notify(social_id, payrec, balance, txhash, grs_addr):
         user_id=social_id,
         tx_id=txhash,
         amount=grs_amount,
-        timestamp=payreq.timestamp,
-        payment_method="Paypal"
+        timestamp=payreq.timestamp
         )
     db.session.add(new_transaction)
     db.session.commit()

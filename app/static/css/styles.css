@@ -167,13 +167,17 @@ button {
   top: 2px;
 }
 
-div.centered 
+div.centered
 {
     text-align: center;
 }
 
-div.centered table 
+div.centered table
 {
-    margin: 0 auto; 
+    margin: 0 auto;
     text-align: left;
+}
+#progressTimer {
+    width:560px;
+    height:5px;
 }

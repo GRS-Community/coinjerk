@@ -42,9 +42,10 @@ function createPayRequest(userDisplay, userIdentifier, userMessage, socialId){
     //$('#myModal').modal('show');
     // Create a new request to our server
     console.log("Social ID: " + socialId);
+    console.log("User Name: " + userDisplay);
     console.log("User ID: " + userIdentifier);
     console.log("User Msg: " + userMessage);
-    console.log("User Name: " + userDisplay);
+
     var resp = $.post('/_create_payreq',
             // This will be formatted as a 'body' string in the post request
             {
