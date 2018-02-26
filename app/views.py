@@ -191,7 +191,6 @@ def login():
             valid_user.streamlabs_atoken = a_token
             valid_user.streamlabs_rtoken = r_token
             db.session.commit()
-            print("YOU GOT HERE!!!!!!!!!!!!!!!!!!")
             return redirect(url_for('profile'))
         else:
             return redirect(url_for('newuser'))
@@ -207,6 +206,7 @@ def login():
 def logout():
     # remove the username from the session if it's there
     session.pop('nickname', None)
+    session.pop('social_id', None)
     return redirect(url_for('index'))
 
 @app.route('/newuser', methods=['GET', 'POST'])
