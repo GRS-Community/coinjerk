@@ -42,10 +42,9 @@ function createPayRequest(userDisplay, userIdentifier, userMessage, socialId){
     //$('#myModal').modal('show');
     // Create a new request to our server
     console.log("Social ID: " + socialId);
-    console.log("User Name: " + userDisplay);
     console.log("User ID: " + userIdentifier);
     console.log("User Msg: " + userMessage);
-
+    console.log("User Name: " + userDisplay);
     var resp = $.post('/_create_payreq',
             // This will be formatted as a 'body' string in the post request
             {
@@ -58,7 +57,7 @@ function createPayRequest(userDisplay, userIdentifier, userMessage, socialId){
             {
                 console.log(response.btc_addr);
                 $('#formBox').html(
-                        "<hr><p font-size=\"1\"><strong>Please note that the payment will only be tracked while this page is open, and you have a five minute time limit. If either the page gets closed, or five minutes elapses after you see the Groestlcoin address, please refresh the page to make a new payment request.</strong></p>"
+                        "<hr><div><center><font size=\"5\">Please Wait</font></center></div><div class=\"spinner\"><div class=\"bounce1\"></div><div class=\"bounce2\"></div><div class=\"bounce3\"></div></div></br><p font-size=\"1\"><strong>Please note that the payment will only be tracked while this page is open, and you have a five minute time limit. If either the page gets closed, or five minutes elapses after you see the Groestlcoin address, please refresh the page to make a new payment request.</strong></p>"
                       )
 
                 $('#addressText').html(
