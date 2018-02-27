@@ -183,10 +183,10 @@ def payment_notify(social_id, payrec, balance, txhash, grs_addr):
             data=tip_call,
             headers=headers
         ).json()
-    donation = " | " + payrec.user_display +" donated " + str(grs_amount) + " GRS($" + str(usd_two_places) + ")"
+    donation = payrec.user_display +" donated " + str(grs_amount) + " GRS ($" + str(usd_two_places) + ")\n"
     tip_call = {
             'type'       : 'donation',
-            'message'    : payrec.user_message+donation,
+            'message'    : donation+payrec.user_message,
             'image_href' : 'https://cdn.discordapp.com/attachments/416659759178055688/417663443814973450/GRSLOGOSPININANDOUT.gif',
             'sound_href' : 'http://uploads.twitchalerts.com/000/003/774/415/m_health.wav',
             'duration'   : 3000,
