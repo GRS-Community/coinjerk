@@ -183,7 +183,7 @@ def payment_notify(social_id, payrec, balance, txhash, grs_addr):
             data=tip_call,
             headers=headers
         ).json()
-    donation = " | " + social_id +" donated " + str(grs_amount) + " GRS($" + str(usd_two_places) + ")"
+    donation = " | " + payrec.user_display +" donated " + str(grs_amount) + " GRS($" + str(usd_two_places) + ")"
     tip_call = {
             'type'       : 'donation',
             'message'    : payrec.user_message+donation,
