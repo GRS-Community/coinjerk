@@ -168,20 +168,21 @@ def payment_notify(social_id, payrec, balance, txhash, grs_addr):
     user.streamlabs_atoken = tip_response['access_token']
     db.session.commit()
 
-    # grs_amount_display = " ("+ str(grs_amount) +" GRS Donated)"
-    # tip_call = {
-    #         'name'       : payrec.user_display,
-    #         'identifier' : payrec.user_identifier,
-    #         'message'    : payrec.user_message+grs_amount_display,
-    #         'amount'     : usd_two_places,
-    #         'currency'   : 'USD',
-    #         'access_token' : tip_response['access_token']
-    # }
-    # tip_check = requests.post(
-    #         api_tips,
-    #         data=tip_call,
-    #         headers=headers
-    #     ).json()
+    grs_amount_display = " ("+ str(grs_amount) +" GRS Donated)"
+    tip_call = {
+            'name'       : payrec.user_display,
+            'identifier' : payrec.user_identifier,
+            'message'    : payrec.user_message+grs_amount_display,
+            'amount'     : usd_two_places,
+            'currency'   : 'USD',
+            'access_token' : tip_response['access_token'],
+            'skip_alert' : 'yes'
+    }
+    tip_check = requests.post(
+            api_tips,
+            data=tip_call,
+            headers=headers
+        ).json()
     donation = " | " + social_id +" donated " + str(grs_amount) + " GRS($" + str(usd_two_places) + ")"
     tip_call = {
             'type'       : 'donation',
