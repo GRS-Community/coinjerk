@@ -27,8 +27,8 @@ function createPayRequestPaypal() {
   var userMessage = $('#user_message').val();
 
   if(userDisplay == ''){
-         var userDisplay = "AnonymousPaypaler"
-    }    
+         var userDisplay = "AnonymousDonator"
+    }
   // Making Return_URL
   var link = "http://127.0.0.1:5000/confirmation/";
   var return_url = link+userDisplay+"/to/"+socialId;

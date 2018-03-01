@@ -9,6 +9,7 @@ $(document).ready(function() {
         createPayRequest();
     });
     $('#showModalButton').click(function (event) {
+        $(this).prop('disabled',true);
         // Stop redirections
         event.preventDefault();
         // Call our create pay request function
@@ -120,7 +121,7 @@ function verifyPayment(btc_addr){
                         // Clear our timeout
                         clearTimeout(isPaid);
                         $('#addressLocation').html(
-                                "<strong>Payment Verified! <span class=\"highlight\">" + response.user_display + "</span> thanks you very much for the tip! Check the transaction with tx_hash: <a href=\"https://chainz.cryptoid.info/grs/tx.dws?" + response.transaction_found + ".htm\">" + response.transaction_found + "</a>  </strong>" +
+                                "<strong>Payment Verified! <span class=\"highlight\">" + response.user_display + "</span> thanks you very much for the tip! Check the transaction with tx_hash: <a href=\"https://chainz.cryptoid.info/grs/tx.dws?" + response.transaction_found + ".htm\">" + response.transaction_found + "</a>, your donation has also been recorded in <a href=\"history\" >history</a></strong>" +
                                 "<p>GroestlTip is a service provided for free and without ads, if you would like to help support " +
                                 "the developer in general or help cover operating costs for Gronate, please consider also sending some support to the developers or project: </p>" +
                                 "<p><a href=\"https://gronate.com/tip/GroestlTip\" class=\"button1\" role=\"button\">Support the Project</a></p><br>" +

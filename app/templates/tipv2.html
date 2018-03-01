@@ -48,7 +48,7 @@
               <p>Please make sure that you've filled in the forms <strong>before</strong> hitting the button.</p>
               <p>OR</p>
               {% if email %}
-              <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" id="paypal_form" method="post" onsubmit="createPayRequestPaypal()">
+              <form action="https://www.paypal.com/cgi-bin/webscr" id="paypal_form" method="post" onsubmit="createPayRequestPaypal()">
                 <div class="form-group">
                   <script>
                     var user = $("#user_display").val();

@@ -139,7 +139,7 @@ def users():
 def history():
     return render_template(
             'history.html',
-            tx = Transaction.query.order_by(Transaction.id.desc()).all(),
+            tx = Transaction.query.order_by(Transaction.timestamp.desc()).all(),
             users = User.query.all()
     )
 

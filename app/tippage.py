@@ -169,10 +169,17 @@ def payment_notify(social_id, payrec, balance, txhash, grs_addr):
     db.session.commit()
 
     grs_amount_display = " ("+ str(grs_amount) +" GRS Donated)"
+
+    if payrec.user_message:
+        msg=payrec.user_message
+
+    else:
+        msg=''
+
     tip_call = {
             'name'       : payrec.user_display,
             'identifier' : payrec.user_identifier,
-            'message'    : payrec.user_message+grs_amount_display,
+            'message'    : msg+grs_amount_display,
             'amount'     : usd_two_places,
             'currency'   : 'USD',
             'access_token' : tip_response['access_token'],
@@ -186,7 +193,7 @@ def payment_notify(social_id, payrec, balance, txhash, grs_addr):
     donation = payrec.user_display +" donated " + str(grs_amount) + " GRS ($" + str(usd_two_places) + ")\n"
     tip_call = {
             'type'       : 'donation',
-            'message'    : donation+payrec.user_message,
+            'message'    : donation+msg,
             'image_href' : 'https://cdn.discordapp.com/attachments/416659759178055688/417663443814973450/GRSLOGOSPININANDOUT.gif',
             'sound_href' : 'http://uploads.twitchalerts.com/000/003/774/415/m_health.wav',
             'duration'   : 3000,
@@ -374,7 +381,7 @@ def custom_notify(social_id, user_message, value, usd_two_places):
 def create_payment_request_paypal():
 
     if (request.form['user_display'] == ""):
-        user_display = "AnonymousPaypaler"
+        user_display = "AnonymousDonator"
 
     else:
         user_display = request.form['user_display']
@@ -402,7 +409,7 @@ def confirmation(username,social_id):
     payreq = PayReq.query.filter_by(user_display=username).first()
     # try:
     if (payreq.user_display == "AnonymousGroestler"):
-        user_display = "AnonymousPaypaler"
+        user_display = "AnonymousDonator"
     else:
         user_display = payreq.user_display
 
@@ -414,6 +421,8 @@ def confirmation(username,social_id):
     user_identifier = payreq.user_identifier
     user_message = payreq.user_message
 
+
+
     #Paypal post
     payer_email = request.form.get('payer_email')
     unix = int(time.time())
@@ -423,6 +432,14 @@ def confirmation(username,social_id):
     payment_fee = request.form.get('payment_fee')
     payment_status = request.form.get('payment_status')
     txn_id = request.form.get('txn_id')
+
+    # if txn_id:
+    #     print('got txn id from paypal user')
+    # else:
+    #     txn_id =
+
+
+
 
 
     user = User.query.filter_by(social_id=social_id).first()
@@ -472,11 +489,10 @@ def confirmation(username,social_id):
         user_id=social_id,
         tx_id=txn_id,
         amount=payment_gross,
-        timestamp=payreq.timestamp
+        timestamp=datetime.utcnow()
         )
     db.session.add(new_transaction)
     db.session.commit()
-    tx = Transaction.query.filter_by(twi_user=user_display).first()
 
 
     return render_template(
@@ -490,8 +506,7 @@ def confirmation(username,social_id):
             txn_id=txn_id,
             user_display=user_display,
             user_identifier=user_identifier,
-            user_message=user_message,
-            history_id=tx.id
+            user_message=user_message
 
             )
 '''
