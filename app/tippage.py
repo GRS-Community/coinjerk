@@ -388,12 +388,14 @@ def create_payment_request_paypal():
 
     user_identifier = request.form['user_identifier']
     user_message = request.form['user_message']
+    amount = request.form['amount']
 
     new_payment_request = PayReq(
             address="Streamer's paypal email",
             user_display=user_display,
             user_identifier=user_identifier+"_paypal",
-            user_message=user_message
+            user_message=user_message,
+            amount=amount
             )
 
     db.session.add(new_payment_request)
@@ -405,7 +407,6 @@ def create_payment_request_paypal():
 
 @app.route('/confirmation/<username>/to/<social_id>', methods=['POST', 'GET'])
 def confirmation(username,social_id):
-    print(username)
     payreq = PayReq.query.filter_by(user_display=username).first()
     # try:
     if (payreq.user_display == "AnonymousGroestler"):
@@ -428,7 +429,7 @@ def confirmation(username,social_id):
     unix = int(time.time())
     payment_date = request.form.get('payment_date')
     username = request.form.get('custom')
-    payment_gross = request.form.get('payment_gross')
+    payment_gross = payreq.amount
     payment_fee = request.form.get('payment_fee')
     payment_status = request.form.get('payment_status')
     txn_id = request.form.get('txn_id')
@@ -487,7 +488,7 @@ def confirmation(username,social_id):
         twi_user=user_display,
         twi_message=user_message,
         user_id=social_id,
-        tx_id=txn_id,
+        # tx_id=txn_id,
         amount=payment_gross,
         timestamp=datetime.utcnow()
         )
@@ -503,7 +504,7 @@ def confirmation(username,social_id):
             payment_gross=payment_gross,
             payment_fee=payment_fee,
             payment_status=payment_status,
-            txn_id=txn_id,
+            # txn_id=txn_id,
             user_display=user_display,
             user_identifier=user_identifier,
             user_message=user_message

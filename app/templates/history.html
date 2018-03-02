@@ -49,7 +49,7 @@
 		<div class="col-md-2">
 			<a href="https://www.twitch.tv/{{ user.user_id }}">{{ user.user_id }}</a>
 		</div>
-		{% if user.tx_id|length > 17 %}
+		{% if user.tx_id %}
 		<div class="col-md-2">
 			<a href="https://chainz.cryptoid.info/grs/tx.dws?{{ user.tx_id }}.htm">{{ user.tx_id | truncate(20) }}</a>
 		</div>
@@ -58,7 +58,7 @@
 			Paypal
 		</div>
 		{% endif %}
-		{% if user.tx_id|length > 17 %}
+		{% if user.tx_id %}
 		<div class="col-md-2">
 			{{ user.amount }} GRS
 		</div>

@@ -35,7 +35,7 @@ function createPayRequestPaypal() {
   $("#ReturnLink").attr('value', return_url);
   $.ajax({
               url: '/paypal',
-              data: { 'user_display': $('#user_display').val(), 'user_identifier': $('#user_identifier').val(), 'user_message': $('#user_message').val() },
+              data: { 'user_display': $('#user_display').val(), 'user_identifier': $('#user_identifier').val(), 'user_message': $('#user_message').val(), 'amount': $("#PaypalAmount").val() },
               type: 'POST',
               async: false,
               success: function(response) {

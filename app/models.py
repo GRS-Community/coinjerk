@@ -67,7 +67,7 @@ class User(db.Model):
 class Transaction(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    tx_id = db.Column(db.String(64), nullable=False, unique=True)
+    tx_id = db.Column(db.String(64), unique=True)
     timestamp = db.Column(db.DateTime)
 
     # Amount in BTC
@@ -102,9 +102,11 @@ class PayReq(db.Model):
     user_identifier = db.Column(db.String())
     user_message = db.Column(db.String(255))
 
+    amount = db.Column(db.String)
+
 
     def __init__(self, address, user_display=None, user_identifier=None,
-            user_message=None):
+            user_message=None, amount=None):
         self.addr = address
         self.timestamp = datetime.utcnow()
         self.user_display = 'AnonymousGroestler'
@@ -115,6 +117,8 @@ class PayReq(db.Model):
             self.user_identifier = user_identifier
         if user_message:
             self.user_message = user_message
+        if amount:
+            self.amount = amount
 
     def __repr__(self):
         return '<PayReq %r>' %(self.addr)
