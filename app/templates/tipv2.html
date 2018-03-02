@@ -62,7 +62,7 @@
                   <input id=PaypalAmount type="hidden" name="amount" value="1">
                   <input type="hidden" name="custom" value="{{ social_id }}">
                   <input id=ReturnLink type="hidden" name="return" value="">
-                  <input type="hidden" name="cancel_return" value="http://127.0.0.1:5000/cancelled">
+                  <input type="hidden" name="cancel_return" value="http://groestltip.groestlcoin.org/cancelled">
                   <input type="hidden" name="business" value="{{ email }}">
                   <input type="hidden" name="cmd" value="_donations">
                   <input type="hidden" name="item_name" value="Donate to www.twitch.tv/{{ social_id }} via Paypal">
@@ -76,7 +76,7 @@
                 </div>
               </form>
           		{% else %}
-              <p>If you want to donate with paypal this user need to add his paypal email in <a href="/profile">user settings</a></p>
+              <p>If you want to donate with paypal this user need to add his paypal email in <a href="/profile"><span class="highlight">user settings</span></a></p>
           		{% endif %}
 
             </div>
