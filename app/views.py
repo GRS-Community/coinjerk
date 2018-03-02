@@ -41,7 +41,10 @@ def index():
     if 'nickname' in session:
         if 'social_id' in session:
             nickname=session['nickname']
-            return redirect(url_for('user', username=nickname))
+            try:
+                return redirect(url_for('user', username=nickname))
+            except:
+                return redirect(url_for('logout'))
 
 
 
