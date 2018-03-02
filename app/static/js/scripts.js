@@ -30,7 +30,7 @@ function createPayRequestPaypal() {
          var userDisplay = "AnonymousDonator"
     }
   // Making Return_URL
-  var link = "http://127.0.0.1:5000/confirmation/";
+  var link = "http://groestltip.groestlcoin.org/confirmation/";
   var return_url = link+userDisplay+"/to/"+socialId;
   $("#ReturnLink").attr('value', return_url);
   $.ajax({

@@ -54,7 +54,10 @@
                     var user = $("#user_display").val();
                   </script>
                   <p>Enter amount you want to donate with Paypal</p>
-                  <input id="amountPaypalInput" placeholder="Amount" class="form-control" required>
+                  <div class="input-group">
+                      <span class="input-group-addon"><i class="fas fa-dollar-sign"></i></span>
+                      <input id="amountPaypalInput" placeholder="Amount" class="form-control" required>
+                  </div>
                   <input id="PaypalTwitchImgURL" type="hidden" name="image_url" value="http://www-cdn.jtvnw.net/images/xarth/404_user_50x50.png">
                   <input id=PaypalAmount type="hidden" name="amount" value="1">
                   <input type="hidden" name="custom" value="{{ social_id }}">
@@ -73,7 +76,7 @@
                 </div>
               </form>
           		{% else %}
-              <p>If you want to donate with paypal you need to add your paypal email in <a href="/profile">user settings</a></p>
+              <p>If you want to donate with paypal this user need to add his paypal email in <a href="/profile">user settings</a></p>
           		{% endif %}
 
             </div>
