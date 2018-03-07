@@ -219,8 +219,15 @@ div.centered table
 }
 
 /* timer */
+/*       */
 
 .prof-wrap {
+  -webkit-box-shadow: 0px 0px 15px -1px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 15px -1px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 15px -1px rgba(0,0,0,0.75);
+  border-radius: 6px;
+  /* border: 2px solid #222; */
+  overflow: hidden;
 }
 
 .prof-title {

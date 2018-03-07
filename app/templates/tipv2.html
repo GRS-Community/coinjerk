@@ -12,17 +12,19 @@
   <script>GetURL({{ social_id|tojson }});</script>
 
     <div class="row prof-wrap">
-        <div class="row prof-title">
+        <div class="col-md-12 prof-title">
          <a id="Nickname">{{ nickname }}</a>
         </div>
-        <div class="row prof-header">
-          <img src="https://static-cdn.jtvnw.net/jtv_user_pictures/dreadedzombie-profile_banner-002c4f44b466d163-480.png" class="img-responsive"/>
+        <div class="col-md-12 prof-header">
+          <div class="row">
+            <img src="https://static-cdn.jtvnw.net/jtv_user_pictures/dreadedzombie-profile_banner-002c4f44b466d163-480.png" class="img-responsive"/>
+          </div>
         </div>
-        <div class="row prof-body">
+        <div class="col-md-12 prof-body">
             <div class="col-md-3">
               <img src="http://www-cdn.jtvnw.net/images/xarth/404_user_50x50.png" alt="" id="ProfilePicture" class="img-responsive"/>
               <div>
-                <a href="{{url_for('twitch', username=nickname)}}">http://twitch.tv/{{ social_id }}</a>
+                <center><a href="{{url_for('twitch', username=nickname)}}">http://twitch.tv/{{ social_id }}</a></center>
               </div>
             </div>
             <div class="col-md-5">
