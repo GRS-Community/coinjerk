@@ -43,7 +43,8 @@ a:active, a:visited {
 
 #ProfilePicture {
   margin-bottom: 10px;
-  border-radius: 25px;
+  border-radius: 100%;
+  border: 5px solid steelblue;
 }
 
 .container-inv {
