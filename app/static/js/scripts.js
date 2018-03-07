@@ -9,7 +9,7 @@ function GetURL(username) {
  },
  success: function(data) {
    $("#ProfilePicture").attr('src', data.logo);
-   $("#PaypalTwitchImgURL").attr('value', data.logo);
+   $("#ProfileBanner").attr('src', data.profile_banner);
  }
 });
 }
