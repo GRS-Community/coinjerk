@@ -54,7 +54,7 @@ a:active, a:visited {
 
 .cards {
   border-radius: 5px;
-  background-color:rgba(255,255,255,0.05);
+  background-color:rgba(0,0,0,0.6);
   margin: 5px;
   padding: 5px;
   color: #fff;
@@ -78,7 +78,8 @@ a:active, a:visited {
 }
 
 .steps-wrapper {
-  background: black;
+  /* background: black; */
+
   overflow: hidden;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
