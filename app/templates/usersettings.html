@@ -4,65 +4,66 @@
 <script src="/static/js/scripts.js"></script>
 <script src="/static/js/jquery.min.js"></script>
 <script>GetURL({{ social_id|tojson }});</script>
-
-<div class="col-md-6">
-    <h1 class="title">Preview</h1>
-    <hr>
-    <div class="col-md-5">
+    <div class="row">
+        <div class="prof-wrap">
+            <div class="row prof-title">
+                <a href="">{{ nickname }}</a>
+            </div>
+            <div class="row prof-body">
+                <div class="col-md-4">
         <img src="http://www-cdn.jtvnw.net/images/xarth/404_user_500x500.png" alt="" id="ProfilePicture" class="img-responsive"/>
-    </div>
-    <div class="col-md-7">
-        <div class="">
-            <h1 id="Nickname">{{ nickname }}</h1>
-            <a href="{{url_for('twitch', username=nickname)}}">twitch.tv/{{ social_id }}</a>
-            <hr>
-            <p>{{ display_text }}</p>
-        </div>
-    </div>
-</div>
-<div class="col-md-6">
-    <div class="content" align="center">
-        <h1 class="title">User Settings</h1>
-        <hr>
-        <div class="main-login main-center main-pad">
-            <form class="form-horizontal" method="post" name="ProfileForm" action="#">
-                <div class="form-group">
-                    <label for="email" class="control-label">Wallet Master Public Key</label>
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-code"></i></span>
-                        <input type="text" class="form-control" name="xpub_field" id="email"  placeholder="{{ xpub }}"> </input>
-                    </div>
-                </div>
+            <a href="{{url_for('twitch', username=nickname)}}">http://twitch.tv/{{ social_id }}</a>
 
-                <div class="form-group">
-                    <label for="email" class="control-label">Your Paypal Email</label>
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="fas fa-envelope"></i></span>
-                        <input type="text" class="form-control" name="paypal_email_field" id="email"  placeholder="{{ email }}"> </input>
-                    </div>
-                </div>
-                    
-                </div>
 
-                <div class="form-group">
-                    <label for="password" class="cols-sm-2 control-label">Text to display on your profile</label>
-                    <div class="">
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="fas fa-comment"></i></span>
-                            <textarea class="form-control" rows="3" name="user_display_text_field" id="password" placeholder="{{ display_text }}"></textarea>
+                </div>
+                <div class="col-md-8">
+                    <div class="content" align="center">
+                        <h1 class="title">User Settings</h1>
+                        <hr>
+                        <div class="main-login main-center main-pad">
+                            <form class="form-horizontal" method="post" name="ProfileForm" action="#">
+                                <div class="form-group">
+                                    <label for="email" class="control-label">Wallet Master Public Key</label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-code"></i></span>
+                                        <input type="text" class="form-control" name="xpub_field" id="email"  placeholder="{{ xpub }}"> </input>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="email" class="control-label">Your Paypal Email</label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fas fa-envelope"></i></span>
+                                        <input type="text" class="form-control" name="paypal_email_field" id="email"  placeholder="{{ email }}"> </input>
+                                    </div>
+                                </div>
+                                    
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="password" class="cols-sm-2 control-label">Text to display on your profile</label>
+                                    <div class="">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fas fa-comment"></i></span>
+                                            <textarea class="form-control" rows="3" name="user_display_text_field" id="password" placeholder="{{ display_text }}"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Update</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
 
-
-
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Update</button>
-                </div>
-            </form>
-        </div>
+            </div>
+        </div>    
     </div>
-</div>
+
 
 
       

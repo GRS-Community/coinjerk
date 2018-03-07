@@ -43,15 +43,11 @@ a:active, a:visited {
 #ProfilePicture {
   margin-bottom: 10px;
   border-radius: 25px;
-  height: 300px;
-  width: 300px;
 }
 
 .container-inv {
-  background-color:rgba(0,0,0,0.6);
-  margin-bottom: 50px;
-  margin-top: 50px;
-  padding: 20px;
+  margin-bottom: 100px;
+  margin-top: 100px;
 }
 
 .cards {
@@ -222,3 +218,24 @@ div.centered table
 }
 
 /* timer */
+
+.prof-wrap {
+}
+
+.prof-title {
+  background-color:rgba(30,30,30,1);
+  padding:5px;
+  padding-left: 10px;
+  font-weight: normal;
+  font-size: 20px;
+}
+
+.prof-header {
+  background-color:rgba(0,0,0,0.6);
+}
+
+.prof-body {
+padding-top: 15px;
+background-color: rgba(0,0,0,0.6);
+}
+
