@@ -93,21 +93,29 @@ a:active, a:visited {
   margin-bottom: 10px;
 }
 
+input
+{
+  -moz-border-radius: 15px;
+ border-radius: 15px;
+    border:solid 1px black;
+    padding:5px;
+}
 .sexy-form input[type=text] {
-  background: black;
-  color: silver;
+/*   background: black;*/
+border-radius: 20px;
+  /* color: silver; */
   border: 1px solid #777;
 }
 
 .sexy-form textarea {
-  background: black;
-  color: silver;
+  /* background: black; 
+  color: silver; */
   border: 1px solid #777;
 }
 
 .sexy-form select {
-  background: black;
-  color: silver;
+ /* background: black; */
+  color: black; 
   border: 1px solid #777;
 }
 
@@ -249,3 +257,13 @@ padding-top: 15px;
 background-color: rgba(0,0,0,0.6);
 }
 
+.reg-wrap {
+  background-color: rgba(0,0,0,0.6);
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-bottom: 5px;
+  border-radius: 6px;
+  -webkit-box-shadow: 0px 0px 5px -1px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 5px -1px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 5px -1px rgba(0,0,0,0.75);
+}
