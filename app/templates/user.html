@@ -7,27 +7,28 @@
 
 <div class="content">
     <div class="row prof-wrap">
-        <div class="col-md-12 prof-title">
+        <div class="col-md-12 col-sm-12 col-xs-12 prof-title">
          <a id="Nickname">{{ nickname }}</a>
         </div>
-        <div class="col-md-12 prof-header">
+        <div class="col-md-12 col-sm-12 col-xs-12 prof-header">
           <div class="row">
             <img src="" id="ProfileBanner" class="img-responsive"/>
           </div>
         </div>
-        <div class="col-md-12 prof-body">
-            <div class="col-md-3">
-              <img src="http://www-cdn.jtvnw.net/images/xarth/404_user_50x50.png" alt="" id="ProfilePicture" class="img-responsive"/>
+        <div class="col-md-12 col-sm-12 col-xs-12 prof-body">
+            <div class="col-md-3 col-sm-12 col-xs-12">
+              <center><img src="http://www-cdn.jtvnw.net/images/xarth/404_user_50x50.png" alt="" id="ProfilePicture" class="img-responsive"/></center>
               <div>
                 <center><a href="{{url_for('twitch', username=nickname)}}">http://twitch.tv/{{ social_id }}</a></center>
               </div>
             </div>
-            <div class="col-md-9">
-                <div class="col-md-12">
+            <div class="hidden-md hidden-lg col-xs-12 col-sm-12"><hr></div>
+            <div class="col-md-9 col-sm-12 col-xs-12">
+                <div class="col-md-12 col-sm-12 col-xs-12">
             <p>{{ display_text }}</p>
         </div>
-        <div class="col-md-12">
-            <a href="{{url_for('tip', username=nickname)}}" class="custom-btn btn-12 hvr-grow">Tip</a>
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <center><a href="{{url_for('tip', username=nickname)}}" class="custom-btn btn-12 hvr-grow">Tip</a></center>
         </div>
             
             </div>
