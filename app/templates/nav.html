@@ -33,8 +33,8 @@
               {% if nickname.lower() == social_id %}
                 <li><a href="{{url_for('profile')}}"><i class="fas fa-edit"></i> Edit Profile</a></li>
               {% endif %}
-              <li><a href="#"><i class="fas fa-file-alt"></i> How</a></li>
-              <li><a href="#"><i class="fas fa-info"></i> About</a></li>
+              <li><a href="/how"><i class="fas fa-file-alt"></i> How</a></li>
+              <li><a href="/about"><i class="fas fa-info"></i> About</a></li>
               <li role="separator" class="divider"></li>
               <li><a href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li> 
             </ul>

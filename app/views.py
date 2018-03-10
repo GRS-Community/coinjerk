@@ -277,3 +277,20 @@ def twitch(username):
 def cancelled_return():
     return render_template(
             'cancel.html')
+
+@app.route('/about')
+def about():
+    return render_template(
+            'about.html',
+            users = User.query.all(),
+            nickname=session['nickname']
+    )
+
+@app.route('/how')
+def how():
+    return render_template(
+            'how.html',
+            users = User.query.all(),
+            nickname=session['nickname']
+    )
+
