@@ -60,6 +60,7 @@ a:active, a:visited {
   margin: 5px;
   padding: 20px;
   color: #fff;
+  overflow: hidden;
 }
 
 .main-pad {
