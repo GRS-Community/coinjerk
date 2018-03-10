@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 
 {% block content %}
+<div class="container container-inv">
+
+
 <script src="/static/js/scripts.js"></script>
 <script src="/static/js/jquery.min.js"></script>
 <script>GetURL({{ social_id|tojson }});</script>
@@ -68,5 +71,5 @@
 
 
 
-      
+</div>      
 {% endblock %}
