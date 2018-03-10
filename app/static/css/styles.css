@@ -282,3 +282,10 @@ background-color: rgba(0,0,0,0.6);
   font: 48px Arial, sans-serif;
   margin-right: -20px;
 }
+
+.trunc {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
