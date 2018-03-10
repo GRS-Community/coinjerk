@@ -13,8 +13,8 @@ from config import STREAMLABS_CLIENT_ID, STREAMLABS_CLIENT_SECRET, \
 from .forms import RegisterForm, ProfileForm
 from .models import User, PayReq, Transaction
 
-from pycoin.key import Key
-from pycoin.key.validate import is_address_valid
+from pycoin_grs.key import Key
+from pycoin_grs.key.validate import is_address_valid
 from exchanges.bitstamp import Bitstamp
 from exchanges.GRS_bittrex import GRS_price
 from decimal import Decimal

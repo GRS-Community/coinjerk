@@ -5,32 +5,36 @@
 <script src="/static/js/jquery.min.js"></script>
 <script>GetURL({{ social_id|tojson }});</script>
 
-<div class="content" align="center">
-    <div class="row">
-        <div class="prof-wrap">
-            <div class="row prof-title">
-                <a href="">{{ nickname }}</a>
+<div class="content">
+        <div class="row prof-wrap">
+        <div class="col-md-12 prof-title">
+         <a id="Nickname">{{ nickname }}</a>
+        </div>
+        <div class="col-md-12 prof-header">
+          <div class="row">
+            <img src="" id="ProfileBanner" class="img-responsive"/>
+          </div>
+        </div>
+        <div class="col-md-12 prof-body">
+            <div class="col-md-3">
+              <img src="http://www-cdn.jtvnw.net/images/xarth/404_user_50x50.png" alt="" id="ProfilePicture" class="img-responsive"/>
+              <div>
+                <center><a href="{{url_for('twitch', username=nickname)}}">http://twitch.tv/{{ social_id }}</a></center>
+              </div>
             </div>
-            <div class="row prof-body">
-                stuff in here
-                    <div class="col-md-3">
-    <img src="http://www-cdn.jtvnw.net/images/xarth/404_user_50x50.png" alt="" id="ProfilePicture" class="img-responsive"/>
-
-    </div>
-    <div class="col-md-9">
-        <div class="col-md-12">
-            <h1 id="Nickname">{{ nickname }}</h1>
-            <a href="{{url_for('twitch', username=nickname)}}">twitch.tv/{{ social_id }}</a>
-            <hr>
+            <div class="col-md-9">
+                <div class="col-md-12">
             <p>{{ display_text }}</p>
         </div>
         <div class="col-md-12">
             <a href="{{url_for('tip', username=nickname)}}" class="custom-btn btn-12 hvr-grow">Tip</a>
         </div>
-    </div>
+            
             </div>
-        </div>    
+
+        </div>
     </div>
+
     
 
 

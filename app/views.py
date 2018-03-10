@@ -16,7 +16,7 @@ from .forms import RegisterForm, ProfileForm
 from .models import User, PayReq, Transaction
 
 
-from pycoin.key import Key
+from pycoin_grs.key import Key
 from exchanges.bitstamp import Bitstamp
 from decimal import Decimal
 import bitcoin
