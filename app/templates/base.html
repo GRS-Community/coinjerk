@@ -24,14 +24,84 @@
 <header>
 	{% include "nav.html" %}
 </header>
-<div class="container container-inv fadeIn animated">
+<div class="container-fluid container-inv section1 fadeIn animated">
 	{% block content %}
 	{% endblock %}
 </div>
+<div class="container-fluid section2 animated fadeIn">
+	<div class="container">
+			<div class="col-md-6">
+				1	
+			</div>
+			<div class="col-md-6">
+				2	
+			</div>
+		</div>
+	</div>
+<div class="container-fluid section3 animated fadeIn">
+	<div class="container">
+		<div class="col-md-6">
+			1	
+		</div>
+		<div class="col-md-6">
+			2	
+		</div>
+	</div>
+</div>
 
-<footer>
-	{% include "footer.html" %}
-</footer>
+<div class="footer animated fadeIn">
+	<div class="container">
+		<div class="col-md-4">
+			<div>
+				Support
+			</div>
+			<div>
+				Feedback
+			</div>
+			<div>
+				How To?
+			</div>
+			<div>
+				Help
+			</div>
+			<div>
+				Contact
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div>
+				Support
+			</div>
+			<div>
+				Feedback
+			</div>
+			<div>
+				How To?
+			</div>
+			<div>
+				Help
+			</div>
+			<div>
+				Contact
+			</div>
+		</div>
+		<div class="col-md-4">
+			<ul>
+				<li>Twitter</li>
+				<li>Facebook</li>
+			</ul>
+
+		</div>
+		<div class="col-md-12">
+			<hr>
+		</div>
+		<div class="col-md-12">
+			<div class="pull-left">
+				(c) 2018 Groestl<span class="highlight">Tip</span> | All rights reserved.
+			</div>
+		</div>
+	</div>
+</div>
 
 <!-- <script src="/static/js/jquery.min.js"></script> -->
 <script src="/static/js/bootstrap.min.js"></script>
