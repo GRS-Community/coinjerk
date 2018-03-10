@@ -1,7 +1,8 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="container container-inv section1 fadeIn animated" align="center">
+<div class="container-fluid row container-inv section1 fadeIn animated" align="">
+  <div class="container">
   <div class="col-md-6">
     <img src="static/img/logo.png" class="img-responsive">
   </div>
@@ -67,7 +68,7 @@
             <div class="row">
               <div class="col-md-2 col-sm-2 col-xs-12">
               </div>
-              <div class="col-md-10 col-sm-10 col-xs-12">
+              <div class="col-md-10 col-sm-10 col-xs-12" align="center">
                   <a class="btn btn-primary hvr-grow" href="/launch" role="button">Get Started</a>
               </div>
             </div>
@@ -160,6 +161,8 @@
         (c) 2018 Groestl<span class="highlight">Tip</span> | All rights reserved.
       </div>
     </div>
+  </div>  
   </div>
+  
 </div>
 {% endblock %}
