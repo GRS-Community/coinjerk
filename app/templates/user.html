@@ -4,6 +4,7 @@
 <script src="/static/js/scripts.js"></script>
 <script src="/static/js/jquery.min.js"></script>
 <script>GetURL({{ social_id|tojson }});</script>
+<script>GetBannerURL({{ social_id|tojson }});</script>
 
 <div class="container container-inv animated fadeIn">
     
@@ -13,7 +14,8 @@
         </div>
         <div class="col-md-12 col-sm-12 col-xs-12 prof-header">
           <div class="row">
-            <img src="" id="ProfileBanner" class="img-responsive"/>
+            <div id="ProfileBanner">
+            </div>
           </div>
         </div>
         <div class="col-md-12 col-sm-12 col-xs-12 prof-body">

@@ -10,7 +10,8 @@
     var socialId = '{{ social_id }}';
   </script>
   <script>GetURL({{ social_id|tojson }});</script>
-<div class="container container-inv">
+  <script>GetBannerURL({{ social_id|tojson }});</script>
+<div class="container container-inv animated fadeIn">
 
     <div class="row prof-wrap">
         <div class="col-md-12 prof-title">
@@ -18,7 +19,7 @@
         </div>
         <div class="col-md-12 prof-header">
           <div class="row">
-            <img src="" id="ProfileBanner" class="img-responsive"/>
+            <div id="ProfileBanner" class=""></div>
           </div>
         </div>
         <div class="col-md-12 prof-body">
