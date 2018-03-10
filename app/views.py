@@ -289,8 +289,6 @@ def about():
 @app.route('/how')
 def how():
     return render_template(
-            'how.html',
-            users = User.query.all(),
-            nickname=session['nickname']
-    )
+            'how.html'
 
+    )
