@@ -25,7 +25,7 @@ function GetBannerURL(username) {
     
     } 
     else
-      $("#ProfileBanner").css("background" : "url('" + data.profile_banner + "') left bottom", "height" : "380px");
+      $("#ProfileBanner").css({"background" : "url('" + data.profile_banner + "') left bottom", "height" : "380px"});
     }
   });
 }
