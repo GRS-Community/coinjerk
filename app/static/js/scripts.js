@@ -20,11 +20,15 @@ function GetBannerURL(username) {
     'Client-ID': 'n7j8ddl0pu87ig063e6mnr33on17xw'
   },
   success: function(data) {
-    $("#ProfileBanner").css("background", "url('" + data.profile_banner + "') no-repeat left bottom");
-  }
-});
+    if (data.profile_banner == null) {
+      $("#ProfileBanner").css("height", "0");
+    
+    } 
+    else
+      $("#ProfileBanner").css("background", "url('" + data.profile_banner + "') left bottom");
+    }
+  });
 }
-
 
 function createPayRequestPaypal() {
   // Converting the amount input into the correct format
