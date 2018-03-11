@@ -73,6 +73,7 @@
                         <input type="hidden" name="cancel_return" value="http://groestltip.groestlcoin.org/cancelled">
                         <input type="hidden" name="business" value="{{ email }}">
                         <input type="hidden" name="cmd" value="_donations">
+                        <input id=ReturnData type="hidden" name="notify_url" value="http://groestltip.groestlcoin.org/ipn/">
                         <input type="hidden" name="item_name" value="Donate to www.twitch.tv/{{ social_id }} via Paypal">
                         <input type="hidden" name="item_number" value="Donation">
                         <input type="hidden" name="currency_code" value="USD">

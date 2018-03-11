@@ -35,6 +35,13 @@ callback_result = 0
 
 Bootstrap(app)
 
+@app.route('/delete_fake_transactions')
+def delete_fake_transactions():
+
+    Transaction.query.filter_by(id=45).delete()
+    db.session.commit()
+    return redirect(url_for('history'))
+
 @app.route('/')
 @app.route('/index')
 def index():
@@ -49,7 +56,8 @@ def index():
 
 
     return render_template(
-            'index.html')
+            'index.html',
+            session_nickname=None)
 
 @app.route('/user/<username>')
 def user(username):

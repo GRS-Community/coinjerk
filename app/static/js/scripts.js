@@ -22,8 +22,8 @@ function GetBannerURL(username) {
   success: function(data) {
     if (data.profile_banner == null) {
       $("#ProfileBanner").css("height", "0");
-    
-    } 
+
+    }
     else
       $("#ProfileBanner").css({"background" : "url('" + data.profile_banner + "') left bottom", "height" : "380px"});
     }
@@ -45,9 +45,14 @@ function createPayRequestPaypal() {
          var userDisplay = "AnonymousDonator"
     }
   // Making Return_URL
-  var link = "http://groestltip.groestlcoin.org/confirmation/";
-  var return_url = link+userDisplay+"/to/"+socialId;
-  $("#ReturnLink").attr('value', return_url);
+  var confirmation_link = "http://groestltip.groestlcoin.org/confirmation/";
+  var confirmation_return_url = confirmation_link+userDisplay+"/to/"+socialId;
+  $("#ReturnLink").attr('value', confirmation_return_url);
+
+  var notify_link = "http://groestltip.groestlcoin.org/ipn/";
+  var notify_return_url = notify_link+userDisplay+"/to/"+socialId;
+  $("#ReturnData").attr('value', notify_return_url);
+
   $.ajax({
               url: '/paypal',
               data: { 'user_display': $('#user_display').val(), 'user_identifier': $('#user_identifier').val(), 'user_message': $('#user_message').val(), 'amount': $("#PaypalAmount").val() },
@@ -62,6 +67,7 @@ function createPayRequestPaypal() {
   console.log("userDisplay: "+userDisplay);
   console.log("userIdentifier: "+userIdentifier);
   console.log("userMessage: "+userMessage);
-  console.log("Return_URL: " + return_url);
+  console.log("Return_URL: " + confirmation_return_url);
+  console.log("DataReturn_URL: " + notify_return_url);
 
 }

@@ -194,7 +194,7 @@ def payment_notify(social_id, payrec, balance, txhash, grs_addr):
     tip_call = {
             'type'       : 'donation',
             'message'    : donation+msg,
-            'image_href' : 'https://cdn.discordapp.com/attachments/416659759178055688/417663443814973450/GRSLOGOSPININANDOUT.gif',
+            'image_href' : 'https://cdn.discordapp.com/attachments/416659759178055688/417986781053452288/grsloop.gif',
             'sound_href' : 'http://uploads.twitchalerts.com/000/003/774/415/m_health.wav',
             'duration'   : 5000,
             'special_text_color' : '#42ff42',
@@ -411,10 +411,9 @@ def create_payment_request_paypal():
 
     return jsonify({'data' : 'Payment Request made for: '+user_display})
 
+@app.route('/ipn/<username>/to/<social_id>', methods=['POST'])
+def ipn(username,social_id):
 
-
-@app.route('/confirmation/<username>/to/<social_id>', methods=['POST', 'GET'])
-def confirmation(username,social_id):
     payreq = PayReq.query.filter_by(user_display=username).first()
     # try:
     if (payreq.user_display == "AnonymousGroestler"):
@@ -503,20 +502,22 @@ def confirmation(username,social_id):
     db.session.add(new_transaction)
     db.session.commit()
 
+    r = 'VERIFIED'
 
-    return render_template(
+    return r
+
+
+
+@app.route('/confirmation/<username>/to/<social_id>', methods=['POST', 'GET'])
+def confirmation(username,social_id):
+
+  TX = Transaction.query.filter_by(user_id=social_id).first()
+
+  return render_template(
             'confirmation.html',
-            payer_email=payer_email,
-            payment_date=payment_date,
             twitch_link="https://www.twitch.tv/"+social_id,
-            payment_gross=payment_gross,
-            payment_fee=payment_fee,
-            payment_status=payment_status,
-            # txn_id=txn_id,
-            user_display=user_display,
-            user_identifier=user_identifier,
-            user_message=user_message
-
+            payment_gross=TX.amount,
+            user_display=username
             )
 '''
 TIP PAGE SETTINGS:

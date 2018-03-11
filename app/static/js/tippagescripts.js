@@ -10,6 +10,9 @@ $(document).ready(function() {
     });
     $('#showModalButton').click(function (event) {
         $(this).prop('disabled',true).html('<div class="pull-left">Generating Address...</div>').append('<div class="loader-6 pull-left"><span></span></div>');
+        $('#user_display').prop('disabled',true)
+        $('#user_identifier').prop('disabled',true)
+        $('#user_message').prop('disabled',true)
         // Stop redirections
         event.preventDefault();
         // Call our create pay request function
