@@ -4,7 +4,7 @@
 
 
 <div class="container container-inv animated fadeIn">
-    
+
     <div class="row prof-wrap">
         <div class="col-md-12 col-sm-12 col-xs-12 prof-title">
          <a id="Nickname">{{ nickname }}</a>
@@ -32,7 +32,7 @@
 {% for user in users: %}
 <div class="row prof-body">
 	<div class="col-md-4">
-		<a href="/user/{{ user.nickname }}"></a>{{ user.nickname }}
+		<a href="/user/{{ user.nickname }}">{{ user.nickname }}</a>
 	</div>
 	<div class="col-md-4">
 		<a href="http://twitch.tv/{{ user.social_id }}">twitch.tv/{{ user.social_id }}</a>
@@ -43,7 +43,7 @@
 </div>
 
 {% endfor %}
-    
+
 
 
 </div>
