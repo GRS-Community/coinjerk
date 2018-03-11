@@ -9,7 +9,7 @@ $(document).ready(function() {
         createPayRequest();
     });
     $('#showModalButton').click(function (event) {
-        $(this).prop('disabled',true);
+        $(this).prop('disabled',true).html('Generating Address...<img src="/static/img/spinner.gif" height="35">');
         // Stop redirections
         event.preventDefault();
         // Call our create pay request function
@@ -17,8 +17,10 @@ $(document).ready(function() {
                 $('#user_display').val(),
                 $('#user_identifier').val(),
                 $('#user_message').val(),
-                socialId
+                socialId,
         );
+
+
     });
     // $('#paypal_submit').click(function (event) {
     //     // Stop redirections
@@ -70,6 +72,8 @@ function createPayRequest(userDisplay, userIdentifier, userMessage, socialId){
                     text : "groestlcoin:" + response.btc_addr,
                     render : "table"
                 });
+                $('#showModalButton').prop('disabled',true).html('Done...');
+                
 
 
                 // $('#addressLink').html(
