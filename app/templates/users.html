@@ -17,14 +17,14 @@
 
 		<div class="col-md-12">
 			<hr>
-			
+
 		</div>
 </div>
 
 {% for user in users: %}
 <div class="row">
 	<div class="col-md-4">
-		{{ user.nickname }}	
+		<a href="/user/{{ user.nickname }}"></a>{{ user.nickname }}
 	</div>
 	<div class="col-md-4">
 		<a href="http://twitch.tv/{{ user.social_id }}">twitch.tv/{{ user.social_id }}</a>
