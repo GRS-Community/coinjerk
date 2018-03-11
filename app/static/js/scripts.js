@@ -1,5 +1,3 @@
-
-
 function GetURL(username) {
   $.ajax({
  type: 'GET',
@@ -9,11 +7,28 @@ function GetURL(username) {
  },
  success: function(data) {
    $("#ProfilePicture").attr('src', data.logo);
-   $("#ProfileBanner").attr('src', data.profile_banner);
+   // $("#ProfileBanner").attr('src', data.profile_banner);
  }
 });
 }
 
+function GetBannerURL(username) {
+  $.ajax({
+    type: 'GET',
+    url: 'https://api.twitch.tv/kraken/channels/'+username,
+    headers: {
+    'Client-ID': 'n7j8ddl0pu87ig063e6mnr33on17xw'
+  },
+  success: function(data) {
+    if (data.profile_banner == null) {
+      $("#ProfileBanner").css("height", "0");
+    
+    } 
+    else
+      $("#ProfileBanner").css({"background" : "url('" + data.profile_banner + "') left bottom", "height" : "380px"});
+    }
+  });
+}
 
 function createPayRequestPaypal() {
   // Converting the amount input into the correct format
