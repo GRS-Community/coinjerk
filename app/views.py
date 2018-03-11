@@ -69,9 +69,17 @@ def user(username):
     #             )
     u = User.query.filter_by(social_id=username.lower()).first()
     if u:
+        try:
+            session_nickname = session['nickname']
+
+        except:
+
+            session_nickname = None
+
         return render_template(
 
             'user.html',
+            session_nickname=session_nickname,
             nickname = u.nickname,
             social_id = u.social_id,
             display_text = u.display_text
