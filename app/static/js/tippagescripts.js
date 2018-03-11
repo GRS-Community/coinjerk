@@ -9,7 +9,7 @@ $(document).ready(function() {
         createPayRequest();
     });
     $('#showModalButton').click(function (event) {
-        $(this).prop('disabled',true).html('Generating Address...<img src="/static/img/spinner.gif" height="35">');
+        $(this).prop('disabled',true).html('<div class="pull-left">Generating Address...</div>').append('<div class="loader-6 pull-left"><span></span></div>');
         // Stop redirections
         event.preventDefault();
         // Call our create pay request function
@@ -73,7 +73,7 @@ function createPayRequest(userDisplay, userIdentifier, userMessage, socialId){
                     render : "table"
                 });
                 $('#showModalButton').prop('disabled',true).html('Done...');
-                
+
 
 
                 // $('#addressLink').html(
