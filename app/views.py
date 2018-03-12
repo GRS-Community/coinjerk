@@ -147,20 +147,6 @@ def profile():
             email = email
             )
 
-@app.route('/users')
-def users():
-    return render_template(
-            'users.html',
-            users = User.query.all()
-    )
-
-@app.route('/history')
-def history():
-    return render_template(
-            'history.html',
-            tx = Transaction.query.order_by(Transaction.timestamp.desc()).all(),
-            users = User.query.all()
-    )
 
 @app.route('/login')
 @app.route('/launch')
@@ -292,7 +278,10 @@ def twitch(username):
 @app.route('/cancelled')
 def cancelled_return():
     return render_template(
-            'cancel.html')
+            'cancel.html',
+            users = User.query.all(),
+            nickname=session['nickname']
+            )
 
 @app.route('/about')
 def about():
@@ -305,6 +294,24 @@ def about():
 @app.route('/how')
 def how():
     return render_template(
-            'how.html'
+            'how.html',
+            users = User.query.all(),
+            nickname=session['nickname']
+    )
 
+@app.route('/users')
+def users():
+    return render_template(
+            'users.html',
+            users = User.query.all(),
+            nickname=session['nickname']
+    )
+
+@app.route('/history')
+def history():
+    return render_template(
+            'history.html',
+            tx = Transaction.query.order_by(Transaction.timestamp.desc()).all(),
+            users = User.query.all(),
+            nickname=session['nickname']
     )
