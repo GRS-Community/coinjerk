@@ -7,7 +7,6 @@ body {
   color: #fff;
   padding: 0;
   margin: 0;
-  text-shadow: 2px 2px 4px #000000;
 }
 
 .navbar-brand {
@@ -33,7 +32,7 @@ a:active, a:visited {
 }
 
 .highlight {
-  color: #377F94;
+  color: #1da0b6;
   text-decoration: none;
 }
 
@@ -276,9 +275,9 @@ padding:20px;
   width: 75px;
   height: 75px;
   padding: 4px;
-  background: #fff;
-  border: 6px solid #377F94;
-  color: #377F94;
+  background: #1da0b6;
+  border: 6px solid #FFF;
+  color: #FFF;
   text-align: center;
   font: 48px Arial, sans-serif;
 }
@@ -291,7 +290,7 @@ padding:20px;
 }
 
 .section1 {
-  background-color: rgba(255,255,255,0.2);
+  background-color: rgba(0,0,0,0.5);
 }
 .section2 {
   background-color: rgba(0,0,0,0.6);
@@ -368,4 +367,10 @@ padding-top: 2px;
 @keyframes loader-6-2 {
   0%   { transform: translate3d(0, 0, 0) scale(0); opacity: 1; }
   100% { transform: translate3d(0, 0, 0) scale(1); opacity: 0; }
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1da0b6;
+  border-color: #fff
 }
