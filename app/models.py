@@ -67,7 +67,7 @@ class User(db.Model):
 class Transaction(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    tx_id = db.Column(db.String(64), unique=True)
+    tx_id = db.Column(db.String(64), nullable=False, unique=True)
     timestamp = db.Column(db.DateTime)
 
     # Amount in BTC
