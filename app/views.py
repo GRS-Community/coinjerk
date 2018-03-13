@@ -254,7 +254,10 @@ def donatecallback():
 @app.errorhandler(404)
 def handle404(e):
     return render_template(
-            '404.html')
+            '404.html',
+            users = User.query.all(),
+            session_nickname=session['nickname']
+            )
 
 admin = Admin(app, name='Gronate', template_mode='bootstrap3')
 '''
@@ -288,7 +291,7 @@ def about():
     return render_template(
             'about.html',
             users = User.query.all(),
-            nickname=session['nickname']
+            session_nickname = session['nickname']
     )
 
 @app.route('/how')
@@ -296,7 +299,7 @@ def how():
     return render_template(
             'how.html',
             users = User.query.all(),
-            nickname=session['nickname']
+            session_nickname = session['nickname']
     )
 
 @app.route('/users')
@@ -304,14 +307,14 @@ def users():
     return render_template(
             'users.html',
             users = User.query.all(),
-            nickname=session['nickname']
+            session_nickname = session['nickname']
     )
 
 @app.route('/history')
 def history():
-    return render_template(
+     return render_template(
             'history.html',
             tx = Transaction.query.order_by(Transaction.timestamp.desc()).all(),
             users = User.query.all(),
-            nickname=session['nickname']
+            session_nickname = session['nickname']
     )
