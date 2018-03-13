@@ -399,6 +399,7 @@ def create_payment_request_paypal():
     user_message = request.form['user_message']
     amount = request.form['amount']
 
+    print(amount)
 
     random = os.urandom(17)
 
@@ -425,6 +426,8 @@ def ipn(username,social_id):
 
     payreq = PayReq.query.filter_by(user_display=username).order_by(PayReq.timestamp.desc()).first()
 
+    print(payreq)
+
     try:
         arg = ''
         request.parameter_storage_class = ImmutableOrderedMultiDict
@@ -436,96 +439,105 @@ def ipn(username,social_id):
             '/cgi-bin/webscr?cmd=_notify-validate{arg}' \
             .format(arg=arg)
         r = requests.get(validate_url)
+        print(r)
+        print(r.text)
         if r.text == 'VERIFIED':
-            #Paypal post
-            payer_email = request.form.get('payer_email')
-            unix = int(time.time())
-            payment_date = request.form.get('payment_date')
-            username = request.form.get('custom')
-            payment_fee = request.form.get('payment_fee')
-            payment_status = request.form.get('payment_status')
-            txn_id = request.form.get('txn_id')
-            # try:
+            try:
+                #Paypal post
+                payer_email = request.form.get('payer_email')
+                unix = int(time.time())
+                payment_date = request.form.get('payment_date')
+                username = request.form.get('custom')
+                payment_fee = request.form.get('payment_fee')
+                payment_status = request.form.get('payment_status')
+                txn_id = request.form.get('txn_id')
+                # try:
 
-            if (payreq.user_display == "AnonymousGroestler"):
-                user_display = "AnonymousDonator"
-            else:
-                user_display = payreq.user_display
+                if (payreq.user_display == "AnonymousGroestler"):
+                    user_display = "AnonymousDonator"
+                else:
+                    user_display = payreq.user_display
 
-            # except:
-            #     return render_template(
-            #             'cancel.html'
-            #     )
+                # except:
+                #     return render_template(
+                #             'cancel.html'
+                #     )
 
-            user_identifier = payreq.user_identifier
-            user_message = payreq.user_message
+                user_identifier = payreq.user_identifier
+                user_message = payreq.user_message
 
-            # if txn_id:
-            #     print('got txn id from paypal user')
-            # else:
-            #     txn_id =
-
-
-
+                # if txn_id:
+                #     print('got txn id from paypal user')
+                # else:
+                #     txn_id =
 
 
-            user = User.query.filter_by(social_id=social_id).first()
 
-            token_call = {
-                            'grant_type'    : 'refresh_token',
-                            'client_id'     : STREAMLABS_CLIENT_ID,
-                            'client_secret' : STREAMLABS_CLIENT_SECRET,
-                            'refresh_token' : user.streamlabs_rtoken,
-                            'redirect_uri'  : GROESTLTIP_REDIRECT_URI
-            }
-            headers = []
-            #print("Acquiring Streamlabs Access Tokens")
-            tip_response = requests.post(
-                    api_token,
-                    data=token_call,
-                    headers=headers
-            ).json()
-            #print("Tokens Acquired, Committing to Database")
 
-            user.streamlabs_rtoken = tip_response['refresh_token']
-            user.streamlabs_atoken = tip_response['access_token']
-            db.session.commit()
-            #print("Tokens Committed to database, sending donation alert")
 
-            tip_call = {
-                    'name'       : user_display,
-                    'identifier' : payreq.user_identifier,
-                    'message'    : payreq.user_message,
-                    'amount'     : payreq.amount,
-                    'currency'   : 'USD',
-                    'access_token' : tip_response['access_token']
-            }
-            print(tip_call)
+                user = User.query.filter_by(social_id=social_id).first()
+                token_call = {
+                                'grant_type'    : 'refresh_token',
+                                'client_id'     : STREAMLABS_CLIENT_ID,
+                                'client_secret' : STREAMLABS_CLIENT_SECRET,
+                                'refresh_token' : user.streamlabs_rtoken,
+                                'redirect_uri'  : GROESTLTIP_REDIRECT_URI
+                }
+                headers = []
+                #print("Acquiring Streamlabs Access Tokens")
+                tip_response = requests.post(
+                        api_token,
+                        data=token_call,
+                        headers=headers
+                ).json()
+                #print("Tokens Acquired, Committing to Database")
 
-            tip_check = requests.post(
-                    api_tips,
-                    data=tip_call,
-                    headers=headers
-            ).json()
-            print(tip_check)
-            # custom_notify(social_id, payrec.user_message, value, usd_two_places)
+                user.streamlabs_rtoken = tip_response['refresh_token']
+                user.streamlabs_atoken = tip_response['access_token']
+                db.session.commit()
+                #print("Tokens Committed to database, sending donation alert")
 
-            print("Donation Alert Sent")
-            new_transaction = Transaction(
-                twi_user=user_display,
-                twi_message=user_message,
-                user_id=social_id,
-                tx_id=payreq.addr,
-                amount=payreq.amount,
-                timestamp=datetime.utcnow()
-                )
-            db.session.add(new_transaction)
-            db.session.commit()
+                tip_call = {
+                        'name'       : user_display,
+                        'identifier' : payreq.user_identifier,
+                        'message'    : payreq.user_message,
+                        'amount'     : payreq.amount,
+                        'currency'   : 'USD',
+                        'access_token' : tip_response['access_token']
+                }
+                print(tip_call)
+
+                tip_check = requests.post(
+                        api_tips,
+                        data=tip_call,
+                        headers=headers
+                ).json()
+                print(tip_check)
+                # custom_notify(social_id, payrec.user_message, value, usd_two_places)
+
+                print("Donation Alert Sent")
+
+                new_transaction = Transaction(
+                    twi_user=user_display,
+                    twi_message=user_message,
+                    user_id=social_id,
+                    tx_id=payreq.addr,
+                    amount=payreq.amount,
+                    timestamp=datetime.utcnow()
+                    )
+                db.session.add(new_transaction)
+                db.session.commit()
+
+
+
+
+            except Exception as e:
+                print('Likely IPN sent two responses, TX_ID only accepted once because its unique. Check TX_ID from PayReq and Transaction'+ str(e))
 
 
         return r.text
     except Exception as e:
-        print("No form yet:" + str(e))
+        print("ERROR:" + str(e))
         return str(e)
 
 
