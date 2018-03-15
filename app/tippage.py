@@ -195,7 +195,7 @@ def payment_notify(social_id, payrec, balance, txhash, grs_addr):
     tip_call = {
             'type'       : 'donation',
             'message'    : donation+msg,
-            'image_href' : 'https://cdn.discordapp.com/attachments/416659759178055688/417986781053452288/grsloop.gif',
+            'image_href' : user.image_ref,
             'sound_href' : user.sound_ref,
             'duration'   : 5000,
             'special_text_color' : user.text_color,

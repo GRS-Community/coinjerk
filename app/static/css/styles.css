@@ -58,7 +58,7 @@ a:active, a:visited {
     margin-top: 50px;
     padding-top: 100px;
     padding-bottom: 100px;
-  } 
+  }
     }
 
     /* Large Devices, Wide Screens */
@@ -67,7 +67,7 @@ a:active, a:visited {
     margin-top: 50px;
     padding-top: 100px;
     padding-bottom: 100px;
-  } 
+  }
     }
 
     /*==========  Non-Mobile First Method  ==========*/
@@ -78,7 +78,7 @@ a:active, a:visited {
     margin-top: 50px;
     padding-top: 100px;
     padding-bottom: 100px;
-  } 
+  }
     }
 
     /* Medium Devices, Desktops */
@@ -87,7 +87,7 @@ a:active, a:visited {
     margin-top: 50px;
     padding-top: 75px;
     padding-bottom: 75px;
-  } 
+  }
     }
 
     /* Small Devices, Tablets */
@@ -96,30 +96,30 @@ a:active, a:visited {
     margin-top: 50px;
     padding-top: 0px;
     padding-bottom: 0px;
-  } 
+  }
     }
 
-    /* Extra Small Devices, Phones */ 
+    /* Extra Small Devices, Phones */
     @media only screen and (max-width : 480px) {
   .container-inv {
     margin-top: 50px;
     padding-top: 0px;
     padding-bottom: 0px;
-  } 
+  }
     }
 
-    /* Custom, iPhone Retina */ 
+    /* Custom, iPhone Retina */
     @media only screen and (max-width : 320px) {
   .container-inv {
     margin-top: 50px;
     padding-top: 0px;
     padding-bottom: 0px;
-  } 
+  }
     }
 
 
 
-@media (min-width: @screen-sm-min) { 
+@media (min-width: @screen-sm-min) {
 
 
  }
@@ -199,14 +199,14 @@ border-radius: 20px;
 }
 
 .sexy-form textarea {
-  /* background: black; 
+  /* background: black;
   color: silver; */
   border: 1px solid #777;
 }
 
 .sexy-form select {
  /* background: black; */
-  color: black; 
+  color: black;
   border: 1px solid #777;
 }
 
@@ -265,14 +265,14 @@ button {
   top: 2px;
 }
 
-div.centered 
+div.centered
 {
     text-align: center;
 }
 
-div.centered table 
+div.centered table
 {
-    margin: 0 auto; 
+    margin: 0 auto;
     text-align: left;
 }
 
@@ -310,10 +310,10 @@ div.centered table
 }
 
 @keyframes sk-bouncedelay {
-  0%, 80%, 100% { 
+  0%, 80%, 100% {
     -webkit-transform: scale(0);
     transform: scale(0);
-  } 40% { 
+  } 40% {
     -webkit-transform: scale(1.0);
     transform: scale(1.0);
   }
@@ -464,3 +464,22 @@ padding-top: 2px;
   background-color: #1da0b6;
   border-color: #fff
 }
+.status-light {
+    margin: 5px 10px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    float: left;
+}
+.sl-red {
+    background-color: #940;
+    box-shadow: @_base-shadow, inset #600 0 -1px 9px, #F00 0 @bottom-bleed @aura-radius;
+}
+
+.sl-green {
+    background-color: @_green;
+    box-shadow: @_base-shadow, inset #460 0 -1px 9px, #7D0 0 @bottom-bleed @aura-radius;
+}
+
+@bottom-bleed: 0px;
+@aura-radius: 8px;

@@ -44,6 +44,8 @@ class ProfileForm(FlaskForm):
     paypal_email_field = StringField(
             u'Your Paypal Email')
 
-    sound_ref_field = StringField(u'Donation Sound')
+    sound_ref_field = StringField(u'Donation Alert Sound')
 
     text_color_field = StringField(u'Color on Donation Text')
+
+    image_ref_field = StringField(u'Image/Gif for in the Donation Alert')

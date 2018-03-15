@@ -35,7 +35,10 @@
 		<a href="/user/{{ user.nickname }}">{{ user.nickname }}</a>
 	</div>
 	<div class="col-md-4">
-		<i class="fab fa-twitch"></i><a href="http://twitch.tv/{{ user.social_id }}">twitch.tv/{{ user.social_id }}</a>
+    <script>
+      GetStreamStatus({{ user.social_id|tojson }});
+    </script>
+		<div id="Status"></div><a href="http://twitch.tv/{{ user.social_id }}"><span><i class="fab fa-twitch"></i></span> twitch.tv/{{ user.social_id }}</a>
 	</div>
 	<div class="col-md-4">
 		<a href="/tip/{{ user.social_id }}" class="custom-btn btn-12">Tip</a>

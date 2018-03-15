@@ -37,8 +37,9 @@ class User(db.Model):
 
 
     paypal_email = db.Column(db.String(100))
-    sound_ref = db.Column(db.String(100))
-    text_color = db.Column(db.String(100))
+    sound_ref = db.Column(db.String(200))
+    text_color = db.Column(db.String(10))
+    image_ref = db.Column(db.String(200))
 
     # Transaction Linkage
     transactions = db.relationship(

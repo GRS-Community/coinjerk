@@ -5,6 +5,7 @@
 <script src="/static/js/jquery.min.js"></script>
 <script>GetURL({{ social_id|tojson }});</script>
 <script>GetBannerURL({{ social_id|tojson }});</script>
+<script>GetStreamStatus({{ social_id|tojson }});</script>
 
 <div class="container container-inv animated fadeIn">
 
@@ -23,6 +24,7 @@
               <center><img src="http://www-cdn.jtvnw.net/images/xarth/404_user_50x50.png" alt="" id="ProfilePicture" class="img-responsive"/></center>
               <div>
                 <center><i class="fab fa-twitch"></i><span> </span><a href="{{url_for('twitch', username=nickname)}}">http://twitch.tv/{{ social_id }}</a></center>
+                <div id="Status"></div>
               </div>
             </div>
             <div class="hidden-md hidden-lg col-xs-12 col-sm-12"><hr></div>

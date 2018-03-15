@@ -118,6 +118,10 @@ def profile():
         if form.paypal_email_field.data:
             u.paypal_email = form.paypal_email_field.data
 
+        #Image/GIF on donation
+        if form.image_ref_field.data:
+            u.image_ref = form.image_ref_field.data
+
         #sound on donation
         if form.sound_ref_field.data:
             u.sound_ref = form.sound_ref_field.data
@@ -149,6 +153,8 @@ def profile():
         email = userdata.paypal_email
     else:
         email = optional = 'Optional: If you want to recieve paypal donations'
+
+
     return render_template(
             'usersettings.html',
             form=form,
@@ -159,7 +165,8 @@ def profile():
             display_text = userdata.display_text,
             email = email,
             sound_ref = userdata.sound_ref,
-            color = userdata.text_color
+            color = userdata.text_color,
+            image_ref = userdata.image_ref
             )
 
 
@@ -329,5 +336,5 @@ def history():
             'history.html',
             tx = Transaction.query.order_by(Transaction.timestamp.desc()).all(),
             users = User.query.all(),
-            session_nickname = session['nickname']
+            nickname = session['nickname']
     )

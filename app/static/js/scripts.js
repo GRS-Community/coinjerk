@@ -29,6 +29,24 @@ function GetBannerURL(username) {
     }
   });
 }
+function GetStreamStatus(username) {
+  $.ajax({
+ type: 'GET',
+ url: 'https://api.twitch.tv/kraken/streams/'+username,
+ headers: {
+   'Client-ID': 'n7j8ddl0pu87ig063e6mnr33on17xw'
+ },
+ success: function(data) {
+   if (data.stream == null) {
+     $('#Status').html("<span><div class=\"status-light sl-red\"></div>OFFLINE</span>")
+   }
+   else
+    $('#Status').html("<span><div class=\"status-light sl-green\"></div>LIVE</span>")
+
+
+ }
+});
+}
 
 function createPayRequestPaypal() {
   // Converting the amount input into the correct format
