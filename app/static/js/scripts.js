@@ -85,7 +85,6 @@ function createPayRequestPaypal() {
   console.log("userDisplay: "+userDisplay);
   console.log("userIdentifier: "+userIdentifier);
   console.log("userMessage: "+userMessage);
-  console.log("Return_URL: " + confirmation_return_url);
-  console.log("DataReturn_URL: " + notify_return_url);
+
 
 }
