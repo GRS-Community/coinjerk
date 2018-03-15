@@ -477,9 +477,11 @@ padding-top: 2px;
 }
 
 .sl-green {
-    background-color: @_green;
+    background-color: #66ff33;
     box-shadow: @_base-shadow, inset #460 0 -1px 9px, #7D0 0 @bottom-bleed @aura-radius;
 }
+
+
 
 @bottom-bleed: 0px;
 @aura-radius: 8px;

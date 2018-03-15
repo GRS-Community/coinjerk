@@ -435,7 +435,7 @@ def ipn(username,social_id):
         for x, y in values.items():
             arg += "&{x}={y}".format(x=x,y=y)
 
-        validate_url = 'https://www.sandbox.paypal.com' \
+        validate_url = 'https://www.paypal.com' \
             '/cgi-bin/webscr?cmd=_notify-validate{arg}' \
             .format(arg=arg)
         r = requests.get(validate_url)
@@ -546,14 +546,26 @@ def ipn(username,social_id):
 @app.route('/confirmation/<username>/to/<social_id>', methods=['POST', 'GET'])
 def confirmation(username,social_id):
 
-  TX = Transaction.query.filter_by(user_id=social_id).order_by(Transaction.timestamp.desc()).first()
+    TX = Transaction.query.filter_by(user_id=social_id).order_by(Transaction.timestamp.desc()).first()
 
-  return render_template(
-            'confirmation.html',
-            twitch_link="https://www.twitch.tv/"+social_id,
-            payment_gross=TX.amount,
-            user_display=username
-            )
+    payreq = PayReq.query.filter_by(user_display=username).order_by(PayReq.timestamp.desc()).first()
+
+    if (TX.tx_id == payreq.addr):
+        payment_gross = payreq.amount
+        status = 'Payment have not yet proceeded in Paypal`s message/notification service, waiting for data from their IPN.'
+
+    else:
+        payment_gross = TX.amount
+        status = 'Payment verified and completed.'
+
+
+    return render_template(
+    'confirmation.html',
+    twitch_link="https://www.twitch.tv/"+social_id,
+    payment_gross=TX.amount,
+    user_display=username,
+    status_text=status
+    )
 '''
 TIP PAGE SETTINGS:
     - Alert System

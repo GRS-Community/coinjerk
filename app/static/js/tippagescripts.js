@@ -134,7 +134,7 @@ function verifyPayment(btc_addr){
                                 "<strong>Payment Verified!</strong> <span class=\"highlight\">" + response.user_display + "</span> thanks you very much for the tip! Check the transaction with tx_hash:<div class=\"trunc\"><strong><a href=\"https://chainz.cryptoid.info/grs/tx.dws?" + response.transaction_found + ".htm\">" + response.transaction_found + "</a></strong></div>your donation has also been recorded in <strong><a href=\"/history\" >history</a></strong>" +
                                 "<hr>" +
                                 "<p>GroestlTip is a service provided for free and without ads, if you would like to help support " +
-                                "the developer in general or help cover operating costs for Gronate, please consider also sending some support to the team and community developers: </p>" +
+                                "the developer in general or help cover operating costs for GroestlTip, please consider also sending some support to the team and community developers: </p>" +
                                 "<p><a href=\"https://www.groestlcoin.org/donations\"class=\"button1\" role=\"button\">Support the Groestlcoin Development!</a></p>"
                                 );
                     }

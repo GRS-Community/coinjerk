@@ -16,7 +16,7 @@
 
     <div class="row prof-wrap">
         <div class="col-md-12 prof-title">
-         <a id="Nickname">{{ nickname }}</a>
+         <a href="/user/{{ nickname }}" id="Nickname">{{ nickname }}</a>
         </div>
         <div class="col-md-12 prof-header">
           <div class="row">
@@ -35,11 +35,11 @@
               <form role="form" id="user_form" action="#">
                 <div class="form-group">
                   <label for="user_display">Name</label>
-                  <input type="text" class="form-control" id="user_display" placeholder="Optional: if left empty, will show as &quot;AnonymousGroestler&quot; or &quot;AnonymousDonator&quot;">
+                  <input type="text" class="form-control" id="user_display" placeholder="Optional: if left empty, will show as &quot;Anonymous&quot;">
                 </div>
                 <div class="form-group">
                   <label for="user_identifier">Email</label>
-                  <input type="text" class="form-control" id="user_identifier" placeholder="Optional: if empty, will be grouped as anonymous GRS or Paypal tip.">
+                  <input type="text" class="form-control" id="user_identifier" placeholder="Optional: if empty, will be grouped as anonymous">
                 </div>
                 <div class="form-group">
                   <label for="user_message">Tip Message</label>
@@ -48,6 +48,7 @@
                 <div class="form-group">
                   <button id="showModalButton" class="btn btn-primary button1">Show Groestlcoin Address</button>
                 </div>
+                <div id="ReminderText"></div>
               </form>
             </div>
             <div class="col-md-4">
@@ -87,7 +88,7 @@
                       </div>
                     </form>
                     {% else %}
-                    <p>If you want to donate with paypal this user need to add his paypal email in <a href="/profile"><span class="highlight">user settings</span></a></p>
+                    <p>If you want to donate with paypal this user has to add his paypal email in <a href="/profile"><span class="highlight">user settings</span></a></p>
                     {% endif %}
 
                   </div>
