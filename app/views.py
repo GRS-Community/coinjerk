@@ -104,14 +104,27 @@ def profile():
     form = ProfileForm()
     if request.method == "POST":
         u = User.query.filter_by(social_id=session['social_id']).first()
+
+        #xpub
         if form.xpub_field.data:
             u.xpub = form.xpub_field.data
             u.latest_derivation = 0
+
+        #text on user page
         if form.user_display_text_field.data:
             u.display_text = form.user_display_text_field.data
+
+        #streamer's paypal email
         if form.paypal_email_field.data:
             u.paypal_email = form.paypal_email_field.data
-            print(u.paypal_email)
+
+        #sound on donation
+        if form.sound_ref_field.data:
+            u.sound_ref = form.sound_ref_field.data
+
+        #text color on donation
+        if form.text_color_field.data:
+            u.text_color = form.text_color_field.data
 
 
         db.session.commit()
@@ -144,7 +157,9 @@ def profile():
             users = userlist,
             xpub = userdata.xpub,
             display_text = userdata.display_text,
-            email = email
+            email = email,
+            sound_ref = userdata.sound_ref,
+            color = userdata.text_color
             )
 
 
