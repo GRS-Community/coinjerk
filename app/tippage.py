@@ -543,7 +543,7 @@ def ipn(username,social_id):
 
 
 
-@app.route('/confirmation/<username>/to/<social_id>', methods=['POST', 'GET'])
+@app.route('/confirmation/<username>/to/<social_id>', methods=['POST'])
 def confirmation(username,social_id):
 
     TX = Transaction.query.filter_by(user_id=social_id).order_by(Transaction.timestamp.desc()).first()
@@ -551,12 +551,12 @@ def confirmation(username,social_id):
     payreq = PayReq.query.filter_by(user_display=username).order_by(PayReq.timestamp.desc()).first()
 
     if (TX.tx_id == payreq.addr):
-        payment_gross = payreq.amount
-        status = 'Payment have not yet proceeded in Paypal`s message/notification service, waiting for data from their IPN.'
+        payment_gross = TX.amount
+        status = 'Payment completed and verified.'
 
     else:
-        payment_gross = TX.amount
-        status = 'Payment verified and completed.'
+        payment_gross = payreq.amount
+        status = 'Payment completed but not yet verified. Keep checking history page to see if it appears. When it is in history it is also verified and the donation alert will be sent.'
 
 
     return render_template(
