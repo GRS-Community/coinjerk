@@ -312,7 +312,6 @@ def about():
     return render_template(
             'about.html',
             users = User.query.all(),
-            session_nickname = session['nickname']
     )
 
 @app.route('/how')
@@ -320,7 +319,6 @@ def how():
     return render_template(
             'how.html',
             users = User.query.all(),
-            session_nickname = session['nickname']
     )
 
 @app.route('/users')
@@ -336,5 +334,4 @@ def history():
             'history.html',
             tx = Transaction.query.order_by(Transaction.timestamp.desc()).all(),
             users = User.query.all(),
-            nickname = session['nickname']
     )
