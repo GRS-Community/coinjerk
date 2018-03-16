@@ -485,3 +485,11 @@ padding-top: 2px;
 
 @bottom-bleed: 0px;
 @aura-radius: 8px;
+
+
+.user-wrap {
+  border: 1px solid steelblue;
+  overflow: hidden;
+  margin-bottom: 20px;
+  padding: 10px;
+}
