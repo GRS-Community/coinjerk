@@ -347,6 +347,7 @@ div.centered table
 padding-top: 15px;
 background-color: rgba(0,0,0,0.6);
 padding:20px;
+overflow: hidden;
 }
 
 .reg-wrap {
@@ -469,7 +470,6 @@ padding-top: 2px;
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    float: left;
 }
 .sl-red {
     background-color: #940;

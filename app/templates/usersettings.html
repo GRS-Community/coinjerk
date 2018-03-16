@@ -12,29 +12,32 @@
 
 <div class="row prof-wrap">
         <div class="col-md-12 prof-title">
-         <a id="Nickname">{{ nickname }}</a>
+            <a id="Nickname">{{ nickname }}</a>
         </div>
         <div class="col-md-12 prof-header">
-          <div class="row">
-            <div id="ProfileBanner">
+            <div class="row">
+                <div id="ProfileBanner">
+                </div>
             </div>
-          </div>
         </div>
         <div class="col-md-12 prof-body">
             <div class="col-md-3">
               <img src="http://www-cdn.jtvnw.net/images/xarth/404_user_50x50.png" alt="" id="ProfilePicture" class="img-responsive"/>
               <div>
-                <center><i class="fab fa-twitch"></i><span> </span><a href="{{url_for('twitch', username=nickname)}}">http://twitch.tv/{{ social_id }}</a></center>
+                <center>
+                    <i class="fab fa-twitch"></i><span> </span><a href="{{url_for('twitch', username=nickname)}}">http://twitch.tv/{{ social_id }}</a>
+                </center>
               </div>
               <div>
-                <center><p id="Note">Note: We Recommend using a fresh xpub (new wallet). First address "generation" on a wallet with many used addresses takes more time. </p></center>
+                <center>
+                    <p id="Note">Note: We Recommend using a fresh xpub (new wallet). First address "generation" on a wallet with many used addresses takes more time.</p>
+                </center>
               </div>
             </div>
 
             <div class="col-md-9">
                 <h1 class="title">User Settings</h1>
                 <hr>
-
                     <form class="" method="post" name="ProfileForm" action="#">
                         <div class="form-group">
                             <label for="xpub" class="control-label">Wallet Master Public Key (xpub) </label>
@@ -90,18 +93,12 @@
                         </div>
 
                         <div class="form-group">
-
                             <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Update</button>
                         </div>
                     </form>
 
         </div>
     </div>
-
-
-
-
-
 
 </div>
 {% endblock %}
