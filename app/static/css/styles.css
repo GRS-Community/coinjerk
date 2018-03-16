@@ -493,3 +493,7 @@ padding-top: 2px;
   margin-bottom: 20px;
   padding: 10px;
 }
+
+.user-wrap:hover {
+  background-color:rgba(0,0,0,0.3);
+}
