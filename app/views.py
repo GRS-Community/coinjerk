@@ -90,8 +90,9 @@ def user(username):
             session_nickname=session_nickname,
             nickname = u.nickname,
             social_id = u.social_id,
-            display_text = u.display_text
-
+            tx = Transaction.query.order_by(Transaction.timestamp.desc()).all(),
+            display_text = u.display_text,
+            user = User.query.filter_by(social_id=username.lower())
             )
 
     else:
