@@ -27,8 +27,15 @@
                 <div id="Status"></div>
               </div>
             </div>
+
             <div class="hidden-md hidden-lg col-xs-12 col-sm-12"><hr></div>
             <div class="col-md-9 col-sm-12 col-xs-12">
+              <div class="col-md-3 col-sm-12 col-xs-12>">
+                <h3>Twitch:</h3>
+                <div id="channel_info"></div>
+                <div id="stream_info"></div>
+
+              </div>
                 <div class="col-md-12 col-sm-12 col-xs-12">
             <p>
               {{ display_text }}
@@ -38,12 +45,12 @@
             <center>
               <a href="{{url_for('tip', username=nickname)}}" class="custom-btn btn-12 hvr-grow">Tip</a>
         <hr>
-              <h2>TX History</h2>
+              <h2>Donation History</h2>
               <hr>
             </center>
               <div class="row">
                   <!-- {{social_id}}{{nickname.lower()}}-->
-                    
+
                   {% for user in tx: %}
                     {% if user.user_id == nickname.lower() %}
                     <div class="col-md-12">
@@ -74,8 +81,8 @@
                         <div class="col-md-3">
                          {{ user.timestamp }}
                         </div>
-                    
-                      
+
+
                       {% endif %}
                       </div>
                     {% endif %}
@@ -83,7 +90,7 @@
                   {% endfor %}
 
 
-                  
+
 
               <!-- {{ user.twi_message }}<br/> -->
               </div>

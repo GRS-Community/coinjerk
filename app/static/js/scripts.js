@@ -6,7 +6,11 @@ function GetURL(username) {
    'Client-ID': 'n7j8ddl0pu87ig063e6mnr33on17xw'
  },
  success: function(data) {
+
    $("#ProfilePicture").attr('src', data.logo);
+   $("#channel_info").html("<p>Followers: "+ data.followers +"</p>" +
+                            "<p>Total Views: " + data.views + "</p>");
+
    // $("#ProfileBanner").attr('src', data.profile_banner);
  }
 });
