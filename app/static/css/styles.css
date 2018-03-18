@@ -465,6 +465,13 @@ padding-top: 2px;
   background-color: #1da0b6;
   border-color: #fff
 }
+
+.btn-primary:hover {
+  color: #fff;
+  background-color: #1da0b6;
+  border-color: #fff
+}
+
 .status-light {
     margin-top: 4px;
     margin-right: 3px;
