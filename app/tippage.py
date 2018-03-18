@@ -89,9 +89,10 @@ def payment_notify(social_id, payrec, balance, txhash, grs_addr):
     'datetime' : timestamp of when last grabbed
     '''
     user = User.query.filter_by(social_id=social_id).first()
+    print(balance)
     value = balance * GRS_price()
-    print(GRS_price())
-    print(value)
+    print("GRS price: " + GRS_price())
+    print("Value of balance:" + value)
     is_latest_exchange_valid = False
 
     # if exchangerate.json doesnt already exists, create a new one
@@ -543,7 +544,7 @@ def ipn(username,social_id):
 
 
 
-@app.route('/confirmation/<username>/to/<social_id>', methods=['POST'])
+@app.route('/confirmation/<username>/to/<social_id>', methods=['GET'])
 def confirmation(username,social_id):
 
     TX = Transaction.query.filter_by(user_id=social_id).order_by(Transaction.timestamp.desc()).first()
