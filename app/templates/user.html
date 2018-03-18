@@ -44,20 +44,19 @@
               {{ display_text }}
             </p>
         </div>
-        <div class="col-md-12 col-sm-12 col-xs-12" align="center">
+        <div class="col-md-12 col-sm-12 col-xs-12">
             <center>
               <a href="{{url_for('tip', username=nickname)}}" class="custom-btn btn-12 hvr-grow">Tip</a>
             </center>
               <div class="row">
-                  <!-- {{social_id}}{{nickname.lower()}}-->
-                    <div class="col-md-12 underline">
+                    <div class="col-md-12 underline" align="center">
                       Donation History
                     </div>
                   {% for user in tx: %}
                     {% if user.user_id == nickname.lower() %}
                     <div class="col-md-12">
                       <div class="col-md-4">
-                        {{ user.twi_user }}
+                        {{ user.twi_user }}dsffsdfds
                       </div>
                       {% if user.tx_id|length > 17 %}
                         <div class="col-md-4">
