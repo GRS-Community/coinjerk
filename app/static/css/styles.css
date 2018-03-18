@@ -466,7 +466,8 @@ padding-top: 2px;
   border-color: #fff
 }
 .status-light {
-    margin: 5px 10px;
+    margin-top: 4px;
+    margin-right: 3px;
     width: 12px;
     height: 12px;
     border-radius: 50%;
@@ -496,4 +497,16 @@ padding-top: 2px;
 
 .user-wrap:hover {
   background-color:rgba(0,0,0,0.3);
+}
+
+.underline {
+  border-bottom: 2px solid white;
+  padding-top: 5px;
+  margin-top: 5px;
+}
+
+.over {
+  border-top: 2px solid white;
+  padding-top: 5px;
+  margin-top: 5px;
 }

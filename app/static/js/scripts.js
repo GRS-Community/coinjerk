@@ -8,8 +8,8 @@ function GetURL(username) {
  success: function(data) {
 
    $("#ProfilePicture").attr('src', data.logo);
-   $("#channel_info").html("<p>Followers: "+ data.followers +"</p>" +
-                            "<p>Total Views: " + data.views + "</p>");
+   $("#channel_info").html("<div>Followers: "+ data.followers +"</div>" +
+                            "<div>Total Views: " + data.views + "<div>");
 
    // $("#ProfileBanner").attr('src', data.profile_banner);
  }
