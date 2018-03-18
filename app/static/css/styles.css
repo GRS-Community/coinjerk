@@ -224,19 +224,20 @@ button {
   padding: 10px 25px;
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
-  background: transparent;
-  outline: none !important;
+  font-size: 20px;
+  background: #1da0b6;
   cursor: pointer;
-  transition: all 0.3s ease;
   position: relative;
   display: inline-block;
+  width: 100%;
 }
 
 
 /**** BTN No. 12 ****/
 
 .btn-12 {
-  border: 2px solid #000;
+  border: 1px solid #fff;
+  border-radius: 4px;
   z-index: 1;
 }
 
@@ -248,8 +249,7 @@ button {
   bottom: 0;
   left: 0;
   z-index: -1;
-  background: #000;
-  transition: all 0.3s ease;
+  background: #1da0b6;
 }
 
 .btn-12:hover {

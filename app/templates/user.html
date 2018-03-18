@@ -1,104 +1,84 @@
 {% extends "base.html" %}
-
 {% block content %}
 <script src="/static/js/scripts.js"></script>
 <script src="/static/js/jquery.min.js"></script>
 <script>GetURL({{ social_id|tojson }});</script>
 <script>GetBannerURL({{ social_id|tojson }});</script>
 <script>GetStreamStatus({{ social_id|tojson }});</script>
-
 <div class="container container-inv animated fadeIn">
-
-    <div class="row prof-wrap">
-        <div class="col-md-12 col-sm-12 col-xs-12 prof-title">
-         <a href="/user/{{ nickname }}" id="Nickname">{{ nickname }}</a>
+  <div class="row prof-wrap">
+    <div class="col-md-12 col-sm-12 col-xs-12 prof-title">
+     <a href="/user/{{ nickname }}" id="Nickname">{{ nickname }}</a>
+    </div>
+    <div class="col-md-12 col-sm-12 col-xs-12 prof-header">
+      <div class="row">
+        <div id="ProfileBanner">
         </div>
-        <div class="col-md-12 col-sm-12 col-xs-12 prof-header">
-          <div class="row">
-            <div id="ProfileBanner">
-            </div>
-          </div>
+      </div>
+    </div>
+    <div class="col-md-12 col-sm-12 col-xs-12 prof-body">
+      <div class="col-md-3 col-sm-12 col-xs-12">
+        <div>
+          <center><img src="http://www-cdn.jtvnw.net/images/xarth/404_user_50x50.png" alt="" id="ProfilePicture" class="img-responsive"/></center>
         </div>
-        <div class="col-md-12 col-sm-12 col-xs-12 prof-body">
-            <div class="col-md-3 col-sm-12 col-xs-12">
-              <div>
-                <center><img src="http://www-cdn.jtvnw.net/images/xarth/404_user_50x50.png" alt="" id="ProfilePicture" class="img-responsive"/></center>
-              </div>
-              
-              <div id="Status"></div>
-              <div style="clear: both;"></div>
-              <!--<div>
-                <h3><span><i class="fab fa-twitch"></i> </span>Twitch:</h3>
-              </div>-->
-              <div id="channel_info"></div>
-              <div class="overline">
-                <i class="fab fa-twitch"></i><span> </span><a href="{{url_for('twitch', username=nickname)}}">http://twitch.tv/{{ social_id }}</a>
-              </div>
-            </div>
+        <div id="Status"></div>
+        <div style="clear: both;"></div>
+        <!--<div>
+          <h3><span><i class="fab fa-twitch"></i> </span>Twitch:</h3>
+        </div>-->
+        <div id="channel_info"></div>
+        <div class="overline">
+          <i class="fab fa-twitch"></i><span> </span><a href="{{url_for('twitch', username=nickname)}}">http://twitch.tv/{{ social_id }}</a>
+        </div>
+      </div>
 
-            <div class="hidden-md hidden-lg col-xs-12 col-sm-12"><hr></div>
-            <div class="col-md-9 col-sm-12 col-xs-12">
+      <div class="hidden-md hidden-lg col-xs-12 col-sm-12"><hr></div>
+      <div class="col-md-9 col-sm-12 col-xs-12">
 
-                <div class="col-md-12 col-sm-12 col-xs-12">
-            <p>
-              {{ display_text }}
-            </p>
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <p>
+            {{ display_text }}
+          </p>
         </div>
         <div class="col-md-12 col-sm-12 col-xs-12">
-            <center>
-              <a href="{{url_for('tip', username=nickname)}}" class="custom-btn btn-12 hvr-grow">Tip</a>
-            </center>
-              <div class="row">
-                    <div class="col-md-12 underline" align="center">
-                      Donation History
-                    </div>
-                  {% for user in tx: %}
-                    {% if user.user_id == nickname.lower() %}
-                    <div class="col-md-12">
-                      <div class="col-md-4">
-                        {{ user.twi_user }}
-                      </div>
-                      {% if user.tx_id|length > 17 %}
-                        <div class="col-md-4">
-                         <a href="https://chainz.cryptoid.info/grs/tx.dws?{{ user.tx_id }}.htm">{{ user.tx_id | truncate(20) }}</a>
-                       </div>
-                      {% else %}
-                        <div class="col-md-4">
-                         Paypal
-                       </div>
-                      {% endif %}
-
-                      {% if user.tx_id|length > 17 %}
-                       <div class="col-md-4">
-                         {{ user.amount }} GRS
-                        </div>
-                      {% else %}
-                       <div class="col-md-4">
-                         ${{ user.amount }}
-                        </div>
-
-
-                      {% endif %}
-                      </div>
-                    {% endif %}
-
-                  {% endfor %}
-
-
-
-
-              <!-- {{ user.twi_message }}<br/> -->
-              </div>
-
-        </div>
-
+          <center>
+            <a href="{{url_for('tip', username=nickname)}}" class="custom-btn btn-12">Click to Tip</a>
+          </center>
+          <div class="row">
+            <div class="col-md-12 underline" align="center">
+              Donation History
             </div>
-
+            {% for user in tx: %}
+              {% if user.user_id == nickname.lower() %}
+              <div class="col-md-12">
+                <div class="col-md-4">
+                  {{ user.twi_user }}
+                </div>
+                {% if user.tx_id|length > 17 %}
+                  <div class="col-md-4">
+                   <a href="https://chainz.cryptoid.info/grs/tx.dws?{{ user.tx_id }}.htm">{{ user.tx_id | truncate(20) }}</a>
+                 </div>
+                {% else %}
+                  <div class="col-md-4">
+                   Paypal
+                 </div>
+                {% endif %}
+                {% if user.tx_id|length > 17 %}
+                 <div class="col-md-4">
+                   {{ user.amount }} GRS
+                  </div>
+                {% else %}
+                 <div class="col-md-4">
+                   ${{ user.amount }}
+                  </div>
+                {% endif %}
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
         </div>
+      </div>
     </div>
-
-
-
-
+  </div>
 </div>
 {% endblock %}
