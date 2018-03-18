@@ -119,17 +119,29 @@ def profile():
         if form.paypal_email_field.data:
             u.paypal_email = form.paypal_email_field.data
 
+        if (form.paypal_email_field.data == ""):
+            u.paypal_email = ""
+
+
         #Image/GIF on donation
         if form.image_ref_field.data:
             u.image_ref = form.image_ref_field.data
+
+        if (form.image_ref_field.data == ""):
+            u.image_ref = 'https://cdn.discordapp.com/attachments/416659759178055688/417986781053452288/grsloop.gif'
+
 
         #sound on donation
         if form.sound_ref_field.data:
             u.sound_ref = form.sound_ref_field.data
 
+        if (form.sound_ref_field.data == ""):
+            u.sound_ref = 'http://uploads.twitchalerts.com/000/003/774/415/m_health.wav'
+
         #text color on donation
         if form.text_color_field.data:
             u.text_color = form.text_color_field.data
+
 
 
         db.session.commit()
@@ -150,10 +162,10 @@ def profile():
         userlist.append(userdict)
     '''
     userdata = User.query.filter_by(social_id=session['social_id']).first()
+
     if userdata.paypal_email:
         email = userdata.paypal_email
-    else:
-        email = optional = 'Optional: If you want to recieve paypal donations'
+
 
 
     return render_template(
@@ -164,7 +176,7 @@ def profile():
             users = userlist,
             xpub = userdata.xpub,
             display_text = userdata.display_text,
-            email = email,
+            email = userdata.paypal_email,
             sound_ref = userdata.sound_ref,
             color = userdata.text_color,
             image_ref = userdata.image_ref

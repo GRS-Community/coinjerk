@@ -43,7 +43,7 @@
                             <label for="xpub" class="control-label">Wallet Master Public Key (xpub) </label>
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-code"></i></span>
-                                <input type="text" class="form-control" name="xpub_field" id="xpub"  placeholder="{{ xpub }}"> </input>
+                                <input type="text" class="form-control" name="xpub_field" id="xpub"  value="{{ xpub }}" placeholder="Example: xpub6APEnZ.... (111-char)" required> </input>
                             </div>
                         </div>
 
@@ -51,7 +51,7 @@
                             <label for="email" class="control-label">Your Paypal Email</label>
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fas fa-envelope"></i></span>
-                                <input type="text" class="form-control" name="paypal_email_field" id="email"  placeholder="{{ email }}"> </input>
+                                <input type="text" class="form-control" name="paypal_email_field" id="email" value="{{ email }}" placeholder="Optional: If you want to recieve paypal donations"> </input>
                             </div>
                         </div>
 
@@ -72,7 +72,7 @@
                             <label for="image" class="control-label">Image/GIF (link)</label>
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fas fa-font"></i></span>
-                                <input type="text" class="form-control" name="image_ref_field" id="image" placeholder="{{ image_ref }}"> </input>
+                                <input type="text" class="form-control" name="image_ref_field" id="image" value="{{ image_ref }}" placeholder="Default: https://cdn.discordapp.com/attachments/416659759178055688/417986781053452288/grsloop.gif"> </input>
                             </div>
                         </div>
 
@@ -80,7 +80,7 @@
                             <label for="sound" class="control-label">Sound (link)</label>
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fas fa-music"></i></span>
-                                <input type="text" class="form-control" name="sound_ref_field" id="sound"  placeholder="{{ sound_ref }}"> </input>
+                                <input type="text" class="form-control" name="sound_ref_field" id="sound"  value="{{ sound_ref }}" placeholder="Default: http://uploads.twitchalerts.com/000/003/774/415/m_health.wav"> </input>
                             </div>
                         </div>
 
@@ -88,7 +88,7 @@
                             <label for="color" class="control-label">Text Color</label>
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fas fa-font"></i></span>
-                                <input type="color" class="form-control" name="text_color_field" id="color" value="{{ color }}"> </input>
+                                <input type="color" class="form-control" name="text_color_field" id="color" value="{{ color }}" placeholder="Default: #0066ff (blue)"> </input>
                             </div>
                         </div>
 

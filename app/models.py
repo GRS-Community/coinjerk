@@ -37,9 +37,9 @@ class User(db.Model):
 
 
     paypal_email = db.Column(db.String(100))
-    sound_ref = db.Column(db.String(200))
-    text_color = db.Column(db.String(10))
-    image_ref = db.Column(db.String(200))
+    sound_ref = db.Column(db.String(200), default='http://uploads.twitchalerts.com/000/003/774/415/m_health.wav')
+    text_color = db.Column(db.String(10), default='#0066ff')
+    image_ref = db.Column(db.String(200), default='https://cdn.discordapp.com/attachments/416659759178055688/417986781053452288/grsloop.gif')
 
     # Transaction Linkage
     transactions = db.relationship(
