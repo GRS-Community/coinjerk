@@ -91,8 +91,6 @@ def payment_notify(social_id, payrec, balance, txhash, grs_addr):
     user = User.query.filter_by(social_id=social_id).first()
     print(balance)
     value = balance * GRS_price()
-    print("GRS price: " + GRS_price())
-    print("Value of balance:" + value)
     is_latest_exchange_valid = False
 
     # if exchangerate.json doesnt already exists, create a new one
