@@ -528,6 +528,7 @@ padding-top: 2px;
   overflow: hidden;
   margin-top: 20px;
   border: 1px solid #fff;
+  padding-bottom: 10px;
 }
 
 .donation-title {
@@ -541,5 +542,5 @@ padding-top: 2px;
 
 .donation-body {
   padding: 10px;
-  background: #222;
+  /* background: #222;*/
 }
