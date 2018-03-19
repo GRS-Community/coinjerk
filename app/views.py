@@ -338,6 +338,7 @@ def how():
 def users():
     return render_template(
             'users.html',
+            tx = Transaction.query.order_by(Transaction.amount.desc()).limit(5),
             users = User.query.all()
     )
 

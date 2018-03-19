@@ -58,6 +58,49 @@
 
           <div class="row donation-wrap">
             <div class="col-md-12  donation-title" align="center">
+              Top 5 Donators
+            </div>
+            <div class="donation-body">
+              <div class="col-md-12 underline">
+                <div class="col-md-4">
+                  Donator
+                </div>
+                <div class="col-md-4">
+                  Transaction
+                </div>
+                <div class="col-md-4">
+                  Amount
+                </div>
+              </div>
+              {% for user in tx: %}
+              {% if user.user_id == nickname.lower() %}
+              <div class="col-md-12">
+                <div class="col-md-4">
+                  {{ user.twi_user }}
+                </div>
+                {% if user.tx_id|length > 17 %}
+                  <div class="col-md-4">
+                   <a href="https://chainz.cryptoid.info/grs/tx.dws?{{ user.tx_id }}.htm">{{ user.tx_id | truncate(20) }}</a>
+                 </div>
+                {% else %}
+                  <div class="col-md-4">
+                   Paypal
+                 </div>
+                {% endif %}
+                {% if user.tx_id|length > 17 %}
+                 <div class="col-md-4">
+                   {{ user.amount }} GRS
+                  </div>
+                {% else %}
+                 <div class="col-md-4">
+                   ${{ user.amount }}
+                  </div>
+                {% endif %}
+                </div>
+              {% endif %}
+            {% endfor %}
+            </div>
+            <div class="col-md-12  donation-title" align="center">
               Donation History
             </div>
             <div class="donation-body">
