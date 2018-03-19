@@ -13,7 +13,12 @@
 
 		</div>
 <div class="prof-body">
-
+	<!-- <div class="col-md-12">
+		ONLINE:
+	</div>
+	<div class="col-md-12">
+		OFFLINE:
+	</div> -->
 {% for user in users: %}
     <script>
     	GetStreamStatus({{ user.social_id|tojson }});
