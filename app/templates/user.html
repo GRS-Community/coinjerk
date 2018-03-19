@@ -34,20 +34,22 @@
 
       <div class="hidden-md hidden-lg col-xs-12 col-sm-12"><hr></div>
       <div class="col-md-9 col-sm-12 col-xs-12">
-
-        <div class="col-md-12 col-sm-12 col-xs-12">
-          <p>
-            {{ display_text }}
-          </p>
-        </div>
-        <div class="col-md-12 col-sm-12 col-xs-12">
           <center>
             <a href="{{url_for('tip', username=nickname)}}" class="custom-btn btn-12">Click to Tip</a>
           </center>
-          <div class="row">
-            <div class="col-md-12 underline" align="center">
+        <div class="col-md-12 col-sm-12 col-xs-12 underline">
+          <h2>About
+        </div>
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            {{ display_text }}
+        </div>
+        <div class="col-md-12 col-sm-12 col-xs-12">
+
+          <div class="row donation-wrap">
+            <div class="col-md-12  donation-title" align="center">
               Donation History
             </div>
+            <div class="donation-body">
             {% for user in tx: %}
               {% if user.user_id == nickname.lower() %}
               <div class="col-md-12">
@@ -75,6 +77,7 @@
                 </div>
               {% endif %}
             {% endfor %}
+            </div>
           </div>
         </div>
       </div>
