@@ -21,15 +21,20 @@
 {% endblock %}
 
 {% block body %}
+<div class="overlay-bg">
 <header>
 	{% include "nav.html" %}
 </header>
-<div class="">
-	{% block content %}
-	{% endblock %}
+{% block content %}
+		{% endblock %}
 </div>
+
+
+
+		
 
 
 <!-- <script src="/static/js/jquery.min.js"></script> -->
 <script src="/static/js/bootstrap.min.js"></script>
+
 {% endblock %}

@@ -1,12 +1,37 @@
 @import url(http://fonts.googleapis.com/css?family=Raleway:400,600,800);
+html{
+    width: 100%;
+  height: 100%;
+  padding: 0;
 
+  margin: 0;
+
+}
 body {
-  background-image: url('/static/img/bg.png');
+  background-image: url('/static/img/grs-blockchain.svg');
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+   background-attachment: fixed;
   font-family: 'Raleway', sans-serif;
   background-color: steelblue;
   color: #fff;
   padding: 0;
   margin: 0;
+    width: 100%;
+  height: 100%;
+
+}
+
+.overlay-bg {
+  background: linear-gradient(rgba(17,53,81,0.8), rgba(0,27,48,0.8));
+  position: fixed;  
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow-y: auto;
+  display: block;
+  margin-top: 50px;
 }
 
 .navbar-brand {
@@ -32,7 +57,7 @@ a:active, a:visited {
 }
 
 .highlight {
-  color: #1da0b6;
+  color: #28e1ff;
   text-decoration: none;
 }
 
@@ -47,26 +72,21 @@ a:active, a:visited {
 }
 
 .container-inv {
-  margin-top: 50px;
-  padding-top: 100px;
-  padding-bottom: 100px;
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
 
     /* Medium Devices, Desktops */
     @media only screen and (min-width : 992px) {
   .container-inv {
-    margin-top: 50px;
-    padding-top: 100px;
-    padding-bottom: 100px;
+    padding-top: 50px;
   }
     }
 
     /* Large Devices, Wide Screens */
     @media only screen and (min-width : 1200px) {
   .container-inv {
-    margin-top: 50px;
-    padding-top: 100px;
-    padding-bottom: 100px;
+    padding-top: 50px;
   }
     }
 
@@ -75,25 +95,21 @@ a:active, a:visited {
     /* Large Devices, Wide Screens */
     @media only screen and (max-width : 1200px) {
   .container-inv {
-    margin-top: 50px;
-    padding-top: 100px;
-    padding-bottom: 100px;
+    padding-top: 50px;
   }
     }
 
     /* Medium Devices, Desktops */
     @media only screen and (max-width : 992px) {
   .container-inv {
-    margin-top: 50px;
     padding-top: 75px;
-    padding-bottom: 75px;
   }
     }
 
     /* Small Devices, Tablets */
     @media only screen and (max-width : 768px) {
   .container-inv {
-    margin-top: 50px;
+    margin-top: 0px;
     padding-top: 0px;
     padding-bottom: 0px;
   }
@@ -365,12 +381,12 @@ overflow: hidden;
   border-radius: 50%;
   width: 75px;
   height: 75px;
-  padding: 4px;
-  background: #1da0b6;
-  border: 6px solid #FFF;
-  color: #FFF;
+  padding: 6px;
+  background: rgba(0,0,0,0);
+  border: 3px solid #28e1ff;
+  color: #28e1ff;
   text-align: center;
-  font: 48px Arial, sans-serif;
+  font: 48px Montserrat, sans-serif;
 }
 
 .trunc {
