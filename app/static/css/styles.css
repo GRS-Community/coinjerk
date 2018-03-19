@@ -10,8 +10,12 @@ html{
 body {
   background-image: url('/static/img/grs-blockchain.svg');
   background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
   -webkit-background-size: cover;
-   background-attachment: fixed;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   font-family: 'Raleway', sans-serif;
   background-color: steelblue;
   color: #fff;
