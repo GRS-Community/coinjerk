@@ -61,6 +61,17 @@
               Donation History
             </div>
             <div class="donation-body">
+              <div class="col-md-12 underline">
+                <div class="col-md-4">
+                  Donator
+                </div>
+                <div class="col-md-4">
+                  Transaction
+                </div>
+                <div class="col-md-4">
+                  Amount
+                </div>
+              </div>
             {% for user in tx: %}
               {% if user.user_id == nickname.lower() %}
               <div class="col-md-12">
