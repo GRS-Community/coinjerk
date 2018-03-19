@@ -34,14 +34,25 @@
 
       <div class="hidden-md hidden-lg col-xs-12 col-sm-12"><hr></div>
       <div class="col-md-9 col-sm-12 col-xs-12">
-          <center>
-            <a href="{{url_for('tip', username=nickname)}}" class="custom-btn btn-12">Click to Tip</a>
-          </center>
+
         <div class="col-md-12 col-sm-12 col-xs-12 underline">
           <h2>About
         </div>
+
         <div class="col-md-12 col-sm-12 col-xs-12">
             {{ display_text }}
+        </div>
+
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <h2>
+        </div>
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <div class="row">
+            <center>
+              <a href="{{url_for('tip', username=nickname)}}" class="custom-btn btn-12">Click to Tip</a>
+            </center>  
+          </div>
+          
         </div>
         <div class="col-md-12 col-sm-12 col-xs-12">
 
