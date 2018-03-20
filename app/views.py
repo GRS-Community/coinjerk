@@ -50,8 +50,7 @@ def index():
             nickname=session['nickname']
             try:
                     return render_template(
-            'index.html',
-            session_nickname=None)
+            'index.html')
             except:
                 return redirect(url_for('logout'))
 
