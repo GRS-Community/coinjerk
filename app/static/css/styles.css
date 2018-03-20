@@ -37,6 +37,84 @@ body {
   display: block;
   margin-top: 50px;
 }
+/*==========  Non-Mobile First Method  ==========*/
+
+    /* Large Devices, Wide Screens */
+    @media only screen and (max-width : 1200px) {
+.overlay-bg {
+  background: linear-gradient(rgba(17,53,81,0.8), rgba(0,27,48,0.8));
+  position: fixed;  
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow-y: auto;
+  display: block;
+  margin-top: 50px;
+}
+    }
+
+    /* Medium Devices, Desktops */
+    @media only screen and (max-width : 992px) {
+.overlay-bg {
+  background: linear-gradient(rgba(17,53,81,0.8), rgba(0,27,48,0.8));
+  position: fixed;  
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow-y: auto;
+  display: block;
+  margin-top: 25px;
+}
+    }
+
+    /* Small Devices, Tablets */
+    @media only screen and (max-width : 768px) {
+.overlay-bg {
+  background: linear-gradient(rgba(17,53,81,0.8), rgba(0,27,48,0.8));
+  position: fixed;  
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow-y: auto;
+  display: block;
+  margin-top: 50px;
+}
+    }
+
+    /* Extra Small Devices, Phones */
+    @media only screen and (max-width : 480px) {
+.overlay-bg {
+  background: linear-gradient(rgba(17,53,81,0.8), rgba(0,27,48,0.8));
+  position: fixed;  
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow-y: auto;
+  display: block;
+  margin-top: 0px;
+}
+    }
+
+    /* Custom, iPhone Retina */
+    @media only screen and (max-width : 320px) {
+.overlay-bg {
+  background: linear-gradient(rgba(17,53,81,0.8), rgba(0,27,48,0.8));
+  position: fixed;  
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow-y: auto;
+  display: block;
+  margin-top: 0px;
+}
+    }
+
+
 
 .navbar-brand {
   text-shadow: 2px 2px 4px #000000;
@@ -594,4 +672,8 @@ padding-top: 2px;
   left: 0;
   width: 100%;
   height: 100%;
+}
+
+.header-text {
+  font-size: 20px;
 }
