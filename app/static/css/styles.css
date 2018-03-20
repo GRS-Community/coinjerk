@@ -43,7 +43,17 @@ body {
 }
 
 .dropdown-menu {
-  background-color: black;
+  background-color: #080808;
+}
+
+.dropdown-menu > li > a {
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: 400;
+    line-height: 1.42857143;
+    color: #28e1ff;
+    white-space: nowrap;
 }
 
 a {
@@ -352,9 +362,9 @@ div.centered table
 }
 
 .prof-title {
-  background-color:rgba(30,30,30,1);
-  padding:5px;
-  padding-left: 10px;
+  background-color:rgba(34,34,34,1);
+  padding: 5px;
+  padding-left: 5px;
   font-weight: normal;
   font-size: 20px;
 }
