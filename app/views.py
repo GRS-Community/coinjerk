@@ -53,8 +53,6 @@ def index():
             except:
                 return redirect(url_for('logout'))
 
-
-
     return render_template(
             'index.html',
             session_nickname=None)
