@@ -35,19 +35,96 @@
       <div class="hidden-md hidden-lg col-xs-12 col-sm-12"><hr></div>
       <div class="col-md-9 col-sm-12 col-xs-12">
 
+        <div class="col-md-12 col-sm-12 col-xs-12 underline">
+          <h2 class="highlight">About
+        </div>
+
         <div class="col-md-12 col-sm-12 col-xs-12">
-          <p>
             {{ display_text }}
-          </p>
+        </div>
+
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <h2>
         </div>
         <div class="col-md-12 col-sm-12 col-xs-12">
-          <center>
-            <a href="{{url_for('tip', username=nickname)}}" class="custom-btn btn-12">Click to Tip</a>
-          </center>
           <div class="row">
-            <div class="col-md-12 underline" align="center">
+            <center>
+              <a href="{{url_for('tip', username=nickname)}}" class="custom-btn btn-12">Click to Tip</a>
+            </center>  
+          </div>
+          
+        </div>
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <div class="row donation-wrap">
+                        <div class="col-md-12  donation-title" align="center">
+              Top 5 Donators
+            </div>
+            <div class="donation-body">
+              <div class="col-md-12 underline">
+                <div class="col-md-4">
+                  Donator
+                </div>
+                <div class="col-md-4">
+                  Transaction
+                </div>
+                <div class="col-md-4">
+                  Amount
+                </div>
+              </div>
+
+{% for user in top5 if user.user_id == nickname.lower() %}
+    {% if loop.index <= 5 %}
+          <div class="col-md-12">
+             <div class="col-md-4">
+              {{ user.twi_user }}
+             </div>
+            {% if user.tx_id|length > 17 %}
+             <div class="col-md-4">
+               <a href="https://chainz.cryptoid.info/grs/tx.dws?{{ user.tx_id }}.htm">{{ user.tx_id | truncate(20) }}</a>
+             </div>
+            {% else %}
+             <div class="col-md-4">
+              Paypal
+             </div>
+            {% endif %}
+            {% if user.tx_id|length > 17 %}
+             <div class="col-md-4">
+               {{ user.amount }} GRS
+              </div>
+            {% else %}
+             <div class="col-md-4">
+               ${{ user.amount }}
+              </div>
+            {% endif %}
+            </div>
+    {% endif %}
+{% endfor %}
+
+
+
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12 col-sm-12 col-xs-12">
+
+          <div class="row donation-wrap">
+
+
+            <div class="col-md-12  donation-title" align="center">
               Donation History
             </div>
+            <div class="donation-body">
+              <div class="col-md-12 underline">
+                <div class="col-md-4">
+                  Donator
+                </div>
+                <div class="col-md-4">
+                  Transaction
+                </div>
+                <div class="col-md-4">
+                  Amount
+                </div>
+              </div>
             {% for user in tx: %}
               {% if user.user_id == nickname.lower() %}
               <div class="col-md-12">
@@ -75,6 +152,7 @@
                 </div>
               {% endif %}
             {% endfor %}
+            </div>
           </div>
         </div>
       </div>

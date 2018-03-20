@@ -53,8 +53,6 @@ def index():
             except:
                 return redirect(url_for('logout'))
 
-
-
     return render_template(
             'index.html',
             session_nickname=None)
@@ -91,6 +89,7 @@ def user(username):
             nickname = u.nickname,
             social_id = u.social_id,
             tx = Transaction.query.order_by(Transaction.timestamp.desc()).all(),
+            top5 = Transaction.query.order_by(Transaction.amount.desc()).all(),
             display_text = u.display_text,
             user = User.query.filter_by(social_id=username.lower())
             )
@@ -324,14 +323,14 @@ def cancelled_return():
 def about():
     return render_template(
             'about.html',
-            users = User.query.all(),
+            users = User.query.all()
     )
 
 @app.route('/how')
 def how():
     return render_template(
             'how.html',
-            users = User.query.all(),
+            users = User.query.all()
     )
 
 @app.route('/users')
