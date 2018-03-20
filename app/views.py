@@ -91,7 +91,7 @@ def user(username):
             nickname = u.nickname,
             social_id = u.social_id,
             tx = Transaction.query.order_by(Transaction.timestamp.desc()).all(),
-            top5 = Transaction.query.order_by(Transaction.amount.desc()).limit(5),
+            top5 = Transaction.query.order_by(Transaction.amount.desc()).all(),
             display_text = u.display_text,
             user = User.query.filter_by(social_id=username.lower())
             )
