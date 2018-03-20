@@ -49,7 +49,9 @@ def index():
         if 'social_id' in session:
             nickname=session['nickname']
             try:
-                return redirect(url_for('user', username=nickname))
+                    return render_template(
+            'index.html',
+            session_nickname=None)
             except:
                 return redirect(url_for('logout'))
 
