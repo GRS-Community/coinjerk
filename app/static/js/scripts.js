@@ -7,7 +7,7 @@ function GetURL(username) {
  },
  success: function(data) {
 
-   $("#ProfilePicture").attr('src', data.logo);
+   $(".ProfilePicture").attr('src', data.logo);
    $("#channel_info").html("<div>Followers: "+ data.followers +"</div>" +
                             "<div>Total Views: " + data.views + "<div>");
 
@@ -42,10 +42,10 @@ function GetStreamStatus(username) {
  },
  success: function(data) {
    if (data.stream == null) {
-     $('#Status').html("<span><div class=\"status-light sl-red pull-left\"></div><div class=\"pull-left\">OFFLINE</div></span>")
+     $('.Status').html("<span><div class=\"status-light sl-red pull-left\"></div><div class=\"pull-left\">OFFLINE</div></span>")
    }
    else
-    $('#Status').html("<span><div class=\"status-light sl-green pull-left\"></div><div class=\"pull-left\">LIVE</div></span>")
+    $('.Status').html("<span><div class=\"status-light sl-green pull-left\"></div><div class=\"pull-left\">LIVE</div></span>")
  }
 });
 }

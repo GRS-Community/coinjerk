@@ -157,10 +157,11 @@ a:active, a:visited {
   text-decoration: underline;
 }
 
-#ProfilePicture {
+.ProfilePicture {
   margin-bottom: 10px;
   border-radius: 100%;
   border: 5px solid steelblue;
+
 }
 
 .container-inv {
@@ -676,4 +677,10 @@ padding-top: 2px;
 
 .header-text {
   font-size: 20px;
+}
+
+.offline {
+}
+
+.online {
 }

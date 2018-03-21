@@ -346,5 +346,5 @@ def history():
      return render_template(
             'history.html',
             tx = Transaction.query.order_by(Transaction.timestamp.desc()).all(),
-            users = User.query.all(),
+            users = User.query.all()
     )
