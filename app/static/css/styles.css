@@ -691,3 +691,10 @@ padding-top: 2px;
   font-weight: bold;
 }
 
+.don-body {
+  background-color: rgba(0,0,0,0.6);
+  padding-left: 20px;
+  overflow: hidden;
+  padding-right: 20px;
+  padding-bottom: 20px;
+}
