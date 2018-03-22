@@ -17,9 +17,9 @@
       </div>
     </div>
     <div class="col-md-12 col-sm-12 col-xs-12 prof-body">
-      <div class="col-md-3 col-sm-12 col-xs-12">
-        <div>
-          <center><img src="http://www-cdn.jtvnw.net/images/xarth/404_user_50x50.png" alt="" class="ProfilePicture img-responsive"/></center>
+      <div class="col-md-4 col-sm-12 col-xs-12">
+        <div class="row">
+          <img src="http://www-cdn.jtvnw.net/images/xarth/404_user_50x50.png" alt="" class="ProfilePicture img-responsive"/>
         </div>
         <div class="Status"></div>
         <div style="clear: both;"></div>
@@ -27,13 +27,25 @@
           <h3><span><i class="fab fa-twitch"></i> </span>Twitch:</h3>
         </div>-->
         <div id="channel_info"></div>
-        <div class="overline">
+        <div class="">
+        </br>
+            <label for="user_display">Twitch URL:</label>
+            
+          </div>
+        <div class="">
           <i class="fab fa-twitch"></i><span> </span><a href="{{url_for('twitch', username=nickname)}}">http://twitch.tv/{{ social_id }}</a>
+        </div>
+        <div class="">
+          <div class="form-group">
+        </br>
+            <label for="user_display">Donation URL:</label>
+          <div><a href="http://groestltip.org/user/{{social_id}}">http://groestltip.org/user/{{social_id}}</a></div>
+          </div>
         </div>
       </div>
 
       <div class="hidden-md hidden-lg col-xs-12 col-sm-12"><hr></div>
-      <div class="col-md-9 col-sm-12 col-xs-12">
+      <div class="col-md-8 col-sm-12 col-xs-12">
 
         <div class="col-md-12 col-sm-12 col-xs-12 underline">
           <h2 class="highlight">About
