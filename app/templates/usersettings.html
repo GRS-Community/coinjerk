@@ -1,89 +1,105 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+{% extends "base.html" %}
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="/static/css/bootstrap.css">
-    <link rel="stylesheet" href="/static/css/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
- <title>Register</title>
-</head>
-    <body>
-      <header>
-        <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
-          <a class="navbar-brand" href="/">Gro<span class="highlight">nate</span></a>
-          <div class="collapse navbar-collapse" id="appNavigation" aria-labelledby="Link">
-            <div class="navbar-nav ml-auto">
-              <a class="nav-item nav-link" href="/profile">{{ nickname }}  <i class="fa fa-twitch"></i></a>
-              <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          </a>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="{{url_for('user', username=nickname)}}">Profile</a>
-            <a class="dropdown-item" href=""><i class="fa fa-file-text-o"></i> How</a>
-            <a class="dropdown-item" href=""><i class="fa fa-info"></i> About</a>
-            <a class="dropdown-item" href="/logout"><i class="fa fa-sign-out"></i> Logout</a>
-          </div>
-        </li>
-            </div>
-          </div>
-        </nav>
+{% block content %}
+<div class="container container-inv animated fadeIn">
 
-      </header>
 
-      <div class="content" align="center">
-        <div class="container-fluid col-md-8">
-                <h1 class="title">User Settings</h1>
-                <div class="container-fluid col-md-6 main-login main-center">
-                    <form class="form-horizontal" method="post" name="ProfileForm" action="#">
+<script src="/static/js/scripts.js"></script>
+<script src="/static/js/jquery.min.js"></script>
+<script>GetURL({{ social_id|tojson }});</script>
+<script>GetBannerURL({{ social_id|tojson }});</script>
 
-                        <div class="form-group cols-sm-2">
-                            <label for="email" class="cols-sm-2 control-label">Your Master Public Key</label>
-                            <div class="cols-sm-10">
-                                <div class="input-group">
-                                  <span class="input-group-addon"><i class="fa fa-code"></i></span>
-                                    <input type="text" class="form-control" name="xpub_field" id="email"  placeholder="Enter Your xpub"> </input>
-                                </div>
-                            </div>
-                        </div>
 
-                        <div class="form-group">
-                            <label for="password" class="cols-sm-2 control-label">Display Text</label>
-                            <div class="cols-sm-10">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-comment-o"></i></span>
-                                    <textarea class="form-control" rows="3" name="user_display_text_field" id="password"  placeholder="Enter your text to display on your tip page."></textarea>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Update</button>
-                        </div>
-                    </form>
+<div class="row prof-wrap">
+        <div class="col-md-12 prof-title">
+            <a id="Nickname">{{ nickname }}</a>
+        </div>
+        <div class="col-md-12 prof-header">
+            <div class="row">
+                <div id="ProfileBanner">
                 </div>
             </div>
         </div>
-      </div>
-
-      <footer>
-        <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
-          <div class="collapse navbar-collapse" id="appNavigation" [ngbCollapse]="isCollapsed">
-            <span class="navbar-text">
-           2017 gronate.com | All rights reserved.
-         </span>
-            <div class="navbar-nav ml-auto">
-              <a class="nav-item nav-link" routerLink="/about" routerLinkActive="active">About</a>
+        <div class="col-md-12 prof-body">
+            <div class="col-md-3">
+              <img src="http://www-cdn.jtvnw.net/images/xarth/404_user_50x50.png" alt="" class="ProfilePicture img-responsive"/>
+              <div>
+                <center>
+                    <i class="fab fa-twitch"></i><span> </span><a href="{{url_for('twitch', username=nickname)}}">http://twitch.tv/{{ social_id }}</a>
+                </center>
+              </div>
+              <hr>
+              <div>
+                <center>
+                    <p id="Note">Note: We Recommend using a fresh xpub (new wallet). First address "generation" on a wallet with many used addresses takes more time.</p>
+                </center>
+              </div>
             </div>
-          </div>
-        </nav>
-      </footer>
 
-      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-    </body>
-</html>
+            <div class="col-md-9">
+                <h1 class="title highlight">User Settings</h1>
+                <hr>
+                    <form class="" method="post" name="ProfileForm" action="#">
+                        <div class="form-group">
+                            <label for="xpub" class="control-label">Wallet Master Public Key (<a href="/how"><span class="highlight">what is this?</span></a>)</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-code"></i></span>
+                                <input type="text" class="form-control" name="xpub_field" id="xpub"  value="{{ xpub }}" placeholder="Example: xpub6APEnZ.... (111-char)" required> </input>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email" class="control-label">Your Paypal Email</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fas fa-envelope"></i></span>
+                                <input type="text" class="form-control" name="paypal_email_field" id="email" value="{{ email }}" placeholder="Optional: If you want to recieve paypal donations"> </input>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="text" class="">Tell us a little about yourself (maximum of 255 characters) </label>
+                            <div class="for">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fas fa-comment"></i></span>
+                                    <textarea class="form-control" rows="3" name="user_display_text_field" id="text" placeholder="{{ display_text }}"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h1 class="title highlight">Donation Alert Settings</h1>
+                        <hr>
+
+                        <div class="form-group">
+                            <label for="image" class="control-label">Image/GIF (link)</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fas fa-font"></i></span>
+                                <input type="text" class="form-control" name="image_ref_field" id="image" value="{{ image_ref }}" placeholder="Default: https://cdn.discordapp.com/attachments/416659759178055688/417986781053452288/grsloop.gif"> </input>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="sound" class="control-label">Sound (link)</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fas fa-music"></i></span>
+                                <input type="text" class="form-control" name="sound_ref_field" id="sound"  value="{{ sound_ref }}" placeholder="Default: http://uploads.twitchalerts.com/000/003/774/415/m_health.wav"> </input>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="color" class="control-label">Text Color</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fas fa-font"></i></span>
+                                <input type="color" class="form-control" name="text_color_field" id="color" value="{{ color }}" placeholder="Default: #0066ff (blue)"> </input>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary-cstm btn-lg btn-block login-button">Update</button>
+                        </div>
+                    </form>
+
+        </div>
+    </div>
+
+</div>
+{% endblock %}

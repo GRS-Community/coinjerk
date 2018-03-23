@@ -1,228 +1,239 @@
 {
-    "E-X.not.fyi": {
+    "electrum1.groestlcoin.org": {
         "pruning": "-",
         "s": "50002",
         "t": "50001",
         "version": "1.1"
     },
-    "ELECTRUMX.not.fyi": {
+    "electrum2.groestlcoin.org": {
         "pruning": "-",
         "s": "50002",
         "t": "50001",
         "version": "1.1"
     },
-    "ELEX01.blackpole.online": {
+    "electrum3.groestlcoin.org": {
         "pruning": "-",
         "s": "50002",
         "t": "50001",
         "version": "1.1"
     },
-    "VPS.hsmiths.com": {
+    "electrum4.groestlcoin.org": {
         "pruning": "-",
         "s": "50002",
         "t": "50001",
         "version": "1.1"
     },
-    "bitcoin.freedomnode.com": {
+    "electrum5.groestlcoin.org": {
         "pruning": "-",
         "s": "50002",
         "t": "50001",
         "version": "1.1"
     },
-    "btc.smsys.me": {
-        "pruning": "-",
-        "s": "995",
-        "version": "1.1"
-    },
-    "currentlane.lovebitco.in": {
-        "pruning": "-",
-        "t": "50001",
-        "version": "1.1"
-    },
-    "daedalus.bauerj.eu": {
+    "electrum6.groestlcoin.org": {
         "pruning": "-",
         "s": "50002",
         "t": "50001",
         "version": "1.1"
     },
-    "de01.hamster.science": {
+    "electrum7.groestlcoin.org": {
         "pruning": "-",
         "s": "50002",
         "t": "50001",
         "version": "1.1"
     },
-    "ecdsa.net": {
-        "pruning": "-",
-        "s": "110",
-        "t": "50001",
-        "version": "1.1"
-    },
-    "elec.luggs.co": {
-        "pruning": "-",
-        "s": "443",
-        "version": "1.1"
-    },
-    "electrum.akinbo.org": {
+    "electrum8.groestlcoin.org": {
         "pruning": "-",
         "s": "50002",
         "t": "50001",
         "version": "1.1"
     },
-    "electrum.antumbra.se": {
+    "electrum9.groestlcoin.org": {
         "pruning": "-",
         "s": "50002",
         "t": "50001",
         "version": "1.1"
     },
-    "electrum.be": {
+    "electrum10.groestlcoin.org": {
         "pruning": "-",
         "s": "50002",
         "t": "50001",
         "version": "1.1"
     },
-    "electrum.coinucopia.io": {
+    "electrum11.groestlcoin.org": {
         "pruning": "-",
         "s": "50002",
         "t": "50001",
         "version": "1.1"
     },
-    "electrum.cutie.ga": {
+    "electrum12.groestlcoin.org": {
         "pruning": "-",
         "s": "50002",
         "t": "50001",
         "version": "1.1"
     },
-    "electrum.festivaldelhumor.org": {
+    "electrum13.groestlcoin.org": {
         "pruning": "-",
         "s": "50002",
         "t": "50001",
         "version": "1.1"
     },
-    "electrum.hsmiths.com": {
+    "electrum14.groestlcoin.org": {
         "pruning": "-",
         "s": "50002",
         "t": "50001",
         "version": "1.1"
     },
-    "electrum.qtornado.com": {
+    "electrum15.groestlcoin.org": {
         "pruning": "-",
         "s": "50002",
         "t": "50001",
         "version": "1.1"
     },
-    "electrum.vom-stausee.de": {
+    "electrum16.groestlcoin.org": {
         "pruning": "-",
         "s": "50002",
         "t": "50001",
         "version": "1.1"
     },
-    "electrum3.hachre.de": {
+    "electrum17.groestlcoin.org": {
         "pruning": "-",
         "s": "50002",
         "t": "50001",
         "version": "1.1"
     },
-    "electrumx.bot.nu": {
+    "electrum18.groestlcoin.org": {
         "pruning": "-",
         "s": "50002",
         "t": "50001",
         "version": "1.1"
     },
-    "electrumx.westeurope.cloudapp.azure.com": {
+    "electrum19.groestlcoin.org": {
         "pruning": "-",
         "s": "50002",
         "t": "50001",
         "version": "1.1"
     },
-    "elx01.knas.systems": {
+    "electrum20.groestlcoin.org": {
         "pruning": "-",
         "s": "50002",
         "t": "50001",
         "version": "1.1"
     },
-    "ex-btc.server-on.net": {
+    "electrum21.groestlcoin.org": {
         "pruning": "-",
         "s": "50002",
         "t": "50001",
         "version": "1.1"
     },
-    "helicarrier.bauerj.eu": {
+    "electrum22.groestlcoin.org": {
         "pruning": "-",
         "s": "50002",
         "t": "50001",
         "version": "1.1"
     },
-    "mooo.not.fyi": {
-        "pruning": "-",
-        "s": "50012",
-        "t": "50011",
-        "version": "1.1"
-    },
-    "ndnd.selfhost.eu": {
+    "electrum23.groestlcoin.org": {
         "pruning": "-",
         "s": "50002",
         "t": "50001",
         "version": "1.1"
     },
-    "node.arihanc.com": {
+    "electrum24.groestlcoin.org": {
         "pruning": "-",
         "s": "50002",
         "t": "50001",
         "version": "1.1"
     },
-    "node.xbt.eu": {
+    "electrum25.groestlcoin.org": {
         "pruning": "-",
         "s": "50002",
         "t": "50001",
         "version": "1.1"
     },
-    "node1.volatilevictory.com": {
+    "electrum26.groestlcoin.org": {
         "pruning": "-",
         "s": "50002",
         "t": "50001",
         "version": "1.1"
     },
-    "noserver4u.de": {
+    "electrum27.groestlcoin.org": {
         "pruning": "-",
         "s": "50002",
         "t": "50001",
         "version": "1.1"
     },
-    "qmebr.spdns.org": {
+    "electrum28.groestlcoin.org": {
         "pruning": "-",
         "s": "50002",
         "t": "50001",
         "version": "1.1"
     },
-    "raspi.hsmiths.com": {
-        "pruning": "-",
-        "s": "51002",
-        "t": "51001",
-        "version": "1.1"
-    },
-    "s2.noip.pl": {
-        "pruning": "-",
-        "s": "50102",
-        "version": "1.1"
-    },
-    "s5.noip.pl": {
-        "pruning": "-",
-        "s": "50105",
-        "version": "1.1"
-    },
-    "songbird.bauerj.eu": {
+    "electrum29.groestlcoin.org": {
         "pruning": "-",
         "s": "50002",
         "t": "50001",
         "version": "1.1"
     },
-    "us.electrum.be": {
+    "electrum30.groestlcoin.org": {
         "pruning": "-",
         "s": "50002",
         "t": "50001",
         "version": "1.1"
     },
-    "us01.hamster.science": {
+    "electrum31.groestlcoin.org": {
+        "pruning": "-",
+        "s": "50002",
+        "t": "50001",
+        "version": "1.1"
+    },
+    "electrum32.groestlcoin.org": {
+        "pruning": "-",
+        "s": "50002",
+        "t": "50001",
+        "version": "1.1"
+    },
+    "electrum33.groestlcoin.org": {
+        "pruning": "-",
+        "s": "50002",
+        "t": "50001",
+        "version": "1.1"
+    },
+    "electrum34.groestlcoin.org": {
+        "pruning": "-",
+        "s": "50002",
+        "t": "50001",
+        "version": "1.1"
+    },
+    "electrum35.groestlcoin.org": {
+        "pruning": "-",
+        "s": "50002",
+        "t": "50001",
+        "version": "1.1"
+    },
+    "electrum36.groestlcoin.org": {
+        "pruning": "-",
+        "s": "50002",
+        "t": "50001",
+        "version": "1.1"
+    },
+    "electrum37.groestlcoin.org": {
+        "pruning": "-",
+        "s": "50002",
+        "t": "50001",
+        "version": "1.1"
+    },
+    "electrum38.groestlcoin.org": {
+        "pruning": "-",
+        "s": "50002",
+        "t": "50001",
+        "version": "1.1"
+    },
+    "electrum39.groestlcoin.org": {
+        "pruning": "-",
+        "s": "50002",
+        "t": "50001",
+        "version": "1.1"
+    },
+    "electrum40.groestlcoin.org": {
         "pruning": "-",
         "s": "50002",
         "t": "50001",

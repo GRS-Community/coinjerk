@@ -1,0 +1,26 @@
+<!-- <p>{{ values }}</p> -->
+{% extends "base.html" %}
+
+{% block content %}
+
+<div>
+  <hr>
+  <h1>Transaction info:</h1>
+  <p>Reciever: {{ twitch_link }}</p>
+  <p>Payer: {{ user_display }} </p>
+  <p>Amount: {{ payment_gross }}</p>
+  <p>Status: {{ status_text }}</p>
+
+</div>
+<hr>
+<div><p><h2><a href="/history"><span class=\"highlight\">Find your donation listed here! /history</span></a></h2></p></div>
+
+<div><p>Note: If not verified, payment have not yet proceeded fully in Paypal`s message/notification service, still waiting for data from their IPN. It is verified once it appears in history. This page might show the previous donation made using the anonymous feature because the username used will be the same.</p></div>
+<!-- <div>
+  <h1>Notification info:</h1>
+  <p>Nickname: {{ user_display }}</p>
+  <p>Identifier :{{ user_identifier }}</p>
+  <p> Message : {{ user_message }}</p>
+</div> -->
+
+{% endblock %}

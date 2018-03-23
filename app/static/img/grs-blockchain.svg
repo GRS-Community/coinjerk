@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns:x="http://ns.adobe.com/Extensibility/1.0/" xmlns:i="http://ns.adobe.com/AdobeIllustrator/10.0/" xmlns:graph="http://ns.adobe.com/Graphs/1.0/" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/" x="0px" y="0px" width="1000px" height="1000px" viewBox="0 0 1000 1000" style="enable-background:new 0 0 1000 1000;" xml:space="preserve">
+<filter id="blurUno">
+	<feGaussianBlur stdDeviation="2" id="blur-value"/>
+</filter>
+<g id="BACKGROUND">
+	
+		<radialGradient id="SVGID_1_" cx="503.9335938" cy="9.9375" r="1024.0878906" gradientTransform="matrix(0.969 0 0 0.969 15.5639496 15.5639496)" gradientUnits="userSpaceOnUse">
+		<stop offset="0" style="stop-color:#0D468A"/>
+		<stop offset="0.299611" style="stop-color:#08286A"/>
+		<stop offset="0.3267826" style="stop-color:#082665"/>
+		<stop offset="0.5782613" style="stop-color:#03113F"/>
+		<stop offset="0.7799643" style="stop-color:#010528"/>
+		<stop offset="0.9054549" style="stop-color:#00001F"/>
+		<a:midPointStop offset="0" style="stop-color:#0D468A"/>
+		<a:midPointStop offset="0.485823" style="stop-color:#0D468A"/>
+		<a:midPointStop offset="0.299611" style="stop-color:#08286A"/>
+		<a:midPointStop offset="0.396733" style="stop-color:#08286A"/>
+		<a:midPointStop offset="0.9054549" style="stop-color:#00001F"/>
+	</radialGradient>
+	<rect style="fill:url(#SVGID_1_);" width="1000" height="1000"/>
+</g>
+<g id="OBJECTS">
+	<g>
+		<defs>
+			<rect id="SVGID_2_" width="1000" height="1000"/>
+		</defs>
+		<clipPath id="SVGID_3_">
+			<use xlink:href="#SVGID_2_" style="overflow:visible;"/>
+		</clipPath>
+		<linearGradient id="SVGID_4_" gradientUnits="userSpaceOnUse" x1="13.2724609" y1="612.53125" x2="453.7426453" y2="756.032959">
+			<stop offset="0" style="stop-color:#16AFFF"/>
+			<stop offset="0.4002" style="stop-color:#17BAFF"/>
+			<stop offset="1" style="stop-color:#1BD6FF;stop-opacity:0"/>
+			<a:midPointStop offset="0" style="stop-color:#16AFFF"/>
+			<a:midPointStop offset="0.5" style="stop-color:#16AFFF"/>
+			<a:midPointStop offset="0.4002" style="stop-color:#17BAFF"/>
+			<a:midPointStop offset="0.5" style="stop-color:#17BAFF"/>
+			<a:midPointStop offset="1" style="stop-color:#1BD6FF;stop-opacity:0"/>
+		</linearGradient>
+		<polygon style="clip-path:url(#SVGID_3_);fill:url(#SVGID_4_);" points="287.875,671.9375 480.6660156,857.6679688     546.3085938,693.3261719 286.5625,667.875   "/>
+		
+			<linearGradient id="SVGID_5_" gradientUnits="userSpaceOnUse" x1="382.9648438" y1="675.7324219" x2="645.951416" y2="761.411377">
+			<stop offset="0" style="stop-color:#16AFFF"/>
+			<stop offset="0.4002" style="stop-color:#17BAFF"/>
+			<stop offset="1" style="stop-color:#1BD6FF;stop-opacity:0"/>
+			<a:midPointStop offset="0" style="stop-color:#16AFFF"/>
+			<a:midPointStop offset="0.5" style="stop-color:#16AFFF"/>
+			<a:midPointStop offset="0.4002" style="stop-color:#17BAFF"/>
+			<a:midPointStop offset="0.5" style="stop-color:#17BAFF"/>
+			<a:midPointStop offset="1" style="stop-color:#1BD6FF;stop-opacity:0"/>
+		</linearGradient>
+		<polygon style="clip-path:url(#SVGID_3_);fill:url(#SVGID_5_);" points="572.6660156,627.3359375 633.6308594,867.5957031     676.6660156,799.3339844   "/>
+		
+			<linearGradient id="SVGID_6_" gradientUnits="userSpaceOnUse" x1="-111.7626953" y1="805.3535156" x2="188.4890747" y2="903.1731567">
+			<stop offset="0" style="stop-color:#16AFFF"/>
+			<stop offset="0.4002" style="stop-color:#17BAFF"/>
+			<stop offset="1" style="stop-color:#1BD6FF;stop-opacity:0"/>
+			<a:midPointStop offset="0" style="stop-color:#16AFFF"/>
+			<a:midPointStop offset="0.5" style="stop-color:#16AFFF"/>
+			<a:midPointStop offset="0.4002" style="stop-color:#17BAFF"/>
+			<a:midPointStop offset="0.5" style="stop-color:#17BAFF"/>
+			<a:midPointStop offset="1" style="stop-color:#1BD6FF;stop-opacity:0"/>
+		</linearGradient>
+		<polygon style="clip-path:url(#SVGID_3_);fill:url(#SVGID_6_);" points="45.8740234,931.03125 220.6669922,955.3359375     220.6660156,839.3359375 100.6660156,822.0019531   "/>
+		
+			<linearGradient id="SVGID_7_" gradientUnits="userSpaceOnUse" x1="702.3417969" y1="605.921875" x2="846.3763428" y2="652.847168">
+			<stop offset="0" style="stop-color:#16AFFF"/>
+			<stop offset="0.4002" style="stop-color:#17BAFF"/>
+			<stop offset="1" style="stop-color:#1BD6FF;stop-opacity:0"/>
+			<a:midPointStop offset="0" style="stop-color:#16AFFF"/>
+			<a:midPointStop offset="0.5" style="stop-color:#16AFFF"/>
+			<a:midPointStop offset="0.4002" style="stop-color:#17BAFF"/>
+			<a:midPointStop offset="0.5" style="stop-color:#17BAFF"/>
+			<a:midPointStop offset="1" style="stop-color:#1BD6FF;stop-opacity:0"/>
+		</linearGradient>
+		<polygon style="clip-path:url(#SVGID_3_);fill:url(#SVGID_7_);" points="779.3320313,662.0019531 832.6660156,767.3339844     882.6669922,579.5820313 823.6669922,526.4951172   "/>
+		
+			<linearGradient id="SVGID_8_" gradientUnits="userSpaceOnUse" x1="585.5654297" y1="812.2792969" x2="972.1201172" y2="938.2157593">
+			<stop offset="0" style="stop-color:#16AFFF"/>
+			<stop offset="0.4002" style="stop-color:#17BAFF"/>
+			<stop offset="1" style="stop-color:#1BD6FF;stop-opacity:0"/>
+			<a:midPointStop offset="0" style="stop-color:#16AFFF"/>
+			<a:midPointStop offset="0.5" style="stop-color:#16AFFF"/>
+			<a:midPointStop offset="0.4002" style="stop-color:#17BAFF"/>
+			<a:midPointStop offset="0.5" style="stop-color:#17BAFF"/>
+			<a:midPointStop offset="1" style="stop-color:#1BD6FF;stop-opacity:0"/>
+		</linearGradient>
+		<polygon style="clip-path:url(#SVGID_3_);fill:url(#SVGID_8_);" points="816.6660156,895.3339844 812.7910156,899.5585938     872.6660156,975.3339844 1023.3339844,975.3339844 1016,882.9902344 978.5664063,922.0019531   "/>
+		
+			<linearGradient id="SVGID_9_" gradientUnits="userSpaceOnUse" x1="257.1713867" y1="903.0800781" x2="516.7485352" y2="987.6482544">
+			<stop offset="0" style="stop-color:#16AFFF"/>
+			<stop offset="0.4002" style="stop-color:#17BAFF"/>
+			<stop offset="1" style="stop-color:#1BD6FF;stop-opacity:0"/>
+			<a:midPointStop offset="0" style="stop-color:#16AFFF"/>
+			<a:midPointStop offset="0.5" style="stop-color:#16AFFF"/>
+			<a:midPointStop offset="0.4002" style="stop-color:#17BAFF"/>
+			<a:midPointStop offset="0.5" style="stop-color:#17BAFF"/>
+			<a:midPointStop offset="1" style="stop-color:#1BD6FF;stop-opacity:0"/>
+		</linearGradient>
+		<polygon style="clip-path:url(#SVGID_3_);fill:url(#SVGID_9_);" points="429.9990234,899.5585938 420.1337891,1016     516.6660156,1016 560.6660156,983.3339844   "/>
+		
+			<linearGradient id="SVGID_10_" gradientUnits="userSpaceOnUse" x1="581.3798828" y1="372.5537109" x2="862.631958" y2="464.1834106">
+			<stop offset="0" style="stop-color:#16AFFF"/>
+			<stop offset="0.4002" style="stop-color:#17BAFF"/>
+			<stop offset="1" style="stop-color:#1BD6FF;stop-opacity:0"/>
+			<a:midPointStop offset="0" style="stop-color:#16AFFF"/>
+			<a:midPointStop offset="0.5" style="stop-color:#16AFFF"/>
+			<a:midPointStop offset="0.4002" style="stop-color:#17BAFF"/>
+			<a:midPointStop offset="0.5" style="stop-color:#17BAFF"/>
+			<a:midPointStop offset="1" style="stop-color:#1BD6FF;stop-opacity:0"/>
+		</linearGradient>
+		<polygon style="clip-path:url(#SVGID_3_);fill:url(#SVGID_10_);" points="842.7285156,391.3359375 730,487.3359375     805.3320313,501.3359375 907.6660156,467.3359375   "/>
+		
+			<linearGradient id="SVGID_11_" gradientUnits="userSpaceOnUse" x1="841.1259766" y1="555.2011719" x2="1028.144043" y2="616.130188">
+			<stop offset="0" style="stop-color:#16AFFF"/>
+			<stop offset="0.4002" style="stop-color:#17BAFF"/>
+			<stop offset="1" style="stop-color:#1BD6FF;stop-opacity:0"/>
+			<a:midPointStop offset="0" style="stop-color:#16AFFF"/>
+			<a:midPointStop offset="0.5" style="stop-color:#16AFFF"/>
+			<a:midPointStop offset="0.4002" style="stop-color:#17BAFF"/>
+			<a:midPointStop offset="0.5" style="stop-color:#17BAFF"/>
+			<a:midPointStop offset="1" style="stop-color:#1BD6FF;stop-opacity:0"/>
+		</linearGradient>
+		<polygon style="clip-path:url(#SVGID_3_);fill:url(#SVGID_11_);" points="1000,464.5898438 988.6660156,482.0019531     940.6660156,730.0019531 1027.3222656,712.6699219   "/>
+		<g style="opacity:0.7;clip-path:url(#SVGID_3_);filter:url(#blurUno);">
+			<g>
+				<polyline style="fill:none;stroke:#27AAE1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" points="      911.0605469,267.6679688 816.6660156,239.3339844 716.6660156,380.8662109 604.6660156,370.0009766 590,440.6669922       442,507.3339844 409.3691406,548.6679688 315.3320313,522.2949219 200.6660156,712.6699219 121,633.9765625 17,699.3339844       -26,668.7851563     "/>
+				<polyline style="fill:none;stroke:#27AAE1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" points="      315.3320313,522.2949219 351.8740234,646.6269531 409.3691406,548.6679688 524.4824219,587.3359375     "/>
+				<polyline style="fill:none;stroke:#27AAE1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" points="      442,507.3339844 561.25,577.8320313 590,440.6669922     "/>
+				<polyline style="fill:none;stroke:#27AAE1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" points="      617.3300781,563.3359375 604.6660156,370.0009766 730,489.9462891     "/>
+				
+					<line style="fill:none;stroke:#27AAE1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" x1="716.6660156" y1="380.8662109" x2="842.7285156" y2="391.3359375"/>
+				
+					<line style="fill:none;stroke:#27AAE1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" x1="816.6660156" y1="239.3339844" x2="842.7285156" y2="391.3359375"/>
+				<polyline style="fill:none;stroke:#27AAE1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" points="      75.46875,750.6679688 17,699.3339844 -26,790.6679688     "/>
+				<polyline style="fill:none;stroke:#27AAE1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" points="      835.3339844,244.9375 842.7285156,123.3339844 1016,79.3339844     "/>
+				
+					<line style="fill:none;stroke:#27AAE1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" x1="842.7285156" y1="123.3339844" x2="935.5" y2="190.0029297"/>
+				
+					<line style="fill:none;stroke:#27AAE1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" x1="121" y1="633.9765625" x2="243.4365234" y2="641.6601563"/>
+				<polyline style="fill:none;stroke:#27AAE1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" points="      792.8505859,273.0410156 516.6660156,389.6806641 442,507.3339844 282,476.0019531 175.6064453,637.4033203       75.46875,606.0019531 -16,658.0878906     "/>
+				
+					<line style="fill:none;stroke:#27AAE1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" x1="516.6660156" y1="389.6806641" x2="578" y2="446.0722656"/>
+				
+					<line style="fill:none;stroke:#27AAE1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" x1="282" y1="476.0019531" x2="264.9140625" y2="606.0019531"/>
+			</g>
+			<g>
+				<path style="fill:#27AAE1;" d="M612.609375,370c0,4.3867188-3.5546875,7.9453125-7.9414063,7.9453125      c-4.3886719,0-7.9453125-3.5585938-7.9453125-7.9453125c0-4.3847656,3.5566406-7.9433594,7.9453125-7.9433594      C609.0546875,362.0566406,612.609375,365.6152344,612.609375,370z"/>
+				<path style="fill:#27AAE1;" d="M450.4736328,506.9609375c0,4.3867188-3.5546875,7.9453125-7.9414063,7.9453125      c-4.3886719,0-7.9453125-3.5585938-7.9453125-7.9453125c0-4.3847656,3.5566406-7.9433594,7.9453125-7.9433594      C446.9189453,499.0175781,450.4736328,502.5761719,450.4736328,506.9609375z"/>
+				<path style="fill:#27AAE1;" d="M323.8056641,521.921875c0,4.3867188-3.5546875,7.9453125-7.9414063,7.9453125      c-4.3886719,0-7.9453125-3.5585938-7.9453125-7.9453125c0-4.3847656,3.5566406-7.9433594,7.9453125-7.9433594      C320.2509766,513.9785156,323.8056641,517.5371094,323.8056641,521.921875z"/>
+				<path style="fill:#27AAE1;" d="M128.9433594,633.9765625c0,4.3867188-3.5546875,7.9453125-7.9414063,7.9453125      c-4.3886719,0-7.9453125-3.5585938-7.9453125-7.9453125c0-4.3847656,3.5566406-7.9433594,7.9453125-7.9433594      C125.3886719,626.0332031,128.9433594,629.5917969,128.9433594,633.9765625z"/>
+				<path style="fill:#27AAE1;" d="M289.9433594,476.0019531c0,4.3867188-3.5546875,7.9453125-7.9414063,7.9453125      c-4.3886719,0-7.9453125-3.5585938-7.9453125-7.9453125c0-4.3847656,3.5566406-7.9433594,7.9453125-7.9433594      C286.3886719,468.0585938,289.9433594,471.6171875,289.9433594,476.0019531z"/>
+				<path style="fill:#27AAE1;" d="M824.609375,239.3330078c0,4.3867188-3.5546875,7.9453125-7.9414063,7.9453125      c-4.3886719,0-7.9453125-3.5585938-7.9453125-7.9453125c0-4.3847656,3.5566406-7.9433594,7.9453125-7.9433594      C821.0546875,231.3896484,824.609375,234.9482422,824.609375,239.3330078z"/>
+				<path style="fill:#27AAE1;" d="M850.671875,123.3330078c0,4.3867188-3.5546875,7.9453125-7.9414063,7.9453125      c-4.3886719,0-7.9453125-3.5585938-7.9453125-7.9453125c0-4.3847656,3.5566406-7.9433594,7.9453125-7.9433594      C847.1171875,115.3896484,850.671875,118.9482422,850.671875,123.3330078z"/>
+				<path style="fill:#27AAE1;" d="M524.609375,389.6796875c0,4.3867188-3.5546875,7.9453125-7.9414063,7.9453125      c-4.3886719,0-7.9453125-3.5585938-7.9453125-7.9453125c0-4.3847656,3.5566406-7.9433594,7.9453125-7.9433594      C521.0546875,381.7363281,524.609375,385.2949219,524.609375,389.6796875z"/>
+				<path style="fill:#27AAE1;" d="M83.4121094,606c0,4.3867188-3.5546875,7.9453125-7.9414063,7.9453125      c-4.3886719,0-7.9453125-3.5585938-7.9453125-7.9453125c0-4.3847656,3.5566406-7.9433594,7.9453125-7.9433594      C79.8574219,598.0566406,83.4121094,601.6152344,83.4121094,606z"/>
+			</g>
+		</g>
+		<g style="clip-path:url(#SVGID_3_);">
+			<polyline style="fill:none;stroke:#FFFFFF;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" points="     516.6660156,1016 560.6660156,983.3339844 676.6660156,799.3339844 832.6660156,767.3339844 940.6660156,730.0019531      1094,699.3339844    "/>
+			<polygon style="fill:none;stroke:#FFFFFF;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" points="     676.6660156,799.3339844 706,1016 816.6660156,895.3339844 835.3339844,814.0019531    "/>
+			<polyline style="fill:none;stroke:#FFFFFF;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" points="     832.6660156,767.3339844 835.3339844,814.0019531 1094,814.0019531    "/>
+			<polyline style="fill:none;stroke:#FFFFFF;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" points="     816.6660156,895.3339844 978,922.0019531 1040.6660156,857.6679688    "/>
+			<polyline style="fill:none;stroke:#FFFFFF;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" points="     812.7910156,899.5585938 872.6660156,975.3339844 862,1032.6679688    "/>
+			
+				<line style="fill:none;stroke:#FFFFFF;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" x1="872.6660156" y1="975.3339844" x2="1068.6660156" y2="975.3339844"/>
+			<polyline style="fill:none;stroke:#FFFFFF;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" points="     676.6660156,799.3339844 572.6660156,627.3359375 480.6660156,857.6679688 356.6660156,899.5585938 276.6660156,1032.6679688      220.6660156,955.3359375 45.9990234,930.0019531 -46.0009766,1051.3359375    "/>
+			<polyline style="fill:none;stroke:#FFFFFF;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" points="     560.6660156,983.3339844 429.9990234,899.5585938 356.6660156,899.5585938    "/>
+			<polyline style="fill:none;stroke:#FFFFFF;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" points="     415.3330078,1072.6679688 429.9990234,899.5585938 536.6660156,857.6679688 572.6660156,627.3359375 633.6308594,867.5957031         "/>
+			<polyline style="fill:none;stroke:#FFFFFF;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" points="     572.6660156,627.3359375 779.3320313,662.0019531 823.3320313,527.3359375 922,538.0019531 988.6660156,482.0019531      1080.6660156,340.6689453    "/>
+			<polyline style="fill:none;stroke:#FFFFFF;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" points="     988.6660156,482.0019531 940.6660156,730.0019531 879.3320313,576.6679688 824.609375,527.3359375    "/>
+			<polyline style="fill:none;stroke:#FFFFFF;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" points="     881.171875,581.265625 832.6660156,767.3339844 779.3320313,662.0019531    "/>
+			
+				<line style="fill:none;stroke:#FFFFFF;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" x1="879.3320313" y1="576.6679688" x2="922" y2="538.0019531"/>
+			<polyline style="fill:none;stroke:#FFFFFF;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" points="     -10.0009766,834.0019531 96.6660156,730.0019531 200.6660156,712.6699219 259.3330078,740.6699219 283.3330078,667.3359375      546.3085938,693.3261719    "/>
+			<polyline style="fill:none;stroke:#FFFFFF;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" points="     259.3330078,740.6699219 220.6660156,839.3359375 100.6660156,822.0019531 45.9990234,930.0019531 133.9990234,1064.6679688      220.6660156,955.3359375    "/>
+			
+				<line style="fill:none;stroke:#FFFFFF;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" x1="100.6660156" y1="822.0019531" x2="93.3164063" y2="733.2675781"/>
+			<polyline style="fill:none;stroke:#FFFFFF;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" points="     331.3330078,814.0019531 283.3330078,667.3359375 480.6660156,857.6679688 331.3330078,814.0019531 220.6660156,839.3359375      220.6669922,955.3359375 331.3330078,814.0019531    "/>
+			<polyline style="fill:none;stroke:#FFFFFF;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" points="     492.7294922,688.03125 524.4824219,587.3359375 617.3300781,563.3359375 730,487.3359375 842.7285156,391.3359375      963.3320313,384.6689453 1107.3320313,310.0029297    "/>
+			<polyline style="fill:none;stroke:#FFFFFF;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" points="     578,627.3359375 617.3300781,563.3359375 756,658.0878906 805.3320313,501.3359375 730,487.3359375    "/>
+			<polyline style="fill:none;stroke:#FFFFFF;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" points="     617.3300781,563.3359375 805.3320313,501.3359375 907.6660156,467.3359375 842.7285156,391.3359375    "/>
+			<polyline style="fill:none;stroke:#FFFFFF;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" points="     940.6972656,522.2949219 907.6660156,467.3359375 963.3320313,384.6689453    "/>
+			<polyline style="fill:none;stroke:#FFFFFF;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" points="     872.6660156,389.6806641 935.5,190.0029297 1139.3320313,175.3359375    "/>
+			<polyline style="fill:none;stroke:#FFFFFF;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" points="     935.5,190.0029297 970.6660156,380.8662109 1060.4980469,181.0087891    "/>
+			
+				<line style="fill:none;stroke:#FFFFFF;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" x1="286.8041992" y1="668.6230469" x2="523.3330078" y2="588.6669922"/>
+			
+				<line style="fill:none;stroke:#FFFFFF;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" x1="536.6660156" y1="857.6679688" x2="569.3359375" y2="969.5820313"/>
+		</g>
+		<g style="clip-path:url(#SVGID_3_);">
+			<path style="fill:#FFFFFF;" d="M824.609375,897.0566406c0,4.3867188-3.5546875,7.9453125-7.9414063,7.9453125     c-4.3886719,0-7.9453125-3.5585938-7.9453125-7.9453125c0-4.3847656,3.5566406-7.9433594,7.9453125-7.9433594     C821.0546875,889.1132813,824.609375,892.671875,824.609375,897.0566406z"/>
+			<path style="fill:#FFFFFF;" d="M439.0566406,899.3359375c0,4.3867188-3.5546875,7.9453125-7.9414063,7.9453125     c-4.3886719,0-7.9453125-3.5585938-7.9453125-7.9453125c0-4.3847656,3.5566406-7.9433594,7.9453125-7.9433594     C435.5019531,891.3925781,439.0566406,894.9511719,439.0566406,899.3359375z"/>
+			<path style="fill:#FFFFFF;" d="M488.609375,857.6679688c0,4.3867188-3.5546875,7.9453125-7.9414063,7.9453125     c-4.3886719,0-7.9453125-3.5585938-7.9453125-7.9453125c0-4.3847656,3.5566406-7.9433594,7.9453125-7.9433594     C485.0546875,849.7246094,488.609375,853.2832031,488.609375,857.6679688z"/>
+			<path style="fill:#FFFFFF;" d="M364.609375,899.5585938c0,4.3867188-3.5546875,7.9453125-7.9414063,7.9453125     c-4.3886719,0-7.9453125-3.5585938-7.9453125-7.9453125c0-4.3847656,3.5566406-7.9433594,7.9453125-7.9433594     C361.0546875,891.6152344,364.609375,895.1738281,364.609375,899.5585938z"/>
+			<path style="fill:#FFFFFF;" d="M228.609375,839.3359375c0,4.3867188-3.5546875,7.9453125-7.9414063,7.9453125     c-4.3886719,0-7.9453125-3.5585938-7.9453125-7.9453125c0-4.3847656,3.5566406-7.9433594,7.9453125-7.9433594     C225.0546875,831.3925781,228.609375,834.9511719,228.609375,839.3359375z"/>
+			<path style="fill:#FFFFFF;" d="M641.5742188,867.5957031c0,4.3867188-3.5546875,7.9453125-7.9414063,7.9453125     c-4.3886719,0-7.9453125-3.5585938-7.9453125-7.9453125c0-4.3847656,3.5566406-7.9433594,7.9453125-7.9433594     C638.0195313,859.6523438,641.5742188,863.2109375,641.5742188,867.5957031z"/>
+			<path style="fill:#FFFFFF;" d="M843.2773438,814c0,4.3867188-3.5546875,7.9453125-7.9414063,7.9453125     c-4.3886719,0-7.9453125-3.5585938-7.9453125-7.9453125c0-4.3847656,3.5566406-7.9433594,7.9453125-7.9433594     C839.7226563,806.0566406,843.2773438,809.6152344,843.2773438,814z"/>
+			<path style="fill:#FFFFFF;" d="M787.2753906,662.0019531c0,4.3867188-3.5546875,7.9453125-7.9414063,7.9453125     c-4.3886719,0-7.9453125-3.5585938-7.9453125-7.9453125c0-4.3847656,3.5566406-7.9433594,7.9453125-7.9433594     C783.7207031,654.0585938,787.2753906,657.6171875,787.2753906,662.0019531z"/>
+			<path style="fill:#FFFFFF;" d="M813.2753906,501.3339844c0,4.3867188-3.5546875,7.9453125-7.9414063,7.9453125     c-4.3886719,0-7.9453125-3.5585938-7.9453125-7.9453125c0-4.3847656,3.5566406-7.9433594,7.9453125-7.9433594     C809.7207031,493.390625,813.2753906,496.9492188,813.2753906,501.3339844z"/>
+			<path style="fill:#FFFFFF;" d="M914.5800781,464.5888672c0,4.3867188-3.5546875,7.9453125-7.9414063,7.9453125     c-4.3886719,0-7.9453125-3.5585938-7.9453125-7.9453125c0-4.3847656,3.5566406-7.9433594,7.9453125-7.9433594     C911.0253906,456.6455078,914.5800781,460.2041016,914.5800781,464.5888672z"/>
+			<path style="fill:#FFFFFF;" d="M996.609375,482.0009766c0,4.3867188-3.5546875,7.9453125-7.9414063,7.9453125     c-4.3886719,0-7.9453125-3.5585938-7.9453125-7.9453125c0-4.3847656,3.5566406-7.9433594,7.9453125-7.9433594     C993.0546875,474.0576172,996.609375,477.6162109,996.609375,482.0009766z"/>
+			<path style="fill:#FFFFFF;" d="M737.9433594,489.9453125c0,4.3867188-3.5546875,7.9453125-7.9414063,7.9453125     c-4.3886719,0-7.9453125-3.5585938-7.9453125-7.9453125c0-4.3847656,3.5566406-7.9433594,7.9453125-7.9433594     C734.3886719,482.0019531,737.9433594,485.5605469,737.9433594,489.9453125z"/>
+			<path style="fill:#FFFFFF;" d="M986.5097656,922c0,4.3867188-3.5546875,7.9453125-7.9414063,7.9453125     c-4.3886719,0-7.9453125-3.5585938-7.9453125-7.9453125c0-4.3828125,3.5566406-7.9414063,7.9453125-7.9414063     C982.9550781,914.0585938,986.5097656,917.6171875,986.5097656,922z"/>
+			<path style="fill:#FFFFFF;" d="M880.609375,975.3320313c0,4.3867188-3.5546875,7.9453125-7.9414063,7.9453125     c-4.3886719,0-7.9453125-3.5585938-7.9453125-7.9453125c0-4.3828125,3.5566406-7.9414063,7.9453125-7.9414063     C877.0546875,967.390625,880.609375,970.9492188,880.609375,975.3320313z"/>
+			<path style="fill:#FFFFFF;" d="M532.4257813,587.3066406c0,4.3867188-3.5546875,7.9453125-7.9414063,7.9453125     c-4.3886719,0-7.9453125-3.5585938-7.9453125-7.9453125c0-4.3828125,3.5566406-7.9414063,7.9453125-7.9414063     C528.8710938,579.3652344,532.4257813,582.9238281,532.4257813,587.3066406z"/>
+			<path style="fill:#FFFFFF;" d="M108.609375,822.0019531c0,4.3867188-3.5546875,7.9453125-7.9414063,7.9453125     c-4.3886719,0-7.9453125-3.5585938-7.9453125-7.9453125c0-4.3847656,3.5566406-7.9433594,7.9453125-7.9433594     C105.0546875,814.0585938,108.609375,817.6171875,108.609375,822.0019531z"/>
+			<path style="fill:#FFFFFF;" d="M293.2773438,668.7832031c0,4.3867188-3.5546875,7.9453125-7.9414063,7.9453125     c-4.3886719,0-7.9453125-3.5585938-7.9453125-7.9453125c0-4.3847656,3.5566406-7.9433594,7.9453125-7.9433594     C289.7226563,660.8398438,293.2773438,664.3984375,293.2773438,668.7832031z"/>
+			<path style="fill:#FFFFFF;" d="M580.609375,627.3339844c0,4.3867188-3.5546875,7.9453125-7.9414063,7.9453125     c-4.3886719,0-7.9453125-3.5585938-7.9453125-7.9453125c0-4.3847656,3.5566406-7.9433594,7.9453125-7.9433594     C577.0546875,619.390625,580.609375,622.9492188,580.609375,627.3339844z"/>
+			<path style="fill:#FFFFFF;" d="M625.2734375,563.3339844c0,4.3867188-3.5546875,7.9453125-7.9414063,7.9453125     c-4.3886719,0-7.9453125-3.5585938-7.9453125-7.9453125c0-4.3847656,3.5566406-7.9433594,7.9453125-7.9433594     C621.71875,555.390625,625.2734375,558.9492188,625.2734375,563.3339844z"/>
+			<path style="fill:#FFFFFF;" d="M340.2734375,814.0566406c0,4.3867188-3.5546875,7.9453125-7.9414063,7.9453125     c-4.3886719,0-7.9453125-3.5585938-7.9453125-7.9453125c0-4.3847656,3.5566406-7.9433594,7.9453125-7.9433594     C336.71875,806.1132813,340.2734375,809.671875,340.2734375,814.0566406z"/>
+			<path style="fill:#FFFFFF;" d="M544.609375,857.6660156c0,4.3867188-3.5546875,7.9453125-7.9414063,7.9453125     c-4.3886719,0-7.9453125-3.5585938-7.9453125-7.9453125c0-4.3847656,3.5566406-7.9433594,7.9453125-7.9433594     C541.0546875,849.7226563,544.609375,853.28125,544.609375,857.6660156z"/>
+			<path style="fill:#FFFFFF;" d="M53.9423828,929.9453125c0,4.3867188-3.5546875,7.9453125-7.9414063,7.9453125     c-4.3886719,0-7.9453125-3.5585938-7.9453125-7.9453125c0-4.3847656,3.5566406-7.9433594,7.9453125-7.9433594     C50.3876953,922.0019531,53.9423828,925.5605469,53.9423828,929.9453125z"/>
+			<path style="fill:#FFFFFF;" d="M832.5527344,527.3339844c0,4.3867188-3.5546875,7.9453125-7.9414063,7.9453125     c-4.3886719,0-7.9453125-3.5585938-7.9453125-7.9453125c0-4.3847656,3.5566406-7.9433594,7.9453125-7.9433594     C828.9980469,519.390625,832.5527344,522.9492188,832.5527344,527.3339844z"/>
+			<circle style="fill:#FFFFFF;" cx="881.1728516" cy="581.265625" r="7.8994141"/>
+			<circle style="fill:#FFFFFF;" cx="220.6669922" cy="955.3359375" r="7.8994141"/>
+			<circle style="fill:#FFFFFF;" cx="93.3164063" cy="730.0019531" r="7.8994141"/>
+			<circle style="fill:#FFFFFF;" cx="842.7275391" cy="391.3359375" r="7.8994141"/>
+			<circle style="fill:#FFFFFF;" cx="970.6669922" cy="377.9013672" r="7.8994141"/>
+			<circle style="fill:#FFFFFF;" cx="935.4990234" cy="190.0029297" r="7.8994141"/>
+			<circle style="fill:#FFFFFF;" cx="676.6669922" cy="799.3339844" r="7.8994141"/>
+			<path style="fill:#FFFFFF;" d="M840.4960938,764.921875c0,4.3867188-3.5546875,7.9453125-7.9414063,7.9453125     c-4.3886719,0-7.9453125-3.5585938-7.9453125-7.9453125c0-4.3847656,3.5566406-7.9433594,7.9453125-7.9433594     C836.9414063,756.9785156,840.4960938,760.5371094,840.4960938,764.921875z"/>
+		</g>
+	</g>
+</g>
+</svg>

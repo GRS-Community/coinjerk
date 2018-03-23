@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container container-inv">
+    <div class="col-md-12">
+    <center><img src="static/img/logo.png" style="height:400px; padding-bottom:20px;" class="img-responsive"></center>
+
+<!--
+<div class="col-md-6">
+    Inspiring Picture...
+</div>
+-->
+<div class="col-md-12 reg-wrap">
+
+<h1>Register with Groestl<span class="highlight">Tip</span></h1>
+<h2>Registering user <span class="highlight">{{ session['nickname'] }}</span></h2>
+Please fill out relevant information below.<br><br>
+<p><strong>Please understand that by signing up for GroestlTip as a serivce, that GroestlTip service is provided "As Is", without express or implied warranty or fitness for a particular purpose.</strong></p>
+<p>By signing up for GroestlTip you are agreeing to use the service at your own risk, and that in no event shall the authors or copyright holders be liable for any claim, damages, or other liability, whether in an action of contract, tort or otherwise,
+    arising from, out of, or in connection with the software, service, or the use of other dealings related.</p>
+<form class="form form-vertical" action="/newuser" method=post
+    role="form" name="RegisterForm">
+    <dl>
+        {{ form.hidden_tag() }}
+        <label for="xpub_field">Your Extended Public Key</label>
+        <div class="sexy-form">
+            <div class="input-group input-group-sm col-lg-12">
+                <input type="text" class="form-control" placeholder="Should start with 'xpub'" aria-describedby="basic-addon2" name=xpub_field required>
+            </div>
+        </div>
+        <label for="xpub_field">A little about yourself</label>
+
+        <div class="sexy-form">
+            <div class="input-group input-group-sm col-lg-12">
+                <textarea type="text" rows="3"
+                class="form-control"
+                placeholder="What do you want your tippers to see on your page?"
+                aria-describedby="basic-addon2"
+                name=user_display_text_field></textarea>
+            </div>
+        </div>
+        <!-- Single button -->
+        <label for="xpub_field">Preferred Currency</label>
+
+        <div class="sexy-form">
+            <select class="selectpicker" name=fiat_field>
+                {% for item in form.fiat_field %}
+                <option>{{ item.label }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="sexy-form">
+
+            <div class="input-group input-group-sm col-lg-12">
+                <input type=submit value="Accept Terms & Register" class="btn btn-primary-cstm btn-sm btn-block"></input>
+            </div>
+        </div>
+
+    </dl>
+</form>
+</div>
+</div>
+{% endblock %}

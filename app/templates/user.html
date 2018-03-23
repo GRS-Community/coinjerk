@@ -1,69 +1,174 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="/static/css/bootstrap.css">
-    <link rel="stylesheet" href="/static/css/styles.css">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
- <title>Gronate | {{ nickname }}</title>
-</head>
-<body>
-<header>
-  <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
-    <a class="navbar-brand" href="/">Gro<span class="highlight">nate</span></a>
-    <div class="collapse navbar-collapse" id="appNavigation" aria-labelledby="Link">
-      <div class="navbar-nav ml-auto">
-        <a class="nav-item nav-link" href="/profile">{{ nickname }}  <i class="fa fa-twitch"></i></a>
-        <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    </a>
-    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-      <a class="dropdown-item" href=""><i class="fa fa-file-text-o"></i> How</a>
-      <a class="dropdown-item" href=""><i class="fa fa-info"></i> About</a>
-      <a class="dropdown-item" href="/profile"><i class="fa fa-gear">   </i> User Settings</a>
-      <a class="dropdown-item" href="/logout"><i class="fa fa-sign-out"></i> Logout</a>
+{% extends "base.html" %}
+{% block content %}
+<script src="/static/js/scripts.js"></script>
+<script src="/static/js/jquery.min.js"></script>
+<script>GetURL({{ social_id|tojson }});</script>
+<script>GetBannerURL({{ social_id|tojson }});</script>
+<script>GetStreamStatus({{ social_id|tojson }});</script>
+<div class="container container-inv animated fadeIn">
+  <div class="row prof-wrap">
+    <div class="col-md-12 col-sm-12 col-xs-12 prof-title">
+     <a href="/user/{{ nickname }}" id="Nickname">{{ nickname }}</a>
     </div>
-  </li>
+    <div class="col-md-12 col-sm-12 col-xs-12 prof-header">
+      <div class="row">
+        <div id="ProfileBanner">
+        </div>
       </div>
     </div>
-  </nav>
+    <div class="col-md-12 col-sm-12 col-xs-12 prof-body">
+      <div class="col-md-4 col-sm-12 col-xs-12">
+        <div class="row">
+          <img src="http://www-cdn.jtvnw.net/images/xarth/404_user_50x50.png" alt="" class="ProfilePicture img-responsive"/>
+        </div>
+        <div class="Status"></div>
+        <div style="clear: both;"></div>
+        <!--<div>
+          <h3><span><i class="fab fa-twitch"></i> </span>Twitch:</h3>
+        </div>-->
+        <div id="channel_info"></div>
+        <div class="">
+        </br>
+            <label for="user_display">Twitch URL:</label>
+            
+          </div>
+        <div class="">
+          <i class="fab fa-twitch"></i><span> </span><a href="{{url_for('twitch', username=nickname)}}">http://twitch.tv/{{ social_id }}</a>
+        </div>
+        <div class="">
+          <div class="form-group">
+        </br>
+            <label for="user_display">Donation URL:</label>
+          <div><a href="http://groestltip.org/user/{{social_id}}">http://groestltip.org/user/{{social_id}}</a></div>
+          </div>
+        </div>
+      </div>
 
-</header>
-<div class="content" align="center">
-  <div class="col-md-10">
-    <div class="container">
-      <!-- <h1 class="pb-2">Welcome to Gro<span class="highlight">Nate</span></h1> -->
-        <h1 >{{ nickname }}</h1>
-          <hr>
-        <p>{{ display_text }}</p>
-        <a class="btn btn-primary" href="{{url_for('profile')}}" role="button">Edit</a>
+      <div class="hidden-md hidden-lg col-xs-12 col-sm-12"><hr></div>
+      <div class="col-md-8 col-sm-12 col-xs-12">
+
+        <div class="col-md-12 col-sm-12 col-xs-12 underline">
+          <h2 class="highlight">About
+        </div>
+
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            {{ display_text }}
+        </div>
+
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <h2>
+        </div>
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <div class="row">
+            <center>
+              <a href="{{url_for('tip', username=nickname)}}" class="custom-btn btn-12">Click to Tip</a>
+            </center>  
+          </div>
+          
+        </div>
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <div class="row donation-wrap">
+                        <div class="col-md-12  donation-title" align="center">
+              Top 5 Donators
+            </div>
+            <div class="donation-body">
+              <div class="col-md-12 underline">
+                <div class="col-md-4">
+                  Donator
+                </div>
+                <div class="col-md-4">
+                  Transaction
+                </div>
+                <div class="col-md-4">
+                  Amount
+                </div>
+              </div>
+
+{% for user in top5 if user.user_id == nickname.lower() %}
+    {% if loop.index <= 5 %}
+          <div class="col-md-12">
+             <div class="col-md-4">
+              {{ user.twi_user }}
+             </div>
+            {% if user.tx_id|length > 17 %}
+             <div class="col-md-4">
+               <a href="https://chainz.cryptoid.info/grs/tx.dws?{{ user.tx_id }}.htm">{{ user.tx_id | truncate(20) }}</a>
+             </div>
+            {% else %}
+             <div class="col-md-4">
+              Paypal
+             </div>
+            {% endif %}
+            {% if user.tx_id|length > 17 %}
+             <div class="col-md-4">
+               {{ user.amount }} GRS
+              </div>
+            {% else %}
+             <div class="col-md-4">
+               ${{ user.amount }}
+              </div>
+            {% endif %}
+            </div>
+    {% endif %}
+{% endfor %}
+
+
+
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12 col-sm-12 col-xs-12">
+
+          <div class="row donation-wrap">
+
+
+            <div class="col-md-12  donation-title" align="center">
+              Donation History
+            </div>
+            <div class="donation-body">
+              <div class="col-md-12 underline">
+                <div class="col-md-4">
+                  Donator
+                </div>
+                <div class="col-md-4">
+                  Transaction
+                </div>
+                <div class="col-md-4">
+                  Amount
+                </div>
+              </div>
+            {% for user in tx: %}
+              {% if user.user_id == nickname.lower() %}
+              <div class="col-md-12">
+                <div class="col-md-4">
+                  {{ user.twi_user }}
+                </div>
+                {% if user.tx_id|length > 17 %}
+                  <div class="col-md-4">
+                   <a href="https://chainz.cryptoid.info/grs/tx.dws?{{ user.tx_id }}.htm">{{ user.tx_id | truncate(20) }}</a>
+                 </div>
+                {% else %}
+                  <div class="col-md-4">
+                   Paypal
+                 </div>
+                {% endif %}
+                {% if user.tx_id|length > 17 %}
+                 <div class="col-md-4">
+                   {{ user.amount }} GRS
+                  </div>
+                {% else %}
+                 <div class="col-md-4">
+                   ${{ user.amount }}
+                  </div>
+                {% endif %}
+                </div>
+              {% endif %}
+            {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
-
-
-<footer>
-  <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
-    <div class="collapse navbar-collapse" id="appNavigation" [ngbCollapse]="isCollapsed">
-      <span class="navbar-text">
-     2017 gronate.com | All rights reserved.
-   </span>
-      <div class="navbar-nav ml-auto">
-        <a class="nav-item nav-link" routerLink="/about" routerLinkActive="active">About</a>
-      </div>
-    </div>
-  </nav>
-</footer>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-
-</body>
-
-</html>
+{% endblock %}

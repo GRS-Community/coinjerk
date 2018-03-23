@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container container-inv animated fadeIn">
+    <div class="row prof-wrap">
+        <div class="col-md-12 col-sm-12 col-xs-12 prof-title">
+        	<a id="Nickname"> </a>
+        </div>
+		<div class="prof-body">
+			<div class="col-md-12" style="border-bottom: 2px solid white;">
+				<font size="5">Streamers</font>
+			</div>
+
+		</div>
+<div class="prof-body">
+	<!-- <div class="col-md-12">
+		ONLINE:
+	</div>
+	<div class="col-md-12">
+		OFFLINE:
+	</div> -->
+{% for user in users: %}
+    <script>
+    	GetStreamStatus({{ user.social_id|tojson }});
+    </script>
+	<script>
+		GetURL({{ user.social_id|tojson }});
+	</script>
+	<div class="col-md-3">
+		<div class="user-wrap">
+			<div class="">
+				<div class="username underline" align="center">
+					<a href="/user/{{ user.nickname }}">{{ user.nickname }}</a>
+				</div>	
+			</div>
+			<div class="">
+				<div align="center">
+					<a href="http://twitch.tv/{{ user.social_id }}"><span><i class="fab fa-twitch"></i></span> twitch.tv/{{ user.social_id }}</a>
+				</div>	
+			</div>
+			<div class="">
+				<div align="center" style="width:100px;">
+					<!--<div class="Status"></div>-->
+				</div>	
+			</div>	
+		</div>
+		
+	</div>
+
+
+{% endfor %}
+</div>
+
+</div>
+</div>
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!--
+{% for user in users: %}
+	{{ user.nickname }} | {{ user.user_id }} | {{ user.tx_id }} | {{ user.timestamp }} | {{ user.amount }} | {{ user.twit_user }} | {{ user.twi_message }}
+{% endfor %}
+-->
+
+
+<div class="container container-inv animated fadeIn">
+
+    <div class="row prof-wrap">
+        <div class="col-md-12 col-sm-12 col-xs-12 prof-title">
+        </div>
+<div class="row prof-body">
+	<div class="underline">
+		<div class="col-md-2">
+			#
+		</div>
+		<div class="col-md-2">
+			Donator
+		</div>
+		<div class="col-md-2">
+			Streamer
+		</div>
+		<div class="col-md-2">
+			Tx ID
+		</div>
+		<div class="col-md-2">
+			Amount
+		</div>
+		<div class="col-md-offset-3">
+			Time
+		</div>
+	</div>
+</div>
+
+<div style="clear: both">
+</div>
+<div class="row don-body">
+
+	{% for user in tx: %}
+	<div class="col-md-2">
+		{{ user.id }}
+	</div>
+
+		<div class="col-md-2">
+			{{ user.twi_user }}
+		</div>
+
+		<div class="col-md-2">
+			<a href="/user/{{ user.user_id }}">{{ user.user_id }}</a>
+		</div>
+		{% if user.tx_id|length > 17 %}
+		<div class="col-md-2">
+			<a href="https://chainz.cryptoid.info/grs/tx.dws?{{ user.tx_id }}.htm">{{ user.tx_id | truncate(20) }}</a>
+		</div>
+		{% else %}
+		<div class="col-md-2">
+			Paypal
+		</div>
+		{% endif %}
+		{% if user.tx_id|length > 17 %}
+		<div class="col-md-2">
+			{{ user.amount }} GRS
+		</div>
+		{% else %}
+		<div class="col-md-2">
+			${{ user.amount }}
+		</div>
+		{% endif %}
+
+		<div class="col-md-offset-3">
+			{{ user.timestamp }}
+		</div>
+
+<!-- {{ user.twi_message }}<br/> -->
+
+{% endfor %}
+</div>
+
+</div>
+</div>
+
+
+
+
+
+
+
+
+{% endblock %}

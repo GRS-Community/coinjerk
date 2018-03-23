@@ -11,7 +11,7 @@
 ### config.ini example
 
 ```
-[CoinStream]
+[GroestlTip]
 secret_key = xxx
 streamlabs_client_id = xxx
 streamlabs_client_secret = xxx

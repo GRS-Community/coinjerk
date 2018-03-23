@@ -1,115 +1,107 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+{% block head %}
+{{super()}}
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="/static/css/bootstrap.css">
-    <!-- <link rel="stylesheet" href="/static/css/tippage.css"> -->
-    <link rel="stylesheet" href="/static/css/styles.css">
-</head>
 
-<body>
-    <script src="/static/js/jquery.min.js"></script>
-    <script type="text/javascript" src="/static/js/jquery-qrcode/src/jquery.qrcode.js"></script>
-    <script type="text/javascript" src="/static/js/jquery-qrcode/src/qrcode.js"></script>
-    <script>
-        var socialId = '{{ social_id }}';
-    </script>
+{% endblock %}
+{% block content %}
+  <script>
+    var socialId = '{{ social_id }}';
+  </script>
+  <script>GetURL({{ social_id|tojson }});</script>
+  <script>GetBannerURL({{ social_id|tojson }});</script>
+  <script>GetStreamStatus({{ social_id|tojson }});</script>
+<div class="container container-inv animated fadeIn">
 
-    <header>
-      <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
-        <a class="navbar-brand" href="/">Gro<span class="highlight">nate</span></a>
-        <div class="collapse navbar-collapse" id="appNavigation" aria-labelledby="Link">
-          <div class="navbar-nav ml-auto">
-            <a class="" href="/login">Login</a>
-            <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        </a>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="{{url_for('login')}}">How</a>
-          <a class="dropdown-item" href="{{url_for('login')}}">About</a>
-          <a class="dropdown-item" href="{{url_for('login')}}">Admin login</a>
+    <div class="row prof-wrap">
+        <div class="col-md-12 prof-title">
+         <a href="/user/{{ nickname }}" id="Nickname">{{ nickname }}</a>
         </div>
-      </li>
+        <div class="col-md-12 prof-header">
+          <div class="row">
+            <div id="ProfileBanner" class=""></div>
           </div>
         </div>
-      </nav>
-
-    </header>
-
-    <div class="content">
-        <div class="container">
-            <div class="row mb-0">
-                <div class="col-md-12">
-                    <div style="background: url('/static/img/tip/default_header.jpg'); background-position: center; background-size: cover; max-height: 287px;">
-                        <div class="overlay py-5">
-                            <h1>Tip <span class="highlight">{{ nickname }}</span> with Groestlcoin!</h1>
-                            <p>{{ display_text }}</p>
-                        </div>
-                    </div>
-                </div>
+        <div class="col-md-12 prof-body">
+            <div class="col-md-3">
+              <center><img src="http://www-cdn.jtvnw.net/images/xarth/404_user_50x50.png" alt="" class="ProfilePicture img-responsive"/></center>
+              <div>
+                <center><i class="fab fa-twitch"></i><span> </span><a href="{{url_for('twitch', username=nickname)}}">http://twitch.tv/{{ social_id }}</a></center>
+                <div id="Status"></div>
+              </div>
             </div>
-
-            <div class="row mb-4">
-                <div class="col-sm-8">
-                    <form role="form" id="user_form" action="#">
-                        <div class="form-group">
-                            <label for="user_display">Your Twitch Username</label>
-                            <input type="text" class="form-control" id="user_display" placeholder="Optional: if left empty, will show as &quot;AnonymousBitCoin&quot;">
+            <div class="col-md-5">
+              <form role="form" id="user_form" action="#">
+                <div class="form-group">
+                  <label for="user_display">Name</label>
+                  <input type="text" class="form-control" id="user_display" placeholder="Optional: if left empty, will show as &quot;Anonymous&quot;">
+                </div>
+                <div class="form-group">
+                  <label for="user_identifier">Email</label>
+                  <input type="text" class="form-control" id="user_identifier" placeholder="Optional: if empty, will be grouped as anonymous">
+                </div>
+                <div class="form-group">
+                  <label for="user_message">Tip Message</label>
+                  <textarea maxlength="255" class="form-control" id="user_message" rows="3" placeholder="Optional: Maximum of 255 characters"></textarea>
+                </div>
+                <div class="form-group">
+                  <button id="showModalButton" class="btn btn-primary-cstm button1">Show Groestlcoin Address</button>
+                </div>
+                <div id="ReminderText"></div>
+              </form>
+            </div>
+            <div class="col-md-4">
+              <div class="card bg-inverse">
+                <div class="card-block" id="addressLocation">
+                  <div id="addressText">
+                    <p>The address to send your groestlcoin will appear <strong>here</strong> once you press the <span class="highlight">Show Groestlcoin Address</span> button.</p>
+                    <p>Please make sure that you've filled in the forms <strong>before</strong> hitting the button.</p>
+                    <p>OR</p>
+                    {% if email %}
+                    <form action="https://www.paypal.com/cgi-bin/webscr" id="paypal_form" method="post" onsubmit="createPayRequestPaypal()">
+                      <div class="form-group">
+                        <script>
+                          var user = $("#user_display").val();
+                        </script>
+                        <p>Enter amount you want to donate with <img src="/static/img/paypal.png" class="img-responsive" width="150"/></p>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fas fa-dollar-sign"></i></span>
+                            <input id="amountPaypalInput" placeholder="Amount" class="form-control" required>
                         </div>
-                        <div class="form-group">
-                            <label for="user_identifier">Email</label>
-                            <input type="text" class="form-control" id="user_identifier" placeholder="Optional: if empty, will be grouped as anonymous btc tip.">
-                        </div>
-                        <div class="form-group">
-                            <label for="user_message">Tip Message</label>
-                            <textarea maxlength="255" class="form-control" id="user_message" rows="3" placeholder="Optional: Maximum of 255 characters"></textarea>
-                        </div>
-                        <div class="d-flex justify-content-end"><button id="showModalButton" class="btn button1">Show Bitcoin Address</button></div>
+                        <input id="PaypalTwitchImgURL" type="hidden" name="image_url" value="http://www-cdn.jtvnw.net/images/xarth/404_user_50x50.png">
+                        <input id=PaypalAmount type="hidden" name="amount" value="1">
+                        <input type="hidden" name="custom" value="{{ social_id }}">
+                        <input id=ReturnLink type="hidden" name="return" value="">
+                        <input type="hidden" name="cancel_return" value="http://groestltip.groestlcoin.org/cancelled">
+                        <input type="hidden" name="business" value="{{ email }}">
+                        <input type="hidden" name="cmd" value="_donations">
+                        <input id=ReturnData type="hidden" name="notify_url" value="http://groestltip.groestlcoin.org/ipn/">
+                        <input type="hidden" name="item_name" value="Donate to www.twitch.tv/{{ social_id }} via Paypal">
+                        <input type="hidden" name="item_number" value="Donation">
+                        <input type="hidden" name="currency_code" value="USD">
+                        <input type="hidden" name="rm" value="2">
+                      </div>
+                      <div>
+                        <input id="paypal_submit" type="submit" name="submit" class="btn btn-primary-cstm hvr-grow" value="Donate">
+                        <img alt="" width="1" height="1" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" >
+                      </div>
                     </form>
-                </div>
+                    {% else %}
+                    <p>If you want to donate with paypal this user has to add his paypal email in <a href="/profile"><span class="highlight">user settings</span></a></p>
+                    {% endif %}
 
-                <div class="col-sm-4">
-                    <div class="card bg-inverse">
-                        <div class="card-block" id="addressLocation">
-                            <div id="addressText">
-                                <p>The address to send your bitcoin will appear <strong>here</strong> once you press the <span class="highlight">Show Bitcoin Address</span> button.</p>
-                                <p>Please make sure that you've filled in the forms <strong>before</strong> hitting the button.</p>
-
-                        </div>
-                            <div id="randomInt"></div>
-                            <div id="addressQR" class="py-3"></div>
-                            <div id="addressLink"></div>
-                        </div>
-                    </div>
+                  </div>
+                  <div id="randomInt"></div>
+                  <div id="addressQR" class="py-3 centered"></div>
+                  <div id="addressLink"></div>
+                  <div id="formBox"></div>
                 </div>
+              </div>
             </div>
         </div>
     </div>
 
-    <footer>
-      <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
-        <div class="collapse navbar-collapse" id="appNavigation" [ngbCollapse]="isCollapsed">
-          <span class="navbar-text">
-         2017 gronate.com | All rights reserved.
-       </span>
-          <div class="navbar-nav ml-auto">
-            <a class="nav-item nav-link" routerLink="/about" routerLinkActive="active">About</a>
-          </div>
-        </div>
-      </nav>
-    </footer>
 
-
-    <!-- jQuery first, then Tether, then Bootstrap JS. -->
-    <script src="/static/js/tippagescripts.js"></script>
-    <!--<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-</body>
-
-</html>
+</div>
+{% endblock %}

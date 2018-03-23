@@ -1,163 +1,40 @@
-<!DOCTYPE html>
-<!-- Bitcoin -->
-    <!-- No chargebacks -->
-    <!-- No Bank/Paypal shutting acct down -->
-    <!-- No Fees -->
-    <!-- Soverignty/Security -->
-<!-- CoinJerk -->
-    <!-- "You control the bitcoin keys, it's your bitcoin." -->
-    <!-- No Fees -->
-    <!-- Soverignty/Self-Host Option -->
-    <!-- Open-Source/MIT License -->
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% import "bootstrap/fixes.html" as fixes %}
 
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-        <!-- Bootstrap -->
-        <link href="/static/css/bootstrap.min.css" rel="stylesheet">
-        <link href="/static/css/styles.css" rel="stylesheet">
+{% block head %}
+{{super()}}
+	<link rel="stylesheet" href="{{url_for('.static', filename='css/styles.css')}}">
+	<link rel="stylesheet" href="{{url_for('.static', filename='css/hover.css')}}">
+	<link rel="stylesheet" href="{{url_for('.static', filename='css/animate.css')}}">
+	<link rel="icon" href="http://groestltip.groestlcoin.org/static/img/favicon.ico" type="image/x-icon" />
+	<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+	<script src="/static/js/jquery.min.js"></script>
+	<script src="/static/js/scripts.js"></script>
+	<script type="text/javascript" src="/static/js/jquery-qrcode/src/jquery.qrcode.js"></script>
+	<script type="text/javascript" src="/static/js/jquery-qrcode/src/qrcode.js"></script>
+	<script src="/static/js/tippagescripts.js"></script>
+	<script src="https://www.paypalobjects.com/api/checkout.js"></script>
+	<meta charset="utf-8"/>
+	<title>Groestltip</title>
 
-    </head>
-    <body>
-        <div class="row">
-            <div class="container">
-                <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                    <!-- Wrapper for slides -->
-                    <div class="carousel-inner">
-                        <div class="item active">
-                            <img src="http://placehold.it/1200x400/16a085/ffffff&text=Why Bitcoin">
-                            <div class="carousel-caption">
-                                <h3>
-                                    Bitcoin Soverignty</h3>
-                                <p>
-                                With Bitcoin, your finances are completely soverign. Your money is your own.
-                                There is no bank, and no company that can get between you and your Bitcoins.
-                                </p>
-                            </div>
-                        </div>
-                        <!-- End Item -->
-                        <div class="item">
-                            <img src="http://placehold.it/1200x400/e67e22/ffffff&text=Why Bitcoin">
-                            <div class="carousel-caption">
-                                <h3>
-                                    Bitcoin Protection</h3>
-                                <p>
-                                All confirmed Bitcoin transactions are irreversible. The transactions are binding once they are posted to the Bitcoin network.
-                                Your Bitcoins are yours and usable immediately. There is no 180-day 'chargeback' fear.
-                                </p>
-                            </div>
-                        </div>
-                        <!-- End Item -->
-                        <div class="item">
-                            <img src="http://placehold.it/1200x400/2980b9/ffffff&text=Why CoinJerk">
-                            <div class="carousel-caption">
-                                <h3>
-                                    CoinJerk "Wallet"</h3>
-                                <p>
-                                CoinJerk does not host your wallet. As the wise Andreas says, "If you control the Bitcoin keys, it's your Bitcoin."
-                                With CoinJerk, you are in complete control of the Bitcoin keys.
-                                </p>
-                            </div>
-                        </div>
-                        <!-- End Item -->
-                        <div class="item">
-                            <img src="http://placehold.it/1200x400/8e44ad/ffffff&text=Why CoinJerk">
-                            <div class="carousel-caption">
-                                <h3>
-                                    CoinJerk Source</h3>
-                                <p>
-                                CoinJerk is completely open-source code, with an MIT license. At any time any user can review code used on CoinJerk to audit your Bitcoin security.
-                                If you do not feel secure using official CoinJerk servers, you are also free to host your own CoinStream server.
-                                </p>
-                            </div>
-                        </div>
-                        <!-- End Item -->
-                    </div>
-                    <!-- End Carousel Inner -->
-                    <ul class="nav nav-pills nav-justified">
-                        <li data-target="#myCarousel" data-slide-to="0" class="active"><a href="#">Why Bitcoin?<small>Soverignty
-                                    </small></a></li>
-                        <li data-target="#myCarousel" data-slide-to="1"><a href="#">Why Bitcoin?<small>Protection
-                                    </small></a></li>
-                        <li data-target="#myCarousel" data-slide-to="2"><a href="#">Why CoinJerk?<small>You Control The Bitcoin Keys
-                                    </small></a></li>
-                        <li data-target="#myCarousel" data-slide-to="3"><a href="#">Why CoinJerk?<small>Open-Source
-                                    </small></a></li>
-                    </ul>
-                </div>
-                <!-- End Carousel -->
-            </div>
-        </div>
+{% endblock %}
 
-
-        <div class="container">
-            <div class="jumbotron">
-                <h1>Welcome to CoinJerk!</h1>
-                <h3>Your Bitcoin tipping service for live video content!</h3>
-                <p>
-                <ul>
-                    <li>Hooks directly into your StreamLabs account!</li>
-                    <li>Simple Setup!</li>
-                    <li>Start taking Bitcoin tips today!</li>
-
-                </ul>
-                </p>
-                <p><a class="btn btn-primary btn-lg" href="/login" role="button">Learn more</a></p>
-            </div>
-        </div>
-
-        <!--  
-        <div class="page-header container">
-            <h1>How Its Works</h1>
-        </div>
-
-        <div class="container">
-            <div class="row pricing">
-                <div class="col-md-6">
-                    <div class="well">
-                        <h3><b>Looking For An EMPLOYEE?</b></h3>
-                        <hr>
-                        <p><b>Create an employer account. It's easy.</b></p>
-                        <hr>
-                        <p><b>Choose yourindustry and Job Title</b></p>
-                        <hr>
-                        <p><b>Tell us the candidate you’re looking for.</b></p>
-                        <hr>
-                        <p><b>Tell us where you want your candidates delivered.</b></p>
-                        <hr>
-                        <p><b>Only pay when someone applies. No more waste.</b></p>
-                        <hr>
-                        <a href="#" class="btn btn-default btn-block">Post A job</a>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="well">
-                        <h3><b>Looking For A JOB?</b></h3>
-                        <hr>
-                        <p><b>Create your account. It’s free.</b></p>
-                        <hr>
-                        <p><b>Join the millions of Job Seekers using JobHubLk.</b></p>
-                        <hr>
-                        <p><b>Tell us about yourself.</b></p>
-                        <hr>
-                        <p><b>Tell us how you want to learn about new job openings.</b></p>
-                        <hr>
-                        <p><b>One Click Apply to jobs anytime. Anywhere.</b></p>
-                        <hr>
-                        <a href="#" class="btn btn-default btn-block">JoinNow!</a>
-                    </div>
-                </div>
-            </div>
-        </div> -->
+{% block body %}
+<div class="overlay-bg">
+<header>
+	{% include "nav.html" %}
+</header>
+{% block content %}
+		{% endblock %}
+</div>
 
 
 
-        <script src="/static/js/jquery.js"></script>
-        <script src="/static/js/jquery.min.js"></script>
-        <script src="/static/js/scripts.js"></script>
-        <script src="/static/js/bootstrap.min.js"></script>
-    </body>
-</html>
+		
+
+
+<!-- <script src="/static/js/jquery.min.js"></script> -->
+<script src="/static/js/bootstrap.min.js"></script>
+
+{% endblock %}
