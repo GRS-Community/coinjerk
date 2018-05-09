@@ -8,6 +8,8 @@ $(document).ready(function() {
     $('#user_form').submit(function (event) {
         createPayRequest();
     });
+    $('#tip-again').hide();
+    $('#back-btn').hide();
     $('#showModalButton').click(function (event) {
         $(this).prop('disabled',true).html('<div class="pull-left">Generating Address...</div>').append('<div class="loader-6 pull-left"><span></span></div>');
         $('#user_display').prop('disabled',true)
@@ -51,6 +53,9 @@ function createPayRequest(userDisplay, userIdentifier, userMessage, socialId){
     console.log("User ID: " + userIdentifier);
     console.log("User Msg: " + userMessage);
     console.log("User Name: " + userDisplay);
+
+
+
     var resp = $.post('/_create_payreq',
             // This will be formatted as a 'body' string in the post request
             {
@@ -76,6 +81,9 @@ function createPayRequest(userDisplay, userIdentifier, userMessage, socialId){
                     render : "table"
                 });
                 $('#showModalButton').prop('disabled',true).html('Done...');
+                $('#showModalButton').hide();
+                $('#tip-again').show();
+                $('#back-btn').show();
 
 
 
