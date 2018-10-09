@@ -370,7 +370,7 @@ def custom_notify(social_id, user_message, value, usd_two_places):
             'type'       : 'donation',
             'message'    : user_message + str(donation),
             'image_href' : '',
-            'sound_href' : 'http://uploads.twitchalerts.com/000/003/774/415/m_health.wav',
+            'sound_href' : 'https://uploads.twitchalerts.com/000/003/774/415/m_health.wav',
             'duration'   : 3,
             'special_text_color' : '#42ff42',
             'access_token' : tip_response['access_token']
