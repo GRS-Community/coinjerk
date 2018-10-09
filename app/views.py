@@ -136,7 +136,7 @@ def profile():
             u.sound_ref = form.sound_ref_field.data
 
         if (form.sound_ref_field.data == ""):
-            u.sound_ref = 'http://uploads.twitchalerts.com/000/003/774/415/m_health.wav'
+            u.sound_ref = 'https://uploads.twitchalerts.com/000/003/774/415/m_health.wav'
 
         #text color on donation
         if form.text_color_field.data:
@@ -236,7 +236,7 @@ def login():
             return redirect(url_for('newuser'))
 
     return redirect(
-        "http://www.twitchalerts.com/api/v1.0/authorize?client_id="+\
+        "https://www.twitchalerts.com/api/v1.0/authorize?client_id="+\
         STREAMLABS_CLIENT_ID +
         "&redirect_uri="+ GROESTLTIP_REDIRECT_URI +
         "&response_type=code"+
