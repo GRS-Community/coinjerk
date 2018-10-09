@@ -25,9 +25,9 @@
         </div>
         <div class="col-md-12 prof-body">
             <div class="col-md-3">
-              <center><img src="http://www-cdn.jtvnw.net/images/xarth/404_user_50x50.png" alt="" class="ProfilePicture img-responsive"/></center>
+              <center><img src="https://www-cdn.jtvnw.net/images/xarth/404_user_50x50.png" alt="" class="ProfilePicture img-responsive"/></center>
               <div>
-                <center><i class="fab fa-twitch"></i><span> </span><a href="{{url_for('twitch', username=nickname)}}">http://twitch.tv/{{ social_id }}</a></center>
+                <center><i class="fab fa-twitch"></i><span> </span><a href="{{url_for('twitch', username=nickname)}}">https://twitch.tv/{{ social_id }}</a></center>
                 <div id="Status"></div>
               </div>
             </div>
@@ -72,14 +72,14 @@
                             <span class="input-group-addon"><i class="fas fa-dollar-sign"></i></span>
                             <input id="amountPaypalInput" placeholder="Amount" class="form-control" required>
                         </div>
-                        <input id="PaypalTwitchImgURL" type="hidden" name="image_url" value="http://www-cdn.jtvnw.net/images/xarth/404_user_50x50.png">
+                        <input id="PaypalTwitchImgURL" type="hidden" name="image_url" value="https://www-cdn.jtvnw.net/images/xarth/404_user_50x50.png">
                         <input id=PaypalAmount type="hidden" name="amount" value="1">
                         <input type="hidden" name="custom" value="{{ social_id }}">
                         <input id=ReturnLink type="hidden" name="return" value="">
-                        <input type="hidden" name="cancel_return" value="http://groestltip.groestlcoin.org/cancelled">
+                        <input type="hidden" name="cancel_return" value="https://groestltip.org/cancelled">
                         <input type="hidden" name="business" value="{{ email }}">
                         <input type="hidden" name="cmd" value="_donations">
-                        <input id=ReturnData type="hidden" name="notify_url" value="http://groestltip.groestlcoin.org/ipn/">
+                        <input id=ReturnData type="hidden" name="notify_url" value="https://groestltip.org/ipn/">
                         <input type="hidden" name="item_name" value="Donate to www.twitch.tv/{{ social_id }} via Paypal">
                         <input type="hidden" name="item_number" value="Donation">
                         <input type="hidden" name="currency_code" value="USD">
