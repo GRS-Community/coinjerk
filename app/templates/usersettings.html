@@ -22,10 +22,10 @@
         </div>
         <div class="col-md-12 prof-body">
             <div class="col-md-3">
-              <img src="http://www-cdn.jtvnw.net/images/xarth/404_user_50x50.png" alt="" class="ProfilePicture img-responsive"/>
+              <img src="https://www-cdn.jtvnw.net/images/xarth/404_user_50x50.png" alt="" class="ProfilePicture img-responsive"/>
               <div>
                 <center>
-                    <i class="fab fa-twitch"></i><span> </span><a href="{{url_for('twitch', username=nickname)}}">http://twitch.tv/{{ social_id }}</a>
+                    <i class="fab fa-twitch"></i><span> </span><a href="{{url_for('twitch', username=nickname)}}">https://twitch.tv/{{ social_id }}</a>
                 </center>
               </div>
               <hr>
@@ -81,7 +81,7 @@
                             <label for="sound" class="control-label">Sound (link)</label>
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fas fa-music"></i></span>
-                                <input type="text" class="form-control" name="sound_ref_field" id="sound"  value="{{ sound_ref }}" placeholder="Default: http://uploads.twitchalerts.com/000/003/774/415/m_health.wav"> </input>
+                                <input type="text" class="form-control" name="sound_ref_field" id="sound"  value="{{ sound_ref }}" placeholder="Default: https://uploads.twitchalerts.com/000/003/774/415/m_health.wav"> </input>
                             </div>
                         </div>
 
