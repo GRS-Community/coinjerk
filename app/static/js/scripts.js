@@ -65,11 +65,11 @@ function createPayRequestPaypal() {
          var userDisplay = "AnonymousDonator"
     }
   // Making Return_URL
-  var confirmation_link = "http://groestltip.groestlcoin.org/confirmation/";
+  var confirmation_link = "https://groestltip.org/confirmation/";
   var confirmation_return_url = confirmation_link+userDisplay+"/to/"+socialId;
   $("#ReturnLink").attr('value', confirmation_return_url);
 
-  var notify_link = "http://groestltip.groestlcoin.org/ipn/";
+  var notify_link = "https://groestltip.org/ipn/";
   var notify_return_url = notify_link+userDisplay+"/to/"+socialId;
   $("#ReturnData").attr('value', notify_return_url);
 
