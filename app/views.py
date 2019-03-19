@@ -27,7 +27,7 @@ import qrcode
 from werkzeug.datastructures import ImmutableOrderedMultiDict
 
 
-streamlabs_api_url = 'https://www.twitchalerts.com/api/v1.0/'
+streamlabs_api_url = 'https://www.streamlabs.com/api/v1.0/'
 api_token = streamlabs_api_url + 'token'
 api_user = streamlabs_api_url + 'user'
 api_tips = streamlabs_api_url + "donations"
@@ -236,7 +236,7 @@ def login():
             return redirect(url_for('newuser'))
 
     return redirect(
-        "https://www.twitchalerts.com/api/v1.0/authorize?client_id="+\
+        "https://www.streamlabs.com/api/v1.0/authorize?client_id="+\
         STREAMLABS_CLIENT_ID +
         "&redirect_uri="+ GROESTLTIP_REDIRECT_URI +
         "&response_type=code"+
