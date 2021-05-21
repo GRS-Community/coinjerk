@@ -54,7 +54,7 @@ class BitVc(FuturesExchange):
         contract = []
         for i in ['week', 'next_week', 'quarter']:
             data = requests.get(
-                'http://market.bitvc.com/futures/ticker_btc_' + i + '.js'
+                'https://market.bitvc.com/futures/ticker_btc_' + i + '.js'
             ).json()
             dates.append(date_stamp(expiry[i]))
             bids.append(data['buy'])

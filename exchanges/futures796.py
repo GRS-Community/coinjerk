@@ -17,7 +17,7 @@ def weekly_expiry():
 
 class Futures796(FuturesExchange):
 
-    TICKER_URL = 'http://api.796.com/v3/futures/ticker.html?type=weekly'
+    TICKER_URL = 'https://api.796.com/v3/futures/ticker.html?type=weekly'
 
     def get_current_data(self):
         self.refresh()
