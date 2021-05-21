@@ -1,5 +1,5 @@
 import socket
-import random 
+import random
 import json
 import pprint
 
@@ -7,7 +7,7 @@ pp = pprint.PrettyPrinter(indent=2)
 
 def get_from_electrum(method, params=[], server='electrumx.adminsehow.com', port=50001):
     params = [params] if type(params) is not list else params
-    try: 
+    try:
         s = socket.socket()
         s.settimeout(10)
         s.connect((server, port))
@@ -26,7 +26,7 @@ def get_from_electrum(method, params=[], server='electrumx.adminsehow.com', port
         return -1
 
 
-def read_server_list(): 
+def read_server_list():
     with open("servers.json", 'r') as f:
         return json.loads(f.read())
 
@@ -39,7 +39,7 @@ def grab_random_server(serverList):
             serverPort = serverObject['t']
         elif 's' in serverObject:
             serverPort = serverObject['s']
-        else: 
+        else:
             serverAddress = None
 
     return {
@@ -48,7 +48,7 @@ def grab_random_server(serverList):
             }
 
 def check_payment_on_address(addr):
-    
+
     serverList = read_server_list()
 
     success = False
@@ -59,8 +59,8 @@ def check_payment_on_address(addr):
 
         print(randomAddress, randomPort)
 
-        addrHistory = get_from_electrum('blockchain.address.get_balance', 
-                [addr], 
+        addrHistory = get_from_electrum('blockchain.scripthash.get_balance',
+                [addr],
                 server=randomAddress,
                 port=randomPort)
 
@@ -82,8 +82,8 @@ def check_address_history(addr):
 
         print(randomAddress, randomPort)
 
-        addrHistory = get_from_electrum('blockchain.address.get_history', 
-                [addr], 
+        addrHistory = get_from_electrum('blockchain.scripthash.get_history',
+                [addr],
                 server=randomAddress,
                 port=randomPort)
         print(addrHistory)
@@ -92,8 +92,8 @@ def check_address_history(addr):
             print(addrHistory['result'])
 
             addrHistory['result'].append(get_from_electrum( \
-                    'blockchain.address.get_balance', 
-                    [addr], 
+                    'blockchain.scripthash.get_balance',
+                    [addr],
                     server=randomAddress,
                     port=randomPort)['result']['unconfirmed'])
             print(addrHistory)
