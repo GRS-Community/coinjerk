@@ -88,8 +88,8 @@ function createPayRequest(userDisplay, userIdentifier, userMessage, socialId){
 
 
                 // $('#addressLink').html(
-                //         "<p><a href=\"bitcoin:" + response.btc_addr + "\" class=\"button1\" role=\"button\">Launch GRS Wallet</a></p>" +
-                //         "<p class=\"card-text mt-3\"> Please note that the payment will only be tracked while this page is open, and you have a five minute time limit. If either the page gets closed, or give minutes elapses after you see the Bitcoin address, please refresh the page to make a new payment request.<p>"
+                //         "<p><a href=\"groestlcoin:" + response.btc_addr + "\" class=\"button1\" role=\"button\">Launch GRS Wallet</a></p>" +
+                //         "<p class=\"card-text mt-3\"> Please note that the payment will only be tracked while this page is open, and you have a five minute time limit. If either the page gets closed, or give minutes elapses after you see the Groestlcoin address, please refresh the page to make a new payment request.<p>"
                 //         );
 
                 // We use a global variable for isPaid because it will be easier to 'clear' it later

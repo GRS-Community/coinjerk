@@ -278,12 +278,12 @@ def get_unused_address(social_id, deriv):
     Need to be careful about when to move up the latest_derivation listing.
     Figure only incrementing the database entry when blockchain activity is
     found is the least likely to create large gaps of empty addresses in
-    someone's BTC Wallet.
+    someone's GRS Wallet.
     '''
     pp = pprint.PrettyPrinter(indent=2)
     userdata = User.query.filter_by(social_id = social_id).first()
 
-    # Pull BTC Address from given user data
+    # Pull GRS Address from given user data
     key = Key.from_text(userdata.xpub).subkey(0). \
             subkey(deriv)
 

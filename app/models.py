@@ -14,7 +14,7 @@ class User(db.Model):
     # e.g. "USD", "GBP", "EUR", etc.
     fiat = db.Column(db.String(3))
 
-    # either 'B' for BTC, 'm' for mBTC, or 'u' for uBTC/bits
+    # either 'G' for GRS, 'm' for mGRS, or 'u' for uGRS/groestls
     unit = db.Column(db.String(1))
 
     # streamlabs tokens, retreived from streamlabs authorization
@@ -74,7 +74,7 @@ class Transaction(db.Model):
     tx_id = db.Column(db.String(64), nullable=False, unique=True)
     timestamp = db.Column(db.DateTime)
 
-    # Amount in BTC
+    # Amount in GRS
     amount = db.Column(db.Float)
 
     # derivation path for xpub keys, implement path
@@ -95,7 +95,7 @@ class PayReq(db.Model):
     # Unique Database ID
     id = db.Column(db.Integer, primary_key=True)
 
-    # Bitcoin Address
+    # Groestlcoin Address
     addr = db.Column(db.String(34), nullable=False)
 
     # Time of creation
