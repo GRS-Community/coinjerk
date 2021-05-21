@@ -106,7 +106,7 @@ def check_address_history(addr):
 
 if __name__ == "__main__":
     payment_check = \
-        check_address_history('177nUEWD1RCNVcSxNNSRxUWtvMQ4kLJBCK')
+        check_address_history('FWN1qdiRrymSR6jbpbanLYqZpjkEaZouHN')
     if not payment_check:
         print("Address found to be empty, using address!")
     else:
@@ -114,7 +114,7 @@ if __name__ == "__main__":
         pp.pprint(payment_check)
 
     payment_check = \
-        check_payment_on_address('17Tb6kwyidMjGkutGfUStKTes8SqL9Rv6x')
+        check_payment_on_address('FWN1qdiRrymSR6jbpbanLYqZpjkEaZouHN')
 
     if not payment_check:
         print("Address found to be empty, using address!")
