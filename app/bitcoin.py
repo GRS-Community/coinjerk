@@ -775,6 +775,7 @@ def is_segwit_address(addr: str, *, net=None) -> bool:
     try:
         witver, witprog = segwit_addr.decode_segwit_address(net.SEGWIT_HRP, addr)
     except Exception as e:
+        print(e)
         return False
     return witprog is not None
 
@@ -784,6 +785,7 @@ def is_b58_address(addr: str, *, net=None) -> bool:
         # test length, checksum, encoding:
         addrtype, h = b58_address_to_hash160(addr)
     except Exception as e:
+        print(e)
         return False
     if addrtype not in [net.ADDRTYPE_P2PKH, net.ADDRTYPE_P2SH]:
         return False
