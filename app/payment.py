@@ -2,6 +2,7 @@ import socket
 import random
 import json
 import pprint
+from .bitcoin import address_to_scripthash
 
 pp = pprint.PrettyPrinter(indent=2)
 
@@ -51,6 +52,8 @@ def check_payment_on_address(addr):
 
     serverList = read_server_list()
 
+    script_hash = address_to_scripthash(addr)
+
     success = False
     for x in range(10):
         randomServer = grab_random_server(serverList)
@@ -60,7 +63,7 @@ def check_payment_on_address(addr):
         print(randomAddress, randomPort)
 
         addrHistory = get_from_electrum('blockchain.scripthash.get_balance',
-                [addr],
+                [script_hash],
                 server=randomAddress,
                 port=randomPort)
 
@@ -74,6 +77,8 @@ def check_payment_on_address(addr):
 def check_address_history(addr):
     serverList = read_server_list()
 
+    script_hash = address_to_scripthash(addr)
+
     success = False
     for x in range(10):
         randomServer = grab_random_server(serverList)
@@ -83,7 +88,7 @@ def check_address_history(addr):
         print(randomAddress, randomPort)
 
         addrHistory = get_from_electrum('blockchain.scripthash.get_history',
-                [addr],
+                [script_hash],
                 server=randomAddress,
                 port=randomPort)
         print(addrHistory)
