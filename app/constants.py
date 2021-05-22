@@ -26,9 +26,10 @@
 import os
 import json
 
-from .util import inv_dict
 from . import bitcoin
 
+def inv_dict(d):
+    return {v: k for k, v in d.items()}
 
 def read_json(filename, default):
     path = os.path.join(os.path.dirname(__file__), filename)
