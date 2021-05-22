@@ -28,10 +28,10 @@ from typing import List, Tuple, TYPE_CHECKING, Optional, Union, Sequence, Any
 import enum
 from enum import IntEnum, Enum
 
-from . import version
+#from . import version
 from . import segwit_addr
 from . import constants
-from . import ecc
+#from . import ecc
 
 #if TYPE_CHECKING:
 #    from .network import Network
