@@ -31,6 +31,8 @@ from enum import IntEnum, Enum
 #from . import version
 from . import segwit_addr
 from . import constants
+import groestlcoin_hash
+
 #from . import ecc
 
 #if TYPE_CHECKING:
@@ -49,6 +51,11 @@ def assert_bytes(*args):
         raise
 
 class BitcoinException(Exception): pass
+
+def groestlHash(x: bytes) -> bytes:
+    x = to_bytes(x, 'utf8')
+    return groestlcoin_hash.getHash(x, len(x))
+
 
 def sha256(x: Union[bytes, str]) -> bytes:
     x = to_bytes(x, 'utf8')
