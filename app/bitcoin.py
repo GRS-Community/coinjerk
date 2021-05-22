@@ -96,7 +96,7 @@ def is_hex_str(text: Any) -> bool:
 COINBASE_MATURITY = 100
 COIN = 100000000
 TOTAL_COIN_SUPPLY_LIMIT_IN_BTC = 105000000
-
+'''
 NLOCKTIME_MIN = 0
 NLOCKTIME_BLOCKHEIGHT_MAX = 500_000_000 - 1
 NLOCKTIME_MAX = 2 ** 32 - 1
@@ -106,7 +106,7 @@ NLOCKTIME_MAX = 2 ** 32 - 1
 TYPE_ADDRESS = 0
 TYPE_PUBKEY  = 1
 TYPE_SCRIPT  = 2
-
+'''
 
 class opcodes(IntEnum):
     # push value
