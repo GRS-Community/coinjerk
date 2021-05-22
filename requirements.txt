@@ -17,12 +17,12 @@ MarkupSafe==1.0
 olefile==0.44
 pbr==3.1.1
 Pillow==4.3.0
-pycoin-grs==0.80
+git+git://github.com/Groestlcoin/pycoin.git@9c184bb8c6e09d7852d52cc4bba0ef7da4aeb046#egg=pycoin-grs
 python-dateutil==2.4.2
 python-editor==1.0.3
 python-bittrex==0.3.0
 groestl-hash==1.0
-groestlcoin_hash==1.0.1
+groestlcoin_hash==1.0.3
 qrcode==5.3
 requests==2.9.1
 six==1.11.0
