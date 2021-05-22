@@ -23,6 +23,7 @@
 
 from enum import Enum
 from typing import Tuple, Optional, Sequence, NamedTuple, List
+from collections import namedtuple
 
 CHARSET = "qpzry9x8gf2tvdw0s3jn54khce6mua7l"
 _CHARSET_INVERSE = {x: CHARSET.find(x) for x in CHARSET}
@@ -37,11 +38,12 @@ class Encoding(Enum):
     BECH32M = 2
 
 
-class DecodedBech32(NamedTuple):
-    encoding: Optional[Encoding]
-    hrp: Optional[str]
-    data: Optional[Sequence[int]]  # 5-bit ints
+#class DecodedBech32(NamedTuple):
+#    encoding: Optional[Encoding]
+#    hrp: Optional[str]
+#    data: Optional[Sequence[int]]  # 5-bit ints
 
+DecodedBech32 = namedtuple("NamedTuple", ["encoding", "hrp", "data"])
 
 def bech32_polymod(values):
     """Internal function that computes the Bech32 checksum."""
