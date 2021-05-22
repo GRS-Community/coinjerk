@@ -2,6 +2,7 @@
 #
 # Electrum - lightweight Bitcoin client
 # Copyright (C) 2011 thomasv@gitorious
+# Copyright (C) 2021 hashengineeringsolutions@gmail.com
 #
 # Permission is hereby granted, free of charge, to any person
 # obtaining a copy of this software and associated documentation files
@@ -28,7 +29,6 @@ from typing import List, Tuple, TYPE_CHECKING, Optional, Union, Sequence, Any
 import enum
 from enum import IntEnum, Enum
 
-#from . import version
 from . import segwit_addr
 from . import constants
 import groestlcoin_hash
@@ -103,17 +103,6 @@ def is_hex_str(text: Any) -> bool:
 COINBASE_MATURITY = 100
 COIN = 100000000
 TOTAL_COIN_SUPPLY_LIMIT_IN_BTC = 105000000
-'''
-NLOCKTIME_MIN = 0
-NLOCKTIME_BLOCKHEIGHT_MAX = 500_000_000 - 1
-NLOCKTIME_MAX = 2 ** 32 - 1
-
-# supported types of transaction outputs
-# TODO kill these with fire
-TYPE_ADDRESS = 0
-TYPE_PUBKEY  = 1
-TYPE_SCRIPT  = 2
-'''
 
 class opcodes(IntEnum):
     # push value
@@ -393,49 +382,6 @@ def construct_script(items: Sequence[Union[str, int, bytes, opcodes]]) -> str:
             raise Exception("unexpected item for script: {}".format(item))
     return script
 
-'''
-def relayfee(network: 'Network' = None) -> int:
-    """Returns feerate in gro/kbyte."""
-    from .simple_config import FEERATE_DEFAULT_RELAY, FEERATE_MAX_RELAY
-    if network and network.relay_fee is not None:
-        fee = network.relay_fee
-    else:
-        fee = FEERATE_DEFAULT_RELAY
-    # sanity safeguards, as network.relay_fee is coming from a server:
-    fee = min(fee, FEERATE_MAX_RELAY)
-    fee = max(fee, FEERATE_DEFAULT_RELAY)
-    return fee
-
-
-# see https://github.com/bitcoin/bitcoin/blob/a62f0ed64f8bbbdfe6467ac5ce92ef5b5222d1bd/src/policy/policy.cpp#L14
-DUST_LIMIT_DEFAULT_SAT_LEGACY = 546
-DUST_LIMIT_DEFAULT_SAT_SEGWIT = 294
-
-
-def dust_threshold(network: 'Network' = None) -> int:
-    """Returns the dust limit in gros."""
-    # Change <= dust threshold is added to the tx fee
-    dust_lim = 182 * 3 * relayfee(network)  # in msat
-    # convert to sat, but round up:
-    return (dust_lim // 1000) + (dust_lim % 1000 > 0)
-
-
-def hash_encode(x: bytes) -> str:
-    return bh2u(x[::-1])
-
-
-def hash_decode(x: str) -> bytes:
-    return bfh(x)[::-1]
-
-
-############ functions from pywallet #####################
-
-def hash160_to_b58_address(h160: bytes, addrtype: int) -> str:
-    s = bytes([addrtype]) + h160
-    s = s + groestlHash(s)[0:4]
-    return base_encode(s, base=58)
-
-'''
 def b58_address_to_hash160(addr: str) -> Tuple[int, bytes]:
     addr = to_bytes(addr, 'ascii')
     _bytes = DecodeBase58Check(addr)
@@ -443,76 +389,6 @@ def b58_address_to_hash160(addr: str) -> Tuple[int, bytes]:
         raise Exception("expected 21 payload bytes in base58 address. got: {}".format(len(_bytes)))
     return _bytes[0], _bytes[1:21]
 
-'''
-def hash160_to_p2pkh(h160: bytes, *, net=None) -> str:
-    if net is None: net = constants.net
-    return hash160_to_b58_address(h160, net.ADDRTYPE_P2PKH)
-
-def hash160_to_p2sh(h160: bytes, *, net=None) -> str:
-    if net is None: net = constants.net
-    return hash160_to_b58_address(h160, net.ADDRTYPE_P2SH)
-
-def public_key_to_p2pkh(public_key: bytes, *, net=None) -> str:
-    if net is None: net = constants.net
-    return hash160_to_p2pkh(hash_160(public_key), net=net)
-
-def hash_to_segwit_addr(h: bytes, witver: int, *, net=None) -> str:
-    if net is None: net = constants.net
-    addr = segwit_addr.encode_segwit_address(net.SEGWIT_HRP, witver, h)
-    assert addr is not None
-    return addr
-
-def public_key_to_p2wpkh(public_key: bytes, *, net=None) -> str:
-    if net is None: net = constants.net
-    return hash_to_segwit_addr(hash_160(public_key), witver=0, net=net)
-
-def script_to_p2wsh(script: str, *, net=None) -> str:
-    if net is None: net = constants.net
-    return hash_to_segwit_addr(sha256(bfh(script)), witver=0, net=net)
-
-def p2wpkh_nested_script(pubkey: str) -> str:
-    pkh = hash_160(bfh(pubkey))
-    return construct_script([0, pkh])
-
-def p2wsh_nested_script(witness_script: str) -> str:
-    wsh = sha256(bfh(witness_script))
-    return construct_script([0, wsh])
-
-def pubkey_to_address(txin_type: str, pubkey: str, *, net=None) -> str:
-    if net is None: net = constants.net
-    if txin_type == 'p2pkh':
-        return public_key_to_p2pkh(bfh(pubkey), net=net)
-    elif txin_type == 'p2wpkh':
-        return public_key_to_p2wpkh(bfh(pubkey), net=net)
-    elif txin_type == 'p2wpkh-p2sh':
-        scriptSig = p2wpkh_nested_script(pubkey)
-        return hash160_to_p2sh(hash_160(bfh(scriptSig)), net=net)
-    else:
-        raise NotImplementedError(txin_type)
-
-
-# TODO this method is confusingly named
-def redeem_script_to_address(txin_type: str, scriptcode: str, *, net=None) -> str:
-    if net is None: net = constants.net
-    if txin_type == 'p2sh':
-        # given scriptcode is a redeem_script
-        return hash160_to_p2sh(hash_160(bfh(scriptcode)), net=net)
-    elif txin_type == 'p2wsh':
-        # given scriptcode is a witness_script
-        return script_to_p2wsh(scriptcode, net=net)
-    elif txin_type == 'p2wsh-p2sh':
-        # given scriptcode is a witness_script
-        redeem_script = p2wsh_nested_script(scriptcode)
-        return hash160_to_p2sh(hash_160(bfh(redeem_script)), net=net)
-    else:
-        raise NotImplementedError(txin_type)
-
-
-def script_to_address(script: str, *, net=None) -> str:
-    from .transaction import get_address_from_output_script
-    return get_address_from_output_script(bfh(script), net=net)
-
-'''
 def address_to_script(addr: str, *, net=None) -> str:
     if net is None: net = constants.net
     if not is_address(addr, net=net):
@@ -530,40 +406,6 @@ def address_to_script(addr: str, *, net=None) -> str:
     else:
         raise BitcoinException("unknown address type: {}".format(addrtype))
     return script
-'''
-
-class OnchainOutputType(Enum):
-    """Opaque types of scriptPubKeys.
-    In case of p2sh, p2wsh and similar, no knowledge of redeem script, etc.
-    """
-    P2PKH = enum.auto()
-    P2SH = enum.auto()
-    WITVER0_P2WPKH = enum.auto()
-    WITVER0_P2WSH = enum.auto()
-
-
-def address_to_hash(addr: str, *, net=None) -> Tuple[OnchainOutputType, bytes]:
-    """Return (type, pubkey hash / witness program) for an address."""
-    if net is None: net = constants.net
-    if not is_address(addr, net=net):
-        raise BitcoinException(f"invalid groestlcoin address: {addr}")
-    witver, witprog = segwit_addr.decode_segwit_address(net.SEGWIT_HRP, addr)
-    if witprog is not None:
-        if witver != 0:
-            raise BitcoinException(f"not implemented handling for witver={witver}")
-        if len(witprog) == 20:
-            return OnchainOutputType.WITVER0_P2WPKH, bytes(witprog)
-        elif len(witprog) == 32:
-            return OnchainOutputType.WITVER0_P2WSH, bytes(witprog)
-        else:
-            raise BitcoinException(f"unexpected length for segwit witver=0 witprog: len={len(witprog)}")
-    addrtype, hash_160_ = b58_address_to_hash160(addr)
-    if addrtype == net.ADDRTYPE_P2PKH:
-        return OnchainOutputType.P2PKH, hash_160_
-    elif addrtype == net.ADDRTYPE_P2SH:
-        return OnchainOutputType.P2SH, hash_160_
-    raise BitcoinException(f"unknown address type: {addrtype}")
-'''
 
 def address_to_scripthash(addr: str, *, net=None) -> str:
     script = address_to_script(addr, net=net)
@@ -685,98 +527,7 @@ def DecodeBase58Check(psz: Union[bytes, str]) -> bytes:
         raise InvalidChecksum("calculated {}, found {}".format(bh2u(csum_calculated), bh2u(csum_found)))
     else:
         return payload
-'''
 
-# backwards compat
-# extended WIF for segwit (used in 3.0.x; but still used internally)
-# the keys in this dict should be a superset of what Imported Wallets can import
-WIF_SCRIPT_TYPES = {
-    'p2pkh':0,
-    'p2wpkh':1,
-    'p2wpkh-p2sh':2,
-    'p2sh':5,
-    'p2wsh':6,
-    'p2wsh-p2sh':7
-}
-WIF_SCRIPT_TYPES_INV = inv_dict(WIF_SCRIPT_TYPES)
-
-
-def is_segwit_script_type(txin_type: str) -> bool:
-    return txin_type in ('p2wpkh', 'p2wpkh-p2sh', 'p2wsh', 'p2wsh-p2sh')
-
-
-def serialize_privkey(secret: bytes, compressed: bool, txin_type: str, *,
-                      internal_use: bool = False) -> str:
-    # we only export secrets inside curve range
-    secret = ecc.ECPrivkey.normalize_secret_bytes(secret)
-    if internal_use:
-        prefix = bytes([(WIF_SCRIPT_TYPES[txin_type] + constants.net.WIF_PREFIX) & 255])
-    else:
-        prefix = bytes([constants.net.WIF_PREFIX])
-    suffix = b'\01' if compressed else b''
-    vchIn = prefix + secret + suffix
-    base58_wif = EncodeBase58Check(vchIn)
-    if internal_use:
-        return base58_wif
-    else:
-        return '{}:{}'.format(txin_type, base58_wif)
-
-
-def deserialize_privkey(key: str) -> Tuple[str, bytes, bool]:
-    if is_minikey(key):
-        return 'p2pkh', minikey_to_private_key(key), False
-
-    txin_type = None
-    if ':' in key:
-        txin_type, key = key.split(sep=':', maxsplit=1)
-        if txin_type not in WIF_SCRIPT_TYPES:
-            raise BitcoinException('unknown script type: {}'.format(txin_type))
-    try:
-        vch = DecodeBase58Check(key)
-    except Exception as e:
-        neutered_privkey = str(key)[:3] + '..' + str(key)[-2:]
-        raise BaseDecodeError(f"cannot deserialize privkey {neutered_privkey}") from e
-
-    if txin_type is None:
-        # keys exported in version 3.0.x encoded script type in first byte
-        prefix_value = vch[0] - constants.net.WIF_PREFIX
-        try:
-            txin_type = WIF_SCRIPT_TYPES_INV[prefix_value]
-        except KeyError as e:
-            raise BitcoinException('invalid prefix ({}) for WIF key (1)'.format(vch[0])) from None
-    else:
-        # all other keys must have a fixed first byte
-        if vch[0] != constants.net.WIF_PREFIX:
-            raise BitcoinException('invalid prefix ({}) for WIF key (2)'.format(vch[0]))
-
-    if len(vch) not in [33, 34]:
-        raise BitcoinException('invalid vch len for WIF key: {}'.format(len(vch)))
-    compressed = False
-    if len(vch) == 34:
-        if vch[33] == 0x01:
-            compressed = True
-        else:
-            raise BitcoinException(f'invalid WIF key. length suggests compressed pubkey, '
-                                   f'but last byte is {vch[33]} != 0x01')
-
-    if is_segwit_script_type(txin_type) and not compressed:
-        raise BitcoinException('only compressed public keys can be used in segwit scripts')
-
-    secret_bytes = vch[1:33]
-    # we accept secrets outside curve range; cast into range here:
-    secret_bytes = ecc.ECPrivkey.normalize_secret_bytes(secret_bytes)
-    return txin_type, secret_bytes, compressed
-
-
-def is_compressed_privkey(sec: str) -> bool:
-    return deserialize_privkey(sec)[2]
-
-
-def address_from_private_key(sec: str) -> str:
-    txin_type, privkey, compressed = deserialize_privkey(sec)
-    public_key = ecc.ECPrivkey(privkey).get_public_key_hex(compressed=compressed)
-    return pubkey_to_address(txin_type, public_key)
-'''
 def is_segwit_address(addr: str, *, net=None) -> bool:
     if net is None: net = constants.net
     try:
@@ -802,30 +553,3 @@ def is_address(addr: str, *, net=None) -> bool:
     if net is None: net = constants.net
     return is_segwit_address(addr, net=net) \
            or is_b58_address(addr, net=net)
-
-'''
-def is_private_key(key: str, *, raise_on_error=False) -> bool:
-    try:
-        deserialize_privkey(key)
-        return True
-    except BaseException as e:
-        if raise_on_error:
-            raise
-        return False
-
-
-########### end pywallet functions #######################
-
-def is_minikey(text: str) -> bool:
-    # Minikeys are typically 22 or 30 characters, but this routine
-    # permits any length of 20 or more provided the minikey is valid.
-    # A valid minikey must begin with an 'S', be in base58, and when
-    # suffixed with '?' have its SHA256 hash begin with a zero byte.
-    # They are widely used in Casascius physical groestlcoins.
-    return (len(text) >= 20 and text[0] == 'S'
-            and all(ord(c) in __b58chars for c in text)
-            and sha256(text + '?')[0] == 0x00)
-
-def minikey_to_private_key(text: str) -> bytes:
-    return sha256(text)
-'''
