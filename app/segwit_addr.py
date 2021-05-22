@@ -38,9 +38,13 @@ class Encoding(Enum):
 
 
 class DecodedBech32(NamedTuple):
-    encoding: Optional[Encoding]
-    hrp: Optional[str]
-    data: Optional[Sequence[int]]  # 5-bit ints
+        def __init__(self, encoding, hrp, data):
+            self.encoding = encoding
+            self.hrp = hrp
+            self.data = data
+    #encoding: Optional[Encoding]
+    #hrp: Optional[str]
+    #data: Optional[Sequence[int]]  # 5-bit ints
 
 
 def bech32_polymod(values):
