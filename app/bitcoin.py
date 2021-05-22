@@ -383,7 +383,7 @@ def construct_script(items: Sequence[Union[str, int, bytes, opcodes]]) -> str:
             assert is_hex_str(item)
             script += push_script(item)
         else:
-            raise Exception(f'unexpected item for script: {item!r}')
+            raise Exception("unexpected item for script: {}".format(item))
     return script
 
 '''
@@ -433,7 +433,7 @@ def b58_address_to_hash160(addr: str) -> Tuple[int, bytes]:
     addr = to_bytes(addr, 'ascii')
     _bytes = DecodeBase58Check(addr)
     if len(_bytes) != 21:
-        raise Exception(f'expected 21 payload bytes in base58 address. got: {len(_bytes)}')
+        raise Exception("expected 21 payload bytes in base58 address. got: {}".format(len(_bytes)))
     return _bytes[0], _bytes[1:21]
 
 '''
@@ -509,11 +509,11 @@ def script_to_address(script: str, *, net=None) -> str:
 def address_to_script(addr: str, *, net=None) -> str:
     if net is None: net = constants.net
     if not is_address(addr, net=net):
-        raise BitcoinException(f"invalid groestlcoin address: {addr}")
+        raise BitcoinException("invalid groestlcoin address: {}".format(addr))
     witver, witprog = segwit_addr.decode_segwit_address(net.SEGWIT_HRP, addr)
     if witprog is not None:
         if not (0 <= witver <= 16):
-            raise BitcoinException(f'impossible witness version: {witver}')
+            raise BitcoinException("impossible witness version: {}".format(witver))
         return construct_script([witver, bytes(witprog)])
     addrtype, hash_160_ = b58_address_to_hash160(addr)
     if addrtype == net.ADDRTYPE_P2PKH:
@@ -521,7 +521,7 @@ def address_to_script(addr: str, *, net=None) -> str:
     elif addrtype == net.ADDRTYPE_P2SH:
         script = construct_script([opcodes.OP_HASH160, hash_160_, opcodes.OP_EQUAL])
     else:
-        raise BitcoinException(f'unknown address type: {addrtype}')
+        raise BitcoinException("unknown address type: {}".format(addrtype))
     return script
 '''
 
@@ -675,7 +675,7 @@ def DecodeBase58Check(psz: Union[bytes, str]) -> bytes:
     csum_found = vchRet[-4:]
     csum_calculated = groestlHash(payload)[0:4]
     if csum_calculated != csum_found:
-        raise InvalidChecksum(f'calculated {bh2u(csum_calculated)}, found {bh2u(csum_found)}')
+        raise InvalidChecksum("calculated {}, found {}".format(bh2u(csum_calculated), bh2u(csum_found)))
     else:
         return payload
 '''
