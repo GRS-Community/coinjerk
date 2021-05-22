@@ -98,7 +98,7 @@ def check_address_history(addr):
 
             addrHistory['result'].append(get_from_electrum( \
                     'blockchain.scripthash.get_balance',
-                    [addr],
+                    [script_hash],
                     server=randomAddress,
                     port=randomPort)['result']['unconfirmed'])
             print(addrHistory)
