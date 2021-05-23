@@ -28,7 +28,7 @@ def get_from_electrum(method, params=[], server='electrumx.adminsehow.com', port
 
 
 def read_server_list():
-    with open("servers.json", 'r') as f:
+    with open("/var/www/coinjerk/servers.json", 'r') as f:
         return json.loads(f.read())
 
 def grab_random_server(serverList):
