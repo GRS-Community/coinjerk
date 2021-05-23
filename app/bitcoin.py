@@ -33,11 +33,6 @@ from . import segwit_addr
 from . import constants
 import groestlcoin_hash
 
-#from . import ecc
-
-#if TYPE_CHECKING:
-#    from .network import Network
-
 
 def assert_bytes(*args):
     """
