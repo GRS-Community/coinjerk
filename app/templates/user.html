@@ -30,10 +30,10 @@
         <div class="">
         </br>
             <label for="user_display">Twitch URL:</label>
-            
+
           </div>
         <div class="">
-          <i class="fab fa-twitch"></i><span> </span><a href="{{url_for('twitch', username=nickname)}}">https://twitch.tv/{{ social_id }}</a>
+          <i class="fab fa-twitch"></i><span> </span><a href="{{url_for('twitch', username=nickname)}}" target="_blank">https://twitch.tv/{{ social_id }}</a>
         </div>
         <div class="">
           <div class="form-group">
@@ -62,9 +62,9 @@
           <div class="row">
             <center>
               <a href="{{url_for('tip', username=nickname)}}" class="custom-btn btn-12">Click to Tip</a>
-            </center>  
+            </center>
           </div>
-          
+
         </div>
         <div class="col-md-12 col-sm-12 col-xs-12">
           <div class="row donation-wrap">
